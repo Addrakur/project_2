@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: float
+@export var jump_force: float
 @export var max_fuel: float
 @export var fuel_consume: float
 @export var jetpack_speed: float
@@ -15,8 +16,12 @@ var jetpack_force: float
 var side_force: float
 var fuel
 
+@onready var progress_bar: ProgressBar = $"../CanvasLayer/Control/ProgressBar"
+
+
 func _ready() -> void:
 	fuel = max_fuel
+	progress_bar.max_value = max_fuel
 
 func _physics_process(delta: float) -> void:
 	#Gravidade que afeta o jogador
@@ -25,10 +30,18 @@ func _physics_process(delta: float) -> void:
 	move_side_logic(delta)
 	jetpack_logic(delta)
 	
+	if Input.is_action_just_pressed("up") and is_on_floor():
+		velocity.y = jump_force
+	
+	if is_on_floor():
+		fuel = max_fuel
+	
 	move_and_slide()
+	
+	progress_bar.value = fuel
 
 func jetpack_logic(delta: float):
-	if Input.is_action_pressed("up") and fuel > 0:
+	if Input.is_action_pressed("jetpack") and fuel > 0:
 		fuel -= fuel_consume
 		if jetpack_force < jetpack_max_force:
 			jetpack_force += jetpack_force_up
@@ -36,7 +49,6 @@ func jetpack_logic(delta: float):
 		jetpack_force -= jetpack_force_down
 	
 	velocity.y += jetpack_force * jetpack_speed * delta
-	print(fuel)
 
 func move_side_logic(delta: float):
 	if Input.is_action_pressed("right"):
