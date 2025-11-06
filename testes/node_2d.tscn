@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c84kdm2lscl7a"]
+[gd_scene load_steps=14 format=3 uid="uid://c84kdm2lscl7a"]
 
 [ext_resource type="Texture2D" uid="uid://33ri277wn0iu" path="res://icon.svg" id="1_5341b"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_i5n0t"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_eucnc"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_av54f"]
 [ext_resource type="Script" uid="uid://cxpultcnmibd8" path="res://testes/player_2.gd" id="5_fvw0i"]
+[ext_resource type="PackedScene" uid="uid://co5o8kyeb1kgj" path="res://testes/block.tscn" id="7_av54f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_av54f"]
 radius = 16.0
@@ -23,7 +24,7 @@ point_count = 2
 size = Vector2(105.244446, 127.99991)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_av54f"]
-size = Vector2(22.755558, 128.00008)
+size = Vector2(22.755558, 85.33341)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvw0i"]
 size = Vector2(3.413332, 128.00008)
@@ -48,17 +49,17 @@ player = NodePath("../player")
 position = Vector2(176, 320)
 collision_mask = 2
 script = ExtResource("5_fvw0i")
-speed = 1000.0
-jump_force = -110.0
+max_side_force = 8.0
+side_to_side_force = 0.4
+delta_towards_zero = 0.3
+speed = 600.0
+jump_force = -80.0
 max_fuel = 20.0
 fuel_consume = 0.1
 jetpack_speed = -5.0
 jetpack_max_force = 30.0
 jetpack_force_up = 2.5
 jetpack_force_down = 3.0
-max_side_force = 8.0
-side_to_side_force = 0.5
-delta_towards_zero = 0.3
 
 [node name="Sprite2D" type="Sprite2D" parent="player"]
 position = Vector2(0, -3.8146973e-06)
@@ -155,89 +156,35 @@ position = Vector2(900, 24.00003)
 scale = Vector2(14.0625, 0.37500045)
 texture = ExtResource("1_5341b")
 
-[node name="StaticBody2D6" type="StaticBody2D" parent="walls"]
-position = Vector2(624, 288)
-collision_layer = 2
+[node name="StaticBody2D6" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(624, 304)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D6"]
-position = Vector2(160, 24)
-scale = Vector2(14.0625, 0.37499988)
-shape = SubResource("RectangleShape2D_av54f")
+[node name="StaticBody2D32" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(704, 272)
 
-[node name="Icon" type="Sprite2D" parent="walls/StaticBody2D6"]
-position = Vector2(159.99997, 24.00001)
-scale = Vector2(2.4999998, 0.37500003)
-texture = ExtResource("1_5341b")
+[node name="StaticBody2D33" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(800, 240)
 
-[node name="StaticBody2D7" type="StaticBody2D" parent="walls"]
-position = Vector2(752, 240)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D7"]
-position = Vector2(160, 24)
-scale = Vector2(14.0625, 0.37499988)
-shape = SubResource("RectangleShape2D_av54f")
-
-[node name="Icon" type="Sprite2D" parent="walls/StaticBody2D7"]
-position = Vector2(159.99997, 24.00001)
-scale = Vector2(2.4999998, 0.37500003)
-texture = ExtResource("1_5341b")
-
-[node name="StaticBody2D8" type="StaticBody2D" parent="walls"]
-position = Vector2(1376, 240)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D8"]
-position = Vector2(160, 24)
-scale = Vector2(14.0625, 0.37499988)
-shape = SubResource("RectangleShape2D_av54f")
-
-[node name="Icon" type="Sprite2D" parent="walls/StaticBody2D8"]
-position = Vector2(159.99997, 24.00001)
-scale = Vector2(2.4999998, 0.37500003)
-texture = ExtResource("1_5341b")
-
-[node name="StaticBody2D9" type="StaticBody2D" parent="walls"]
+[node name="StaticBody2D34" parent="walls" instance=ExtResource("7_av54f")]
 position = Vector2(896, 96)
-collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D9"]
-position = Vector2(160, 24)
-scale = Vector2(14.0625, 0.37499988)
-shape = SubResource("RectangleShape2D_av54f")
+[node name="StaticBody2D35" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(1312, 96)
 
-[node name="Icon" type="Sprite2D" parent="walls/StaticBody2D9"]
-position = Vector2(159.99997, 24.00001)
-scale = Vector2(2.4999998, 0.37500003)
-texture = ExtResource("1_5341b")
+[node name="StaticBody2D36" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(1520, 208)
 
-[node name="StaticBody2D10" type="StaticBody2D" parent="walls"]
-position = Vector2(1216, 96)
-collision_layer = 2
+[node name="StaticBody2D39" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(1600, 272)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D10"]
-position = Vector2(160, 24)
-scale = Vector2(14.0625, 0.37499988)
-shape = SubResource("RectangleShape2D_av54f")
+[node name="StaticBody2D40" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(1552, 240)
 
-[node name="Icon" type="Sprite2D" parent="walls/StaticBody2D10"]
-position = Vector2(159.99997, 24.00001)
-scale = Vector2(2.4999998, 0.37500003)
-texture = ExtResource("1_5341b")
+[node name="StaticBody2D37" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(1664, 304)
 
-[node name="StaticBody2D11" type="StaticBody2D" parent="walls"]
-position = Vector2(1664, 288)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D11"]
-position = Vector2(160, 24)
-scale = Vector2(14.0625, 0.37499988)
-shape = SubResource("RectangleShape2D_av54f")
-
-[node name="Icon" type="Sprite2D" parent="walls/StaticBody2D11"]
-position = Vector2(159.99997, 24.00001)
-scale = Vector2(2.4999998, 0.37500003)
-texture = ExtResource("1_5341b")
+[node name="StaticBody2D38" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(2080, 224)
 
 [node name="StaticBody2D12" type="StaticBody2D" parent="walls"]
 position = Vector2(2080, 224)

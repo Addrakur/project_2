@@ -1,16 +1,18 @@
 extends CharacterBody2D
 
+@export_group("Player move")
+@export var max_side_force: float
+@export var side_to_side_force: float
+@export var delta_towards_zero: float
 @export var speed: float
 @export var jump_force: float
+@export_group("Jetpack")
 @export var max_fuel: float
 @export var fuel_consume: float
 @export var jetpack_speed: float
 @export var jetpack_max_force: float
 @export var jetpack_force_up: float
 @export var jetpack_force_down: float
-@export var max_side_force: float
-@export var side_to_side_force: float
-@export var delta_towards_zero: float
 
 var jetpack_force: float
 var side_force: float
