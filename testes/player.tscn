@@ -14,11 +14,11 @@ side_to_side_force = 0.4
 delta_towards_zero = 0.3
 speed = 600.0
 jump_force = -80.0
-max_fuel = 20.0
+max_fuel = 25.0
 fuel_consume = 0.1
 jetpack_speed = -5.0
-jetpack_max_force = 30.0
-jetpack_force_up = 2.5
+jetpack_max_force = 25.0
+jetpack_force_up = 3.5
 jetpack_force_down = 3.0
 progress_bar = NodePath("CanvasLayer/Control/ProgressBar")
 
