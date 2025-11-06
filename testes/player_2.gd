@@ -18,8 +18,7 @@ var jetpack_force: float
 var side_force: float
 var fuel
 
-@onready var progress_bar: ProgressBar = $"../CanvasLayer/Control/ProgressBar"
-
+@export var progress_bar: ProgressBar
 
 func _ready() -> void:
 	fuel = max_fuel

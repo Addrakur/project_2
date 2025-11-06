@@ -1,27 +1,22 @@
-[gd_scene load_steps=14 format=3 uid="uid://c84kdm2lscl7a"]
+[gd_scene load_steps=13 format=3 uid="uid://c84kdm2lscl7a"]
 
 [ext_resource type="Texture2D" uid="uid://33ri277wn0iu" path="res://icon.svg" id="1_5341b"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_i5n0t"]
 [ext_resource type="Script" uid="uid://cfxba18cw51xe" path="res://testes/camera_follow_player.gd" id="3_eucnc"]
+[ext_resource type="PackedScene" uid="uid://bx2l4ln2h5uh" path="res://testes/player.tscn" id="3_fvw0i"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_eucnc"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_av54f"]
-[ext_resource type="Script" uid="uid://cxpultcnmibd8" path="res://testes/player_2.gd" id="5_fvw0i"]
 [ext_resource type="PackedScene" uid="uid://co5o8kyeb1kgj" path="res://testes/block.tscn" id="7_av54f"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_av54f"]
-radius = 16.0
+[ext_resource type="PackedScene" uid="uid://gytbmjwin2bx" path="res://testes/breakable_ground.tscn" id="8_fvw0i"]
 
 [sub_resource type="Resource" id="Resource_i5n0t"]
 script = ExtResource("5_av54f")
 
 [sub_resource type="Curve2D" id="Curve2D_i5n0t"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 320, 176, 0, 0, 0, 0, 2992, 176)
+"points": PackedVector2Array(0, 0, 0, 0, 320, 176, 0, 0, 0, 0, 2912, 176)
 }
 point_count = 2
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eucnc"]
-size = Vector2(105.244446, 127.99991)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_av54f"]
 size = Vector2(22.755558, 85.33341)
@@ -41,33 +36,12 @@ script = ExtResource("1_i5n0t")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="camera_follow_player" type="Node2D" parent="." node_paths=PackedStringArray("player")]
-position = Vector2(176, 320)
+position = Vector2(304, 320)
 script = ExtResource("3_eucnc")
 player = NodePath("../player")
 
-[node name="player" type="CharacterBody2D" parent="."]
-position = Vector2(176, 320)
-collision_mask = 2
-script = ExtResource("5_fvw0i")
-max_side_force = 8.0
-side_to_side_force = 0.4
-delta_towards_zero = 0.3
-speed = 600.0
-jump_force = -80.0
-max_fuel = 20.0
-fuel_consume = 0.1
-jetpack_speed = -5.0
-jetpack_max_force = 30.0
-jetpack_force_up = 2.5
-jetpack_force_down = 3.0
-
-[node name="Sprite2D" type="Sprite2D" parent="player"]
-position = Vector2(0, -3.8146973e-06)
-scale = Vector2(0.24999999, 0.25000006)
-texture = ExtResource("1_5341b")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-shape = SubResource("CircleShape2D_av54f")
+[node name="player" parent="." instance=ExtResource("3_fvw0i")]
+position = Vector2(304, 320)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target", "follow_path")]
 top_level = true
@@ -85,79 +59,84 @@ curve = SubResource("Curve2D_i5n0t")
 
 [node name="walls" type="Node2D" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="walls"]
-position = Vector2(0, -32)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D"]
-position = Vector2(899.99994, 24)
-scale = Vector2(14.0625, 0.37499988)
-shape = SubResource("RectangleShape2D_eucnc")
-
-[node name="Icon" type="Sprite2D" parent="walls/StaticBody2D"]
-position = Vector2(900, 24.00003)
-scale = Vector2(14.0625, 0.37500045)
-texture = ExtResource("1_5341b")
-
-[node name="Icon2" type="Sprite2D" parent="walls/StaticBody2D"]
-position = Vector2(900, 24.00003)
-scale = Vector2(14.0625, 0.37500045)
-texture = ExtResource("1_5341b")
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="walls"]
-position = Vector2(1640, -32)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D4"]
-position = Vector2(899.99994, 24)
-scale = Vector2(14.0625, 0.37499988)
-shape = SubResource("RectangleShape2D_eucnc")
-
-[node name="Icon" type="Sprite2D" parent="walls/StaticBody2D4"]
-position = Vector2(900, 24.00003)
-scale = Vector2(14.0625, 0.37500045)
-texture = ExtResource("1_5341b")
-
-[node name="Icon2" type="Sprite2D" parent="walls/StaticBody2D4"]
-position = Vector2(900, 24.00003)
-scale = Vector2(14.0625, 0.37500045)
-texture = ExtResource("1_5341b")
-
-[node name="StaticBody2D5" type="StaticBody2D" parent="walls"]
-position = Vector2(1640, 336)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D5"]
-position = Vector2(899.99994, 24)
-scale = Vector2(14.0625, 0.37499988)
-shape = SubResource("RectangleShape2D_eucnc")
-
-[node name="Icon" type="Sprite2D" parent="walls/StaticBody2D5"]
-position = Vector2(900, 24.00003)
-scale = Vector2(14.0625, 0.37500045)
-texture = ExtResource("1_5341b")
-
-[node name="Icon2" type="Sprite2D" parent="walls/StaticBody2D5"]
-position = Vector2(900, 24.00003)
-scale = Vector2(14.0625, 0.37500045)
-texture = ExtResource("1_5341b")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="walls"]
-position = Vector2(0, 336)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D2"]
-position = Vector2(899.99994, 24)
-scale = Vector2(14.0625, 0.37499988)
-shape = SubResource("RectangleShape2D_eucnc")
-
-[node name="Icon" type="Sprite2D" parent="walls/StaticBody2D2"]
-position = Vector2(900, 24.00003)
-scale = Vector2(14.0625, 0.37500045)
-texture = ExtResource("1_5341b")
-
 [node name="StaticBody2D6" parent="walls" instance=ExtResource("7_av54f")]
 position = Vector2(624, 304)
+
+[node name="StaticBody2D7" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(656, 336)
+
+[node name="StaticBody2D10" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(976, 336)
+
+[node name="StaticBody2D11" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(1296, 336)
+
+[node name="StaticBody2D41" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(1616, 336)
+
+[node name="StaticBody2D42" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(1936, 336)
+
+[node name="StaticBody2D43" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(2256, 336)
+
+[node name="StaticBody2D44" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(2576, 336)
+
+[node name="StaticBody2D45" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(2896, 336)
+
+[node name="StaticBody2D46" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(16, -16)
+
+[node name="StaticBody2D56" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(16, -144)
+rotation = 1.5707964
+
+[node name="StaticBody2D57" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(16, 176)
+rotation = 1.5707964
+
+[node name="StaticBody2D58" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(3248, -144)
+rotation = 1.5707964
+
+[node name="StaticBody2D59" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(3248, 176)
+rotation = 1.5707964
+
+[node name="StaticBody2D47" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(336, -16)
+
+[node name="StaticBody2D48" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(656, -16)
+
+[node name="StaticBody2D49" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(976, -16)
+
+[node name="StaticBody2D50" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(1296, -16)
+
+[node name="StaticBody2D51" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(1616, -16)
+
+[node name="StaticBody2D52" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(1936, -16)
+
+[node name="StaticBody2D53" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(2256, -16)
+
+[node name="StaticBody2D54" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(2576, -16)
+
+[node name="StaticBody2D55" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(2896, -16)
+
+[node name="StaticBody2D8" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(336, 336)
+
+[node name="StaticBody2D9" parent="walls" instance=ExtResource("7_av54f")]
+position = Vector2(16, 336)
 
 [node name="StaticBody2D32" parent="walls" instance=ExtResource("7_av54f")]
 position = Vector2(704, 272)
@@ -466,34 +445,6 @@ position = Vector2(24, 24.00001)
 scale = Vector2(0.3750002, 0.37500003)
 texture = ExtResource("1_5341b")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="walls"]
-position = Vector2(24, -328)
-rotation = 1.5707964
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D3"]
-position = Vector2(899.99994, 24)
-scale = Vector2(14.0625, 0.37499988)
-shape = SubResource("RectangleShape2D_eucnc")
-
-[node name="Icon" type="Sprite2D" parent="walls/StaticBody2D3"]
-position = Vector2(900, 24.00003)
-scale = Vector2(14.0625, 0.37500045)
-texture = ExtResource("1_5341b")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control"]
-layout_mode = 1
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 192.0
-offset_bottom = 43.0
+[node name="breakable_ground" parent="." instance=ExtResource("8_fvw0i")]
+position = Vector2(176, 240)
+max_speed = 150.0
