@@ -7,15 +7,15 @@ extends CharacterBody2D
 @export var speed: float
 @export var max_running_speed: float
 @export var jump_force: float
-@export_group("Jetpack")
+@export_group("Rocket")
 @export var max_fuel: float
 @export var fuel_consume: float
-@export var jetpack_speed: float
-@export var jetpack_max_force: float
-@export var jetpack_force_up: float
-@export var jetpack_force_down: float
+@export var rocket_speed: float
+@export var rocket_max_force: float
+@export var rocket_force_up: float
+@export var rocket_force_down: float
 
-var jetpack_force: float
+var rocket_force: float
 var rocket_velocity_x: float
 var side_force: float
 var side_velocity: float
@@ -54,15 +54,15 @@ func rocket_logic(delta: float):
 	texture.rotation_degrees = fposmod(texture.rotation_degrees, 360.0)
 	if Input.is_action_pressed("jetpack") and fuel > 0:
 		fuel -= fuel_consume
-		if jetpack_force < jetpack_max_force:
-			jetpack_force += jetpack_force_up
-	elif jetpack_force > 0:
-		jetpack_force -= jetpack_force_down
-	if jetpack_force < 0:
-		jetpack_force = 0
+		if rocket_force < rocket_max_force:
+			rocket_force += rocket_force_up
+	elif rocket_force > 0:
+		rocket_force -= rocket_force_down
+	if rocket_force < 0:
+		rocket_force = 0
 	
-	rocket_velocity_x = jetpack_speed * jetpack_force * delta * cos(deg_to_rad(texture.rotation_degrees))
-	velocity.y += jetpack_speed * jetpack_force * delta * sin(deg_to_rad(texture.rotation_degrees))
+	rocket_velocity_x = rocket_speed * rocket_force * delta * cos(deg_to_rad(texture.rotation_degrees))
+	velocity.y += rocket_speed * rocket_force * delta * sin(deg_to_rad(texture.rotation_degrees))
 
 func move_side_logic(delta: float):
 	if Input.is_action_pressed("right"):
