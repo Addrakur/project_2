@@ -1,9 +1,12 @@
+class_name Player
 extends CharacterBody2D
 
 @export_group("Player move")
 @export var max_side_force: float
-@export var side_to_side_force: float
-@export var delta_towards_zero: float
+@export var side_to_side_force: float 
+@export var air_side_to_side_force: float
+@export var floor_delta_towards_zero: float
+@export var air_delta_towards_zero: float
 @export var speed: float
 @export var max_running_speed: float
 @export var jump_force: float
@@ -31,7 +34,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	#Gravidade que afeta o jogador
 	velocity += get_gravity() * delta
-	velocity.x = move_toward(velocity.x,0,delta_towards_zero)
+	if is_on_floor():
+		velocity.x = move_toward(velocity.x,0,floor_delta_towards_zero)
+	else:
+		velocity.x = move_toward(velocity.x,0,air_delta_towards_zero)
 	
 	move_side_logic(delta)
 	velocity.x += side_velocity + rocket_velocity_x
@@ -67,12 +73,18 @@ func rocket_logic(delta: float):
 func move_side_logic(delta: float):
 	if Input.is_action_pressed("right"):
 		if side_force < max_side_force:
-			side_force += side_to_side_force
+			if is_on_floor():
+				side_force += side_to_side_force
+			else:
+				side_force += air_side_to_side_force
 	elif Input.is_action_pressed("left"):
 		if side_force > -max_side_force:
-			side_force -= side_to_side_force
+			if is_on_floor():
+				side_force -= side_to_side_force
+			else:
+				side_force -= air_side_to_side_force
 	else:
-		side_force = move_toward(side_force, 0, delta_towards_zero)
+		side_force = move_toward(side_force, 0, floor_delta_towards_zero)
 	
 	if velocity.x < max_running_speed and velocity.x > -max_running_speed:
 		side_velocity = side_force * speed * delta

@@ -1,4 +1,6 @@
 extends Area2D
 
+@export var screen_manager: ScreenManager
+
 func _on_body_entered(body: Node2D) -> void:
-	body.position = Vector2(64,288)
+	body.position = screen_manager.current_checkpoint.position

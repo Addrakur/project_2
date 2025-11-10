@@ -1,3 +1,4 @@
+class_name BreakableGround
 extends StaticBody2D
 
 @export var max_speed: float

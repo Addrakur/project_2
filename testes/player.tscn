@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bx2l4ln2h5uh"]
 
-[ext_resource type="Script" uid="uid://cxpultcnmibd8" path="res://testes/player_2.gd" id="1_wof7s"]
+[ext_resource type="Script" uid="uid://cxpultcnmibd8" path="res://testes/player.gd" id="1_wof7s"]
 [ext_resource type="Texture2D" uid="uid://33ri277wn0iu" path="res://icon.svg" id="2_e0bjr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_av54f"]
@@ -10,8 +10,10 @@ radius = 16.0
 collision_mask = 6
 script = ExtResource("1_wof7s")
 max_side_force = 8.0
-side_to_side_force = 0.6
-delta_towards_zero = 1.0
+side_to_side_force = 0.7
+air_side_to_side_force = 0.2
+floor_delta_towards_zero = 1.5
+air_delta_towards_zero = 1.0
 speed = 30.0
 max_running_speed = 100.0
 jump_force = -80.0
@@ -24,14 +26,16 @@ rocket_force_down = 3.0
 progress_bar = NodePath("CanvasLayer/Control/ProgressBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15.999992)
 shape = SubResource("CircleShape2D_av54f")
 
 [node name="icon" type="Sprite2D" parent="."]
-position = Vector2(0, -3.8146973e-06)
+position = Vector2(0, -15.999996)
 scale = Vector2(0.24999999, 0.25000006)
 texture = ExtResource("2_e0bjr")
 
 [node name="texture" type="Node2D" parent="."]
+position = Vector2(0, -15.999992)
 
 [node name="texture" type="Sprite2D" parent="texture"]
 modulate = Color(0.14999998, 1, 0, 1)

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cckpemnvqsmct"]
+
+[ext_resource type="Script" uid="uid://c2khuaa73n8u2" path="res://screen_manager/screen_changer.gd" id="1_sj66c"]
+
+[node name="screen_changer" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_sj66c")
+
+[node name="collision" type="CollisionPolygon2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
