@@ -19,6 +19,7 @@ max_running_speed = 100.0
 jump_force = -80.0
 max_fuel = 25.0
 fuel_consume = 0.1
+fuel_restore = 5.0
 rocket_speed = -5.0
 rocket_max_force = 25.0
 rocket_force_up = 3.5

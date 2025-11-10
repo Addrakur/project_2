@@ -13,6 +13,7 @@ extends CharacterBody2D
 @export_group("Rocket")
 @export var max_fuel: float
 @export var fuel_consume: float
+@export var fuel_restore: float
 @export var rocket_speed: float
 @export var rocket_max_force: float
 @export var rocket_force_up: float
@@ -47,8 +48,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("up") and is_on_floor():
 		velocity.y = jump_force
 	
-	if is_on_floor():
-		fuel = max_fuel
+	if is_on_floor() and fuel < max_fuel:
+		fuel += fuel_restore * delta
 	
 	move_and_slide()
 	
