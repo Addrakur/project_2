@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://c84kdm2lscl7a"]
+[gd_scene load_steps=17 format=4 uid="uid://c84kdm2lscl7a"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_k3a3w"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_kp1nd"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cckpemnvqsmct" path="res://screen_manager/screen_changer.tscn" id="6_qahnf"]
 [ext_resource type="PackedScene" uid="uid://cff54k45oxdfx" path="res://testes/fragile_ground.tscn" id="7_mcnex"]
 [ext_resource type="Texture2D" uid="uid://dtm428pjx8hu2" path="res://assets/ground_tileset_ph.png" id="7_v3wul"]
+[ext_resource type="PackedScene" uid="uid://bvgaw3tfxgdbq" path="res://testes/on_off_ground.tscn" id="8_n8xu7"]
 
 [sub_resource type="Resource" id="Resource_i5n0t"]
 script = ExtResource("3_o84fw")
@@ -459,6 +460,11 @@ polygon = PackedVector2Array(928, -256, 928, 48, 992, 48, 992, -256)
 [node name="fragile_ground" parent="screen_manager/screen_0" instance=ExtResource("7_mcnex")]
 position = Vector2(176, 208)
 
+[node name="on_off_ground" parent="screen_manager/screen_0" instance=ExtResource("8_n8xu7")]
+position = Vector2(0, 176)
+on_time = 1.0
+off_time = 1.0
+
 [node name="screen_1" parent="screen_manager" node_paths=PackedStringArray("camera") instance=ExtResource("2_o84fw")]
 camera = NodePath("camera")
 
@@ -574,7 +580,7 @@ Botao Esquerdo = Usar jetpack"
 
 [node name="player" parent="." instance=ExtResource("6_n8xu7")]
 process_mode = 1
-position = Vector2(144, 192)
+position = Vector2(176, 192)
 speed = 50.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
