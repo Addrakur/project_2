@@ -55,6 +55,10 @@ func _physics_process(delta: float) -> void:
 	
 	progress_bar.value = fuel
 	
+	for i in range(get_slide_collision_count()):
+		var collider = get_slide_collision(i).get_collider()
+		if collider is FragileGround:
+			collider.animation.play("break")
 
 func rocket_logic(delta: float):
 	texture.look_at(get_global_mouse_position())
