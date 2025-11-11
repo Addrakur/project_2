@@ -48,8 +48,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("up") and is_on_floor():
 		velocity.y = jump_force
 	
-	if is_on_floor() and fuel < max_fuel:
-		fuel += fuel_restore * delta
+	if not Input.is_action_pressed("jetpack") and fuel < max_fuel:
+		if is_on_floor():
+			fuel += fuel_restore * delta
+		else:
+			fuel += fuel_restore * delta / 2
 	
 	move_and_slide()
 	
