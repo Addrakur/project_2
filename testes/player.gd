@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+@export var screen_manager: ScreenManager
+
 @export_group("Player move")
 @export var max_side_force: float
 @export var side_to_side_force: float 
@@ -50,7 +52,10 @@ func _physics_process(delta: float) -> void:
 	
 	if not Input.is_action_pressed("jetpack") and fuel < max_fuel:
 		if is_on_floor():
-			fuel += fuel_restore * delta
+			if velocity.x == 0:
+				fuel += fuel_restore * delta * 2
+			else:
+				fuel += fuel_restore * delta
 		else:
 			fuel += fuel_restore * delta / 2
 	
@@ -62,6 +67,9 @@ func _physics_process(delta: float) -> void:
 		var collider = get_slide_collision(i).get_collider()
 		if collider is FragileGround:
 			collider.animation.play("break")
+		elif collider.name == "kill_tileset":
+			position = screen_manager.current_checkpoint.position
+			fuel = max_fuel
 
 func rocket_logic(delta: float):
 	texture.look_at(get_global_mouse_position())
