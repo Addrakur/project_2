@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dde7sed6s6cw"]
+
+[ext_resource type="Script" uid="uid://3bctrws572wg" path="res://componentes/alter_gravity.gd" id="1_g5brm"]
+
+[node name="alter_gravity" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_g5brm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

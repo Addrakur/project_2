@@ -21,11 +21,13 @@ extends CharacterBody2D
 @export var rocket_force_up: float
 @export var rocket_force_down: float
 
+var rocket_active: bool = true
 var rocket_force: float
 var rocket_velocity_x: float
 var side_force: float
 var side_velocity: float
 var fuel
+var gravity_mult: float = 1
 
 @export var progress_bar: ProgressBar
 @onready var texture: Node2D = $texture
@@ -36,7 +38,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	#Gravidade que afeta o jogador
-	velocity += get_gravity() * delta
+	velocity.y += get_gravity().y * delta * gravity_mult
 	if is_on_floor():
 		velocity.x = move_toward(velocity.x,0,floor_delta_towards_zero)
 	else:
@@ -47,8 +49,11 @@ func _physics_process(delta: float) -> void:
 	
 	rocket_logic(delta)
 	
-	if Input.is_action_just_pressed("up") and is_on_floor():
+	if Input.is_action_just_pressed("up") and is_on_floor() and gravity_mult == 1:
 		velocity.y = jump_force
+	
+	if Input.is_action_just_pressed("down") and is_on_ceiling() and gravity_mult == -1:
+		velocity.y = -jump_force
 	
 	if not Input.is_action_pressed("jetpack") and fuel < max_fuel:
 		if is_on_floor():
@@ -74,7 +79,7 @@ func _physics_process(delta: float) -> void:
 func rocket_logic(delta: float):
 	texture.look_at(get_global_mouse_position())
 	texture.rotation_degrees = fposmod(texture.rotation_degrees, 360.0)
-	if Input.is_action_pressed("jetpack") and fuel > 0:
+	if Input.is_action_pressed("jetpack") and fuel > 0 and rocket_active:
 		fuel -= fuel_consume
 		if rocket_force < rocket_max_force:
 			rocket_force += rocket_force_up
