@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4fhqwlwq2gqe"]
+
+[ext_resource type="Script" uid="uid://bam06muh5fmj4" path="res://componentes/turn_off_rocket.gd" id="1_nlcur"]
+
+[node name="turn_off_rocket" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_nlcur")
+
+[node name="polygon" type="Polygon2D" parent="."]
+color = Color(1, 0.26999998, 0.26999998, 0.2901961)
+polygon = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
