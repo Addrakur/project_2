@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://c2nvdwxw0kq7q"]
+[gd_scene load_steps=2 format=3 uid="uid://c2nvdwxw0kq7q"]
+
+[ext_resource type="Script" uid="uid://bo4wp8oeyrt5u" path="res://menu/menu.gd" id="1_j0t7f"]
 
 [node name="menu" type="CanvasLayer"]
+script = ExtResource("1_j0t7f")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -9,3 +12,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="tutorial" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 48.0
+offset_right = 368.0
+offset_bottom = 80.0
+text = "Tutorial"
+
+[node name="world_1" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 144.0
+offset_right = 368.0
+offset_bottom = 176.0
+text = "World_1"
+
+[node name="testes" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 240.0
+offset_right = 368.0
+offset_bottom = 272.0
+text = "Testes"
+
+[connection signal="pressed" from="Control/tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="Control/world_1" to="." method="_on_world_1_pressed"]
+[connection signal="pressed" from="Control/testes" to="." method="_on_testes_pressed"]

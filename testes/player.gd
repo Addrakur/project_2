@@ -28,6 +28,7 @@ var side_force: float
 var side_velocity: float
 var fuel
 var gravity_mult: float = 1
+var gravity: float
 
 @export var progress_bar: ProgressBar
 @onready var texture: Node2D = $texture
@@ -38,12 +39,13 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	#Gravidade que afeta o jogador
-	velocity.y += get_gravity().y * delta * gravity_mult
-	if is_on_floor():
-		velocity.x = move_toward(velocity.x,0,floor_delta_towards_zero)
-	else:
-		velocity.x = move_toward(velocity.x,0,air_delta_towards_zero)
-	
+	velocity.y += gravity * delta * gravity_mult
+	if not Input.is_action_pressed("jetpack") and fuel > 0:
+		if is_on_floor():
+			velocity.x = move_toward(velocity.x,0,floor_delta_towards_zero)
+		else:
+			velocity.x = move_toward(velocity.x,0,air_delta_towards_zero)
+		
 	move_side_logic(delta)
 	velocity.x += side_velocity + rocket_velocity_x
 	
@@ -111,3 +113,7 @@ func move_side_logic(delta: float):
 		side_velocity = side_force * speed * delta
 	else:
 		side_velocity = 0
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://menu/menu.tscn")

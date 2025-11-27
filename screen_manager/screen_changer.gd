@@ -15,3 +15,4 @@ func _on_body_entered(_body: Node2D) -> void:
 	new_screen.camera.priority = 1
 	old_screen.camera.priority = 0
 	screen_manager.current_checkpoint = checkpoint
+	screen_manager.player.fuel = screen_manager.player.max_fuel
