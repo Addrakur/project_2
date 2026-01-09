@@ -30,6 +30,8 @@ var fuel
 var gravity_mult: float = 1
 var gravity: float
 
+var mouse_control: bool = true
+
 @export var progress_bar: ProgressBar
 @onready var texture: Node2D = $texture
 
@@ -39,9 +41,12 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	#Gravidade que afeta o jogador
-	velocity.y += gravity * delta * gravity_mult
+	if not Input.is_action_pressed("jetpack") and not is_on_floor():
+		velocity.y += gravity * delta * gravity_mult
+	else:
+		velocity.y += gravity * delta * gravity_mult * 0.5
 	if not Input.is_action_pressed("jetpack") and fuel > 0:
-		if is_on_floor():
+		if is_on_floor() and not Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
 			velocity.x = move_toward(velocity.x,0,floor_delta_towards_zero)
 		else:
 			velocity.x = move_toward(velocity.x,0,air_delta_towards_zero)
@@ -59,12 +64,9 @@ func _physics_process(delta: float) -> void:
 	
 	if not Input.is_action_pressed("jetpack") and fuel < max_fuel:
 		if is_on_floor():
-			if velocity.x == 0:
-				fuel += fuel_restore * delta * 2
-			else:
-				fuel += fuel_restore * delta
+			fuel += fuel_restore * delta
 		else:
-			fuel += fuel_restore * delta / 2
+			fuel += fuel_restore * delta / 4
 	
 	move_and_slide()
 	
@@ -79,19 +81,37 @@ func _physics_process(delta: float) -> void:
 			fuel = max_fuel
 
 func rocket_logic(delta: float):
-	texture.look_at(get_global_mouse_position())
-	texture.rotation_degrees = fposmod(texture.rotation_degrees, 360.0)
-	if Input.is_action_pressed("jetpack") and fuel > 0 and rocket_active:
-		fuel -= fuel_consume
-		if rocket_force < rocket_max_force:
-			rocket_force += rocket_force_up
-	elif rocket_force > 0:
-		rocket_force -= rocket_force_down
-	if rocket_force < 0:
-		rocket_force = 0
-	
-	rocket_velocity_x = rocket_speed * rocket_force * delta * cos(deg_to_rad(texture.rotation_degrees))
-	velocity.y += rocket_speed * rocket_force * delta * sin(deg_to_rad(texture.rotation_degrees))
+	if mouse_control:
+		texture.look_at(get_global_mouse_position())
+		texture.rotation_degrees = fposmod(texture.rotation_degrees, 360.0)
+		if Input.is_action_pressed("jetpack") and fuel > 0 and rocket_active:
+			fuel -= fuel_consume
+			if rocket_force < rocket_max_force:
+				rocket_force += rocket_force_up
+		elif rocket_force > 0:
+			rocket_force -= rocket_force_down
+		if rocket_force < 0:
+			rocket_force = 0
+		
+		rocket_velocity_x = rocket_speed * rocket_force * delta * cos(deg_to_rad(texture.rotation_degrees))
+		velocity.y += rocket_speed * rocket_force * delta * sin(deg_to_rad(texture.rotation_degrees))
+	else:
+		var horizontal_direction = Input.get_axis("right","left")
+		var vertical_direction = Input.get_axis("down","up")
+		if horizontal_direction == 0 and vertical_direction == 0:
+			vertical_direction = 1
+		set_texture_rotation(horizontal_direction,vertical_direction)
+		if Input.is_action_pressed("jetpack") and fuel > 0 and rocket_active:
+			fuel -= fuel_consume
+			if rocket_force < rocket_max_force:
+				rocket_force += rocket_force_up
+		elif rocket_force > 0:
+			rocket_force -= rocket_force_down
+		if rocket_force < 0:
+			rocket_force = 0
+		
+		rocket_velocity_x = rocket_speed * rocket_force * delta * horizontal_direction
+		velocity.y += rocket_speed * rocket_force * delta * vertical_direction
 
 func move_side_logic(delta: float):
 	if Input.is_action_pressed("right"):
@@ -114,6 +134,28 @@ func move_side_logic(delta: float):
 	else:
 		side_velocity = 0
 
-
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://menu/menu.tscn")
+
+func set_texture_rotation(x: float, y:float):
+	if x == 1:
+		if y == 1:
+			texture.rotation_degrees = 45
+		elif y == 0:
+			texture.rotation_degrees = 0
+		elif y == -1:
+			texture.rotation_degrees = -45
+	elif x == 0:
+		if y == 1:
+			texture.rotation_degrees = 90
+		elif y == 0:
+			texture.rotation_degrees = 90
+		elif y == -1:
+			texture.rotation_degrees = 270
+	elif x == -1:
+		if y == 1:
+			texture.rotation_degrees = 135
+		elif y == 0:
+			texture.rotation_degrees = 180
+		elif y == -1:
+			texture.rotation_degrees = 225

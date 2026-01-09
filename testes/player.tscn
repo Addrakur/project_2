@@ -9,19 +9,19 @@ radius = 15.0
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("progress_bar")]
 collision_mask = 6
 script = ExtResource("1_wof7s")
-max_side_force = 8.0
-side_to_side_force = 0.7
-air_side_to_side_force = 0.2
-floor_delta_towards_zero = 1.5
-air_delta_towards_zero = 0.3
+max_side_force = 10.0
+side_to_side_force = 6.0
+air_side_to_side_force = 0.6
+floor_delta_towards_zero = 2.0
+air_delta_towards_zero = 0.6
 speed = 30.0
 max_running_speed = 100.0
 jump_force = -90.0
 max_fuel = 25.0
 fuel_consume = 0.1
-fuel_restore = 5.0
-rocket_speed = -7.0
-rocket_max_force = 25.0
+fuel_restore = 20.0
+rocket_speed = -5.0
+rocket_max_force = 16.0
 rocket_force_up = 4.5
 rocket_force_down = 3.0
 progress_bar = NodePath("CanvasLayer/Control/ProgressBar")
@@ -37,6 +37,7 @@ shape = SubResource("CircleShape2D_av54f")
 
 [node name="texture" type="Node2D" parent="."]
 position = Vector2(0, -15)
+rotation = 6.2831855
 
 [node name="texture" type="Sprite2D" parent="texture"]
 modulate = Color(0.14999998, 1, 0, 1)

@@ -11,7 +11,5 @@ func _ready() -> void:
 	if starting_screen == null:
 		starting_screen = 0
 	screens[screens.find(screens[starting_screen])].camera.priority = 2
-	print(screens[screens.find(screens[starting_screen])])
-	print(screens[screens.find(screens[starting_screen])].camera.priority)
 	current_checkpoint = screens[screens.find(screens[starting_screen])].default_checkpoint
 	player.position = current_checkpoint.position
