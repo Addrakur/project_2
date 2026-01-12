@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://c84kdm2lscl7a"]
+[gd_scene load_steps=27 format=4 uid="uid://c84kdm2lscl7a"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_k3a3w"]
 [ext_resource type="Script" uid="uid://bnvqoglkbsle4" path="res://world.gd" id="1_pg7ka"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cff54k45oxdfx" path="res://testes/fragile_ground.tscn" id="7_mcnex"]
 [ext_resource type="PackedScene" uid="uid://bvgaw3tfxgdbq" path="res://testes/on_off_ground.tscn" id="8_n8xu7"]
 [ext_resource type="Texture2D" uid="uid://33ri277wn0iu" path="res://icon.svg" id="11_b3cf4"]
+[ext_resource type="PackedScene" uid="uid://dagx7sskbhihw" path="res://componentes/moving_obstacle.tscn" id="11_vwuwe"]
 [ext_resource type="PackedScene" uid="uid://dde7sed6s6cw" path="res://componentes/alter_gravity.tscn" id="12_f1sru"]
 [ext_resource type="PackedScene" uid="uid://c4fhqwlwq2gqe" path="res://componentes/turn_off_rocket.tscn" id="13_5ae27"]
 [ext_resource type="TileSet" uid="uid://pcfudolxen4w" path="res://assets/tilesets/mushroom_tile.tres" id="15_5ae27"]
@@ -36,45 +37,6 @@ point_count = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ae27"]
 size = Vector2(114.70068, 114.05774)
-
-[sub_resource type="Animation" id="Animation_f1sru"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PathFollow2D:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_b3cf4"]
-resource_name = "rotate"
-length = 3.0000083
-loop_mode = 1
-step = 0.083333336
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PathFollow2D:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ae27"]
-_data = {
-&"RESET": SubResource("Animation_f1sru"),
-&"rotate": SubResource("Animation_b3cf4")
-}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8demv"]
 size = Vector2(2736, 48)
@@ -511,27 +473,22 @@ position = Vector2(-1167.9688, 0)
 scale = Vector2(1.1428533, 1)
 curve = SubResource("Curve2D_f1sru")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="screen_manager/screen_8/rotate_obstacle"]
+[node name="moving_obstacle" parent="screen_manager/screen_8/rotate_obstacle" node_paths=PackedStringArray("screen") instance=ExtResource("11_vwuwe")]
 position = Vector2(8176.0005, 544)
-rotation = 0.008251359
-rotates = false
+move_speed = 0.25
+screen = NodePath("../..")
 
-[node name="Icon" type="Sprite2D" parent="screen_manager/screen_8/rotate_obstacle/PathFollow2D"]
+[node name="Icon" type="Sprite2D" parent="screen_manager/screen_8/rotate_obstacle/moving_obstacle"]
+rotation = 0.008251359
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("11_b3cf4")
 
-[node name="kill_player_area" parent="screen_manager/screen_8/rotate_obstacle/PathFollow2D/Icon" node_paths=PackedStringArray("screen_manager") instance=ExtResource("3_v3wul")]
+[node name="kill_player_area" parent="screen_manager/screen_8/rotate_obstacle/moving_obstacle/Icon" node_paths=PackedStringArray("screen_manager") instance=ExtResource("3_v3wul")]
 screen_manager = NodePath("../../../../..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="screen_manager/screen_8/rotate_obstacle/PathFollow2D/Icon/kill_player_area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="screen_manager/screen_8/rotate_obstacle/moving_obstacle/Icon/kill_player_area"]
 position = Vector2(-0.005859375, 0)
 shape = SubResource("RectangleShape2D_5ae27")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="screen_manager/screen_8/rotate_obstacle"]
-libraries = {
-&"": SubResource("AnimationLibrary_5ae27")
-}
-autoplay = "rotate"
 
 [node name="spawn_points" type="Node2D" parent="screen_manager/screen_8"]
 
@@ -580,27 +537,22 @@ position = Vector2(-32, -112)
 scale = Vector2(1.1428533, 1)
 curve = SubResource("Curve2D_f1sru")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="screen_manager/screen_9/rotate_obstacle"]
+[node name="moving_obstacle" parent="screen_manager/screen_9/rotate_obstacle" node_paths=PackedStringArray("screen") instance=ExtResource("11_vwuwe")]
 position = Vector2(8176.0005, 544)
-rotation = 0.008251359
-rotates = false
+move_speed = 0.25
+screen = NodePath("../..")
 
-[node name="Icon" type="Sprite2D" parent="screen_manager/screen_9/rotate_obstacle/PathFollow2D"]
+[node name="Icon" type="Sprite2D" parent="screen_manager/screen_9/rotate_obstacle/moving_obstacle"]
+rotation = 0.008251359
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("11_b3cf4")
 
-[node name="kill_player_area" parent="screen_manager/screen_9/rotate_obstacle/PathFollow2D/Icon" node_paths=PackedStringArray("screen_manager") instance=ExtResource("3_v3wul")]
+[node name="kill_player_area" parent="screen_manager/screen_9/rotate_obstacle/moving_obstacle/Icon" node_paths=PackedStringArray("screen_manager") instance=ExtResource("3_v3wul")]
 screen_manager = NodePath("../../../../..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="screen_manager/screen_9/rotate_obstacle/PathFollow2D/Icon/kill_player_area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="screen_manager/screen_9/rotate_obstacle/moving_obstacle/Icon/kill_player_area"]
 position = Vector2(-0.005859375, 0)
 shape = SubResource("RectangleShape2D_5ae27")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="screen_manager/screen_9/rotate_obstacle"]
-libraries = {
-&"": SubResource("AnimationLibrary_5ae27")
-}
-autoplay = "rotate"
 
 [node name="spawn_points" type="Node2D" parent="screen_manager/screen_9"]
 

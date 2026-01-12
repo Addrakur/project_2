@@ -3,7 +3,6 @@ extends Node2D
 
 @export var camera: PhantomCamera2D
 @export var default_checkpoint: Marker2D
-@export var animations: Array[AnimationPlayer]
 
 var active: bool = false
 
