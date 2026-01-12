@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dagx7sskbhihw"]
+
+[ext_resource type="Script" uid="uid://bijlvl0wsf3rb" path="res://componentes/moving_obstacle.gd" id="1_1opo5"]
+
+[node name="moving_obstacle" type="PathFollow2D"]
+rotates = false
+script = ExtResource("1_1opo5")

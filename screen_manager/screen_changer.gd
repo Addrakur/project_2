@@ -12,7 +12,11 @@ func _ready() -> void:
 	collision.polygon = door_shape.polygon
 
 func _on_body_entered(_body: Node2D) -> void:
-	new_screen.camera.priority = 1
-	old_screen.camera.priority = 0
-	screen_manager.current_checkpoint = checkpoint
-	screen_manager.player.fuel = screen_manager.player.max_fuel
+	if old_screen.active:
+		old_screen.deactivate()
+		new_screen.activate()
+		screen_manager.current_checkpoint = checkpoint
+		screen_manager.player.fuel = screen_manager.player.max_fuel
+		
+		for screen in screen_manager.screens:
+			print(screen.name + ": " + str(screen.active))

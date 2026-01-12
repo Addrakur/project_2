@@ -81,7 +81,6 @@ jetpack_right={
 
 [physics]
 
-common/physics_ticks_per_second=120
 2d/default_gravity=100.0
 common/physics_interpolation=true
 
