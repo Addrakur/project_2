@@ -85,19 +85,19 @@ _data = {
 point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plnos"]
-size = Vector2(752, 32)
+size = Vector2(752, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u583p"]
-size = Vector2(320, 48)
+size = Vector2(320, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wljuq"]
-size = Vector2(384, 48)
+size = Vector2(752, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24asp"]
-size = Vector2(4208, 48)
+size = Vector2(3200, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw8lb"]
-size = Vector2(1376, 32)
+size = Vector2(1376, 16)
 
 [node name="world_1" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_s2u2n")
@@ -453,7 +453,7 @@ screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_7")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
-checkpoint = NodePath("../../screen_7/1")
+checkpoint = NodePath("../../screen_7/spawn_points/1")
 
 [node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_6/screen_changer_6_7"]
 visible = false
@@ -474,7 +474,7 @@ off_time = 3.0
 
 [node name="screen_7" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("3_a02j0")]
 camera = NodePath("7")
-default_checkpoint = NodePath("1")
+default_checkpoint = NodePath("spawn_points/1")
 
 [node name="7" type="Node2D" parent="screen_manager/screen_7" node_paths=PackedStringArray("follow_path")]
 position = Vector2(8304, 128)
@@ -485,8 +485,13 @@ tween_resource = SubResource("Resource_vjvj4")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="1" type="Marker2D" parent="screen_manager/screen_7"]
+[node name="spawn_points" type="Node2D" parent="screen_manager/screen_7"]
+
+[node name="1" type="Marker2D" parent="screen_manager/screen_7/spawn_points"]
 position = Vector2(7888, 293)
+
+[node name="2" type="Marker2D" parent="screen_manager/screen_7/spawn_points"]
+position = Vector2(8688, 357)
 
 [node name="screen_changer_7_6" parent="screen_manager/screen_7" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("7_05ppg")]
 screen_manager = NodePath("../..")
@@ -499,12 +504,23 @@ checkpoint = NodePath("../../screen_6/spawn_points/2")
 visible = false
 polygon = PackedVector2Array(7824, 112, 7824, 304, 7792, 304, 7792, 112)
 
+[node name="screen_changer_7_8" parent="screen_manager/screen_7" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("7_05ppg")]
+screen_manager = NodePath("../..")
+new_screen = NodePath("../../screen_8")
+old_screen = NodePath("..")
+door_shape = NodePath("Polygon2D")
+checkpoint = NodePath("../../screen_8/spawn_points/1")
+
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_7/screen_changer_7_8"]
+visible = false
+polygon = PackedVector2Array(8608, 416, 8704, 416, 8704, 448, 8608, 448)
+
 [node name="fragile_ground" parent="screen_manager/screen_7" instance=ExtResource("8_vjvj4")]
 position = Vector2(8224, 192)
 
 [node name="screen_8" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("3_a02j0")]
 camera = NodePath("8")
-default_checkpoint = NodePath("1")
+default_checkpoint = NodePath("spawn_points/1")
 
 [node name="8" type="Node2D" parent="screen_manager/screen_8" node_paths=PackedStringArray("follow_path")]
 position = Vector2(9008, 656)
@@ -515,12 +531,39 @@ tween_resource = SubResource("Resource_vjvj4")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="1" type="Marker2D" parent="screen_manager/screen_8"]
+[node name="spawn_points" type="Node2D" parent="screen_manager/screen_8"]
+
+[node name="1" type="Marker2D" parent="screen_manager/screen_8/spawn_points"]
 position = Vector2(8640, 485)
+
+[node name="2" type="Marker2D" parent="screen_manager/screen_8/spawn_points"]
+position = Vector2(9408, 869)
+
+[node name="screen_changer_8_7" parent="screen_manager/screen_8" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("7_05ppg")]
+screen_manager = NodePath("../..")
+new_screen = NodePath("../../screen_7")
+old_screen = NodePath("..")
+door_shape = NodePath("Polygon2D")
+checkpoint = NodePath("../../screen_7/spawn_points/2")
+
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_8/screen_changer_8_7"]
+visible = false
+polygon = PackedVector2Array(8624, 368, 8688, 368, 8688, 336, 8624, 336)
+
+[node name="screen_changer_8_9" parent="screen_manager/screen_8" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("7_05ppg")]
+screen_manager = NodePath("../..")
+new_screen = NodePath("../../screen_9")
+old_screen = NodePath("..")
+door_shape = NodePath("Polygon2D")
+checkpoint = NodePath("../../screen_9/spawn_points/1")
+
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_8/screen_changer_8_9"]
+visible = false
+polygon = PackedVector2Array(9488, 784, 9488, 880, 9520, 880, 9520, 784)
 
 [node name="screen_9" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("3_a02j0")]
 camera = NodePath("9")
-default_checkpoint = NodePath("1")
+default_checkpoint = NodePath("spawn_points/1")
 
 [node name="9" type="Node2D" parent="screen_manager/screen_9" node_paths=PackedStringArray("follow_target", "follow_path")]
 top_level = true
@@ -538,8 +581,13 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 position = Vector2(9936, 784)
 curve = SubResource("Curve2D_wljuq")
 
-[node name="1" type="Marker2D" parent="screen_manager/screen_9"]
+[node name="spawn_points" type="Node2D" parent="screen_manager/screen_9"]
+
+[node name="1" type="Marker2D" parent="screen_manager/screen_9/spawn_points"]
 position = Vector2(9520, 869)
+
+[node name="2" type="Marker2D" parent="screen_manager/screen_9/spawn_points"]
+position = Vector2(11136, 709)
 
 [node name="fragile_ground" parent="screen_manager/screen_9" instance=ExtResource("8_vjvj4")]
 position = Vector2(10208, 944)
@@ -547,28 +595,66 @@ position = Vector2(10208, 944)
 [node name="fragile_ground2" parent="screen_manager/screen_9" instance=ExtResource("8_vjvj4")]
 position = Vector2(10912, 832)
 
+[node name="screen_changer_9_8" parent="screen_manager/screen_9" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("7_05ppg")]
+screen_manager = NodePath("../..")
+new_screen = NodePath("../../screen_8")
+old_screen = NodePath("..")
+door_shape = NodePath("Polygon2D")
+checkpoint = NodePath("../../screen_8/spawn_points/2")
+
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_9/screen_changer_9_8"]
+visible = false
+polygon = PackedVector2Array(9440, 800, 9440, 880, 9408, 880, 9408, 800)
+
+[node name="screen_changer_9_10" parent="screen_manager/screen_9" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("7_05ppg")]
+screen_manager = NodePath("../..")
+new_screen = NodePath("../../screen_10")
+old_screen = NodePath("..")
+door_shape = NodePath("Polygon2D")
+checkpoint = NodePath("../../screen_10/spawn_points/1")
+
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_9/screen_changer_9_10"]
+visible = false
+polygon = PackedVector2Array(11216, 560, 11216, 720, 11248, 720, 11248, 560)
+
 [node name="screen_10" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("3_a02j0")]
 camera = NodePath("10")
-default_checkpoint = NodePath("1")
+default_checkpoint = NodePath("spawn_points/1")
 
 [node name="10" type="Node2D" parent="screen_manager/screen_10" node_paths=PackedStringArray("follow_path")]
 position = Vector2(11648, 784)
 script = ExtResource("4_s2u2n")
 follow_path = NodePath("../../screen_0/Path2D")
-zoom = Vector2(0.2, 0.2)
+zoom = Vector2(0.7, 0.7)
 tween_resource = SubResource("Resource_vjvj4")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="1" type="Marker2D" parent="screen_manager/screen_10"]
+[node name="spawn_points" type="Node2D" parent="screen_manager/screen_10"]
+
+[node name="1" type="Marker2D" parent="screen_manager/screen_10/spawn_points"]
 position = Vector2(11232, 709)
+
+[node name="2" type="Marker2D" parent="screen_manager/screen_10/spawn_points"]
+position = Vector2(12032, 997)
+
+[node name="screen_changer_10_9" parent="screen_manager/screen_10" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("7_05ppg")]
+screen_manager = NodePath("../..")
+new_screen = NodePath("../../screen_9")
+old_screen = NodePath("..")
+door_shape = NodePath("Polygon2D")
+checkpoint = NodePath("../../screen_9/spawn_points/2")
+
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_10/screen_changer_10_9"]
+visible = false
+polygon = PackedVector2Array(11152, 624, 11152, 720, 11120, 720, 11120, 624)
 
 [node name="screen_changer_10_11" parent="screen_manager/screen_10" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("7_05ppg")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_11")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
-checkpoint = NodePath("../../screen_11/1")
+checkpoint = NodePath("../../screen_11/spawn_points/1")
 
 [node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_10/screen_changer_10_11"]
 visible = false
@@ -576,11 +662,16 @@ polygon = PackedVector2Array(11872, 1072, 12000, 1072, 12000, 1104, 11872, 1104)
 
 [node name="screen_11" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint", "animations") instance=ExtResource("3_a02j0")]
 camera = NodePath("11")
-default_checkpoint = NodePath("1")
+default_checkpoint = NodePath("spawn_points/1")
 animations = [null, null]
 
-[node name="1" type="Marker2D" parent="screen_manager/screen_11"]
+[node name="spawn_points" type="Node2D" parent="screen_manager/screen_11"]
+
+[node name="1" type="Marker2D" parent="screen_manager/screen_11/spawn_points"]
 position = Vector2(11936, 1125)
+
+[node name="2" type="Marker2D" parent="screen_manager/screen_11/spawn_points"]
+position = Vector2(12016, 1477)
 
 [node name="11" type="Node2D" parent="screen_manager/screen_11" node_paths=PackedStringArray("follow_path")]
 position = Vector2(11936, 1312)
@@ -590,6 +681,28 @@ zoom = Vector2(0.7, 0.7)
 tween_resource = SubResource("Resource_vjvj4")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="screen_changer_11_10" parent="screen_manager/screen_11" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("7_05ppg")]
+screen_manager = NodePath("../..")
+new_screen = NodePath("../../screen_10")
+old_screen = NodePath("..")
+door_shape = NodePath("Polygon2D")
+checkpoint = NodePath("../../screen_10/spawn_points/2")
+
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_11/screen_changer_11_10"]
+visible = false
+polygon = PackedVector2Array(11904, 1024, 11984, 1024, 11984, 992, 11904, 992)
+
+[node name="screen_changer_11_12" parent="screen_manager/screen_11" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("7_05ppg")]
+screen_manager = NodePath("../..")
+new_screen = NodePath("../../screen_12")
+old_screen = NodePath("..")
+door_shape = NodePath("Polygon2D")
+checkpoint = NodePath("../../screen_12/spawn_points/1")
+
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_11/screen_changer_11_12"]
+visible = false
+polygon = PackedVector2Array(11856, 1600, 12032, 1600, 12032, 1632, 11856, 1632)
 
 [node name="rotate_obstacle" type="Path2D" parent="screen_manager/screen_11"]
 position = Vector2(2592, 544)
@@ -638,8 +751,8 @@ shape = SubResource("RectangleShape2D_v5ns0")
 
 [node name="screen_12" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint", "animations") instance=ExtResource("3_a02j0")]
 camera = NodePath("12")
-default_checkpoint = NodePath("Marker2D")
-animations = [NodePath(""), NodePath("")]
+default_checkpoint = NodePath("spawn_points/1")
+animations = [null, null]
 
 [node name="12" type="Node2D" parent="screen_manager/screen_12" node_paths=PackedStringArray("follow_path")]
 position = Vector2(12256, 1840)
@@ -649,6 +762,36 @@ zoom = Vector2(0.7, 0.7)
 tween_resource = SubResource("Resource_vjvj4")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="spawn_points" type="Node2D" parent="screen_manager/screen_12"]
+
+[node name="1" type="Marker2D" parent="screen_manager/screen_12/spawn_points"]
+position = Vector2(11936, 1669)
+
+[node name="2" type="Marker2D" parent="screen_manager/screen_12/spawn_points"]
+position = Vector2(12672, 1797)
+
+[node name="screen_changer_12_11" parent="screen_manager/screen_12" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("7_05ppg")]
+screen_manager = NodePath("../..")
+new_screen = NodePath("../../screen_11")
+old_screen = NodePath("..")
+door_shape = NodePath("Polygon2D")
+checkpoint = NodePath("../../screen_11/spawn_points/2")
+
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_12/screen_changer_12_11"]
+visible = false
+polygon = PackedVector2Array(11872, 1552, 11984, 1552, 11984, 1520, 11872, 1520)
+
+[node name="screen_changer_12_13" parent="screen_manager/screen_12" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("7_05ppg")]
+screen_manager = NodePath("../..")
+new_screen = NodePath("../../screen_13")
+old_screen = NodePath("..")
+door_shape = NodePath("Polygon2D")
+checkpoint = NodePath("../../screen_13/spawn_points/1")
+
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_12/screen_changer_12_13"]
+visible = false
+polygon = PackedVector2Array(12752, 1680, 12752, 1808, 12784, 1808, 12784, 1680)
 
 [node name="rotate_obstacle" type="Path2D" parent="screen_manager/screen_12"]
 position = Vector2(2672, 1104)
@@ -695,16 +838,13 @@ screen_manager = NodePath("../../../../..")
 position = Vector2(-0.005859375, 0)
 shape = SubResource("RectangleShape2D_v5ns0")
 
-[node name="Marker2D" type="Marker2D" parent="screen_manager/screen_12"]
-position = Vector2(11936, 1669)
-
 [node name="screen_13" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("3_a02j0")]
 camera = NodePath("13")
-default_checkpoint = NodePath("1")
+default_checkpoint = NodePath("spawn_points/1")
 
 [node name="13" type="Node2D" parent="screen_manager/screen_13" node_paths=PackedStringArray("follow_target", "follow_path")]
 top_level = true
-position = Vector2(13680, 1840)
+position = Vector2(13184, 1840)
 script = ExtResource("4_s2u2n")
 follow_mode = 4
 follow_target = NodePath("../../../objs/player")
@@ -718,8 +858,35 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 position = Vector2(13184, 1840)
 curve = SubResource("Curve2D_24asp")
 
-[node name="1" type="Marker2D" parent="screen_manager/screen_13"]
+[node name="spawn_points" type="Node2D" parent="screen_manager/screen_13"]
+
+[node name="1" type="Marker2D" parent="screen_manager/screen_13/spawn_points"]
 position = Vector2(12784, 1797)
+
+[node name="2" type="Marker2D" parent="screen_manager/screen_13/spawn_points"]
+position = Vector2(14112, 1861)
+
+[node name="screen_changer_13_12" parent="screen_manager/screen_13" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("7_05ppg")]
+screen_manager = NodePath("../..")
+new_screen = NodePath("../../screen_12")
+old_screen = NodePath("..")
+door_shape = NodePath("Polygon2D")
+checkpoint = NodePath("../spawn_points/2")
+
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_13/screen_changer_13_12"]
+visible = false
+polygon = PackedVector2Array(12688, 1664, 12688, 1808, 12656, 1808, 12656, 1664)
+
+[node name="screen_changer_13_14" parent="screen_manager/screen_13" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("7_05ppg")]
+screen_manager = NodePath("../..")
+new_screen = NodePath("../../screen_14")
+old_screen = NodePath("..")
+door_shape = NodePath("Polygon2D")
+checkpoint = NodePath("../../screen_14/spawn_points/1")
+
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_13/screen_changer_13_14"]
+visible = false
+polygon = PackedVector2Array(14176, 1728, 14176, 1872, 14208, 1872, 14208, 1728)
 
 [node name="rotate_obstacle" type="Path2D" parent="screen_manager/screen_13"]
 position = Vector2(3840, 1088)
@@ -727,7 +894,7 @@ scale = Vector2(1.1428533, 1)
 curve = SubResource("Curve2D_v5ns0")
 
 [node name="moving_obstacle" parent="screen_manager/screen_13/rotate_obstacle" node_paths=PackedStringArray("screen") instance=ExtResource("10_u583p")]
-position = Vector2(8176.0264, 656)
+position = Vector2(8176.0273, 656)
 move_speed = 0.25
 screen = NodePath("../..")
 
@@ -768,8 +935,8 @@ shape = SubResource("RectangleShape2D_v5ns0")
 
 [node name="screen_14" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint", "animations") instance=ExtResource("3_a02j0")]
 camera = NodePath("14")
-default_checkpoint = NodePath("1")
-animations = [NodePath("")]
+default_checkpoint = NodePath("spawn_points/1")
+animations = [null]
 
 [node name="14" type="Node2D" parent="screen_manager/screen_14" node_paths=PackedStringArray("follow_path")]
 position = Vector2(14608, 1840)
@@ -780,6 +947,22 @@ tween_resource = SubResource("Resource_vjvj4")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
+[node name="spawn_points" type="Node2D" parent="screen_manager/screen_14"]
+
+[node name="1" type="Marker2D" parent="screen_manager/screen_14/spawn_points"]
+position = Vector2(14192, 1861)
+
+[node name="screen_changer_14_13" parent="screen_manager/screen_14" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("7_05ppg")]
+screen_manager = NodePath("../..")
+new_screen = NodePath("../../screen_13")
+old_screen = NodePath("..")
+door_shape = NodePath("Polygon2D")
+checkpoint = NodePath("../../screen_13/spawn_points/2")
+
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_14/screen_changer_14_13"]
+visible = false
+polygon = PackedVector2Array(14128, 1744, 14128, 1872, 14096, 1872, 14096, 1744)
+
 [node name="on_off_ground" parent="screen_manager/screen_14" instance=ExtResource("9_vjvj4")]
 position = Vector2(14320, 2016)
 on_time = 3.0
@@ -787,9 +970,6 @@ off_time = 3.0
 
 [node name="fragile_ground" parent="screen_manager/screen_14" instance=ExtResource("8_vjvj4")]
 position = Vector2(14608, 1920)
-
-[node name="1" type="Marker2D" parent="screen_manager/screen_14"]
-position = Vector2(14192, 1861)
 
 [node name="rotate_obstacle3" type="Path2D" parent="screen_manager/screen_14"]
 position = Vector2(5376, 1088)
@@ -813,14 +993,16 @@ screen_manager = NodePath("../../../../..")
 position = Vector2(-0.005859375, 0)
 shape = SubResource("RectangleShape2D_v5ns0")
 
+[node name="spawn_points2" type="Node2D" parent="screen_manager/screen_14"]
+
 [node name="objs" type="Node2D" parent="."]
 
 [node name="player" parent="objs" node_paths=PackedStringArray("screen_manager") instance=ExtResource("3_38vaf")]
-position = Vector2(13776, 1792)
+position = Vector2(11936, 1104)
 screen_manager = NodePath("../../screen_manager")
 
 [node name="stone" type="TileMapLayer" parent="objs"]
-tile_map_data = PackedByteArray("AAAXAAIAAAAJAAAAAAAYAAIAAAAJAAMAAAAZAAIAAAAKAAEAAAAaAAEAAAAJAAMAAAAaAAIAAAAKAAEAAAAaAAMAAAAKAAIAAAAbAAEAAAAKAAEAAAAbAAIAAAAKAAEAAAAbAAMAAAAKAAIAAAAcAAEAAAALAAEAAAAcAAIAAAALAAEAAAAcAAMAAAALAAIAAAAoAP//AAAJAAEAAAAoAAAAAAAJAAEAAAApAP//AAAKAAEAAAApAAAAAAAKAAEAAAAqAP//AAAKAAEAAAAqAAAAAAAKAAEAAAArAP//AAAKAAEAAAArAAAAAAAKAAEAAAAYAAEAAAAJAAAAAAAZAAEAAAAKAAAAAAAaAAAAAAAJAAAAAAAbAAAAAAAKAAAAAAAcAAAAAAALAAAAAAAoAP7/AAAJAAAAAAApAP7/AAAKAAAAAAAqAP7/AAAKAAAAAAArAP7/AAAJAAMAAAAZAAMAAAAKAAIAAAAYAAMAAAAKAAIAAAAXAAMAAAAJAAIAAAArAP3/AAAJAAEAAAArAPz/AAAJAAAAAAApAAEAAAAKAAEAAAAoAAIAAAAJAAEAAAAoAAMAAAAJAAEAAAAoAAEAAAAJAAEAAAAoAAQAAAAJAAEAAAApAAMAAAAKAAEAAAApAAIAAAAKAAEAAAAqAAMAAAAKAAEAAAAqAAQAAAAKAAEAAAAqAAIAAAAKAAEAAAAqAAEAAAAKAAEAAAApAAQAAAAKAAEAAAArAAQAAAAKAAEAAAArAAMAAAAKAAEAAAArAAIAAAAKAAEAAAArAAEAAAAKAAEAAAAsAAMAAAALAAEAAAAsAAQAAAAIAAMAAAApAAUAAAAKAAIAAAAoAAUAAAAJAAIAAAAqAAUAAAAKAAIAAAArAAUAAAAKAAIAAAAsAAUAAAAKAAIAAAAtAAUAAAALAAIAAAAtAAQAAAALAAAAAAAsAAEAAAALAAEAAAAsAAIAAAALAAEAAAAsAAAAAAALAAEAAAAsAP//AAALAAEAAAAsAP7/AAALAAEAAAAsAP3/AAALAAEAAAAsAPz/AAALAAAAAADhAAkAAAAJAAAAAADiAAkAAAAKAAAAAADjAAkAAAALAAAAAADjAAoAAAALAAEAAADjAAsAAAALAAEAAADjAAwAAAALAAEAAADjAA0AAAALAAEAAADjAA4AAAALAAEAAADjAA8AAAALAAIAAADiAA8AAAAKAAIAAADiAA4AAAAKAAEAAADhAA4AAAAJAAEAAADhAA0AAAAJAAEAAADhAAwAAAAJAAEAAADhAAsAAAAJAAEAAADhAAoAAAAJAAEAAADiAAoAAAAKAAEAAADiAAsAAAAKAAEAAADiAAwAAAAKAAEAAADiAA0AAAAKAAEAAADhAA8AAAAJAAIAAABZAAIAAAAJAAAAAABaAAIAAAAKAAAAAABbAAIAAAAKAAAAAABcAAIAAAAKAAAAAABdAAIAAAALAAAAAABdAAMAAAALAAIAAABcAAMAAAAKAAMAAABbAAMAAAAKAAEAAABaAAMAAAALAAMAAABZAAMAAAAJAAIAAABaAAQAAAAJAAEAAABaAAUAAAAJAAEAAABaAAYAAAAJAAEAAABaAAcAAAAJAAEAAABaAAgAAAAJAAEAAABaAAkAAAAJAAIAAABbAAkAAAAKAAIAAABcAAkAAAALAAIAAABcAAgAAAALAAEAAABcAAcAAAALAAEAAABcAAYAAAALAAEAAABcAAUAAAALAAEAAABcAAQAAAALAAEAAABbAAQAAAAKAAEAAABbAAUAAAAKAAEAAABbAAYAAAAKAAEAAABbAAcAAAAKAAEAAABbAAgAAAAKAAEAAAAVARwAAAAJAAAAAAAWARwAAAAJAAMAAAAXARwAAAAKAAEAAAAYARwAAAAKAAEAAAAYARsAAAAKAAEAAAAXARsAAAAJAAMAAAAWARsAAAAJAAAAAAAYARoAAAAKAAAAAAAZARoAAAALAAAAAAAXARoAAAAJAAAAAAAZARsAAAAIAAMAAAAaARsAAAALAAAAAAAaARwAAAAIAAMAAAAbARwAAAALAAAAAAAZARwAAAAKAAEAAAAaAR0AAAAKAAIAAAAbAR0AAAALAAIAAAAZAR0AAAAKAAIAAAAYAR0AAAAKAAIAAAAXAR0AAAAKAAIAAAAWAR0AAAAKAAIAAAAVAR0AAAAJAAIAAAA1ARsAAAAJAAAAAAA2ARsAAAAKAAAAAAA3ARsAAAAKAAAAAAA4ARsAAAAKAAAAAAA5ARsAAAALAAAAAAA1ARwAAAAJAAIAAAA2ARwAAAALAAMAAAA3ARwAAAAKAAEAAAA4ARwAAAAKAAMAAAA5ARwAAAALAAIAAAA2AR0AAAAJAAEAAAA2AR4AAAAJAAEAAAA3AR4AAAAKAAEAAAA4AR4AAAALAAEAAAA4AR8AAAALAAIAAAA4AR0AAAALAAEAAAA3AR0AAAAKAAEAAAA3AR8AAAAKAAIAAAA2AR8AAAAJAAIAAABzASMAAAAAAAMAAAB0ASMAAAABAAMAAAB1ASMAAAABAAMAAAB2ASMAAAACAAMAAAB2AS4AAAAJAAAAAABzAS4AAAALAAAAAAB2AS8AAAAJAAEAAAByAS8AAAAKAAEAAAByATAAAAAKAAMAAAByATEAAAALAAEAAAByAS4AAAAKAAAAAABzAS8AAAALAAEAAAB3AS4AAAAKAAAAAAB3AS8AAAAKAAEAAAB3ATAAAAAKAAEAAAB3ATEAAAALAAMAAAB4AS4AAAAKAAAAAAB4AS8AAAAKAAEAAAB4ATAAAAAKAAEAAAB4ATEAAAAKAAEAAABxAS4AAAAIAAMAAABxAS8AAAAKAAEAAABxATAAAAAKAAEAAABxATEAAAAKAAEAAABxAS0AAAALAAAAAABwAS0AAAAKAAAAAABvAS0AAAAKAAAAAABuAS0AAAAKAAAAAABtAS0AAAAKAAAAAABsAS0AAAAIAAMAAABsASwAAAALAAAAAABrASwAAAAKAAAAAABqASwAAAAKAAAAAABpASwAAAAKAAAAAABoASwAAAAKAAAAAABnASwAAAAKAAAAAABmASwAAAAKAAAAAABmAS0AAAAKAAEAAABmAS4AAAAKAAEAAABmAS8AAAAKAAEAAABmATAAAAAKAAEAAABmATEAAAAKAAIAAABnATEAAAAKAAIAAABoATEAAAAKAAIAAABpATEAAAAKAAIAAABqATEAAAALAAMAAABrATEAAAAKAAEAAABsATEAAAAKAAEAAABtATEAAAAKAAEAAABuATEAAAAKAAEAAABvATEAAAAKAAEAAABwATEAAAAKAAEAAAB5ATEAAAAKAAEAAAB6ATEAAAAKAAEAAAB7ATEAAAAKAAEAAAB8ATEAAAAKAAEAAAB9ATEAAAAKAAEAAAB+ATEAAAAKAAEAAAB/ATEAAAAKAAEAAACAATEAAAAKAAEAAACBATEAAAAKAAEAAACCATEAAAAKAAEAAACDATEAAAAKAAEAAAB5AS4AAAAKAAAAAAB6AS4AAAAKAAAAAAB7AS4AAAAKAAAAAAB8AS4AAAAKAAAAAAB9AS4AAAAKAAAAAAB+AS4AAAAJAAMAAAB+AS0AAAAJAAAAAAB/AS0AAAAKAAAAAACAAS0AAAAKAAAAAACBAS0AAAAKAAAAAACCAS0AAAAKAAAAAACDAS0AAAALAAAAAACDAS4AAAAIAAMAAACDAS8AAAAKAAEAAACDATAAAAAKAAEAAABwATAAAAAKAAEAAABwAS8AAAAKAAEAAABwAS4AAAAKAAEAAABvATAAAAAKAAEAAABvAS8AAAAKAAEAAABvAS4AAAAKAAEAAABuATAAAAAKAAEAAABuAS8AAAAKAAEAAABuAS4AAAAKAAEAAABtATAAAAAKAAEAAABtAS8AAAAKAAEAAABtAS4AAAAKAAEAAABsATAAAAAKAAEAAABsAS8AAAAKAAEAAABsAS4AAAAKAAEAAABrATAAAAAKAAEAAABrAS8AAAAKAAEAAABrAS4AAAAKAAEAAABrAS0AAAAKAAEAAABqATAAAAAKAAEAAABqAS8AAAAKAAEAAABqAS4AAAAKAAEAAABqAS0AAAAKAAEAAABpATAAAAAKAAEAAABpAS8AAAAKAAEAAABpAS4AAAAKAAEAAABpAS0AAAAKAAEAAABoATAAAAAKAAEAAABoAS8AAAAKAAEAAABoAS4AAAAKAAEAAABoAS0AAAAKAAEAAABnATAAAAAKAAEAAABnAS8AAAAKAAEAAABnAS4AAAAKAAEAAABnAS0AAAAKAAEAAACCATAAAAAKAAEAAACCAS8AAAAKAAEAAACCAS4AAAAKAAEAAACBATAAAAAKAAEAAACBAS8AAAAKAAEAAACBAS4AAAAKAAEAAACAATAAAAAKAAEAAACAAS8AAAAKAAEAAACAAS4AAAAKAAEAAAB/ATAAAAAKAAEAAAB/AS8AAAAKAAEAAAB/AS4AAAAKAAEAAAB+ATAAAAAKAAEAAAB+AS8AAAAKAAEAAAB9ATAAAAAKAAEAAAB9AS8AAAAKAAEAAAB8ATAAAAAKAAEAAAB8AS8AAAAKAAEAAAB7ATAAAAAKAAEAAAB7AS8AAAAKAAEAAAB6ATAAAAAKAAEAAAB6AS8AAAAKAAEAAAB5ATAAAAAKAAEAAAB5AS8AAAAKAAEAAABlATEAAAAJAAIAAABlATAAAAAJAAEAAABlAS8AAAAJAAEAAABlASwAAAAJAAAAAABlAS0AAAAJAAEAAABlAS4AAAAJAAEAAAB5ATIAAAAKAAEAAAB6ATIAAAAKAAEAAAB7ATIAAAAKAAEAAAB7ATMAAAAKAAEAAAB6ATMAAAAKAAEAAAB8ATMAAAAKAAEAAAB9ATMAAAAKAAEAAAB9ATQAAAAKAAEAAAB+ATQAAAAKAAEAAAB/ATQAAAAKAAEAAAB/ATUAAAAKAAEAAAB8ATQAAAAKAAEAAAB6ATQAAAAKAAEAAAB7ATQAAAAKAAEAAACAATUAAAAKAAEAAACBATUAAAAKAAEAAACCATUAAAAKAAEAAACCATQAAAAKAAEAAACCATMAAAAKAAEAAACCATIAAAAKAAEAAACDATIAAAAKAAEAAACDATMAAAAKAAEAAACEAS4AAAALAAAAAACEAS8AAAAIAAMAAACFAS8AAAALAAAAAACFATAAAAALAAEAAACFATEAAAAIAAMAAACGATEAAAALAAAAAACGATIAAAALAAEAAACGATMAAAALAAIAAACFATMAAAAKAAMAAACFATQAAAALAAEAAACFATUAAAALAAIAAACEATUAAAAKAAMAAACDATUAAAAKAAEAAACFATIAAAAKAAEAAACEATQAAAAKAAEAAACEATMAAAAKAAEAAACEATIAAAAKAAEAAACEATEAAAAKAAEAAACEATAAAAAKAAEAAACDATQAAAAKAAEAAACBATQAAAAKAAEAAACBATMAAAAKAAEAAACBATIAAAAKAAEAAACAATQAAAAKAAEAAACAATMAAAAKAAEAAACAATIAAAAKAAEAAAB/ATMAAAAKAAEAAAB/ATIAAAAKAAEAAAB+ATMAAAAKAAEAAAB+ATIAAAAKAAEAAAB9ATIAAAAKAAEAAAB8ATIAAAAKAAEAAABxATIAAAAKAAEAAABxATMAAAAKAAEAAABxATQAAAAKAAEAAABxATUAAAAKAAEAAABwATUAAAAKAAEAAABwATYAAAAKAAEAAABwATcAAAAKAAIAAABvATcAAAAKAAIAAABuATcAAAAKAAIAAABtATcAAAAKAAIAAABsATcAAAAJAAIAAABsATYAAAAJAAEAAABsATUAAAAJAAEAAABrATQAAAAJAAIAAABrATMAAAAJAAEAAABqATIAAAAJAAIAAABwATQAAAAKAAEAAABwATMAAAAKAAEAAABwATIAAAAKAAEAAABvATYAAAAKAAEAAABvATUAAAAKAAEAAABvATQAAAAKAAEAAABvATMAAAAKAAEAAABvATIAAAAKAAEAAABuATYAAAAKAAEAAABuATUAAAAKAAEAAABuATQAAAAKAAEAAABuATMAAAAKAAEAAABuATIAAAAKAAEAAABtATYAAAAKAAEAAABtATUAAAAKAAEAAABtATQAAAAKAAEAAABtATMAAAAKAAEAAABtATIAAAAKAAEAAABsATQAAAALAAMAAABsATMAAAAKAAEAAABsATIAAAAKAAEAAABrATIAAAALAAMAAAByATIAAAALAAEAAAByATMAAAALAAEAAAByATQAAAAIAAMAAAByATUAAAAKAAEAAAB4ATUAAAAJAAEAAAB4ATQAAAAJAAEAAAB5ATQAAAAKAAEAAAB5ATUAAAAKAAEAAAB6ATUAAAAKAAEAAAB7ATUAAAAKAAEAAAB8ATUAAAAKAAEAAAB9ATUAAAAKAAEAAAB+ATUAAAAKAAEAAAB4ATIAAAALAAMAAABxATYAAAAKAAEAAABxATcAAAAKAAIAAAByATcAAAAKAAIAAAByATYAAAAKAAEAAAB8ATcAAAAJAAIAAAB9ATcAAAAKAAIAAAB+ATcAAAAKAAIAAAB/ATcAAAAKAAIAAACAATcAAAAKAAIAAACBATcAAAAKAAIAAACCATcAAAAKAAIAAACDATcAAAAKAAIAAACEATcAAAALAAIAAACEATYAAAALAAEAAACDATYAAAAKAAEAAACCATYAAAAKAAEAAACBATYAAAAKAAEAAACAATYAAAAKAAEAAAB/ATYAAAAKAAEAAAB+ATYAAAAKAAEAAAB5ATYAAAAKAAIAAAB6ATYAAAAKAAIAAAB7ATYAAAAKAAIAAAB8ATYAAAALAAMAAAB9ATYAAAAKAAEAAABzATAAAAALAAIAAAB2ATAAAAAJAAEAAAB1ATQAAAAKAAAAAAB2ATQAAAALAAAAAAB2ATUAAAALAAIAAAB1ATUAAAAKAAMAAAB0ATQAAAAKAAAAAAB0ATUAAAAKAAEAAABzATQAAAAKAAAAAABzATUAAAAKAAEAAAB2ATEAAAAJAAIAAAB3ATIAAAAJAAIAAAB5ATMAAAAKAAEAAAB4ATMAAAAJAAEAAAB0ATYAAAAKAAIAAABzATYAAAAKAAMAAABzATcAAAALAAIAAAB1ATYAAAALAAIAAAB4ATYAAAAJAAIAAAB4ATwAAAAKAAAAAAB3ATwAAAAKAAAAAAB2ATwAAAAKAAAAAAB1ATwAAAAJAAAAAAB5ATwAAAALAAAAAAB5AT0AAAALAAIAAAB4AT0AAAAKAAMAAAB3AT0AAAAKAAEAAAB2AT0AAAALAAMAAAB1AT0AAAAJAAIAAAB2AT4AAAAJAAEAAAB2AT8AAAAJAAEAAAB2AUAAAAAJAAEAAAB2AUEAAAAJAAEAAAB2AUIAAAAJAAIAAAB3AUIAAAAKAAIAAAB4AUIAAAALAAIAAAB4AUEAAAALAAEAAAB4AUAAAAALAAEAAAB4AT8AAAALAAEAAAB4AT4AAAALAAEAAAB3AT4AAAAKAAEAAAB3AT8AAAAKAAEAAAB3AUAAAAAKAAEAAAB3AUEAAAAKAAEAAACGATsAAAAKAAAAAACHATsAAAAKAAAAAACIATsAAAALAAAAAACFATsAAAAKAAAAAACEATsAAAAJAAAAAACEATwAAAAJAAIAAACFATwAAAALAAMAAACGATwAAAAKAAEAAACHATwAAAAKAAMAAACIATwAAAALAAIAAACFAT0AAAAJAAEAAACFAT4AAAAJAAEAAACGAT4AAAAKAAEAAACGAT8AAAAKAAEAAACGAUAAAAAKAAEAAACFAUAAAAAJAAEAAACFAUEAAAAJAAEAAACFAT8AAAAJAAEAAACFAUIAAAAJAAIAAACGAUIAAAAKAAIAAACHAUIAAAALAAIAAACHAUEAAAALAAEAAACHAUAAAAALAAEAAACHAT8AAAALAAEAAACHAT4AAAALAAEAAACHAT0AAAALAAEAAACGAT0AAAAKAAEAAACGAUEAAAAKAAEAAABxASMAAAALAAEAAABxASIAAAAHAAAAAAByASUAAAABAAMAAABzASUAAAACAAMAAAB2ASUAAAAAAAMAAAB3ASUAAAABAAMAAABxASQAAAALAAEAAABxASUAAAAFAAEAAAB4ASUAAAAGAAEAAABwASUAAAAJAAIAAABwASQAAAAJAAEAAABwASMAAAAJAAEAAABwASIAAAAJAAAAAAB5ASUAAAALAAIAAAB5ASQAAAALAAEAAAB5ASMAAAALAAEAAAB5ASIAAAALAAAAAAByASEAAAABAAMAAABxASEAAAABAAAAAAB4ASEAAAACAAAAAAB3ASEAAAABAAMAAAB2ASEAAAAAAAMAAABzASEAAAACAAMAAAB4ASIAAAADAAAAAAB4ASMAAAAJAAEAAAB4ASQAAAAJAAEAAAA=")
+tile_map_data = PackedByteArray("AAAXAAIAAAAJAAAAAAAYAAIAAAAJAAMAAAAZAAIAAAAKAAEAAAAaAAEAAAAJAAMAAAAaAAIAAAAKAAEAAAAaAAMAAAAKAAIAAAAbAAEAAAAKAAEAAAAbAAIAAAAKAAEAAAAbAAMAAAAKAAIAAAAcAAEAAAALAAEAAAAcAAIAAAALAAEAAAAcAAMAAAALAAIAAAAoAP//AAAJAAEAAAAoAAAAAAAJAAEAAAApAP//AAAKAAEAAAApAAAAAAAKAAEAAAAqAP//AAAKAAEAAAAqAAAAAAAKAAEAAAArAP//AAAKAAEAAAArAAAAAAAKAAEAAAAYAAEAAAAJAAAAAAAZAAEAAAAKAAAAAAAaAAAAAAAJAAAAAAAbAAAAAAAKAAAAAAAcAAAAAAALAAAAAAAoAP7/AAAJAAAAAAApAP7/AAAKAAAAAAAqAP7/AAAKAAAAAAArAP7/AAAJAAMAAAAZAAMAAAAKAAIAAAAYAAMAAAAKAAIAAAAXAAMAAAAJAAIAAAArAP3/AAAJAAEAAAArAPz/AAAJAAAAAAApAAEAAAAKAAEAAAAoAAIAAAAJAAEAAAAoAAMAAAAJAAEAAAAoAAEAAAAJAAEAAAAoAAQAAAAJAAEAAAApAAMAAAAKAAEAAAApAAIAAAAKAAEAAAAqAAMAAAAKAAEAAAAqAAQAAAAKAAEAAAAqAAIAAAAKAAEAAAAqAAEAAAAKAAEAAAApAAQAAAAKAAEAAAArAAQAAAAKAAEAAAArAAMAAAAKAAEAAAArAAIAAAAKAAEAAAArAAEAAAAKAAEAAAAsAAMAAAALAAEAAAAsAAQAAAAIAAMAAAApAAUAAAAKAAIAAAAoAAUAAAAJAAIAAAAqAAUAAAAKAAIAAAArAAUAAAAKAAIAAAAsAAUAAAAKAAIAAAAtAAUAAAALAAIAAAAtAAQAAAALAAAAAAAsAAEAAAALAAEAAAAsAAIAAAALAAEAAAAsAAAAAAALAAEAAAAsAP//AAALAAEAAAAsAP7/AAALAAEAAAAsAP3/AAALAAEAAAAsAPz/AAALAAAAAADhAAkAAAAJAAAAAADiAAkAAAAKAAAAAADjAAkAAAALAAAAAADjAAoAAAALAAEAAADjAAsAAAALAAEAAADjAAwAAAALAAEAAADjAA0AAAALAAEAAADjAA4AAAALAAEAAADjAA8AAAALAAIAAADiAA8AAAAKAAIAAADiAA4AAAAKAAEAAADhAA4AAAAJAAEAAADhAA0AAAAJAAEAAADhAAwAAAAJAAEAAADhAAsAAAAJAAEAAADhAAoAAAAJAAEAAADiAAoAAAAKAAEAAADiAAsAAAAKAAEAAADiAAwAAAAKAAEAAADiAA0AAAAKAAEAAADhAA8AAAAJAAIAAABZAAIAAAAJAAAAAABaAAIAAAAKAAAAAABbAAIAAAAKAAAAAABcAAIAAAAKAAAAAABdAAIAAAALAAAAAABdAAMAAAALAAIAAABcAAMAAAAKAAMAAABbAAMAAAAKAAEAAABaAAMAAAALAAMAAABZAAMAAAAJAAIAAABaAAQAAAAJAAEAAABaAAUAAAAJAAEAAABaAAYAAAAJAAEAAABaAAcAAAAJAAEAAABaAAgAAAAJAAEAAABaAAkAAAAJAAIAAABbAAkAAAAKAAIAAABcAAkAAAALAAIAAABcAAgAAAALAAEAAABcAAcAAAALAAEAAABcAAYAAAALAAEAAABcAAUAAAALAAEAAABcAAQAAAALAAEAAABbAAQAAAAKAAEAAABbAAUAAAAKAAEAAABbAAYAAAAKAAEAAABbAAcAAAAKAAEAAABbAAgAAAAKAAEAAAAVARwAAAAJAAAAAAAWARwAAAAJAAMAAAAXARwAAAAKAAEAAAAYARwAAAAKAAEAAAAYARsAAAAKAAEAAAAXARsAAAAJAAMAAAAWARsAAAAJAAAAAAAYARoAAAAKAAAAAAAZARoAAAALAAAAAAAXARoAAAAJAAAAAAAZARsAAAAIAAMAAAAaARsAAAALAAAAAAAaARwAAAAIAAMAAAAbARwAAAALAAAAAAAZARwAAAAKAAEAAAAaAR0AAAAKAAIAAAAbAR0AAAALAAIAAAAZAR0AAAAKAAIAAAAYAR0AAAAKAAIAAAAXAR0AAAAKAAIAAAAWAR0AAAAKAAIAAAAVAR0AAAAJAAIAAAA1ARsAAAAJAAAAAAA2ARsAAAAKAAAAAAA3ARsAAAAKAAAAAAA4ARsAAAAKAAAAAAA5ARsAAAALAAAAAAA1ARwAAAAJAAIAAAA2ARwAAAALAAMAAAA3ARwAAAAKAAEAAAA4ARwAAAAKAAMAAAA5ARwAAAALAAIAAAA2AR0AAAAJAAEAAAA2AR4AAAAJAAEAAAA3AR4AAAAKAAEAAAA4AR4AAAALAAEAAAA4AR8AAAALAAIAAAA4AR0AAAALAAEAAAA3AR0AAAAKAAEAAAA3AR8AAAAKAAIAAAA2AR8AAAAJAAIAAABzASMAAAAAAAMAAAB0ASMAAAABAAMAAAB1ASMAAAABAAMAAAB2ASMAAAACAAMAAAB2AS4AAAAJAAAAAABzAS4AAAALAAAAAAB2AS8AAAAJAAEAAAByAS8AAAAKAAEAAAByATAAAAAKAAMAAAByATEAAAALAAEAAAByAS4AAAAKAAAAAABzAS8AAAALAAEAAAB3AS4AAAAKAAAAAAB3AS8AAAAKAAEAAAB3ATAAAAAKAAEAAAB3ATEAAAALAAMAAAB4AS4AAAAKAAAAAAB4AS8AAAAKAAEAAAB4ATAAAAAKAAEAAAB4ATEAAAAKAAEAAABxAS4AAAAIAAMAAABxAS8AAAAKAAEAAABxATAAAAAKAAEAAABxATEAAAAKAAEAAABxAS0AAAALAAAAAABwAS0AAAAKAAAAAABvAS0AAAAKAAAAAABuAS0AAAAKAAAAAABtAS0AAAAKAAAAAABsAS0AAAAIAAMAAABsASwAAAALAAAAAABrASwAAAAKAAAAAABqASwAAAAKAAAAAABpASwAAAAKAAAAAABoASwAAAAKAAAAAABnASwAAAAKAAAAAABmASwAAAAKAAAAAABmAS0AAAAKAAEAAABmAS4AAAAKAAEAAABmAS8AAAAKAAEAAABmATAAAAAKAAEAAABmATEAAAAKAAIAAABnATEAAAAKAAIAAABoATEAAAAKAAIAAABpATEAAAAKAAIAAABqATEAAAALAAMAAABrATEAAAAKAAEAAABsATEAAAAKAAEAAABtATEAAAAKAAEAAABuATEAAAAKAAEAAABvATEAAAAKAAEAAABwATEAAAAKAAEAAAB5ATEAAAAKAAEAAAB6ATEAAAAKAAEAAAB7ATEAAAAKAAEAAAB8ATEAAAAKAAEAAAB9ATEAAAAKAAEAAAB+ATEAAAAKAAEAAAB/ATEAAAAKAAEAAACAATEAAAAKAAEAAACBATEAAAAKAAEAAACCATEAAAAKAAEAAACDATEAAAAKAAEAAAB5AS4AAAAKAAAAAAB6AS4AAAAKAAAAAAB7AS4AAAAKAAAAAAB8AS4AAAAKAAAAAAB9AS4AAAAKAAAAAAB+AS4AAAAJAAMAAAB+AS0AAAAJAAAAAAB/AS0AAAAKAAAAAACAAS0AAAAKAAAAAACBAS0AAAAKAAAAAACCAS0AAAAKAAAAAACDAS0AAAALAAAAAACDAS4AAAAIAAMAAACDAS8AAAAKAAEAAACDATAAAAAKAAEAAABwATAAAAAKAAEAAABwAS8AAAAKAAEAAABwAS4AAAAKAAEAAABvATAAAAAKAAEAAABvAS8AAAAKAAEAAABvAS4AAAAKAAEAAABuATAAAAAKAAEAAABuAS8AAAAKAAEAAABuAS4AAAAKAAEAAABtATAAAAAKAAEAAABtAS8AAAAKAAEAAABtAS4AAAAKAAEAAABsATAAAAAKAAEAAABsAS8AAAAKAAEAAABsAS4AAAAKAAEAAABrATAAAAAKAAEAAABrAS8AAAAKAAEAAABrAS4AAAAKAAEAAABrAS0AAAAKAAEAAABqATAAAAAKAAEAAABqAS8AAAAKAAEAAABqAS4AAAAKAAEAAABqAS0AAAAKAAEAAABpATAAAAAKAAEAAABpAS8AAAAKAAEAAABpAS4AAAAKAAEAAABpAS0AAAAKAAEAAABoATAAAAAKAAEAAABoAS8AAAAKAAEAAABoAS4AAAAKAAEAAABoAS0AAAAKAAEAAABnATAAAAAKAAEAAABnAS8AAAAKAAEAAABnAS4AAAAKAAEAAABnAS0AAAAKAAEAAACCATAAAAAKAAEAAACCAS8AAAAKAAEAAACCAS4AAAAKAAEAAACBATAAAAAKAAEAAACBAS8AAAAKAAEAAACBAS4AAAAKAAEAAACAATAAAAAKAAEAAACAAS8AAAAKAAEAAACAAS4AAAAKAAEAAAB/ATAAAAAKAAEAAAB/AS8AAAAKAAEAAAB/AS4AAAAKAAEAAAB+ATAAAAAKAAEAAAB+AS8AAAAKAAEAAAB9ATAAAAAKAAEAAAB9AS8AAAAKAAEAAAB8ATAAAAAKAAEAAAB8AS8AAAAKAAEAAAB7ATAAAAAKAAEAAAB7AS8AAAAKAAEAAAB6ATAAAAAKAAEAAAB6AS8AAAAKAAEAAAB5ATAAAAAKAAEAAAB5AS8AAAAKAAEAAABlATEAAAAJAAIAAABlATAAAAAJAAEAAABlAS8AAAAJAAEAAABlASwAAAAJAAAAAABlAS0AAAAJAAEAAABlAS4AAAAJAAEAAAB5ATIAAAAKAAEAAAB6ATIAAAAKAAEAAAB7ATIAAAAKAAEAAAB7ATMAAAAKAAEAAAB6ATMAAAAKAAEAAAB8ATMAAAAKAAEAAAB9ATMAAAAKAAEAAAB9ATQAAAAKAAEAAAB+ATQAAAAKAAEAAAB/ATQAAAAKAAEAAAB/ATUAAAAKAAEAAAB8ATQAAAAKAAEAAAB6ATQAAAAKAAEAAAB7ATQAAAAKAAEAAACAATUAAAAKAAEAAACBATUAAAAKAAEAAACCATUAAAAKAAEAAACCATQAAAAKAAEAAACCATMAAAAKAAEAAACCATIAAAAKAAEAAACDATIAAAAKAAEAAACDATMAAAAKAAEAAACEAS4AAAALAAAAAACEAS8AAAAIAAMAAACFAS8AAAALAAAAAACFATAAAAALAAEAAACFATEAAAAIAAMAAACGATEAAAALAAAAAACGATIAAAALAAEAAACGATMAAAALAAIAAACFATMAAAAKAAMAAACFATQAAAALAAEAAACFATUAAAALAAIAAACEATUAAAAKAAMAAACDATUAAAAKAAEAAACFATIAAAAKAAEAAACEATQAAAAKAAEAAACEATMAAAAKAAEAAACEATIAAAAKAAEAAACEATEAAAAKAAEAAACEATAAAAAKAAEAAACDATQAAAAKAAEAAACBATQAAAAKAAEAAACBATMAAAAKAAEAAACBATIAAAAKAAEAAACAATQAAAAKAAEAAACAATMAAAAKAAEAAACAATIAAAAKAAEAAAB/ATMAAAAKAAEAAAB/ATIAAAAKAAEAAAB+ATMAAAAKAAEAAAB+ATIAAAAKAAEAAAB9ATIAAAAKAAEAAAB8ATIAAAAKAAEAAABxATIAAAAKAAEAAABxATMAAAAKAAEAAABxATQAAAAKAAEAAABxATUAAAAKAAEAAABwATUAAAAKAAEAAABwATYAAAAKAAEAAABwATcAAAAKAAIAAABvATcAAAAKAAMAAABuATcAAAALAAMAAABtATcAAAAKAAIAAABsATcAAAAJAAIAAABsATYAAAAJAAEAAABsATUAAAAJAAEAAABrATQAAAAJAAIAAABrATMAAAAJAAEAAABqATIAAAAJAAIAAABwATQAAAAKAAEAAABwATMAAAAKAAEAAABwATIAAAAKAAEAAABvATYAAAAKAAEAAABvATUAAAAKAAEAAABvATQAAAAKAAEAAABvATMAAAAKAAEAAABvATIAAAAKAAEAAABuATYAAAAKAAEAAABuATUAAAAKAAEAAABuATQAAAAKAAEAAABuATMAAAAKAAEAAABuATIAAAAKAAEAAABtATYAAAAKAAEAAABtATUAAAAKAAEAAABtATQAAAAKAAEAAABtATMAAAAKAAEAAABtATIAAAAKAAEAAABsATQAAAALAAMAAABsATMAAAAKAAEAAABsATIAAAAKAAEAAABrATIAAAALAAMAAAByATIAAAALAAEAAAByATMAAAALAAEAAAByATQAAAAIAAMAAAByATUAAAAKAAEAAAB4ATUAAAAJAAEAAAB4ATQAAAAJAAEAAAB5ATQAAAAKAAEAAAB5ATUAAAAKAAEAAAB6ATUAAAAKAAEAAAB7ATUAAAAKAAEAAAB8ATUAAAAKAAEAAAB9ATUAAAAKAAEAAAB+ATUAAAAKAAEAAAB4ATIAAAALAAMAAABxATYAAAAKAAEAAABxATcAAAAKAAIAAAByATcAAAAKAAIAAAByATYAAAAKAAEAAAB8ATcAAAAJAAIAAAB9ATcAAAAKAAIAAAB+ATcAAAAKAAIAAAB/ATcAAAAKAAIAAACAATcAAAAKAAIAAACBATcAAAAKAAIAAACCATcAAAAKAAIAAACDATcAAAAKAAIAAACEATcAAAALAAIAAACEATYAAAALAAEAAACDATYAAAAKAAEAAACCATYAAAAKAAEAAACBATYAAAAKAAEAAACAATYAAAAKAAEAAAB/ATYAAAAKAAEAAAB+ATYAAAAKAAEAAAB5ATYAAAAKAAIAAAB6ATYAAAAKAAIAAAB7ATYAAAAKAAIAAAB8ATYAAAALAAMAAAB9ATYAAAAKAAEAAABzATAAAAALAAIAAAB2ATAAAAAJAAEAAAB1ATQAAAAKAAAAAAB2ATQAAAALAAAAAAB2ATUAAAALAAIAAAB1ATUAAAAKAAMAAAB0ATQAAAAKAAAAAAB0ATUAAAAKAAEAAABzATQAAAAKAAAAAABzATUAAAAKAAEAAAB2ATEAAAAJAAIAAAB3ATIAAAAJAAIAAAB5ATMAAAAKAAEAAAB4ATMAAAAJAAEAAAB0ATYAAAAKAAIAAABzATYAAAAKAAMAAABzATcAAAALAAIAAAB1ATYAAAALAAIAAAB4ATYAAAAJAAIAAAB4ATwAAAAKAAAAAAB3ATwAAAAKAAAAAAB2ATwAAAAKAAAAAAB1ATwAAAAJAAAAAAB5ATwAAAALAAAAAAB5AT0AAAALAAIAAAB4AT0AAAAKAAMAAAB3AT0AAAAKAAEAAAB2AT0AAAALAAMAAAB1AT0AAAAJAAIAAAB2AT4AAAAJAAEAAAB2AT8AAAAJAAEAAAB2AUAAAAAJAAEAAAB2AUEAAAAJAAEAAAB2AUIAAAAJAAIAAAB3AUIAAAAKAAIAAAB4AUIAAAALAAIAAAB4AUEAAAALAAEAAAB4AUAAAAALAAEAAAB4AT8AAAALAAEAAAB4AT4AAAALAAEAAAB3AT4AAAAKAAEAAAB3AT8AAAAKAAEAAAB3AUAAAAAKAAEAAAB3AUEAAAAKAAEAAACGATsAAAAKAAAAAACHATsAAAAKAAAAAACIATsAAAALAAAAAACFATsAAAAKAAAAAACEATsAAAAJAAAAAACEATwAAAAJAAIAAACFATwAAAALAAMAAACGATwAAAAKAAEAAACHATwAAAAKAAMAAACIATwAAAALAAIAAACFAT0AAAAJAAEAAACFAT4AAAAJAAEAAACGAT4AAAAKAAEAAACGAT8AAAAKAAEAAACGAUAAAAAKAAEAAACFAUAAAAAJAAEAAACFAUEAAAAJAAEAAACFAT8AAAAJAAEAAACFAUIAAAAJAAIAAACGAUIAAAAKAAIAAACHAUIAAAALAAIAAACHAUEAAAALAAEAAACHAUAAAAALAAEAAACHAT8AAAALAAEAAACHAT4AAAALAAEAAACHAT0AAAALAAEAAACGAT0AAAAKAAEAAACGAUEAAAAKAAEAAABxASMAAAALAAEAAABxASIAAAAHAAAAAAByASUAAAABAAMAAABzASUAAAACAAMAAAB2ASUAAAAAAAMAAAB3ASUAAAABAAMAAABxASQAAAALAAEAAABxASUAAAAFAAEAAAB4ASUAAAAGAAEAAABwASUAAAAJAAIAAABwASQAAAAJAAEAAABwASMAAAAJAAEAAABwASIAAAAJAAAAAAB5ASUAAAALAAIAAAB5ASQAAAALAAEAAAB5ASMAAAALAAEAAAB5ASIAAAALAAAAAAByASEAAAABAAMAAABxASEAAAABAAAAAAB4ASEAAAACAAAAAAB3ASEAAAABAAMAAAB2ASEAAAAAAAMAAABzASEAAAACAAMAAAB4ASIAAAADAAAAAAB4ASMAAAAJAAEAAAB4ASQAAAAJAAEAAABvATgAAAALAAEAAABvATkAAAALAAEAAABvAToAAAALAAEAAABvATsAAAALAAEAAABvATwAAAALAAEAAABvAT0AAAALAAEAAABvAT4AAAALAAEAAABvAT8AAAALAAEAAABvAUAAAAALAAEAAABvAUEAAAALAAEAAABuAUEAAAAJAAEAAABuAUAAAAAJAAEAAABuAT8AAAAJAAEAAABuAT4AAAAJAAEAAABuAT0AAAAJAAEAAABuATwAAAAJAAEAAABuATsAAAAJAAEAAABuAToAAAAJAAEAAABuATkAAAAJAAEAAABuATgAAAAJAAEAAABvAUIAAAALAAIAAABuAUIAAAAJAAIAAAA=")
 tile_set = ExtResource("7_2x05o")
 
 [node name="ground" type="TileMapLayer" parent="objs"]
@@ -836,21 +1018,21 @@ tile_set = ExtResource("11_2x05o")
 screen_manager = NodePath("../../screen_manager")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="objs/kill_player_area"]
-position = Vector2(2920, 320)
+position = Vector2(2920, 264)
 shape = SubResource("RectangleShape2D_plnos")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="objs/kill_player_area"]
-position = Vector2(7632, 616)
+position = Vector2(7632, 584)
 shape = SubResource("RectangleShape2D_u583p")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="objs/kill_player_area"]
-position = Vector2(10768, 1080)
+position = Vector2(10952, 1048)
 shape = SubResource("RectangleShape2D_wljuq")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="objs/kill_player_area"]
-position = Vector2(12856, 2144)
+position = Vector2(13360, 2104)
 shape = SubResource("RectangleShape2D_24asp")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="objs/kill_player_area"]
-position = Vector2(5440, 928)
+position = Vector2(5440, 904)
 shape = SubResource("RectangleShape2D_dw8lb")

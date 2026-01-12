@@ -9,7 +9,6 @@ extends PathFollow2D
 func _ready() -> void:
 	progress_ratio = starting_point
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if not screen.active:
 		return

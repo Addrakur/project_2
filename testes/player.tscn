@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bx2l4ln2h5uh"]
+[gd_scene load_steps=5 format=3 uid="uid://bx2l4ln2h5uh"]
 
 [ext_resource type="Script" uid="uid://cxpultcnmibd8" path="res://testes/player.gd" id="1_wof7s"]
 [ext_resource type="Texture2D" uid="uid://33ri277wn0iu" path="res://icon.svg" id="2_e0bjr"]
+[ext_resource type="Script" uid="uid://c0u744ywumy15" path="res://testes/fps.gd" id="3_e0bjr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_av54f"]
 radius = 15.0
@@ -69,5 +70,13 @@ offset_top = 16.0
 offset_right = 624.0
 offset_bottom = 47.0
 text = "Menu"
+
+[node name="fps" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 16.0
+offset_right = 536.0
+offset_bottom = 39.0
+script = ExtResource("3_e0bjr")
 
 [connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]
