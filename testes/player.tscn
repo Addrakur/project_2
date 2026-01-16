@@ -12,19 +12,21 @@ collision_mask = 6
 script = ExtResource("1_wof7s")
 max_side_force = 10.0
 side_to_side_force = 6.0
-air_side_to_side_force = 0.6
+air_side_to_side_force = 2.0
 floor_delta_towards_zero = 2.0
 air_delta_towards_zero = 0.6
 speed = 30.0
 max_running_speed = 100.0
 jump_force = -90.0
-max_fuel = 25.0
+max_x_velocity = 200.0
+max_fuel = 15.0
 fuel_consume = 0.1
 fuel_restore = 20.0
 rocket_speed = -5.0
-rocket_max_force = 16.0
-rocket_force_up = 4.5
-rocket_force_down = 3.0
+rocket_max_force = 12.0
+rocket_force_up = 8.0
+rocket_force_down = 8.0
+rocket_max_speed = 80.0
 progress_bar = NodePath("CanvasLayer/Control/ProgressBar")
 
 [node name="icon" type="Sprite2D" parent="."]

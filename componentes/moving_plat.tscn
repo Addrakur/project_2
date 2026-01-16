@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bufx41cujorwi"]
+
+[ext_resource type="Script" uid="uid://bxktpyljx5qsa" path="res://componentes/moving_plat.gd" id="1_uplg2"]
+
+[node name="moving_plat" type="AnimatableBody2D"]
+script = ExtResource("1_uplg2")

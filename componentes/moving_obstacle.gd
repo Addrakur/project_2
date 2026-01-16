@@ -12,5 +12,4 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not screen.active:
 		return
-	
 	progress_ratio += move_speed * delta

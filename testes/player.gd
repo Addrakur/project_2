@@ -12,6 +12,7 @@ extends CharacterBody2D
 @export var speed: float
 @export var max_running_speed: float
 @export var jump_force: float
+@export var max_x_velocity: float
 @export_group("Rocket")
 @export var max_fuel: float
 @export var fuel_consume: float
@@ -20,10 +21,12 @@ extends CharacterBody2D
 @export var rocket_max_force: float
 @export var rocket_force_up: float
 @export var rocket_force_down: float
+@export var rocket_max_speed: float
 
 var rocket_active: bool = true
 var rocket_force: float
 var rocket_velocity_x: float
+var rocket_velocity_y: float
 var side_force: float
 var side_velocity: float
 var fuel
@@ -41,20 +44,19 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	#Gravidade que afeta o jogador
-	if not Input.is_action_pressed("jetpack") and not is_on_floor():
-		velocity.y += gravity * delta * gravity_mult
+		
+	if not Input.is_action_pressed("jetpack") and not is_on_floor() and fuel > 0:
+		velocity.y += gravity * delta * gravity_mult + rocket_velocity_y
 	else:
-		velocity.y += gravity * delta * gravity_mult * 0.5
+		velocity.y += gravity * delta * gravity_mult * 0.5 + rocket_velocity_y
+	
 	if not Input.is_action_pressed("jetpack") and fuel > 0:
-		if is_on_floor() and not Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
+		if is_on_floor():# and not Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
 			velocity.x = move_toward(velocity.x,0,floor_delta_towards_zero)
 		else:
 			velocity.x = move_toward(velocity.x,0,air_delta_towards_zero)
 		
-	move_side_logic(delta)
-	velocity.x += side_velocity + rocket_velocity_x
 	
-	rocket_logic(delta)
 	
 	if Input.is_action_just_pressed("up") and is_on_floor() and gravity_mult == 1:
 		velocity.y = jump_force
@@ -66,9 +68,7 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 			fuel += fuel_restore * delta
 		else:
-			fuel += fuel_restore * delta / 4
-	
-	move_and_slide()
+			fuel += fuel_restore * delta * 0.2
 	
 	progress_bar.value = fuel
 	
@@ -79,6 +79,21 @@ func _physics_process(delta: float) -> void:
 		elif collider.name == "kill_tileset":
 			position = screen_manager.current_checkpoint.position
 			fuel = max_fuel
+			
+	move_side_logic(delta)
+	velocity.x += side_velocity + rocket_velocity_x
+	
+	rocket_logic(delta)
+	
+	move_and_slide()
+	if velocity.x > max_x_velocity:
+		velocity.x = max_x_velocity
+	elif velocity.x < -max_x_velocity:
+		velocity.x = -max_x_velocity
+	
+	if velocity.y < -rocket_max_speed:
+		velocity.y = -rocket_max_speed
+	print(velocity)
 
 func rocket_logic(delta: float):
 	if mouse_control:
@@ -93,8 +108,16 @@ func rocket_logic(delta: float):
 		if rocket_force < 0:
 			rocket_force = 0
 		
-		rocket_velocity_x = rocket_speed * rocket_force * delta * cos(deg_to_rad(texture.rotation_degrees))
-		velocity.y += rocket_speed * rocket_force * delta * sin(deg_to_rad(texture.rotation_degrees))
+		if velocity.x > max_x_velocity and cos(deg_to_rad(texture.rotation_degrees)) < 0 or velocity.x < -max_x_velocity and cos(deg_to_rad(texture.rotation_degrees)) > 0:
+			rocket_velocity_x = 0
+		else:
+			rocket_velocity_x = rocket_speed * rocket_force * delta * cos(deg_to_rad(texture.rotation_degrees))
+		
+		if velocity.y < -rocket_max_speed and cos(deg_to_rad(texture.rotation_degrees)) < 0:
+			rocket_velocity_y = 0
+		else:
+			rocket_velocity_y = rocket_speed * rocket_force * delta * sin(deg_to_rad(texture.rotation_degrees))
+		
 	else:
 		var horizontal_direction = Input.get_axis("right","left")
 		var vertical_direction = Input.get_axis("down","up")
