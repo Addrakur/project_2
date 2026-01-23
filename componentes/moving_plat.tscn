@@ -3,4 +3,11 @@
 [ext_resource type="Script" uid="uid://bxktpyljx5qsa" path="res://componentes/moving_plat.gd" id="1_uplg2"]
 
 [node name="moving_plat" type="AnimatableBody2D"]
+collision_layer = 4
 script = ExtResource("1_uplg2")
+
+[node name="coyote_time" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="coyote_time" to="." method="_on_coyote_time_timeout"]

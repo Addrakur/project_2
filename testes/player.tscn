@@ -26,7 +26,7 @@ rocket_speed = -5.0
 rocket_max_force = 12.0
 rocket_force_up = 8.0
 rocket_force_down = 8.0
-rocket_max_speed = 80.0
+rocket_max_speed = 90.0
 progress_bar = NodePath("CanvasLayer/Control/ProgressBar")
 
 [node name="icon" type="Sprite2D" parent="."]

@@ -34,6 +34,8 @@ var gravity_mult: float = 1
 var gravity: float
 
 var mouse_control: bool = true
+var on_moving_plat: bool = false
+var moving_plat: AnimatableBody2D
 
 @export var progress_bar: ProgressBar
 @onready var texture: Node2D = $texture
@@ -56,10 +58,25 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x,0,air_delta_towards_zero)
 		
-	
+	for i in range(get_slide_collision_count()):
+		var collider = get_slide_collision(i).get_collider()
+		if collider is FragileGround:
+			collider.animation.play("break")
+		elif collider.name == "kill_tileset":
+			position = screen_manager.current_checkpoint.position
+			fuel = max_fuel
+		elif collider.name == "moving_plat":
+			on_moving_plat = true
+			moving_plat = collider
+		else:
+			on_moving_plat = false
+			moving_plat = null
 	
 	if Input.is_action_just_pressed("up") and is_on_floor() and gravity_mult == 1:
-		velocity.y = jump_force
+		if on_moving_plat and moving_plat.coyote_time:
+			velocity = moving_plat.throw_speed
+		else:
+			velocity.y = jump_force
 	
 	if Input.is_action_just_pressed("down") and is_on_ceiling() and gravity_mult == -1:
 		velocity.y = -jump_force
@@ -72,14 +89,7 @@ func _physics_process(delta: float) -> void:
 	
 	progress_bar.value = fuel
 	
-	for i in range(get_slide_collision_count()):
-		var collider = get_slide_collision(i).get_collider()
-		if collider is FragileGround:
-			collider.animation.play("break")
-		elif collider.name == "kill_tileset":
-			position = screen_manager.current_checkpoint.position
-			fuel = max_fuel
-			
+	
 	move_side_logic(delta)
 	velocity.x += side_velocity + rocket_velocity_x
 	

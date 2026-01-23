@@ -1,7 +1,7 @@
-[gd_scene load_steps=46 format=4 uid="uid://dtxxn7vum86bx"]
+[gd_scene load_steps=47 format=4 uid="uid://dtxxn7vum86bx"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_2qvgw"]
-[ext_resource type="Script" uid="uid://bnvqoglkbsle4" path="res://world.gd" id="1_s2u2n"]
+[ext_resource type="Script" uid="uid://bnvqoglkbsle4" path="res://worlds/world.gd" id="1_s2u2n"]
 [ext_resource type="PackedScene" uid="uid://b2veygecyn7qe" path="res://screen_manager/screen_manager.tscn" id="2_38vaf"]
 [ext_resource type="PackedScene" uid="uid://bx2l4ln2h5uh" path="res://testes/player.tscn" id="3_38vaf"]
 [ext_resource type="PackedScene" uid="uid://c808w8eva3r0w" path="res://screen_manager/screen.tscn" id="3_a02j0"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://33ri277wn0iu" path="res://icon.svg" id="10_plnos"]
 [ext_resource type="PackedScene" uid="uid://dagx7sskbhihw" path="res://componentes/moving_obstacle.tscn" id="10_u583p"]
 [ext_resource type="TileSet" uid="uid://crsmnwdfxnb7y" path="res://assets/tilesets/kill_tileset.tres" id="11_2x05o"]
+[ext_resource type="PackedScene" uid="uid://bufx41cujorwi" path="res://componentes/moving_plat.tscn" id="13_dw8lb"]
 [ext_resource type="PackedScene" uid="uid://sfv4u8eql4q3" path="res://componentes/kill_player_area.tscn" id="14_wljuq"]
 
 [sub_resource type="Resource" id="Resource_vjvj4"]
@@ -145,7 +146,7 @@ point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_k0vai"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 15328, 1840, 0, 0, 0, 0, 15504, 1728, 0, 0, 0, 0, 15328, 1840)
+"points": PackedVector2Array(0, 0, 0, 0, 15344, 1824, 0, 0, 0, 0, 15472, 1696, 0, 0, 0, 0, 15344, 1824)
 }
 point_count = 3
 
@@ -1186,7 +1187,7 @@ libraries = {
 [node name="screen_16" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint", "moving_plats") instance=ExtResource("3_a02j0")]
 camera = NodePath("16")
 default_checkpoint = NodePath("spawn_points/1")
-moving_plats = [NodePath("Path2D/AnimatableBody2D/AnimationPlayer")]
+moving_plats = [NodePath("Path2D/moving_plat/AnimationPlayer")]
 
 [node name="16" type="Node2D" parent="screen_manager/screen_16" node_paths=PackedStringArray("follow_target", "follow_path")]
 top_level = true
@@ -1213,25 +1214,24 @@ position = Vector2(1040, -608)
 curve = SubResource("Curve2D_k0vai")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="screen_manager/screen_16/Path2D"]
-position = Vector2(15328, 1840)
+position = Vector2(15344, 1824)
 rotates = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="screen_manager/screen_16/Path2D/PathFollow2D"]
-remote_path = NodePath("../../AnimatableBody2D")
+remote_path = NodePath("../../moving_plat")
 
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="screen_manager/screen_16/Path2D"]
-position = Vector2(15328, 1840)
-collision_layer = 4
+[node name="moving_plat" parent="screen_manager/screen_16/Path2D" instance=ExtResource("13_dw8lb")]
+position = Vector2(15344, 1824)
+throw_speed = Vector2(40, -200)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="screen_manager/screen_16/Path2D/AnimatableBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="screen_manager/screen_16/Path2D/moving_plat"]
 shape = SubResource("RectangleShape2D_o8xi3")
 
-[node name="Icon" type="Sprite2D" parent="screen_manager/screen_16/Path2D/AnimatableBody2D"]
-position = Vector2(0.00024414063, 3.0517578e-05)
+[node name="Icon" type="Sprite2D" parent="screen_manager/screen_16/Path2D/moving_plat"]
 scale = Vector2(0.7500038, 0.25000048)
 texture = ExtResource("10_plnos")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="screen_manager/screen_16/Path2D/AnimatableBody2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen_manager/screen_16/Path2D/moving_plat"]
 libraries = {
 &"": SubResource("AnimationLibrary_v5ns0")
 }

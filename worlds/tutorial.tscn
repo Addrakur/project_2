@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=4 uid="uid://nj8itvw8jrfg"]
 
-[ext_resource type="Script" uid="uid://bnvqoglkbsle4" path="res://world.gd" id="1_01c4l"]
+[ext_resource type="Script" uid="uid://bnvqoglkbsle4" path="res://worlds/world.gd" id="1_01c4l"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_hoaij"]
 [ext_resource type="PackedScene" uid="uid://b2veygecyn7qe" path="res://screen_manager/screen_manager.tscn" id="2_bgu68"]
 [ext_resource type="PackedScene" uid="uid://c808w8eva3r0w" path="res://screen_manager/screen.tscn" id="3_a7h62"]
@@ -34,7 +34,7 @@ size = Vector2(1520, 32)
 [node name="tutorial" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_01c4l")
 player = NodePath("player")
-gravity = 100.0
+gravity = 120.0
 metadata/_custom_type_script = "uid://bnvqoglkbsle4"
 
 [node name="Camera2D" type="Camera2D" parent="."]

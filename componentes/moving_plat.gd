@@ -1,14 +1,12 @@
-extends StaticBody2D
+extends AnimatableBody2D
 
-@export var speed: float
-@export var move_points: Array[Marker2D]
-@export var starting_point_index: float
+@export var throw_speed: Vector2
+#@export var player: Player
 
-var current_point: Marker2D
+var coyote_time: bool = true
 
-func _ready() -> void:
-	#position = move_points[starting_point_index].position
-	pass
+func _on_coyote_time_timeout() -> void:
+	coyote_time = false
 
-func _process(_delta: float) -> void:
-	pass
+func coyote_time_true():
+	coyote_time = true
