@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://dtxxn7vum86bx"]
+[gd_scene load_steps=48 format=4 uid="uid://dtxxn7vum86bx"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_2qvgw"]
 [ext_resource type="Script" uid="uid://bnvqoglkbsle4" path="res://worlds/world.gd" id="1_s2u2n"]
@@ -167,6 +167,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0, 0.0, 0.5, 0.5, 1.0]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"coyote_time_true"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_dw8lb"]
 length = 0.001
@@ -188,6 +202,12 @@ _data = {
 &"1": SubResource("Animation_u583p"),
 &"RESET": SubResource("Animation_dw8lb")
 }
+
+[sub_resource type="Curve2D" id="Curve2D_8eumd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 15680, 1824, 0, 0, 0, 0, 15920, 1824, 0, 0, 0, 0, 15680, 1824)
+}
+point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plnos"]
 size = Vector2(752, 16)
@@ -1187,7 +1207,7 @@ libraries = {
 [node name="screen_16" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint", "moving_plats") instance=ExtResource("3_a02j0")]
 camera = NodePath("16")
 default_checkpoint = NodePath("spawn_points/1")
-moving_plats = [NodePath("Path2D/moving_plat/AnimationPlayer")]
+moving_plats = [NodePath("Path2D/moving_plat/AnimationPlayer"), NodePath("Path2D2/moving_plat/AnimationPlayer")]
 
 [node name="16" type="Node2D" parent="screen_manager/screen_16" node_paths=PackedStringArray("follow_target", "follow_path")]
 top_level = true
@@ -1222,7 +1242,7 @@ remote_path = NodePath("../../moving_plat")
 
 [node name="moving_plat" parent="screen_manager/screen_16/Path2D" instance=ExtResource("13_dw8lb")]
 position = Vector2(15344, 1824)
-throw_speed = Vector2(40, -200)
+throw_speed = Vector2(200, -200)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="screen_manager/screen_16/Path2D/moving_plat"]
 shape = SubResource("RectangleShape2D_o8xi3")
@@ -1235,6 +1255,39 @@ texture = ExtResource("10_plnos")
 libraries = {
 &"": SubResource("AnimationLibrary_v5ns0")
 }
+
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_16/Path2D"]
+polygon = PackedVector2Array(15471, 1695, 15343, 1823, 15345, 1825, 15473, 1697)
+
+[node name="Path2D2" type="Path2D" parent="screen_manager/screen_16"]
+position = Vector2(1040, -608)
+curve = SubResource("Curve2D_8eumd")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="screen_manager/screen_16/Path2D2"]
+position = Vector2(15680, 1824)
+rotates = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="screen_manager/screen_16/Path2D2/PathFollow2D"]
+remote_path = NodePath("../../moving_plat")
+
+[node name="moving_plat" parent="screen_manager/screen_16/Path2D2" instance=ExtResource("13_dw8lb")]
+position = Vector2(15680, 1824)
+throw_speed = Vector2(200, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="screen_manager/screen_16/Path2D2/moving_plat"]
+shape = SubResource("RectangleShape2D_o8xi3")
+
+[node name="Icon" type="Sprite2D" parent="screen_manager/screen_16/Path2D2/moving_plat"]
+scale = Vector2(0.7500038, 0.25000048)
+texture = ExtResource("10_plnos")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen_manager/screen_16/Path2D2/moving_plat"]
+libraries = {
+&"": SubResource("AnimationLibrary_v5ns0")
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_16/Path2D2"]
+polygon = PackedVector2Array(15920, 1823, 15680, 1823, 15680, 1825, 15920, 1825)
 
 [node name="objs" type="Node2D" parent="."]
 

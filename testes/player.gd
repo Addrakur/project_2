@@ -110,7 +110,8 @@ func rocket_logic(delta: float):
 		texture.look_at(get_global_mouse_position())
 		texture.rotation_degrees = fposmod(texture.rotation_degrees, 360.0)
 		if Input.is_action_pressed("jetpack") and fuel > 0 and rocket_active:
-			fuel -= fuel_consume
+			if not is_on_floor():
+				fuel -= fuel_consume
 			if rocket_force < rocket_max_force:
 				rocket_force += rocket_force_up
 		elif rocket_force > 0:
@@ -118,15 +119,9 @@ func rocket_logic(delta: float):
 		if rocket_force < 0:
 			rocket_force = 0
 		
-		if velocity.x > max_x_velocity and cos(deg_to_rad(texture.rotation_degrees)) < 0 or velocity.x < -max_x_velocity and cos(deg_to_rad(texture.rotation_degrees)) > 0:
-			rocket_velocity_x = 0
-		else:
-			rocket_velocity_x = rocket_speed * rocket_force * delta * cos(deg_to_rad(texture.rotation_degrees))
+		rocket_velocity_x = rocket_speed * rocket_force * delta * cos(deg_to_rad(texture.rotation_degrees))
 		
-		if velocity.y < -rocket_max_speed and cos(deg_to_rad(texture.rotation_degrees)) < 0:
-			rocket_velocity_y = 0
-		else:
-			rocket_velocity_y = rocket_speed * rocket_force * delta * sin(deg_to_rad(texture.rotation_degrees))
+		rocket_velocity_y = rocket_speed * rocket_force * delta * sin(deg_to_rad(texture.rotation_degrees))
 		
 	else:
 		var horizontal_direction = Input.get_axis("right","left")
