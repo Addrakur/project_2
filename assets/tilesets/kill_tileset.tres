@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://crsmnwdfxnb7y"]
+[gd_resource type="TileSet" format=3 uid="uid://crsmnwdfxnb7y"]
 
 [ext_resource type="Texture2D" uid="uid://d1yxg8bxp2li6" path="res://assets/kill_tileset.png" id="1_01h6r"]
 

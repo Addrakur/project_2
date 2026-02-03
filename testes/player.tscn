@@ -1,19 +1,154 @@
-[gd_scene load_steps=5 format=3 uid="uid://bx2l4ln2h5uh"]
+[gd_scene format=3 uid="uid://bx2l4ln2h5uh"]
 
 [ext_resource type="Script" uid="uid://cxpultcnmibd8" path="res://testes/player.gd" id="1_wof7s"]
-[ext_resource type="Texture2D" uid="uid://33ri277wn0iu" path="res://icon.svg" id="2_e0bjr"]
+[ext_resource type="Texture2D" uid="uid://djosxq0cpshve" path="res://assets/player/rocket.png" id="2_20rt8"]
+[ext_resource type="Texture2D" uid="uid://xycijnbpmjli" path="res://assets/player/player_idle.png" id="3_20rt8"]
 [ext_resource type="Script" uid="uid://c0u744ywumy15" path="res://testes/fps.gd" id="3_e0bjr"]
+[ext_resource type="Texture2D" uid="uid://meacflkbjib4" path="res://assets/player/player_walk.png" id="4_8rlj8"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_av54f"]
-radius = 15.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e0bjr"]
+radius = 16.0
+height = 32.0
 
-[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("progress_bar")]
+[sub_resource type="Animation" id="Animation_8rlj8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_20rt8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player_sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player_sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_tr8e5"]
+resource_name = "idle"
+length = 1.000025
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_20rt8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player_sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player_sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_s8gpv"]
+resource_name = "walk"
+length = 1.000025
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_8rlj8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player_sprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player_sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s8gpv"]
+_data = {
+&"RESET": SubResource("Animation_8rlj8"),
+&"idle": SubResource("Animation_tr8e5"),
+&"walk": SubResource("Animation_s8gpv")
+}
+
+[node name="player" type="CharacterBody2D" unique_id=493830883 node_paths=PackedStringArray("progress_bar")]
 collision_mask = 6
+floor_stop_on_slope = false
+floor_max_angle = 0.34906584
 script = ExtResource("1_wof7s")
 max_side_force = 10.0
 side_to_side_force = 6.0
 air_side_to_side_force = 2.0
-floor_delta_towards_zero = 2.0
+floor_delta_towards_zero = 10.0
 air_delta_towards_zero = 0.6
 speed = 30.0
 max_running_speed = 100.0
@@ -25,32 +160,32 @@ fuel_restore = 20.0
 rocket_speed = -5.0
 rocket_max_force = 12.0
 rocket_force_up = 8.0
-rocket_force_down = 8.0
+rocket_force_down = 4.0
 rocket_max_speed = 90.0
 progress_bar = NodePath("CanvasLayer/Control/ProgressBar")
 
-[node name="icon" type="Sprite2D" parent="."]
-position = Vector2(-4.172325e-07, -15)
-scale = Vector2(0.23437501, 0.234375)
-texture = ExtResource("2_e0bjr")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=754920813]
+position = Vector2(0, -16)
+shape = SubResource("CapsuleShape2D_e0bjr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -15)
-shape = SubResource("CircleShape2D_av54f")
+[node name="texture" type="Node2D" parent="." unique_id=509839083]
+position = Vector2(0, -16)
 
-[node name="texture" type="Node2D" parent="."]
-position = Vector2(0, -15)
-rotation = 6.2831855
+[node name="texture" type="Sprite2D" parent="texture" unique_id=309682474]
+position = Vector2(0, -4.410704e-06)
+texture = ExtResource("2_20rt8")
 
-[node name="texture" type="Sprite2D" parent="texture"]
-modulate = Color(0.14999998, 1, 0, 1)
-position = Vector2(7, -7.6293945e-06)
-scale = Vector2(0.17187499, 0.0625)
-texture = ExtResource("2_e0bjr")
+[node name="player_sprite" type="Sprite2D" parent="." unique_id=275525146]
+position = Vector2(0, -16)
+texture = ExtResource("3_20rt8")
+hframes = 4
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="animations" type="AnimationPlayer" parent="." unique_id=646335221]
+libraries/ = SubResource("AnimationLibrary_s8gpv")
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1291338245]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=942899916]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,14 +193,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control"]
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control" unique_id=1967738219]
 layout_mode = 1
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 192.0
 offset_bottom = 43.0
 
-[node name="Button" type="Button" parent="CanvasLayer/Control"]
+[node name="Button" type="Button" parent="CanvasLayer/Control" unique_id=1435501201]
 layout_mode = 0
 offset_left = 560.0
 offset_top = 16.0
@@ -73,7 +208,7 @@ offset_right = 624.0
 offset_bottom = 47.0
 text = "Menu"
 
-[node name="fps" type="Label" parent="CanvasLayer/Control"]
+[node name="fps" type="Label" parent="CanvasLayer/Control" unique_id=1303264862]
 layout_mode = 0
 offset_left = 496.0
 offset_top = 16.0
