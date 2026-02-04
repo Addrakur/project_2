@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://sfv4u8eql4q3" path="res://componentes/kill_player_area.tscn" id="14_wljuq"]
 [ext_resource type="PackedScene" uid="uid://yvmomcqbyish" path="res://componentes/laser_shooter.tscn" id="15_uwytn"]
 [ext_resource type="Texture2D" uid="uid://w31whklw3jh" path="res://assets/componentes/laser_shooter.png" id="16_o8xi3"]
+[ext_resource type="PackedScene" uid="uid://0k4iaeeb2hhh" path="res://componentes/fuel_pickup.tscn" id="17_o8xi3"]
 
 [sub_resource type="Resource" id="Resource_vjvj4"]
 script = ExtResource("5_05ppg")
@@ -1355,6 +1356,12 @@ position = Vector2(17280, 1214)
 
 [node name="b" type="Marker2D" parent="screen_manager/screen_16/laser_shooter_manager" unique_id=975491070]
 position = Vector2(17280, 1277)
+
+[node name="fuel_pickup" parent="screen_manager/screen_16" unique_id=956028455 instance=ExtResource("17_o8xi3")]
+position = Vector2(17144, 1243)
+
+[node name="fuel_pickup2" parent="screen_manager/screen_16" unique_id=1505991472 instance=ExtResource("17_o8xi3")]
+position = Vector2(17168, 1157)
 
 [node name="objs" type="Node2D" parent="." unique_id=1440487759]
 
