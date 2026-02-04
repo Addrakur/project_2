@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://bufx41cujorwi" path="res://componentes/moving_plat.tscn" id="13_dw8lb"]
 [ext_resource type="PackedScene" uid="uid://ce8inhhllvvk2" path="res://componentes/portal.tscn" id="14_v5ns0"]
 [ext_resource type="PackedScene" uid="uid://sfv4u8eql4q3" path="res://componentes/kill_player_area.tscn" id="14_wljuq"]
+[ext_resource type="PackedScene" uid="uid://yvmomcqbyish" path="res://componentes/laser_shooter.tscn" id="15_uwytn"]
+[ext_resource type="Texture2D" uid="uid://w31whklw3jh" path="res://assets/componentes/laser_shooter.png" id="16_o8xi3"]
 
 [sub_resource type="Resource" id="Resource_vjvj4"]
 script = ExtResource("5_05ppg")
@@ -1226,7 +1228,7 @@ curve = SubResource("Curve2D_chas8")
 [node name="spawn_points" type="Node2D" parent="screen_manager/screen_16" unique_id=1553830325]
 
 [node name="1" type="Marker2D" parent="screen_manager/screen_16/spawn_points" unique_id=327624707]
-position = Vector2(17248, 1269)
+position = Vector2(17181, 1269)
 
 [node name="Path2D" type="Path2D" parent="screen_manager/screen_16" unique_id=2142424757]
 position = Vector2(1040, -608)
@@ -1332,10 +1334,32 @@ portal_par = NodePath("../portal6")
 direction = "horizontal"
 exit_direction = Vector2(1, 0)
 
+[node name="laser_shooter_manager" parent="screen_manager/screen_16" unique_id=264350331 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("15_uwytn")]
+laser_origin_a = NodePath("a")
+laser_origin_b = NodePath("b")
+laser_time_on = 5.0
+laser_cooldown = 3.0
+laser_collision = NodePath("../../../objs/kill_player_area/laser")
+
+[node name="LaserShooter" type="Sprite2D" parent="screen_manager/screen_16/laser_shooter_manager" unique_id=437792756]
+position = Vector2(17280, 1206)
+texture = ExtResource("16_o8xi3")
+
+[node name="LaserShooter2" type="Sprite2D" parent="screen_manager/screen_16/laser_shooter_manager" unique_id=483954677]
+position = Vector2(17280, 1285)
+rotation = 3.1415927
+texture = ExtResource("16_o8xi3")
+
+[node name="a" type="Marker2D" parent="screen_manager/screen_16/laser_shooter_manager" unique_id=81572708]
+position = Vector2(17280, 1214)
+
+[node name="b" type="Marker2D" parent="screen_manager/screen_16/laser_shooter_manager" unique_id=975491070]
+position = Vector2(17280, 1277)
+
 [node name="objs" type="Node2D" parent="." unique_id=1440487759]
 
 [node name="player" parent="objs" unique_id=1926857389 node_paths=PackedStringArray("screen_manager") instance=ExtResource("3_38vaf")]
-position = Vector2(16106, 1111)
+position = Vector2(16135, 1097)
 screen_manager = NodePath("../../screen_manager")
 rocket_force_up = 10.0
 
@@ -1377,3 +1401,7 @@ shape = SubResource("RectangleShape2D_24asp")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="objs/kill_player_area" unique_id=1785720609]
 position = Vector2(5440, 904)
 shape = SubResource("RectangleShape2D_dw8lb")
+
+[node name="laser" type="CollisionPolygon2D" parent="objs/kill_player_area" unique_id=1484638693]
+position = Vector2(17280, 1245.5)
+polygon = PackedVector2Array(-1, -31.5, -1, 31.5, 1, 31.5, 1, -31.5)

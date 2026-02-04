@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://yvmomcqbyish"]
+
+[ext_resource type="Script" uid="uid://cxdtpvcqnotql" path="res://componentes/laser_shooter.gd" id="1_42dfe"]
+[ext_resource type="Texture2D" uid="uid://f4vy203i2k5j" path="res://assets/componentes/laser_beam.png" id="2_42dfe"]
+
+[node name="laser_shooter_manager" type="Node2D" unique_id=264350331]
+script = ExtResource("1_42dfe")
+
+[node name="laser_timer" type="Timer" parent="." unique_id=1480699053]
+one_shot = true
+
+[node name="laser_cooldown" type="Timer" parent="." unique_id=375775582]
+one_shot = true
+
+[node name="laser_start_delay_timer" type="Timer" parent="." unique_id=1329384821]
+
+[node name="laser" type="Line2D" parent="." unique_id=299881151]
+points = PackedVector2Array(0, -15, 0, 18)
+texture = ExtResource("2_42dfe")
+texture_mode = 2
+
+[connection signal="timeout" from="laser_timer" to="." method="_on_laser_timer_timeout"]
+[connection signal="timeout" from="laser_cooldown" to="." method="_on_laser_cooldown_timeout"]
+[connection signal="timeout" from="laser_start_delay_timer" to="." method="_on_laser_start_delay_timer_timeout"]
