@@ -1226,7 +1226,7 @@ curve = SubResource("Curve2D_chas8")
 [node name="spawn_points" type="Node2D" parent="screen_manager/screen_16" unique_id=1553830325]
 
 [node name="1" type="Marker2D" parent="screen_manager/screen_16/spawn_points" unique_id=327624707]
-position = Vector2(16064, 1125)
+position = Vector2(17248, 1269)
 
 [node name="Path2D" type="Path2D" parent="screen_manager/screen_16" unique_id=2142424757]
 position = Vector2(1040, -608)
@@ -1284,23 +1284,58 @@ libraries/ = SubResource("AnimationLibrary_v5ns0")
 [node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_16/Path2D2" unique_id=1448917846]
 polygon = PackedVector2Array(15920, 1823, 15680, 1823, 15680, 1825, 15920, 1825)
 
-[node name="objs" type="Node2D" parent="." unique_id=1440487759]
+[node name="portals_1" type="Node2D" parent="screen_manager/screen_16" unique_id=788470748]
 
-[node name="portal" parent="objs" unique_id=1025801985 node_paths=PackedStringArray("portal_par") instance=ExtResource("14_v5ns0")]
-position = Vector2(16505, 1252)
+[node name="portal" parent="screen_manager/screen_16/portals_1" unique_id=1025801985 node_paths=PackedStringArray("portal_par") instance=ExtResource("14_v5ns0")]
+position = Vector2(17023, 1175)
 portal_par = NodePath("../portal2")
 direction = "horizontal"
 exit_direction = Vector2(-1, 0)
 
-[node name="portal2" parent="objs" unique_id=223783779 node_paths=PackedStringArray("portal_par") instance=ExtResource("14_v5ns0")]
-position = Vector2(16582, 1187)
-rotation = 2.3561945
+[node name="portal2" parent="screen_manager/screen_16/portals_1" unique_id=223783779 node_paths=PackedStringArray("portal_par") instance=ExtResource("14_v5ns0")]
+position = Vector2(17075.002, 1155)
+rotation = 5.4977875
+scale = Vector2(-1, 1)
 portal_par = NodePath("../portal")
 direction = "diagonal"
 exit_direction = Vector2(1, 1)
 
+[node name="portals_2" type="Node2D" parent="screen_manager/screen_16" unique_id=1003217982]
+
+[node name="portal5" parent="screen_manager/screen_16/portals_2" unique_id=1506746841 node_paths=PackedStringArray("portal_par") instance=ExtResource("14_v5ns0")]
+position = Vector2(17430, 1083)
+rotation = 1.5707964
+portal_par = NodePath("../portal4")
+direction = "vertical"
+exit_direction = Vector2(0, 1)
+
+[node name="portal4" parent="screen_manager/screen_16/portals_2" unique_id=868025187 node_paths=PackedStringArray("portal_par") instance=ExtResource("14_v5ns0")]
+position = Vector2(17430, 1129)
+rotation = -1.5707964
+portal_par = NodePath("../portal5")
+direction = "vertical"
+exit_direction = Vector2(0, 1)
+
+[node name="portals_3" type="Node2D" parent="screen_manager/screen_16" unique_id=992399483]
+
+[node name="portal6" parent="screen_manager/screen_16/portals_3" unique_id=59842887 node_paths=PackedStringArray("portal_par") instance=ExtResource("14_v5ns0")]
+position = Vector2(17624, 1255)
+portal_par = NodePath("../portal3")
+direction = "horizontal"
+exit_direction = Vector2(1, 0)
+
+[node name="portal3" parent="screen_manager/screen_16/portals_3" unique_id=844139734 node_paths=PackedStringArray("portal_par") instance=ExtResource("14_v5ns0")]
+position = Vector2(17675, 1253)
+rotation = -6.2831855
+scale = Vector2(-1, 1)
+portal_par = NodePath("../portal6")
+direction = "horizontal"
+exit_direction = Vector2(1, 0)
+
+[node name="objs" type="Node2D" parent="." unique_id=1440487759]
+
 [node name="player" parent="objs" unique_id=1926857389 node_paths=PackedStringArray("screen_manager") instance=ExtResource("3_38vaf")]
-position = Vector2(16108, 1117)
+position = Vector2(16106, 1111)
 screen_manager = NodePath("../../screen_manager")
 rocket_force_up = 10.0
 

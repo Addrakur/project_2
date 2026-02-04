@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://tcm8jqsp6rw4" path="res://assets/componentes/portal.png" id="1_qrxrd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e3wpy"]
-radius = 4.0
+radius = 2.0
 height = 32.0
 
 [node name="portal" type="Area2D" unique_id=1025801985]
@@ -15,11 +15,11 @@ script = ExtResource("1_e3wpy")
 texture = ExtResource("1_qrxrd")
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1381055571]
-position = Vector2(4, 0)
+position = Vector2(8, 0)
 shape = SubResource("CapsuleShape2D_e3wpy")
 debug_color = Color(0.951574, 0.018650377, 0.5562045, 0.41960785)
 
 [node name="exit_point" type="Marker2D" parent="." unique_id=1618885431]
-position = Vector2(-15, 0)
+position = Vector2(-11, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
