@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://tq2ablryb0dq"]
+
+[ext_resource type="Texture2D" uid="uid://bcwfmwbnma408" path="res://assets/componentes/black_hole.png" id="1_c3m4i"]
+[ext_resource type="Script" uid="uid://dkesgp7wojaxo" path="res://componentes/black_hole.gd" id="1_hhi1k"]
+[ext_resource type="Texture2D" uid="uid://cq8rvov30fc77" path="res://assets/componentes/black_hole_pull_area.png" id="1_yec82"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yec82"]
+radius = 77.0
+
+[node name="black_hole" type="Area2D" unique_id=1131471367]
+collision_layer = 4
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+script = ExtResource("1_hhi1k")
+pull_force = 500.0
+
+[node name="BlackHolePullArea" type="Sprite2D" parent="." unique_id=137260916]
+modulate = Color(1, 1, 1, 0.38039216)
+scale = Vector2(2.4000006, 2.4000006)
+texture = ExtResource("1_yec82")
+
+[node name="BlackHole" type="Sprite2D" parent="." unique_id=1591222244]
+texture = ExtResource("1_c3m4i")
+
+[node name="pull_area" type="CollisionShape2D" parent="." unique_id=147612209]
+shape = SubResource("CircleShape2D_yec82")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

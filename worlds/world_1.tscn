@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://yvmomcqbyish" path="res://componentes/laser_shooter.tscn" id="15_uwytn"]
 [ext_resource type="Texture2D" uid="uid://w31whklw3jh" path="res://assets/componentes/laser_shooter.png" id="16_o8xi3"]
 [ext_resource type="PackedScene" uid="uid://0k4iaeeb2hhh" path="res://componentes/fuel_pickup.tscn" id="17_o8xi3"]
+[ext_resource type="PackedScene" uid="uid://tq2ablryb0dq" path="res://componentes/black_hole.tscn" id="18_g8a7o"]
 
 [sub_resource type="Resource" id="Resource_vjvj4"]
 script = ExtResource("5_05ppg")
@@ -1229,7 +1230,7 @@ curve = SubResource("Curve2D_chas8")
 [node name="spawn_points" type="Node2D" parent="screen_manager/screen_16" unique_id=1553830325]
 
 [node name="1" type="Marker2D" parent="screen_manager/screen_16/spawn_points" unique_id=327624707]
-position = Vector2(17181, 1269)
+position = Vector2(17880, 1263)
 
 [node name="Path2D" type="Path2D" parent="screen_manager/screen_16" unique_id=2142424757]
 position = Vector2(1040, -608)
@@ -1296,7 +1297,7 @@ direction = "horizontal"
 exit_direction = Vector2(-1, 0)
 
 [node name="portal2" parent="screen_manager/screen_16/portals_1" unique_id=223783779 node_paths=PackedStringArray("portal_par") instance=ExtResource("14_v5ns0")]
-position = Vector2(17075.002, 1155)
+position = Vector2(17265, 1139.9995)
 rotation = 5.4977875
 scale = Vector2(-1, 1)
 portal_par = NodePath("../portal")
@@ -1304,22 +1305,24 @@ direction = "diagonal"
 exit_direction = Vector2(1, 1)
 
 [node name="portals_2" type="Node2D" parent="screen_manager/screen_16" unique_id=1003217982]
+modulate = Color(1, 0, 1, 1)
 
 [node name="portal5" parent="screen_manager/screen_16/portals_2" unique_id=1506746841 node_paths=PackedStringArray("portal_par") instance=ExtResource("14_v5ns0")]
-position = Vector2(17430, 1083)
+position = Vector2(17593, 1006)
 rotation = 1.5707964
 portal_par = NodePath("../portal4")
 direction = "vertical"
 exit_direction = Vector2(0, 1)
 
 [node name="portal4" parent="screen_manager/screen_16/portals_2" unique_id=868025187 node_paths=PackedStringArray("portal_par") instance=ExtResource("14_v5ns0")]
-position = Vector2(17430, 1129)
+position = Vector2(17476, 1181)
 rotation = -1.5707964
 portal_par = NodePath("../portal5")
 direction = "vertical"
 exit_direction = Vector2(0, 1)
 
 [node name="portals_3" type="Node2D" parent="screen_manager/screen_16" unique_id=992399483]
+modulate = Color(1, 1, 0, 1)
 
 [node name="portal6" parent="screen_manager/screen_16/portals_3" unique_id=59842887 node_paths=PackedStringArray("portal_par") instance=ExtResource("14_v5ns0")]
 position = Vector2(17624, 1255)
@@ -1328,7 +1331,7 @@ direction = "horizontal"
 exit_direction = Vector2(1, 0)
 
 [node name="portal3" parent="screen_manager/screen_16/portals_3" unique_id=844139734 node_paths=PackedStringArray("portal_par") instance=ExtResource("14_v5ns0")]
-position = Vector2(17675, 1253)
+position = Vector2(17954, 1165)
 rotation = -6.2831855
 scale = Vector2(-1, 1)
 portal_par = NodePath("../portal6")
@@ -1358,10 +1361,13 @@ position = Vector2(17280, 1214)
 position = Vector2(17280, 1277)
 
 [node name="fuel_pickup" parent="screen_manager/screen_16" unique_id=956028455 instance=ExtResource("17_o8xi3")]
-position = Vector2(17144, 1243)
+position = Vector2(17096, 1176)
 
 [node name="fuel_pickup2" parent="screen_manager/screen_16" unique_id=1505991472 instance=ExtResource("17_o8xi3")]
-position = Vector2(17168, 1157)
+position = Vector2(17186, 1173)
+
+[node name="black_hole" parent="screen_manager/screen_16" unique_id=1131471367 instance=ExtResource("18_g8a7o")]
+position = Vector2(17791, 1198)
 
 [node name="objs" type="Node2D" parent="." unique_id=1440487759]
 

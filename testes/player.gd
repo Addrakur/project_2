@@ -48,10 +48,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 		
-	if not Input.is_action_pressed("jetpack") and not is_on_floor() and fuel > 0:
-		velocity.y += gravity * delta * gravity_mult + rocket_velocity_y
-	else:
-		velocity.y += gravity * delta * gravity_mult * 0.5 + rocket_velocity_y
+	if not is_on_floor():
+		if Input.is_action_pressed("jetpack") and fuel > 0:
+			velocity.y += rocket_velocity_y
+		else:
+			velocity.y += gravity * delta * gravity_mult + rocket_velocity_y
 	
 	if not Input.is_action_pressed("jetpack") and fuel > 0:
 		if is_on_floor() and not Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
