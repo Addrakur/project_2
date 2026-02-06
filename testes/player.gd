@@ -34,6 +34,7 @@ var fuel
 var gravity_mult: float = 1
 var gravity: float
 var no_gravity: bool = false
+var rocket_no_recharge: bool = false
 
 var on_moving_plat: bool = false
 var moving_plat: AnimatableBody2D
@@ -92,7 +93,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("down") and is_on_ceiling() and gravity_mult == -1:
 		velocity.y = -jump_force
 	
-	if not Input.is_action_pressed("jetpack") and fuel < max_fuel:
+	if not Input.is_action_pressed("jetpack") and fuel < max_fuel and not rocket_no_recharge:
 		if is_on_floor():
 			fuel += fuel_restore * delta
 		else:

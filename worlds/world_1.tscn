@@ -9,9 +9,10 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_05ppg"]
 [ext_resource type="TileSet" uid="uid://b0nwkdtc1b4pi" path="res://assets/tilesets/stone_tileset.tres" id="7_2x05o"]
 [ext_resource type="PackedScene" uid="uid://cckpemnvqsmct" path="res://screen_manager/screen_changer.tscn" id="7_05ppg"]
-[ext_resource type="PackedScene" uid="uid://l1do0crllgv2" path="res://componentes/no_gravity_area.tscn" id="8_g8a7o"]
+[ext_resource type="PackedScene" uid="uid://tq2ablryb0dq" path="res://componentes/black_hole.tscn" id="8_g8a7o"]
 [ext_resource type="TileSet" uid="uid://pcfudolxen4w" path="res://assets/tilesets/mushroom_tile.tres" id="8_s6qf0"]
 [ext_resource type="PackedScene" uid="uid://cff54k45oxdfx" path="res://testes/fragile_ground.tscn" id="8_vjvj4"]
+[ext_resource type="Texture2D" uid="uid://cq8rvov30fc77" path="res://assets/componentes/black_hole_pull_area.png" id="9_715fp"]
 [ext_resource type="PackedScene" uid="uid://bvgaw3tfxgdbq" path="res://testes/on_off_ground.tscn" id="9_vjvj4"]
 [ext_resource type="PackedScene" uid="uid://yvmomcqbyish" path="res://componentes/laser_shooter.tscn" id="10_o8xi3"]
 [ext_resource type="Texture2D" uid="uid://33ri277wn0iu" path="res://icon.svg" id="10_plnos"]
@@ -32,6 +33,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 464, 0, 0, 0, 0, 0, 1952, 0)
 }
 point_count = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k0vai"]
+radius = 191.00262
 
 [sub_resource type="Curve2D" id="Curve2D_vjvj4"]
 _data = {
@@ -302,11 +306,19 @@ checkpoint = NodePath("../../screen_1/spawn_points/1")
 visible = false
 polygon = PackedVector2Array(2432, -240, 2432, -112, 2464, -112, 2464, -240)
 
-[node name="no_gravity_area" parent="screen_manager/screen_0" unique_id=1481833113 node_paths=PackedStringArray("collision_polygon") instance=ExtResource("8_g8a7o")]
-collision_polygon = NodePath("CollisionPolygon2D")
+[node name="black_hole" parent="screen_manager/screen_0" unique_id=1131471367 node_paths=PackedStringArray("pull_area") instance=ExtResource("8_g8a7o")]
+position = Vector2(315, -79)
+max_pull_force = 200.0
+pull_area = NodePath("CollisionShape2D")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="screen_manager/screen_0/no_gravity_area" unique_id=769219848]
-polygon = PackedVector2Array(157, -395, 168, 188, 657, 286, 726, -462)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="screen_manager/screen_0/black_hole" unique_id=2130552596]
+shape = SubResource("CircleShape2D_k0vai")
+
+[node name="BlackHolePullArea" type="Sprite2D" parent="screen_manager/screen_0/black_hole" unique_id=978845511]
+modulate = Color(1, 1, 1, 0.2509804)
+show_behind_parent = true
+scale = Vector2(6.1200023, 6.1200023)
+texture = ExtResource("9_715fp")
 
 [node name="screen_1" parent="screen_manager" unique_id=2002791605 node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("3_a02j0")]
 camera = NodePath("1")
