@@ -1,12 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dde7sed6s6cw"]
+[gd_scene format=3 uid="uid://dde7sed6s6cw"]
 
 [ext_resource type="Script" uid="uid://3bctrws572wg" path="res://componentes/alter_gravity.gd" id="1_g5brm"]
 
-[node name="alter_gravity" type="Area2D"]
+[node name="alter_gravity" type="Area2D" unique_id=2073904797]
 collision_layer = 0
 script = ExtResource("1_g5brm")
 
-[node name="polygon" type="Polygon2D" parent="."]
+[node name="polygon" type="Polygon2D" parent="." unique_id=1143331457]
 color = Color(1, 1, 1, 0.12941177)
 polygon = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
 

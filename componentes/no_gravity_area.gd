@@ -1,6 +1,5 @@
 extends Area2D
 
-@export var new_gravity_mult: float
 @export var collision_polygon: CollisionPolygon2D
 @onready var polygon: Polygon2D = $polygon
 
@@ -9,8 +8,8 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		body.gravity_mult = new_gravity_mult
+		body.no_gravity = true
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is Player:
-		body.gravity_mult = 1
+		body.no_gravity = false

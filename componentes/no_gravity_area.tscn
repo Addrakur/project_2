@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://l1do0crllgv2"]
+
+[ext_resource type="Script" uid="uid://b3vqevm4f1s2g" path="res://componentes/no_gravity_area.gd" id="1_vut45"]
+
+[node name="no_gravity_area" type="Area2D" unique_id=1481833113]
+script = ExtResource("1_vut45")
+
+[node name="polygon" type="Polygon2D" parent="." unique_id=789737179]
+color = Color(1, 1, 1, 0.15686275)
+polygon = PackedVector2Array(-1, -1, -1, 1, 1, 1, 1, -1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

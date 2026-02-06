@@ -13,8 +13,10 @@ one_shot = true
 one_shot = true
 
 [node name="laser_start_delay_timer" type="Timer" parent="." unique_id=1329384821]
+one_shot = true
 
 [node name="laser" type="Line2D" parent="." unique_id=299881151]
+visible = false
 points = PackedVector2Array(0, -15, 0, 18)
 texture = ExtResource("2_42dfe")
 texture_mode = 2

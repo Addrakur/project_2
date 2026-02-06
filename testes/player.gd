@@ -22,6 +22,7 @@ extends CharacterBody2D
 @export var rocket_force_up: float
 @export var rocket_force_down: float
 @export var rocket_max_speed: float
+@export var less_gravity_limit: float
 
 var rocket_active: bool = true
 var rocket_force: float
@@ -32,6 +33,7 @@ var side_velocity: float
 var fuel
 var gravity_mult: float = 1
 var gravity: float
+var no_gravity: bool = false
 
 var on_moving_plat: bool = false
 var moving_plat: AnimatableBody2D
@@ -49,15 +51,21 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 		
 	if not is_on_floor():
-		if Input.is_action_pressed("jetpack") and fuel > 0:
+		if no_gravity:
 			velocity.y += rocket_velocity_y
 		else:
-			velocity.y += gravity * delta * gravity_mult + rocket_velocity_y
+			if Input.is_action_pressed("jetpack") and fuel > 0:
+				if velocity.y > less_gravity_limit:
+					velocity.y += rocket_velocity_y
+				else:
+					velocity.y +=  gravity * delta * gravity_mult * 0.5 + rocket_velocity_y
+			else:
+				velocity.y += gravity * delta * gravity_mult + rocket_velocity_y
 	
 	if not Input.is_action_pressed("jetpack") and fuel > 0:
 		if is_on_floor() and not Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
 			velocity.x = move_toward(velocity.x,0,floor_delta_towards_zero)
-		else:
+		elif not no_gravity:
 			velocity.x = move_toward(velocity.x,0,air_delta_towards_zero)
 		
 	for i in range(get_slide_collision_count()):
@@ -76,6 +84,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("up") and is_on_floor() and gravity_mult == 1:
 		if on_moving_plat and moving_plat.coyote_time:
+			on_moving_plat = false
 			velocity += moving_plat.throw_speed
 		else:
 			velocity.y = jump_force

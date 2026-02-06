@@ -6,8 +6,8 @@
 [ext_resource type="Script" uid="uid://c0u744ywumy15" path="res://testes/fps.gd" id="3_e0bjr"]
 [ext_resource type="Texture2D" uid="uid://meacflkbjib4" path="res://assets/player/player_walk.png" id="4_8rlj8"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e0bjr"]
-radius = 16.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8rlj8"]
+radius = 9.0
 height = 32.0
 
 [sub_resource type="Animation" id="Animation_8rlj8"]
@@ -162,10 +162,11 @@ rocket_max_force = 12.0
 rocket_force_up = 8.0
 rocket_force_down = 4.0
 rocket_max_speed = 90.0
+less_gravity_limit = 50.0
 progress_bar = NodePath("CanvasLayer/Control/ProgressBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=754920813]
-shape = SubResource("CapsuleShape2D_e0bjr")
+shape = SubResource("CapsuleShape2D_8rlj8")
 
 [node name="texture" type="Node2D" parent="." unique_id=509839083]
 

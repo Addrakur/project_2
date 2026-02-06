@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://c84kdm2lscl7a"]
+[gd_scene format=4 uid="uid://c84kdm2lscl7a"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_k3a3w"]
 [ext_resource type="Script" uid="uid://bnvqoglkbsle4" path="res://worlds/world.gd" id="1_pg7ka"]
@@ -50,33 +50,33 @@ size = Vector2(1616, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pg7ka"]
 size = Vector2(576, 48)
 
-[node name="loop_basico" type="Node2D" node_paths=PackedStringArray("player")]
+[node name="loop_basico" type="Node2D" unique_id=1033623335 node_paths=PackedStringArray("player")]
 script = ExtResource("1_pg7ka")
 player = NodePath("player")
 gravity = 120.0
 metadata/_custom_type_script = "uid://bnvqoglkbsle4"
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=981919295]
 position = Vector2(-480, 128)
 zoom = Vector2(0.7, 0.7)
 editor_draw_limits = true
 
-[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1586024253]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("1_k3a3w")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="screen_manager" parent="." node_paths=PackedStringArray("player", "screens", "current_checkpoint") instance=ExtResource("2_qahnf")]
+[node name="screen_manager" parent="." unique_id=764072284 node_paths=PackedStringArray("player", "screens", "current_checkpoint") instance=ExtResource("2_qahnf")]
 player = NodePath("../player")
 screens = [NodePath("screen_0"), NodePath("screen_1"), NodePath("screen_2"), NodePath("screen_3"), NodePath("screen_4"), NodePath("screen_5"), NodePath("screen_6"), NodePath("screen_7"), NodePath("screen_8"), NodePath("screen_9"), NodePath("screen_10"), NodePath("screen_11"), NodePath("screen_12")]
 current_checkpoint = NodePath("screen_1/spawn_points/spawn_1")
 
-[node name="screen_0" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
+[node name="screen_0" parent="screen_manager" unique_id=1284709579 node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
 camera = NodePath("0")
 default_checkpoint = NodePath("spawn_point")
 
-[node name="0" type="Node2D" parent="screen_manager/screen_0"]
+[node name="0" type="Node2D" parent="screen_manager/screen_0" unique_id=1191381045]
 position = Vector2(-480, 128)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
@@ -84,25 +84,25 @@ tween_resource = SubResource("Resource_i5n0t")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="spawn_point" type="Marker2D" parent="screen_manager/screen_0"]
+[node name="spawn_point" type="Marker2D" parent="screen_manager/screen_0" unique_id=317607068]
 position = Vector2(-480, 293)
 
-[node name="screen_changer_0_1" parent="screen_manager/screen_0" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_0_1" parent="screen_manager/screen_0" unique_id=719162479 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_1")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
 checkpoint = NodePath("../../screen_1/spawn_points/spawn_1")
 
-[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_0/screen_changer_0_1"]
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_0/screen_changer_0_1" unique_id=250216710]
 visible = false
 polygon = PackedVector2Array(0, -176, 0, 208, 64, 208, 64, -176)
 
-[node name="screen_1" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
+[node name="screen_1" parent="screen_manager" unique_id=631458249 node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
 camera = NodePath("1")
 default_checkpoint = NodePath("spawn_points/spawn_1")
 
-[node name="1" type="Node2D" parent="screen_manager/screen_1"]
+[node name="1" type="Node2D" parent="screen_manager/screen_1" unique_id=233550058]
 position = Vector2(448, 128)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
@@ -110,50 +110,50 @@ tween_resource = SubResource("Resource_i5n0t")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="spawn_points" type="Node2D" parent="screen_manager/screen_1"]
+[node name="spawn_points" type="Node2D" parent="screen_manager/screen_1" unique_id=133969627]
 
-[node name="spawn_1" type="Marker2D" parent="screen_manager/screen_1/spawn_points"]
+[node name="spawn_1" type="Marker2D" parent="screen_manager/screen_1/spawn_points" unique_id=870026027]
 position = Vector2(48, 197)
 
-[node name="spawn_2" type="Marker2D" parent="screen_manager/screen_1/spawn_points"]
+[node name="spawn_2" type="Marker2D" parent="screen_manager/screen_1/spawn_points" unique_id=2050201011]
 position = Vector2(848, 37)
 
-[node name="screen_changer_1_0" parent="screen_manager/screen_1" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_1_0" parent="screen_manager/screen_1" unique_id=1632841438 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_0")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
 checkpoint = NodePath("../../screen_0/spawn_point")
 
-[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_1/screen_changer_1_0"]
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_1/screen_changer_1_0" unique_id=1361902187]
 visible = false
 polygon = PackedVector2Array(-32, 208, -32, -176, -96, -176, -80, 208)
 
-[node name="screen_changer_1_2" parent="screen_manager/screen_1" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_1_2" parent="screen_manager/screen_1" unique_id=1339990040 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_2")
 old_screen = NodePath("..")
 door_shape = NodePath("polygon")
 checkpoint = NodePath("../../screen_2/spawn_points/spawn_1")
 
-[node name="polygon" type="Polygon2D" parent="screen_manager/screen_1/screen_changer_1_2"]
+[node name="polygon" type="Polygon2D" parent="screen_manager/screen_1/screen_changer_1_2" unique_id=114897553]
 visible = false
 polygon = PackedVector2Array(928, -256, 928, 48, 992, 48, 992, -256)
 
-[node name="fragile_ground" parent="screen_manager/screen_1" instance=ExtResource("7_mcnex")]
+[node name="fragile_ground" parent="screen_manager/screen_1" unique_id=990185438 instance=ExtResource("7_mcnex")]
 position = Vector2(176, 256)
 
-[node name="fragile_ground2" parent="screen_manager/screen_1" instance=ExtResource("7_mcnex")]
+[node name="fragile_ground2" parent="screen_manager/screen_1" unique_id=1214834242 instance=ExtResource("7_mcnex")]
 position = Vector2(464, 176)
 
-[node name="fragile_ground3" parent="screen_manager/screen_1" instance=ExtResource("7_mcnex")]
+[node name="fragile_ground3" parent="screen_manager/screen_1" unique_id=1583259035 instance=ExtResource("7_mcnex")]
 position = Vector2(624, 176)
 
-[node name="screen_2" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
+[node name="screen_2" parent="screen_manager" unique_id=1312344402 node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
 camera = NodePath("2")
 default_checkpoint = NodePath("spawn_points/spawn_1")
 
-[node name="2" type="Node2D" parent="screen_manager/screen_2"]
+[node name="2" type="Node2D" parent="screen_manager/screen_2" unique_id=430473245]
 position = Vector2(1376, 128)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
@@ -161,46 +161,46 @@ tween_resource = SubResource("Resource_i5n0t")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="screen_changer_2_1" parent="screen_manager/screen_2" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_2_1" parent="screen_manager/screen_2" unique_id=1653141667 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_1")
 old_screen = NodePath("..")
 door_shape = NodePath("polygon")
 checkpoint = NodePath("../../screen_1/spawn_points/spawn_2")
 
-[node name="polygon" type="Polygon2D" parent="screen_manager/screen_2/screen_changer_2_1"]
+[node name="polygon" type="Polygon2D" parent="screen_manager/screen_2/screen_changer_2_1" unique_id=319344040]
 visible = false
 polygon = PackedVector2Array(896, -256, 896, 48, 832, 48, 832, -256)
 
-[node name="screen_changer_2_3" parent="screen_manager/screen_2" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_2_3" parent="screen_manager/screen_2" unique_id=296862712 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_3")
 old_screen = NodePath("..")
 door_shape = NodePath("polygon")
 checkpoint = NodePath("../../screen_3/spawn_points/spawn_1")
 
-[node name="polygon" type="Polygon2D" parent="screen_manager/screen_2/screen_changer_2_3"]
+[node name="polygon" type="Polygon2D" parent="screen_manager/screen_2/screen_changer_2_3" unique_id=1629979042]
 visible = false
 polygon = PackedVector2Array(1920, 208, 1920, -256, 1856, -256, 1856, 208)
 
-[node name="spawn_points" type="Node2D" parent="screen_manager/screen_2"]
+[node name="spawn_points" type="Node2D" parent="screen_manager/screen_2" unique_id=384088930]
 
-[node name="spawn_1" type="Marker2D" parent="screen_manager/screen_2/spawn_points"]
+[node name="spawn_1" type="Marker2D" parent="screen_manager/screen_2/spawn_points" unique_id=166768106]
 position = Vector2(976, 37)
 
-[node name="spawn_2" type="Marker2D" parent="screen_manager/screen_2/spawn_points"]
+[node name="spawn_2" type="Marker2D" parent="screen_manager/screen_2/spawn_points" unique_id=1511165599]
 position = Vector2(1776, 197)
 
-[node name="on_off_ground" parent="screen_manager/screen_2" instance=ExtResource("8_n8xu7")]
+[node name="on_off_ground" parent="screen_manager/screen_2" unique_id=176174043 instance=ExtResource("8_n8xu7")]
 position = Vector2(1277, 203)
 on_time = 3.0
 off_time = 3.0
 
-[node name="screen_3" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
+[node name="screen_3" parent="screen_manager" unique_id=1223880396 node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
 camera = NodePath("3")
 default_checkpoint = NodePath("spawn_points/spawn_1")
 
-[node name="3" type="Node2D" parent="screen_manager/screen_3"]
+[node name="3" type="Node2D" parent="screen_manager/screen_3" unique_id=15344627]
 position = Vector2(2304, 128)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
@@ -208,68 +208,68 @@ tween_resource = SubResource("Resource_i5n0t")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="spawn_points" type="Node2D" parent="screen_manager/screen_3"]
+[node name="spawn_points" type="Node2D" parent="screen_manager/screen_3" unique_id=764619794]
 
-[node name="spawn_1" type="Marker2D" parent="screen_manager/screen_3/spawn_points"]
+[node name="spawn_1" type="Marker2D" parent="screen_manager/screen_3/spawn_points" unique_id=1535986523]
 position = Vector2(1904, 197)
 
-[node name="spawn_2" type="Marker2D" parent="screen_manager/screen_3/spawn_points"]
+[node name="spawn_2" type="Marker2D" parent="screen_manager/screen_3/spawn_points" unique_id=1867247524]
 position = Vector2(2736, 325)
 
-[node name="breakable_ground" parent="screen_manager/screen_3" instance=ExtResource("4_qahnf")]
+[node name="breakable_ground" parent="screen_manager/screen_3" unique_id=504867923 instance=ExtResource("4_qahnf")]
 position = Vector2(2128, 352)
 max_speed = 150.0
 
-[node name="breakable_ground4" parent="screen_manager/screen_3" instance=ExtResource("4_qahnf")]
+[node name="breakable_ground4" parent="screen_manager/screen_3" unique_id=1576707054 instance=ExtResource("4_qahnf")]
 position = Vector2(2544, 352)
 max_speed = 150.0
 
-[node name="breakable_ground5" parent="screen_manager/screen_3" instance=ExtResource("4_qahnf")]
+[node name="breakable_ground5" parent="screen_manager/screen_3" unique_id=1347985128 instance=ExtResource("4_qahnf")]
 position = Vector2(2592, 352)
 max_speed = 150.0
 
-[node name="breakable_ground3" parent="screen_manager/screen_3" instance=ExtResource("4_qahnf")]
+[node name="breakable_ground3" parent="screen_manager/screen_3" unique_id=1380489695 instance=ExtResource("4_qahnf")]
 position = Vector2(2224, 352)
 max_speed = 150.0
 
-[node name="breakable_ground2" parent="screen_manager/screen_3" instance=ExtResource("4_qahnf")]
+[node name="breakable_ground2" parent="screen_manager/screen_3" unique_id=1014552519 instance=ExtResource("4_qahnf")]
 position = Vector2(2320, 352)
 max_speed = 150.0
 
-[node name="Label" type="Label" parent="screen_manager/screen_3"]
+[node name="Label" type="Label" parent="screen_manager/screen_3" unique_id=444564314]
 offset_left = 2256.0
 offset_top = 288.0
 offset_right = 2370.0
 offset_bottom = 311.0
 text = "CAIA DEVAGAR"
 
-[node name="screen_changer_3_2" parent="screen_manager/screen_3" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_3_2" parent="screen_manager/screen_3" unique_id=510655693 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_2")
 old_screen = NodePath("..")
 door_shape = NodePath("polygon")
 checkpoint = NodePath("../../screen_2/spawn_points/spawn_2")
 
-[node name="polygon" type="Polygon2D" parent="screen_manager/screen_3/screen_changer_3_2"]
+[node name="polygon" type="Polygon2D" parent="screen_manager/screen_3/screen_changer_3_2" unique_id=2057552991]
 visible = false
 polygon = PackedVector2Array(1760, 208, 1760, -256, 1824, -256, 1824, 208)
 
-[node name="screen_changer_3_4" parent="screen_manager/screen_3" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_3_4" parent="screen_manager/screen_3" unique_id=551718110 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_4")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
 checkpoint = NodePath("../../screen_4/spawn_point/1")
 
-[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_3/screen_changer_3_4"]
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_3/screen_changer_3_4" unique_id=2125035396]
 visible = false
 polygon = PackedVector2Array(2784, 352, 2784, 32, 2848, 32, 2848, 352)
 
-[node name="screen_4" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
+[node name="screen_4" parent="screen_manager" unique_id=1208237441 node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
 camera = NodePath("4")
 default_checkpoint = NodePath("spawn_point/1")
 
-[node name="4" type="Node2D" parent="screen_manager/screen_4"]
+[node name="4" type="Node2D" parent="screen_manager/screen_4" unique_id=1634555725]
 position = Vector2(3232, 128)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
@@ -277,41 +277,41 @@ tween_resource = SubResource("Resource_i5n0t")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="screen_changer_4_3" parent="screen_manager/screen_4" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_4_3" parent="screen_manager/screen_4" unique_id=2071827984 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_3")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
 checkpoint = NodePath("../../screen_3/spawn_points/spawn_2")
 
-[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_4/screen_changer_4_3"]
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_4/screen_changer_4_3" unique_id=1063067223]
 visible = false
 polygon = PackedVector2Array(2752, 352, 2752, 240, 2720, 240, 2720, 352)
 
-[node name="screen_changer_4_5" parent="screen_manager/screen_4" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_4_5" parent="screen_manager/screen_4" unique_id=1649330969 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_5")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
 checkpoint = NodePath("../../screen_5/spawn_point/1")
 
-[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_4/screen_changer_4_5"]
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_4/screen_changer_4_5" unique_id=451389660]
 visible = false
 polygon = PackedVector2Array(3584, 416, 3664, 416, 3664, 464, 3584, 464)
 
-[node name="spawn_point" type="Node2D" parent="screen_manager/screen_4"]
+[node name="spawn_point" type="Node2D" parent="screen_manager/screen_4" unique_id=376126823]
 
-[node name="1" type="Marker2D" parent="screen_manager/screen_4/spawn_point"]
+[node name="1" type="Marker2D" parent="screen_manager/screen_4/spawn_point" unique_id=1730278952]
 position = Vector2(2848, 325)
 
-[node name="2" type="Marker2D" parent="screen_manager/screen_4/spawn_point"]
+[node name="2" type="Marker2D" parent="screen_manager/screen_4/spawn_point" unique_id=242409619]
 position = Vector2(3568, 325)
 
-[node name="screen_5" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
+[node name="screen_5" parent="screen_manager" unique_id=1730629155 node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
 camera = NodePath("5")
 default_checkpoint = NodePath("spawn_point/1")
 
-[node name="5" type="Node2D" parent="screen_manager/screen_5"]
+[node name="5" type="Node2D" parent="screen_manager/screen_5" unique_id=439023428]
 position = Vector2(3232, 656)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
@@ -319,44 +319,44 @@ tween_resource = SubResource("Resource_i5n0t")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="screen_changer_5_6" parent="screen_manager/screen_5" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_5_6" parent="screen_manager/screen_5" unique_id=232582089 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_6")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
 checkpoint = NodePath("../../screen_6/spawn_points/1")
 
-[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_5/screen_changer_5_6"]
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_5/screen_changer_5_6" unique_id=2103289848]
 visible = false
 polygon = PackedVector2Array(3712, 512, 3712, 640, 3744, 640, 3744, 512)
 
-[node name="screen_changer_5_4" parent="screen_manager/screen_5" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_5_4" parent="screen_manager/screen_5" unique_id=1417700628 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_4")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
 checkpoint = NodePath("../../screen_4/spawn_point/2")
 
-[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_5/screen_changer_5_4"]
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_5/screen_changer_5_4" unique_id=2055663332]
 visible = false
 polygon = PackedVector2Array(3584, 368, 3680, 368, 3680, 320, 3584, 320)
 
-[node name="spawn_point" type="Node2D" parent="screen_manager/screen_5"]
+[node name="spawn_point" type="Node2D" parent="screen_manager/screen_5" unique_id=1674447560]
 
-[node name="1" type="Marker2D" parent="screen_manager/screen_5/spawn_point"]
+[node name="1" type="Marker2D" parent="screen_manager/screen_5/spawn_point" unique_id=2066183073]
 position = Vector2(3616, 485)
 
-[node name="2" type="Marker2D" parent="screen_manager/screen_5/spawn_point"]
+[node name="2" type="Marker2D" parent="screen_manager/screen_5/spawn_point" unique_id=339412649]
 position = Vector2(3648, 613)
 
-[node name="fragile_ground" parent="screen_manager/screen_5" instance=ExtResource("7_mcnex")]
+[node name="fragile_ground" parent="screen_manager/screen_5" unique_id=1600714863 instance=ExtResource("7_mcnex")]
 position = Vector2(3264, 736)
 
-[node name="screen_6" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
+[node name="screen_6" parent="screen_manager" unique_id=1719250051 node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
 camera = NodePath("6")
 default_checkpoint = NodePath("spawn_points/1")
 
-[node name="6" type="Node2D" parent="screen_manager/screen_6"]
+[node name="6" type="Node2D" parent="screen_manager/screen_6" unique_id=1227087500]
 position = Vector2(4160, 656)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
@@ -364,41 +364,41 @@ tween_resource = SubResource("Resource_i5n0t")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="screen_changer_6_5" parent="screen_manager/screen_6" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_6_5" parent="screen_manager/screen_6" unique_id=432490882 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_5")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
 checkpoint = NodePath("../../screen_5/spawn_point/2")
 
-[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_6/screen_changer_6_5"]
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_6/screen_changer_6_5" unique_id=976033295]
 visible = false
 polygon = PackedVector2Array(3680, 528, 3680, 624, 3648, 624, 3648, 528)
 
-[node name="screen_changer_6_7" parent="screen_manager/screen_6" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_6_7" parent="screen_manager/screen_6" unique_id=972411309 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_7")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
 checkpoint = NodePath("../../screen_7/spawn_points/1")
 
-[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_6/screen_changer_6_7"]
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_6/screen_changer_6_7" unique_id=912519009]
 visible = false
 polygon = PackedVector2Array(4624, 400, 4624, 496, 4656, 496, 4656, 400)
 
-[node name="spawn_points" type="Node2D" parent="screen_manager/screen_6"]
+[node name="spawn_points" type="Node2D" parent="screen_manager/screen_6" unique_id=1923408038]
 
-[node name="1" type="Marker2D" parent="screen_manager/screen_6/spawn_points"]
+[node name="1" type="Marker2D" parent="screen_manager/screen_6/spawn_points" unique_id=1075632103]
 position = Vector2(3761, 613)
 
-[node name="2" type="Marker2D" parent="screen_manager/screen_6/spawn_points"]
+[node name="2" type="Marker2D" parent="screen_manager/screen_6/spawn_points" unique_id=64818612]
 position = Vector2(4576, 485)
 
-[node name="screen_7" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
+[node name="screen_7" parent="screen_manager" unique_id=1005942155 node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
 camera = NodePath("7")
 default_checkpoint = NodePath("spawn_points/1")
 
-[node name="7" type="Node2D" parent="screen_manager/screen_7" node_paths=PackedStringArray("follow_target", "follow_path")]
+[node name="7" type="Node2D" parent="screen_manager/screen_7" unique_id=1229086860 node_paths=PackedStringArray("follow_target", "follow_path")]
 top_level = true
 position = Vector2(7248, 656)
 script = ExtResource("2_kp1nd")
@@ -410,57 +410,57 @@ tween_resource = SubResource("Resource_i5n0t")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="camera_path" type="Path2D" parent="screen_manager/screen_7"]
+[node name="camera_path" type="Path2D" parent="screen_manager/screen_7" unique_id=2079637737]
 curve = SubResource("Curve2D_v3wul")
 
-[node name="screen_changer_7_6" parent="screen_manager/screen_7" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_7_6" parent="screen_manager/screen_7" unique_id=590252742 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_6")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
 checkpoint = NodePath("../../screen_6/spawn_points/2")
 
-[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_7/screen_changer_7_6"]
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_7/screen_changer_7_6" unique_id=2057229561]
 visible = false
 polygon = PackedVector2Array(4608, 400, 4608, 496, 4576, 496, 4576, 400)
 
-[node name="screen_changer_7_8" parent="screen_manager/screen_7" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_7_8" parent="screen_manager/screen_7" unique_id=805612139 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_8")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
 checkpoint = NodePath("../../screen_8/spawn_points/1")
 
-[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_7/screen_changer_7_8"]
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_7/screen_changer_7_8" unique_id=10848050]
 visible = false
 polygon = PackedVector2Array(7728, 352, 7728, 656, 7760, 656, 7760, 352)
 
-[node name="spawn_points" type="Node2D" parent="screen_manager/screen_7"]
+[node name="spawn_points" type="Node2D" parent="screen_manager/screen_7" unique_id=1866466727]
 
-[node name="1" type="Marker2D" parent="screen_manager/screen_7/spawn_points"]
+[node name="1" type="Marker2D" parent="screen_manager/screen_7/spawn_points" unique_id=667136655]
 position = Vector2(4688, 485)
 
-[node name="2" type="Marker2D" parent="screen_manager/screen_7/spawn_points"]
+[node name="2" type="Marker2D" parent="screen_manager/screen_7/spawn_points" unique_id=202100693]
 position = Vector2(7648, 645)
 
-[node name="objs" type="Node2D" parent="screen_manager/screen_7"]
+[node name="objs" type="Node2D" parent="screen_manager/screen_7" unique_id=1339752669]
 
-[node name="on_off_ground" parent="screen_manager/screen_7/objs" instance=ExtResource("8_n8xu7")]
+[node name="on_off_ground" parent="screen_manager/screen_7/objs" unique_id=1032062565 instance=ExtResource("8_n8xu7")]
 position = Vector2(4880, 672)
 on_time = 3.0
 off_time = 3.0
 
-[node name="fragile_ground" parent="screen_manager/screen_7/objs" instance=ExtResource("7_mcnex")]
+[node name="fragile_ground" parent="screen_manager/screen_7/objs" unique_id=554880520 instance=ExtResource("7_mcnex")]
 position = Vector2(6560, 672)
 
-[node name="fragile_ground2" parent="screen_manager/screen_7/objs" instance=ExtResource("7_mcnex")]
+[node name="fragile_ground2" parent="screen_manager/screen_7/objs" unique_id=902245339 instance=ExtResource("7_mcnex")]
 position = Vector2(7040, 672)
 
-[node name="screen_8" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
+[node name="screen_8" parent="screen_manager" unique_id=1949885355 node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
 camera = NodePath("8")
 default_checkpoint = NodePath("spawn_points/1")
 
-[node name="8" type="Node2D" parent="screen_manager/screen_8"]
+[node name="8" type="Node2D" parent="screen_manager/screen_8" unique_id=1399980393]
 position = Vector2(8176, 656)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
@@ -468,63 +468,63 @@ tween_resource = SubResource("Resource_i5n0t")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="rotate_obstacle" type="Path2D" parent="screen_manager/screen_8"]
+[node name="rotate_obstacle" type="Path2D" parent="screen_manager/screen_8" unique_id=1367635656]
 position = Vector2(-1167.9688, 0)
 scale = Vector2(1.1428533, 1)
 curve = SubResource("Curve2D_f1sru")
 
-[node name="moving_obstacle" parent="screen_manager/screen_8/rotate_obstacle" node_paths=PackedStringArray("screen") instance=ExtResource("11_vwuwe")]
+[node name="moving_obstacle" parent="screen_manager/screen_8/rotate_obstacle" unique_id=617263724 node_paths=PackedStringArray("screen") instance=ExtResource("11_vwuwe")]
 position = Vector2(8176.0005, 544)
 move_speed = 0.25
 screen = NodePath("../..")
 
-[node name="Icon" type="Sprite2D" parent="screen_manager/screen_8/rotate_obstacle/moving_obstacle"]
+[node name="Icon" type="Sprite2D" parent="screen_manager/screen_8/rotate_obstacle/moving_obstacle" unique_id=1447262456]
 rotation = 0.008251359
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("11_b3cf4")
 
-[node name="kill_player_area" parent="screen_manager/screen_8/rotate_obstacle/moving_obstacle/Icon" node_paths=PackedStringArray("screen_manager") instance=ExtResource("3_v3wul")]
+[node name="kill_player_area" parent="screen_manager/screen_8/rotate_obstacle/moving_obstacle/Icon" unique_id=1606822614 node_paths=PackedStringArray("screen_manager") instance=ExtResource("3_v3wul")]
 screen_manager = NodePath("../../../../..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="screen_manager/screen_8/rotate_obstacle/moving_obstacle/Icon/kill_player_area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="screen_manager/screen_8/rotate_obstacle/moving_obstacle/Icon/kill_player_area" unique_id=1368963848]
 position = Vector2(-0.005859375, 0)
 shape = SubResource("RectangleShape2D_5ae27")
 
-[node name="spawn_points" type="Node2D" parent="screen_manager/screen_8"]
+[node name="spawn_points" type="Node2D" parent="screen_manager/screen_8" unique_id=1112126060]
 
-[node name="1" type="Marker2D" parent="screen_manager/screen_8/spawn_points"]
+[node name="1" type="Marker2D" parent="screen_manager/screen_8/spawn_points" unique_id=1253231789]
 position = Vector2(7792, 645)
 
-[node name="2" type="Marker2D" parent="screen_manager/screen_8/spawn_points"]
+[node name="2" type="Marker2D" parent="screen_manager/screen_8/spawn_points" unique_id=1525879439]
 position = Vector2(8576, 645)
 
-[node name="screen_changer_8_7" parent="screen_manager/screen_8" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_8_7" parent="screen_manager/screen_8" unique_id=869703030 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_7")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
 checkpoint = NodePath("../../screen_7/spawn_points/2")
 
-[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_8/screen_changer_8_7"]
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_8/screen_changer_8_7" unique_id=1881666389]
 visible = false
 polygon = PackedVector2Array(7696, 352, 7696, 656, 7664, 656, 7664, 352)
 
-[node name="screen_changer_8_9" parent="screen_manager/screen_8" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_8_9" parent="screen_manager/screen_8" unique_id=1006438282 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_9")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
 checkpoint = NodePath("../../screen_9/spawn_points/1")
 
-[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_8/screen_changer_8_9"]
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_8/screen_changer_8_9" unique_id=442449821]
 visible = false
 polygon = PackedVector2Array(8688, 656, 8656, 656, 8656, 544, 8688, 544)
 
-[node name="screen_9" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
+[node name="screen_9" parent="screen_manager" unique_id=923553881 node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
 camera = NodePath("9")
 default_checkpoint = NodePath("spawn_points/1")
 
-[node name="9" type="Node2D" parent="screen_manager/screen_9"]
+[node name="9" type="Node2D" parent="screen_manager/screen_9" unique_id=1183063738]
 position = Vector2(9104, 496)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
@@ -532,63 +532,63 @@ tween_resource = SubResource("Resource_i5n0t")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="rotate_obstacle" type="Path2D" parent="screen_manager/screen_9"]
+[node name="rotate_obstacle" type="Path2D" parent="screen_manager/screen_9" unique_id=930056068]
 position = Vector2(-32, -112)
 scale = Vector2(1.1428533, 1)
 curve = SubResource("Curve2D_f1sru")
 
-[node name="moving_obstacle" parent="screen_manager/screen_9/rotate_obstacle" node_paths=PackedStringArray("screen") instance=ExtResource("11_vwuwe")]
+[node name="moving_obstacle" parent="screen_manager/screen_9/rotate_obstacle" unique_id=19424607 node_paths=PackedStringArray("screen") instance=ExtResource("11_vwuwe")]
 position = Vector2(8176.0005, 544)
 move_speed = 0.25
 screen = NodePath("../..")
 
-[node name="Icon" type="Sprite2D" parent="screen_manager/screen_9/rotate_obstacle/moving_obstacle"]
+[node name="Icon" type="Sprite2D" parent="screen_manager/screen_9/rotate_obstacle/moving_obstacle" unique_id=1907158674]
 rotation = 0.008251359
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("11_b3cf4")
 
-[node name="kill_player_area" parent="screen_manager/screen_9/rotate_obstacle/moving_obstacle/Icon" node_paths=PackedStringArray("screen_manager") instance=ExtResource("3_v3wul")]
+[node name="kill_player_area" parent="screen_manager/screen_9/rotate_obstacle/moving_obstacle/Icon" unique_id=2094962985 node_paths=PackedStringArray("screen_manager") instance=ExtResource("3_v3wul")]
 screen_manager = NodePath("../../../../..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="screen_manager/screen_9/rotate_obstacle/moving_obstacle/Icon/kill_player_area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="screen_manager/screen_9/rotate_obstacle/moving_obstacle/Icon/kill_player_area" unique_id=2137790815]
 position = Vector2(-0.005859375, 0)
 shape = SubResource("RectangleShape2D_5ae27")
 
-[node name="spawn_points" type="Node2D" parent="screen_manager/screen_9"]
+[node name="spawn_points" type="Node2D" parent="screen_manager/screen_9" unique_id=1487685913]
 
-[node name="1" type="Marker2D" parent="screen_manager/screen_9/spawn_points"]
+[node name="1" type="Marker2D" parent="screen_manager/screen_9/spawn_points" unique_id=485303986]
 position = Vector2(8688, 645)
 
-[node name="2" type="Marker2D" parent="screen_manager/screen_9/spawn_points"]
+[node name="2" type="Marker2D" parent="screen_manager/screen_9/spawn_points" unique_id=1057717460]
 position = Vector2(9520, 357)
 
-[node name="screen_changer_9_8" parent="screen_manager/screen_9" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_9_8" parent="screen_manager/screen_9" unique_id=525565468 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_8")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
 checkpoint = NodePath("../../screen_8/spawn_points/2")
 
-[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_9/screen_changer_9_8"]
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_9/screen_changer_9_8" unique_id=1501688368]
 visible = false
 polygon = PackedVector2Array(8624, 656, 8624, 560, 8592, 560, 8592, 656)
 
-[node name="screen_changer_9_10" parent="screen_manager/screen_9" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_9_10" parent="screen_manager/screen_9" unique_id=1963323745 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_10")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
 checkpoint = NodePath("../../screen_10/spawn_points/1")
 
-[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_9/screen_changer_9_10"]
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_9/screen_changer_9_10" unique_id=17490927]
 visible = false
 polygon = PackedVector2Array(9584, 272, 9584, 368, 9616, 368, 9616, 272)
 
-[node name="screen_10" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
+[node name="screen_10" parent="screen_manager" unique_id=151108212 node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
 camera = NodePath("10")
 default_checkpoint = NodePath("spawn_points/1")
 
-[node name="10" type="Node2D" parent="screen_manager/screen_10"]
+[node name="10" type="Node2D" parent="screen_manager/screen_10" unique_id=2116889462]
 position = Vector2(10032, 496)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
@@ -596,41 +596,41 @@ tween_resource = SubResource("Resource_i5n0t")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="spawn_points" type="Node2D" parent="screen_manager/screen_10"]
+[node name="spawn_points" type="Node2D" parent="screen_manager/screen_10" unique_id=235434220]
 
-[node name="1" type="Marker2D" parent="screen_manager/screen_10/spawn_points"]
+[node name="1" type="Marker2D" parent="screen_manager/screen_10/spawn_points" unique_id=999161493]
 position = Vector2(9664, 549)
 
-[node name="2" type="Marker2D" parent="screen_manager/screen_10/spawn_points"]
+[node name="2" type="Marker2D" parent="screen_manager/screen_10/spawn_points" unique_id=1068460272]
 position = Vector2(10432, 517)
 
-[node name="screen_changer_10_9" parent="screen_manager/screen_10" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_10_9" parent="screen_manager/screen_10" unique_id=556534576 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_9")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
 checkpoint = NodePath("../../screen_9/spawn_points/2")
 
-[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_10/screen_changer_10_9"]
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_10/screen_changer_10_9" unique_id=165012302]
 visible = false
 polygon = PackedVector2Array(9552, 368, 9552, 272, 9520, 272, 9520, 368)
 
-[node name="screen_changer_10_11" parent="screen_manager/screen_10" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_10_11" parent="screen_manager/screen_10" unique_id=1581291231 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_11")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
 checkpoint = NodePath("../../screen_11/spawn_points/1")
 
-[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_10/screen_changer_10_11"]
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_10/screen_changer_10_11" unique_id=618631764]
 visible = false
 polygon = PackedVector2Array(10512, 256, 10512, 528, 10544, 528, 10544, 272)
 
-[node name="screen_11" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
+[node name="screen_11" parent="screen_manager" unique_id=101516065 node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
 camera = NodePath("11")
 default_checkpoint = NodePath("spawn_points/1")
 
-[node name="11" type="Node2D" parent="screen_manager/screen_11"]
+[node name="11" type="Node2D" parent="screen_manager/screen_11" unique_id=1753527308]
 position = Vector2(10960, 320)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
@@ -638,47 +638,48 @@ tween_resource = SubResource("Resource_i5n0t")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="spawn_points" type="Node2D" parent="screen_manager/screen_11"]
+[node name="spawn_points" type="Node2D" parent="screen_manager/screen_11" unique_id=462255128]
 
-[node name="1" type="Marker2D" parent="screen_manager/screen_11/spawn_points"]
+[node name="1" type="Marker2D" parent="screen_manager/screen_11/spawn_points" unique_id=790292476]
 position = Vector2(10544, 517)
 
-[node name="2" type="Marker2D" parent="screen_manager/screen_11/spawn_points"]
+[node name="2" type="Marker2D" parent="screen_manager/screen_11/spawn_points" unique_id=1465372366]
 position = Vector2(11376, 421)
 
-[node name="alter_gravity" parent="screen_manager/screen_11" node_paths=PackedStringArray("collision_polygon") instance=ExtResource("12_f1sru")]
+[node name="alter_gravity" parent="screen_manager/screen_11" unique_id=1021095177 node_paths=PackedStringArray("collision_polygon") instance=ExtResource("12_f1sru")]
+new_gravity_mult = -1.0
 collision_polygon = NodePath("CollisionPolygon2D")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="screen_manager/screen_11/alter_gravity"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="screen_manager/screen_11/alter_gravity" unique_id=229126821]
 polygon = PackedVector2Array(10808, 96, 10809, 480, 11169, 480, 11170, 96)
 
-[node name="screen_changer_11_10" parent="screen_manager/screen_11" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_11_10" parent="screen_manager/screen_11" unique_id=929909397 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_10")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
 checkpoint = NodePath("../../screen_10/spawn_points/2")
 
-[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_11/screen_changer_11_10"]
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_11/screen_changer_11_10" unique_id=1989999050]
 visible = false
 polygon = PackedVector2Array(10480, 528, 10480, 240, 10448, 240, 10448, 528)
 
-[node name="screen_changer_11_12" parent="screen_manager/screen_11" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_11_12" parent="screen_manager/screen_11" unique_id=1541193421 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_12")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
 checkpoint = NodePath("../../screen_12/spawn_points/1")
 
-[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_11/screen_changer_11_12"]
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_11/screen_changer_11_12" unique_id=986440897]
 visible = false
 polygon = PackedVector2Array(11440, 256, 11440, 432, 11472, 432, 11472, 256)
 
-[node name="screen_12" parent="screen_manager" node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
+[node name="screen_12" parent="screen_manager" unique_id=1117033223 node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("2_o84fw")]
 camera = NodePath("12")
 default_checkpoint = NodePath("spawn_points/1")
 
-[node name="12" type="Node2D" parent="screen_manager/screen_12"]
+[node name="12" type="Node2D" parent="screen_manager/screen_12" unique_id=1217418176]
 position = Vector2(11888, 208)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
@@ -686,38 +687,38 @@ tween_resource = SubResource("Resource_i5n0t")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="spawn_points" type="Node2D" parent="screen_manager/screen_12"]
+[node name="spawn_points" type="Node2D" parent="screen_manager/screen_12" unique_id=1257788491]
 
-[node name="1" type="Marker2D" parent="screen_manager/screen_12/spawn_points"]
+[node name="1" type="Marker2D" parent="screen_manager/screen_12/spawn_points" unique_id=1302603909]
 position = Vector2(11472, 421)
 
-[node name="2" type="Marker2D" parent="screen_manager/screen_12/spawn_points"]
+[node name="2" type="Marker2D" parent="screen_manager/screen_12/spawn_points" unique_id=785573028]
 position = Vector2(12320, 101)
 
-[node name="turn_off_rocket" parent="screen_manager/screen_12" node_paths=PackedStringArray("collision_polygon") instance=ExtResource("13_5ae27")]
+[node name="turn_off_rocket" parent="screen_manager/screen_12" unique_id=2092498445 node_paths=PackedStringArray("collision_polygon") instance=ExtResource("13_5ae27")]
 collision_polygon = NodePath("CollisionPolygon2D")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="screen_manager/screen_12/turn_off_rocket"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="screen_manager/screen_12/turn_off_rocket" unique_id=1316131556]
 polygon = PackedVector2Array(11568, 0, 11568, 464, 12288, 464, 12288, 0)
 
-[node name="alter_gravity" parent="screen_manager/screen_12" node_paths=PackedStringArray("collision_polygon") instance=ExtResource("12_f1sru")]
+[node name="alter_gravity" parent="screen_manager/screen_12" unique_id=1449019048 node_paths=PackedStringArray("collision_polygon") instance=ExtResource("12_f1sru")]
 collision_polygon = NodePath("CollisionPolygon2D")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="screen_manager/screen_12/alter_gravity"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="screen_manager/screen_12/alter_gravity" unique_id=1263624963]
 polygon = PackedVector2Array(12224, 0, 12224, 384, 12288, 384, 12288, 0)
 
-[node name="screen_changer_12_11" parent="screen_manager/screen_12" node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
+[node name="screen_changer_12_11" parent="screen_manager/screen_12" unique_id=1282370051 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_11")
 old_screen = NodePath("..")
 door_shape = NodePath("Polygon2D")
 checkpoint = NodePath("../../screen_11/spawn_points/2")
 
-[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_12/screen_changer_12_11"]
+[node name="Polygon2D" type="Polygon2D" parent="screen_manager/screen_12/screen_changer_12_11" unique_id=782783978]
 visible = false
 polygon = PackedVector2Array(11408, 432, 11408, 272, 11376, 272, 11376, 432)
 
-[node name="Label2" type="Label" parent="."]
+[node name="Label2" type="Label" parent="." unique_id=932377098]
 offset_left = -592.0
 offset_top = 144.0
 offset_right = -355.0
@@ -726,36 +727,36 @@ text = "A/D = Mover para os lados
 W = Pular
 Botao Esquerdo = Usar jetpack"
 
-[node name="player" parent="." node_paths=PackedStringArray("screen_manager") instance=ExtResource("6_n8xu7")]
+[node name="player" parent="." unique_id=367743424 node_paths=PackedStringArray("screen_manager") instance=ExtResource("6_n8xu7")]
 process_mode = 1
 position = Vector2(7504, 640)
 screen_manager = NodePath("../screen_manager")
 
-[node name="regular_tileset" type="TileMapLayer" parent="."]
+[node name="regular_tileset" type="TileMapLayer" parent="." unique_id=1634360517]
 position = Vector2(64, 0)
 tile_map_data = PackedByteArray("AAAjAAcAAAAKAAMAAAAjAAgAAAALAAEAAAAiAAgAAAAKAAEAAAAhAAgAAAAKAAEAAAAgAAgAAAAKAAEAAAAfAAgAAAAKAAEAAAAeAAgAAAAKAAEAAAAdAAgAAAAKAAEAAAAcAAgAAAAKAAEAAAAbAAgAAAAKAAEAAAAaAAgAAAAKAAEAAAAbAAcAAAAKAAEAAAAcAAcAAAAKAAEAAAAfAAcAAAAKAAEAAAAgAAcAAAAKAAEAAAAhAAcAAAAKAAEAAAAiAAcAAAAKAAEAAAAaAAkAAAAKAAEAAAAZAAkAAAAKAAEAAAAYAAgAAAAKAAEAAAAWAAoAAAAJAAEAAAAFAAoAAAALAAEAAAAEAAoAAAAKAAEAAAADAAoAAAAKAAEAAAACAAoAAAAKAAEAAAABAAoAAAAKAAEAAAAAAAoAAAAKAAEAAAAAAAsAAAAKAAEAAAABAAsAAAAKAAEAAAACAAsAAAAKAAEAAAADAAsAAAAKAAEAAAAEAAsAAAAKAAEAAAAFAAsAAAALAAEAAAAWAAsAAAAJAAEAAAAZAAsAAAAKAAEAAAAaAAsAAAAKAAEAAAAbAAsAAAAKAAEAAAAcAAsAAAAKAAEAAAAdAAsAAAAKAAEAAAAdAAoAAAAKAAEAAAAeAAoAAAAKAAEAAAAfAAkAAAAKAAEAAAAgAAkAAAAKAAEAAAAhAAkAAAAKAAEAAAAiAAkAAAAKAAEAAAAeAAkAAAAKAAEAAAAdAAkAAAAKAAEAAAAcAAoAAAAKAAEAAAAbAAoAAAAKAAEAAAAaAAoAAAAKAAEAAAAZAAoAAAAKAAEAAAAbAAkAAAAKAAEAAAAcAAkAAAAKAAEAAAAfAAoAAAAKAAEAAAAwAAYAAAAJAAAAAAAxAAYAAAAKAAAAAAAyAAYAAAAKAAAAAAAzAAYAAAAKAAAAAAA0AAYAAAAKAAAAAAA1AAYAAAAKAAAAAAA2AAYAAAAKAAAAAAA3AAYAAAAKAAAAAAA4AAYAAAAKAAAAAAA5AAYAAAAKAAAAAAA5AAcAAAAKAAEAAAA4AAcAAAAKAAEAAAA3AAcAAAAKAAEAAAA2AAcAAAAKAAEAAAA1AAcAAAAKAAEAAAA0AAcAAAAKAAEAAAAzAAcAAAAKAAEAAAAyAAcAAAAKAAEAAAAxAAcAAAALAAMAAAAwAAcAAAAJAAIAAAAxAAgAAAAJAAIAAAAyAAgAAAALAAMAAAAzAAgAAAAKAAEAAAAzAAkAAAALAAMAAAAyAAkAAAAJAAIAAAA0AAkAAAAKAAEAAAA0AAoAAAAKAAEAAAAzAAoAAAAJAAEAAAA1AAoAAAAKAAEAAAA1AAsAAAAKAAEAAAA0AAsAAAAKAAEAAAAzAAsAAAAJAAEAAAA2AAsAAAAKAAEAAAA3AAsAAAAKAAEAAAA4AAsAAAAKAAEAAAA5AAsAAAAKAAEAAAA2AAoAAAAKAAEAAAA3AAoAAAAKAAEAAAA6AAsAAAAKAAEAAAA7AAsAAAAKAAEAAAA8AAsAAAAKAAEAAAA9AAsAAAAKAAEAAAA8AAoAAAAKAAEAAAA8AAkAAAAKAAEAAAA9AAkAAAAKAAEAAAA9AAoAAAAKAAEAAAA7AAkAAAAKAAEAAAA6AAkAAAAKAAEAAAA6AAgAAAAKAAEAAAA5AAgAAAAKAAEAAAA3AAgAAAAKAAEAAAA2AAgAAAAKAAEAAAA1AAgAAAAKAAEAAAA0AAgAAAAKAAEAAAA1AAkAAAAKAAEAAAA2AAkAAAAKAAEAAAA3AAkAAAAKAAEAAAA4AAgAAAAKAAEAAAA4AAkAAAAKAAEAAAA4AAoAAAAKAAEAAAA5AAoAAAAKAAEAAAA6AAoAAAAKAAEAAAA7AAoAAAAKAAEAAAA5AAkAAAAKAAEAAAA+AAoAAAAKAAEAAAA+AAsAAAAKAAEAAAA/AAsAAAAKAAEAAABAAAsAAAAKAAEAAABBAAsAAAAKAAEAAABCAAsAAAALAAEAAAA/AAoAAAAKAAEAAABAAAoAAAAKAAEAAABBAAoAAAAKAAEAAABCAAoAAAALAAEAAABCAAgAAAALAAEAAABBAAgAAAAKAAEAAABBAAcAAAAKAAEAAABCAAcAAAALAAEAAABCAAkAAAALAAEAAABBAAkAAAAKAAEAAABAAAkAAAAKAAEAAABNAAsAAAAJAAEAAABOAAoAAAAKAAEAAABOAAsAAAAKAAEAAABOAAkAAAAKAAEAAABOAAgAAAAKAAEAAABOAAcAAAAKAAEAAABPAAcAAAALAAEAAABPAAgAAAALAAEAAABPAAYAAAAKAAMAAABPAAUAAAAKAAEAAABQAAUAAAALAAEAAABQAAQAAAALAAAAAABPAAQAAAAKAAAAAABQAAYAAAALAAIAAABUAAcAAAAKAAEAAABTAAcAAAAJAAEAAABTAAgAAAAJAAIAAABUAAgAAAAKAAIAAABVAAcAAAAKAAEAAABVAAYAAAAKAAEAAABUAAYAAAAKAAEAAABUAAUAAAAKAAEAAABUAAQAAAAKAAEAAABUAAMAAAAKAAEAAABVAAMAAAAKAAEAAABVAAQAAAAKAAEAAABVAAUAAAAKAAEAAABUAAIAAAAKAAEAAABUAAEAAAAKAAEAAABTAAIAAAAJAAEAAABTAAEAAAALAAMAAABTAAAAAAAKAAEAAABSAAAAAAAJAAEAAABSAAEAAAAJAAIAAAAcAAEAAAAKAAAAAAAdAAEAAAAKAAAAAAAeAAEAAAAKAAAAAAAfAAEAAAAKAAAAAAAgAAEAAAAKAAAAAAAhAAEAAAAKAAAAAAAiAAEAAAAKAAAAAAAjAAEAAAAKAAAAAAAkAAEAAAAKAAAAAAAkAAIAAAAKAAMAAAAjAAIAAAAKAAEAAAAiAAIAAAAKAAEAAAAhAAIAAAAKAAEAAAAgAAIAAAAKAAEAAAAfAAIAAAAKAAEAAAAeAAIAAAAKAAEAAAAdAAIAAAAKAAEAAAAcAAIAAAAKAAEAAAAtAAEAAAAKAAIAAAAuAAEAAAAKAAIAAAAvAAEAAAAKAAIAAAAwAAEAAAAKAAIAAAAxAAEAAAAKAAIAAAAyAAEAAAALAAIAAABaAAoAAAAKAAAAAABbAAoAAAAKAAAAAABcAAoAAAAJAAMAAABdAAoAAAAKAAEAAABeAAoAAAAKAAEAAABfAAoAAAAKAAEAAABgAAoAAAAKAAEAAABhAAoAAAAKAAEAAABiAAoAAAAKAAEAAABjAAoAAAAKAAEAAABjAAsAAAAKAAEAAABiAAsAAAAKAAEAAABhAAsAAAAKAAEAAABgAAsAAAAKAAEAAABfAAsAAAAKAAEAAABeAAsAAAAKAAEAAABdAAsAAAAKAAEAAABaAAsAAAAKAAEAAABbAAsAAAAKAAEAAABcAAsAAAAKAAEAAABmAAoAAAAKAAEAAABmAPr/AAAKAAEAAAD//wsAAAAKAAEAAAD//woAAAAKAAEAAAD//wkAAAAKAAEAAAD//wgAAAAKAAEAAAD//wcAAAAKAAEAAAD//wYAAAAKAAAAAAD///r/AAAKAAEAAAAsAAAAAAAJAAEAAAAtAAAAAAAKAAEAAAAuAAAAAAAKAAEAAAAvAAAAAAAKAAEAAAAwAAAAAAAKAAEAAAAxAAAAAAAKAAEAAAAyAAAAAAALAAEAAAAlAAEAAAALAAAAAAAlAAIAAAALAAIAAAAAAAYAAAAKAAAAAAABAAYAAAAKAAAAAAACAAYAAAAKAAAAAAACAAcAAAAKAAEAAAACAAgAAAAKAAEAAAACAAkAAAAKAAEAAAABAAkAAAAKAAEAAAAAAAkAAAAKAAEAAAAAAAgAAAAKAAEAAAAAAAcAAAAKAAEAAAABAAcAAAAKAAEAAAABAAgAAAAKAAEAAAAbAAEAAAAKAAAAAAAaAAEAAAAKAAAAAAAaAAIAAAAKAAEAAAAbAAIAAAAKAAEAAAAcAAMAAAAKAAEAAAAbAAMAAAAKAAEAAAAbAAQAAAAKAAEAAAAbAAUAAAAKAAEAAAAbAAYAAAAKAAEAAAAcAAUAAAAKAAEAAAAcAAQAAAAKAAEAAAAZAAEAAAAKAAAAAAAYAAEAAAAKAAAAAAAXAAEAAAAKAAAAAAAWAAEAAAAJAAAAAAAWAAIAAAAJAAEAAAAXAAIAAAAKAAEAAAAYAAIAAAAKAAEAAAAZAAIAAAAKAAEAAAAWAAMAAAAJAAEAAAAWAAQAAAAJAAEAAAAWAAUAAAAJAAEAAAAWAAYAAAAJAAEAAAAWAAcAAAAJAAEAAAAWAAgAAAAJAAEAAAAWAAkAAAAJAAEAAAAXAAsAAAAKAAEAAAAYAAsAAAAKAAEAAAAYAAoAAAAKAAEAAAAYAAkAAAAKAAEAAAAXAAgAAAAKAAEAAAAXAAkAAAAKAAEAAAAXAAoAAAAKAAEAAAAXAAcAAAAKAAEAAAAXAAYAAAAKAAEAAAAXAAUAAAAKAAEAAAAXAAQAAAAKAAEAAAAXAAMAAAAKAAEAAAAYAAcAAAAKAAEAAAAYAAYAAAAKAAEAAAAYAAUAAAAKAAEAAAAYAAQAAAAKAAEAAAAYAAMAAAAKAAEAAAAZAAMAAAAKAAEAAAAZAAQAAAAKAAEAAAAZAAUAAAAKAAEAAAAZAAYAAAAKAAEAAAAZAAcAAAAKAAEAAAAZAAgAAAAKAAEAAAAaAAcAAAAKAAEAAAAaAAYAAAAKAAEAAAAaAAUAAAAKAAEAAAAaAAQAAAAKAAEAAAAaAAMAAAAKAAEAAAADAAYAAAAKAAAAAAAEAAYAAAAKAAAAAAAFAAYAAAALAAAAAAAFAAcAAAALAAEAAAAEAAcAAAAKAAEAAAAEAAgAAAAKAAEAAAAFAAgAAAALAAEAAAAFAAkAAAALAAEAAAAEAAkAAAAKAAEAAAADAAgAAAAKAAEAAAADAAcAAAAKAAEAAAADAAkAAAAKAAEAAAANAAUAAAAKAAEAAAAOAAUAAAAKAAEAAAAPAAUAAAAKAAEAAAAQAAUAAAALAAEAAAAQAAYAAAALAAEAAAAQAAcAAAALAAEAAAAQAAgAAAALAAEAAAAQAAkAAAALAAEAAAAQAAoAAAALAAEAAAAPAAoAAAAKAAEAAAAPAAsAAAAKAAEAAAAOAAsAAAAKAAEAAAANAAoAAAAKAAEAAAANAAsAAAAKAAEAAAAOAAoAAAAKAAEAAAAQAAsAAAALAAEAAAAPAAkAAAAKAAEAAAAPAAgAAAAKAAEAAAAPAAcAAAAKAAEAAAAPAAYAAAAKAAEAAAAOAAYAAAAKAAEAAAANAAYAAAAKAAEAAAANAAkAAAAKAAEAAAAOAAkAAAAKAAEAAAAOAAgAAAAKAAEAAAAOAAcAAAAKAAEAAAANAAgAAAAKAAEAAAANAAcAAAAKAAEAAAANAAQAAAAKAAEAAAAOAAQAAAAKAAEAAAAPAAQAAAAKAAEAAAAQAAQAAAALAAEAAAAQAAMAAAALAAAAAAAPAAMAAAAKAAAAAAAOAAMAAAAKAAAAAAANAAMAAAAKAAAAAAAcAAYAAAAKAAEAAAAdAAYAAAAKAAEAAAAdAAUAAAAKAAEAAAAdAAQAAAAKAAEAAAAdAAMAAAAKAAEAAAAdAAcAAAAKAAEAAAAeAAQAAAAKAAEAAAAeAAUAAAAKAAEAAAAeAAYAAAAKAAEAAAAeAAcAAAAKAAEAAAAeAAMAAAAKAAEAAAAfAAMAAAAKAAEAAAAfAAQAAAAKAAEAAAAfAAUAAAAKAAEAAAAgAAUAAAAKAAEAAAAgAAYAAAAKAAEAAAAhAAUAAAAKAAEAAAAhAAQAAAAKAAEAAAAhAAMAAAAKAAEAAAAiAAMAAAAKAAEAAAAiAAQAAAAKAAEAAAAiAAUAAAAKAAEAAAAiAAYAAAAKAAEAAAAjAAYAAAAKAAEAAAAjAAUAAAAKAAEAAAAjAAQAAAAKAAEAAAAhAAYAAAAKAAEAAAAfAAYAAAAKAAEAAAAgAAQAAAAKAAEAAAAgAAMAAAAKAAEAAAAjAAMAAAAKAAEAAAAkAAMAAAALAAEAAAAsAAEAAAAJAAIAAAAsAP//AAALAAMAAAArAP//AAAJAAIAAAArAP7/AAALAAMAAAAqAP7/AAAJAAIAAAAqAP3/AAAJAAEAAAArAP3/AAAKAAEAAAAqAPz/AAAJAAEAAAAqAPv/AAALAAMAAAApAPv/AAAJAAIAAAApAPr/AAALAAMAAAAoAPr/AAAKAAIAAAAqAPr/AAAKAAEAAAArAPv/AAAKAAEAAAArAPz/AAAKAAEAAAAsAPz/AAAKAAEAAAAsAP3/AAAKAAEAAAAtAP3/AAAKAAEAAAAtAP7/AAAKAAEAAAAsAP7/AAAKAAEAAAAtAP//AAAKAAEAAAAuAP//AAAKAAEAAAAuAP7/AAAKAAEAAAAvAP//AAAKAAEAAAAwAP//AAAKAAEAAAAwAP7/AAAKAAEAAAAvAP7/AAAKAAEAAAAvAP3/AAAKAAEAAAAuAP3/AAAKAAEAAAAxAP7/AAAIAAMAAAAxAP//AAAKAAEAAAAwAP3/AAAKAAEAAAAyAP//AAALAAEAAAAyAP7/AAALAAAAAAAxAP3/AAALAAEAAAAxAPz/AAALAAEAAAAxAPv/AAALAAEAAAAwAPv/AAAKAAEAAAAwAPr/AAAKAAEAAAAuAPr/AAAKAAEAAAAvAPr/AAAKAAEAAAAsAPr/AAAKAAEAAAAtAPr/AAAKAAEAAAAtAPv/AAAKAAEAAAArAPr/AAAKAAEAAAAsAPv/AAAKAAEAAAAtAPz/AAAKAAEAAAAuAPz/AAAKAAEAAAAuAPv/AAAKAAEAAAAvAPz/AAAKAAEAAAAvAPv/AAAKAAEAAAAwAPz/AAAKAAEAAAAkAAQAAAALAAEAAAAkAAUAAAALAAEAAAAkAAYAAAALAAEAAAAkAAcAAAALAAIAAAAjAAkAAAALAAEAAAAhAAoAAAAKAAEAAAAgAAsAAAAKAAEAAAAfAAsAAAAKAAEAAAAeAAsAAAAKAAEAAAAgAAoAAAAKAAEAAAAhAAsAAAAKAAEAAAAiAAsAAAAKAAEAAAAiAAoAAAAKAAEAAAAjAAoAAAALAAEAAAAjAAsAAAALAAEAAAA6AAYAAAAKAAAAAAA7AAYAAAAKAAAAAAA6AAcAAAAKAAEAAAA7AAcAAAAKAAEAAAA7AAgAAAAKAAEAAAA8AAYAAAAKAAAAAAA9AAYAAAAKAAAAAAA+AAYAAAAJAAMAAAA+AAUAAAAJAAEAAAA+AAQAAAAJAAAAAAA/AAQAAAAKAAAAAAA/AAUAAAAKAAEAAABAAAUAAAAKAAEAAAA/AAYAAAAKAAEAAAA/AAcAAAAKAAEAAAA/AAgAAAAKAAEAAAA+AAgAAAAKAAEAAAA9AAgAAAAKAAEAAAA9AAcAAAAKAAEAAAA8AAcAAAAKAAEAAAA+AAcAAAAKAAEAAAA8AAgAAAAKAAEAAAA+AAkAAAAKAAEAAAA/AAkAAAAKAAEAAABAAAgAAAAKAAEAAABAAAYAAAAKAAEAAABAAAQAAAAJAAMAAABBAAUAAAAKAAEAAABBAAYAAAAKAAEAAABAAAcAAAAKAAEAAABCAAYAAAALAAEAAABBAAQAAAAKAAEAAABBAAMAAAAKAAEAAABBAAIAAAAKAAEAAABBAAEAAAAKAAEAAABAAAEAAAAJAAEAAABBAAAAAAAKAAEAAABAAAAAAAAJAAEAAABAAAIAAAAJAAEAAABAAAMAAAAJAAEAAABAAP//AAAJAAAAAABBAP//AAAKAAAAAABCAAUAAAALAAEAAABCAAQAAAALAAEAAABCAAMAAAALAAEAAABCAAIAAAALAAEAAABCAAEAAAALAAEAAABCAAAAAAALAAEAAABCAP//AAALAAAAAABJAAcAAAALAAIAAABJAAYAAAALAAEAAABKAAQAAAALAAIAAABKAAMAAAALAAEAAABLAAEAAAALAAIAAABKAAEAAAAKAAMAAABKAAIAAAALAAEAAABJAAUAAAALAAEAAABJAAIAAAAKAAEAAABJAAEAAAAKAAEAAABJAAMAAAAKAAEAAABJAAAAAAAKAAEAAABJAAQAAAAKAAMAAABIAAAAAAAKAAEAAABIAP//AAAKAAEAAABIAP7/AAAKAAEAAABHAP7/AAALAAMAAABHAP3/AAAKAAEAAABHAPz/AAAKAAEAAABJAP//AAAKAAEAAABIAP3/AAAKAAEAAABHAPv/AAAKAAEAAABHAPr/AAAKAAEAAABIAPz/AAAKAAEAAABJAP7/AAAKAAEAAABIAPv/AAAKAAEAAABKAAAAAAAKAAEAAABIAPr/AAAKAAEAAABJAPv/AAAKAAEAAABJAPz/AAAKAAEAAABJAP3/AAAKAAEAAABKAP7/AAAKAAEAAABKAP//AAAKAAEAAABKAP3/AAAKAAEAAABJAPr/AAAKAAEAAABLAAAAAAALAAEAAABLAP//AAAKAAMAAABLAP7/AAAKAAEAAABMAP7/AAAKAAMAAABMAP3/AAAKAAEAAABNAPz/AAAKAAEAAABNAPv/AAAKAAEAAABMAPz/AAAKAAEAAABLAP3/AAAKAAEAAABLAPz/AAAKAAEAAABMAPv/AAAKAAEAAABLAPv/AAAKAAEAAABKAPz/AAAKAAEAAABKAPv/AAAKAAEAAABMAPr/AAAKAAEAAABNAPr/AAAKAAEAAABLAPr/AAAKAAEAAABKAPr/AAAKAAEAAABOAAYAAAAKAAEAAABOAAUAAAAKAAEAAABOAAQAAAAKAAAAAABPAAkAAAALAAEAAABTAAYAAAAJAAEAAABTAAUAAAAJAAEAAABTAAQAAAAJAAEAAABTAAMAAAAJAAEAAABTAP//AAAKAAEAAABSAP//AAALAAMAAABSAP7/AAAKAAEAAABSAP3/AAAKAAEAAABSAPz/AAAKAAEAAABRAPz/AAAKAAEAAABRAPv/AAAKAAEAAABQAPv/AAAKAAEAAABPAPv/AAAKAAEAAABOAPv/AAAKAAEAAABQAPz/AAAKAAEAAABPAPz/AAAKAAEAAABOAPz/AAAKAAEAAABQAP3/AAAKAAEAAABRAP3/AAAKAAEAAABRAP7/AAALAAMAAABTAP7/AAAKAAEAAABUAP//AAAKAAEAAABUAAAAAAAKAAEAAABVAAoAAAAJAAAAAABWAAoAAAAKAAAAAABWAAcAAAAKAAMAAABWAAYAAAAKAAEAAABWAAUAAAAKAAEAAABWAAQAAAAKAAEAAABWAAMAAAAKAAEAAABWAAIAAAAKAAEAAABWAAEAAAAKAAEAAABXAAEAAAAKAAEAAABXAAIAAAAKAAEAAABVAAIAAAAKAAEAAABVAAEAAAAKAAEAAABVAAAAAAAKAAEAAABVAP//AAAKAAEAAABVAAsAAAAJAAEAAABWAAsAAAAKAAEAAABXAAsAAAAKAAEAAABNAAwAAAAJAAIAAABOAAwAAAAKAAIAAABCAAwAAAALAAIAAABBAAwAAAAKAAIAAABAAAwAAAAKAAIAAAA/AAwAAAAKAAIAAAA+AAwAAAAKAAIAAAA9AAwAAAAKAAIAAAA8AAwAAAAKAAIAAAA7AAwAAAAKAAIAAAA6AAwAAAAKAAIAAAA1AAwAAAAKAAIAAAA0AAwAAAAKAAIAAAAzAAwAAAAJAAIAAAA2AAwAAAAKAAIAAAA3AAwAAAAKAAIAAAA4AAwAAAAKAAIAAAA5AAwAAAAKAAIAAAAiAAwAAAAKAAIAAAAhAAwAAAAKAAIAAAAgAAwAAAAKAAIAAAAfAAwAAAAKAAIAAAAeAAwAAAAKAAIAAAAdAAwAAAAKAAIAAAAcAAwAAAAKAAIAAAAbAAwAAAAKAAIAAAAaAAwAAAAKAAIAAAAZAAwAAAAKAAIAAAAYAAwAAAAKAAIAAAAXAAwAAAAKAAIAAAAWAAwAAAAJAAIAAAAjAAwAAAALAAIAAAAQAAwAAAALAAIAAAAPAAwAAAAKAAIAAAAOAAwAAAAKAAIAAAANAAwAAAAKAAIAAAAFAAwAAAALAAIAAAAEAAwAAAAKAAIAAAADAAwAAAAKAAIAAAACAAwAAAAKAAIAAAABAAwAAAAKAAIAAAAAAAwAAAAKAAIAAAD//wwAAAAKAAIAAABVAAwAAAAJAAIAAABWAAwAAAALAAMAAABXAAwAAAAKAAEAAABXAAoAAAAKAAAAAABYAAoAAAAKAAAAAABZAAoAAAAKAAAAAABZAAsAAAAKAAEAAABZAAwAAAAKAAIAAABYAAwAAAAKAAMAAABaAAwAAAAKAAIAAABYAAsAAAAKAAEAAABbAAwAAAAKAAIAAABcAAwAAAAKAAIAAABdAAwAAAAKAAIAAABeAAwAAAAKAAIAAABfAAwAAAAKAAIAAABgAAwAAAAKAAIAAABhAAwAAAAKAAIAAABmAAwAAAAKAAIAAABIAAYAAAAKAAEAAABIAAcAAAAKAAIAAABHAAYAAAAJAAEAAABHAAUAAAAJAAEAAABHAAQAAAAJAAEAAABHAAMAAAAJAAEAAABHAAIAAAAJAAEAAABHAAEAAAAJAAEAAABHAAAAAAAJAAEAAABHAP//AAAJAAEAAABGAP7/AAAJAAIAAABGAP3/AAAJAAEAAABIAAQAAAAKAAEAAABIAAMAAAAKAAEAAABIAAUAAAAKAAEAAABIAAIAAAAKAAEAAABIAAEAAAAKAAEAAABGAPz/AAAJAAEAAABGAPv/AAAJAAEAAABHAAcAAAAJAAIAAABGAPr/AAALAAMAAABRAP//AAAJAAIAAABQAP7/AAAKAAIAAABPAP7/AAAKAAIAAABPAP3/AAAKAAEAAABOAP3/AAAKAAEAAABNAP3/AAAKAAEAAABOAP7/AAAKAAIAAABNAP7/AAAKAAIAAABMAP//AAALAAIAAABPAAoAAAALAAEAAABPAAsAAAALAAEAAABPAAwAAAALAAIAAABNAAoAAAAJAAEAAABWAAAAAAAKAAEAAABVAP7/AAAKAAEAAABVAP3/AAAKAAEAAABWAP//AAAKAAEAAABWAP7/AAAKAAEAAABWAP3/AAAKAAEAAABVAPz/AAAKAAEAAABUAPz/AAAKAAEAAABTAPz/AAAKAAEAAABUAP3/AAAKAAEAAABWAPz/AAAKAAEAAABWAPv/AAAKAAEAAABVAPv/AAAKAAEAAABUAPv/AAAKAAEAAABTAPv/AAAKAAEAAABSAPv/AAAKAAEAAABTAP3/AAAKAAEAAABUAP7/AAAKAAEAAABXAAAAAAAKAAEAAABYAAAAAAAKAAMAAABZAAAAAAALAAIAAABZAP//AAAKAAMAAABaAP//AAAKAAIAAABbAP//AAALAAIAAABbAP7/AAAKAAMAAABcAP7/AAAKAAIAAABdAP7/AAALAAIAAABdAP3/AAAKAAMAAABeAP3/AAALAAIAAABeAPz/AAAKAAMAAABfAPz/AAAKAAIAAABgAPz/AAAKAAIAAABgAPv/AAAKAAEAAABhAPv/AAAKAAEAAABhAPr/AAAKAAEAAABiAPr/AAAKAAEAAABjAPr/AAAKAAEAAABgAPr/AAAKAAEAAABfAPv/AAAKAAEAAABfAPr/AAAKAAEAAABeAPv/AAAKAAEAAABeAPr/AAAKAAEAAABdAPz/AAAKAAEAAABdAPv/AAAKAAEAAABdAPr/AAAKAAEAAABcAP3/AAAKAAEAAABcAPz/AAAKAAEAAABcAPv/AAAKAAEAAABcAPr/AAAKAAEAAABbAP3/AAAKAAEAAABbAPz/AAAKAAEAAABbAPv/AAAKAAEAAABbAPr/AAAKAAEAAABaAP7/AAAKAAEAAABaAP3/AAAKAAEAAABaAPz/AAAKAAEAAABaAPv/AAAKAAEAAABaAPr/AAAKAAEAAABZAP7/AAAKAAEAAABZAP3/AAAKAAEAAABZAPz/AAAKAAEAAABZAPv/AAAKAAEAAABZAPr/AAAKAAEA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AADi/wwAAAAKAAIAAADi/wsAAAAKAAEAAADi/woAAAAKAAEAAADi/wkAAAAKAAEAAADi/wgAAAAKAAEAAADi/wcAAAAKAAEAAADi/wYAAAAKAAEAAADi/wUAAAAKAAEAAADi/wQAAAAKAAEAAADi/wMAAAAKAAEAAADi/wIAAAAKAAEAAADi/wEAAAAKAAEAAADi/wAAAAAKAAEAAADi////AAAKAAEAAADi//7/AAAKAAEAAADi//3/AAAKAAEAAADi//z/AAAKAAEAAADi//v/AAAKAAEAAAD+/wwAAAAKAAIAAAD+/wsAAAAKAAEAAAD+/woAAAAKAAEAAAD+/wkAAAAKAAEAAAD+/wgAAAAKAAEAAAD+/wcAAAAKAAEAAAD+/wYAAAAKAAAAAAD9/wwAAAAKAAIAAAD9/wsAAAAKAAEAAAD9/woAAAAKAAEAAAD9/wkAAAAJAAMAAAD9/wgAAAAJAAEAAAD9/wcAAAAJAAEAAAD9/wYAAAAJAAAAAAD8/wwAAAAKAAIAAAD8/wsAAAAKAAEAAAD8/woAAAAKAAEAAAD8/wkAAAAKAAAAAAD7/wwAAAAKAAIAAAD7/wsAAAAKAAEAAAD7/woAAAAKAAEAAAD7/wkAAAAKAAAAAAD6/wwAAAAKAAIAAAD6/wsAAAAKAAEAAAD6/woAAAAKAAEAAAD6/wkAAAAKAAAAAAD5/wwAAAAKAAIAAAD5/wsAAAAKAAEAAAD5/woAAAAKAAEAAAD5/wkAAAAKAAAAAAD4/wwAAAAKAAIAAAD4/wsAAAAKAAEAAAD4/woAAAAKAAEAAAD4/wkAAAAKAAAAAAD3/wwAAAAKAAIAAAD3/wsAAAAKAAEAAAD3/woAAAAKAAEAAAD3/wkAAAAKAAAAAAD2/wwAAAAKAAIAAAD2/wsAAAAKAAEAAAD2/woAAAAKAAEAAAD2/wkAAAAKAAAAAAD1/wwAAAAKAAIAAAD1/wsAAAAKAAEAAAD1/woAAAAKAAEAAAD1/wkAAAAKAAAAAAD0/wwAAAAKAAIAAAD0/wsAAAAKAAEAAAD0/woAAAAKAAEAAAD0/wkAAAAKAAAAAADz/wwAAAAKAAIAAADz/wsAAAAKAAEAAADz/woAAAAKAAEAAADz/wkAAAAKAAAAAADy/wwAAAAKAAIAAADy/wsAAAAKAAEAAADy/woAAAAKAAEAAADy/wkAAAAKAAAAAADx/wwAAAAKAAIAAADx/wsAAAAKAAEAAADx/woAAAAKAAEAAADx/wkAAAAKAAAAAADw/wwAAAAKAAIAAADw/wsAAAAKAAEAAADw/woAAAAKAAEAAADw/wkAAAAKAAAAAADv/wwAAAAKAAIAAADv/wsAAAAKAAEAAADv/woAAAAKAAEAAADv/wkAAAAKAAAAAADu/wwAAAAKAAIAAADu/wsAAAAKAAEAAADu/woAAAAKAAEAAADu/wkAAAAKAAAAAADt/wwAAAAKAAIAAADt/wsAAAAKAAEAAADt/woAAAAKAAEAAADt/wkAAAAKAAAAAADs/wwAAAAKAAIAAADs/wsAAAAKAAEAAADs/woAAAAKAAEAAADs/wkAAAAKAAAAAADr/wwAAAAKAAIAAADr/wsAAAAKAAEAAADr/woAAAAKAAEAAADr/wkAAAAKAAAAAADq/wwAAAAKAAIAAADq/wsAAAAKAAEAAADq/woAAAAKAAEAAADq/wkAAAAKAAAAAADp/wwAAAAKAAIAAADp/wsAAAAKAAEAAADp/woAAAAKAAEAAADp/wkAAAAKAAAAAADo/wwAAAAKAAIAAADo/wsAAAAKAAEAAADo/woAAAAKAAEAAADo/wkAAAAKAAAAAADn/wwAAAAKAAIAAADn/wsAAAAKAAEAAADn/woAAAAKAAEAAADn/wkAAAAKAAAAAADm/wwAAAAKAAIAAADm/wsAAAAKAAEAAADm/woAAAAKAAEAAADm/wkAAAAKAAAAAADl/wwAAAAKAAIAAADl/wsAAAAKAAEAAADl/woAAAAKAAEAAADl/wkAAAAKAAAAAADk/wwAAAAKAAIAAADk/wsAAAAKAAEAAADk/woAAAAKAAEAAADk/wkAAAAKAAAAAAAMAAYAAAAKAAEAAAAMAAcAAAAKAAEAAAALAAcAAAAKAAEAAAALAAYAAAAKAAEAAAAKAAcAAAAJAAEAAAAKAAYAAAAJAAEAAAALAAgAAAAKAAEAAAAKAAgAAAAJAAEAAAALAAkAAAAKAAEAAAAKAAkAAAAJAAEAAAALAAoAAAAKAAEAAAAKAAoAAAAJAAEAAAALAAsAAAAKAAEAAAAKAAsAAAAJAAEAAAALAAwAAAAKAAIAAAAKAAwAAAAJAAIAAAAMAAsAAAAKAAEAAAAMAAwAAAAKAAIAAAAMAAoAAAAKAAEAAAAMAAkAAAAKAAEAAAAMAAgAAAAKAAEAAAAMAAUAAAAKAAEAAAAMAAQAAAAKAAEAAAAMAAMAAAAKAAAAAAALAAUAAAAKAAEAAAALAAQAAAAKAAEAAAALAAMAAAAKAAAAAAAKAAUAAAAJAAEAAAAKAAQAAAAJAAEAAAAKAAMAAAAJAAAAAADw//z/AAAKAAIAAADx//z/AAAKAAIAAADx//v/AAAKAAEAAADw//v/AAAKAAEAAADv//z/AAAKAAIAAADu//z/AAAKAAIAAADt//z/AAAKAAIAAADs//z/AAAKAAIAAADr//z/AAAKAAIAAADq//z/AAAKAAIAAADp//z/AAAKAAMAAADp//3/AAALAAIAAADo//3/AAAKAAIAAADn//3/AAAKAAIAAADm//3/AAAKAAIAAADl//3/AAAKAAMAAADl//7/AAALAAIAAADk//7/AAAKAAIAAADk//3/AAAKAAEAAADk//z/AAAKAAEAAADk//v/AAAKAAEAAADl//z/AAAKAAEAAADm//z/AAAKAAEAAADn//z/AAAKAAEAAADo//z/AAAKAAEAAADo//v/AAAKAAEAAADn//v/AAAKAAEAAADm//v/AAAKAAEAAADl//v/AAAKAAEAAADp//v/AAAKAAEAAADq//v/AAAKAAEAAADr//v/AAAKAAEAAADs//v/AAAKAAEAAADt//v/AAAKAAEAAADu//v/AAAKAAEAAADv//v/AAAKAAEAAADy//z/AAAKAAIAAADz//z/AAAKAAIAAAD0//z/AAAKAAIAAAD1//z/AAAKAAIAAAD2//z/AAAKAAIAAAD3//z/AAAKAAIAAAD4//z/AAAKAAIAAAD5//z/AAAKAAIAAAD6//z/AAAKAAIAAAD7//z/AAALAAIAAAD7//v/AAAKAAMAAAD8//v/AAAKAAIAAAD6//v/AAAKAAEAAAD5//v/AAAKAAEAAAD4//v/AAAKAAEAAAD3//v/AAAKAAEAAAD2//v/AAAKAAEAAAD1//v/AAAKAAEAAAD0//v/AAAKAAEAAADz//v/AAAKAAEAAADy//v/AAAKAAEAAAD9//v/AAAKAAIAAAD+//v/AAAKAAIAAAD///v/AAAKAAIAAAAAAPv/AAAKAAIAAAABAPv/AAALAAIAAABNAAkAAAAJAAEAAABNAAgAAAAJAAEAAABNAAcAAAAJAAEAAABNAAQAAAAJAAAAAABNAAUAAAAJAAEAAABNAAYAAAAJAAEAAABuAAoAAAAKAAAAAABvAAoAAAAKAAAAAABwAAoAAAALAAAAAAByAAwAAAAJAAEAAABwAAwAAAALAAIAAABvAAwAAAAKAAIAAABuAAwAAAAKAAIAAABuAAsAAAAKAAEAAABvAAsAAAAKAAEAAABwAAsAAAALAAEAAABzAAsAAAAKAAEAAABzAAoAAAAKAAEAAABzAAkAAAAKAAEAAABzAAwAAAAKAAEAAAByAAkAAAAJAAEAAAByAAcAAAAJAAEAAAByAAYAAAAJAAEAAABzAAUAAAAKAAEAAABzAAQAAAAKAAEAAABzAAMAAAAKAAEAAAByAAUAAAAJAAEAAAByAAQAAAAJAAEAAAByAAMAAAAJAAEAAABzAAcAAAAKAAEAAABzAAYAAAAKAAEAAAByAAIAAAALAAMAAABzAAIAAAAKAAEAAABzAAEAAAAKAAEAAABzAAAAAAAKAAEAAABzAP//AAAKAAEAAABzAP7/AAAKAAEAAABzAP3/AAAKAAEAAABzAPz/AAAKAAEAAABzAPv/AAAKAAEAAABzAPr/AAAKAAEAAAByAPr/AAAKAAEAAABxAPr/AAAKAAEAAABwAPr/AAAKAAEAAABpAPr/AAAKAAEAAABoAPr/AAAKAAEAAABnAPr/AAAKAAEAAABvAPr/AAAKAAEAAABuAPr/AAAKAAEAAABtAPr/AAAKAAEAAABsAPr/AAAKAAEAAABrAPr/AAAKAAEAAABqAPr/AAAKAAEAAAByAAEAAAAKAAEAAAByAAAAAAAKAAEAAAByAP//AAAKAAEAAAByAP7/AAAKAAEAAAByAP3/AAAKAAEAAAByAPz/AAAKAAEAAAByAPv/AAAKAAEAAABxAAIAAAAJAAIAAABxAAEAAAAJAAEAAABwAAAAAAAJAAIAAABwAP//AAALAAMAAABvAP//AAAKAAIAAABuAP//AAAJAAIAAABtAP7/AAAKAAIAAABsAP7/AAAKAAIAAABrAP7/AAAJAAIAAABrAP3/AAALAAMAAABqAP3/AAAKAAIAAABpAP3/AAAKAAIAAABoAP3/AAAJAAIAAABoAPz/AAALAAMAAABnAPz/AAAKAAIAAABmAPz/AAAKAAIAAABlAPz/AAAKAAIAAABlAPv/AAAKAAEAAABkAPv/AAAKAAEAAABjAPv/AAAKAAEAAABiAPv/AAAKAAEAAABhAPz/AAAKAAIAAABiAPz/AAAKAAIAAABjAPz/AAAKAAIAAABkAPz/AAAKAAIAAABmAPv/AAAKAAEAAABnAPv/AAAKAAEAAABoAPv/AAAKAAEAAABpAPv/AAAKAAEAAABqAPv/AAAKAAEAAABrAPv/AAAKAAEAAABsAPv/AAAKAAEAAABtAPv/AAAKAAEAAABuAPv/AAAKAAEAAABvAPv/AAAKAAEAAABwAPv/AAAKAAEAAABxAPv/AAAKAAEAAABxAPz/AAAKAAEAAABxAP//AAAKAAEAAABxAAAAAAALAAMAAABxAP7/AAAKAAEAAABxAP3/AAAKAAEAAABwAP3/AAAKAAEAAABvAP3/AAAKAAEAAABuAP3/AAAKAAEAAABuAP7/AAALAAMAAABvAP7/AAAKAAEAAABwAP7/AAAKAAEAAABtAP3/AAAKAAEAAABsAP3/AAAKAAEAAABrAPz/AAAKAAEAAABqAPz/AAAKAAEAAABpAPz/AAAKAAEAAABsAPz/AAAKAAEAAABtAPz/AAAKAAEAAABuAPz/AAAKAAEAAABvAPz/AAAKAAEAAABwAPz/AAAKAAEAAABkAAoAAAAKAAEAAABlAAoAAAAKAAEAAABkAAsAAAAKAAEAAABlAAwAAAAKAAIAAABXAAcAAAALAAIAAABXAAYAAAALAAEAAABXAAUAAAALAAEAAABXAAQAAAALAAEAAABXAAMAAAAKAAMAAABYAAEAAAALAAEAAABYAAIAAAALAAEAAABYAAMAAAALAAIAAABkAAkAAAAKAAEAAABkAAgAAAAKAAEAAABkAAcAAAAKAAEAAABkAAYAAAAKAAEAAABkAAUAAAAKAAEAAABkAAQAAAAKAAEAAABlAAQAAAAIAAMAAABlAAMAAAALAAAAAABkAAMAAAAKAAAAAABlAAUAAAAKAAEAAABlAAYAAAAKAAEAAABlAAcAAAAKAAEAAABlAAgAAAAKAAEAAABlAAkAAAAKAAEAAABjAAMAAAAJAAAAAABjAAQAAAAJAAMAAABiAAQAAAAJAAAAAABiAAUAAAAJAAMAAABiAAYAAAAKAAEAAABiAAcAAAAKAAEAAABiAAgAAAAKAAEAAABiAAkAAAAKAAEAAABjAAkAAAAKAAEAAABjAAUAAAAKAAEAAABjAAYAAAAKAAEAAABjAAcAAAAKAAEAAABjAAgAAAAKAAEAAABmAAUAAAALAAEAAABmAAYAAAAIAAMAAABmAAQAAAALAAAAAABmAAcAAAAKAAEAAABmAAgAAAAKAAEAAABmAAkAAAAKAAEAAABhAAcAAAAKAAEAAABhAAYAAAAKAAEAAABhAAUAAAAKAAAAAABhAAgAAAAKAAEAAABhAAkAAAAKAAEAAABnAAYAAAALAAAAAABnAAcAAAALAAEAAABnAAgAAAAIAAMAAABnAAkAAAAKAAEAAABgAAcAAAAKAAEAAABfAAcAAAAKAAEAAABeAAcAAAAJAAMAAABeAAgAAAAKAAEAAABeAAkAAAAKAAEAAABgAAkAAAAKAAEAAABgAAgAAAAKAAEAAABfAAgAAAAKAAEAAABfAAkAAAAKAAEAAABfAAYAAAAKAAAAAABgAAYAAAAJAAMAAABeAAYAAAAJAAAAAABdAAkAAAAKAAEAAABdAAgAAAAJAAMAAABcAAgAAAAJAAAAAABcAAkAAAAJAAEAAABdAAcAAAAJAAAAAABgAAUAAAAJAAAAAABpAAcAAAAJAAAAAABpAAgAAAAJAAMAAABoAAgAAAAKAAAAAABoAAkAAAAKAAEAAABpAAkAAAAKAAEAAABqAAkAAAAKAAEAAABqAAgAAAAKAAEAAABqAAcAAAAKAAAAAABrAAcAAAALAAAAAABrAAgAAAALAAEAAABrAAkAAAAIAAMAAABsAAkAAAAKAAAAAABWAA0AAAAJAAEAAABWAA4AAAAJAAEAAABXAA0AAAAKAAEAAABXAA4AAAAKAAEAAAByAA0AAAAJAAEAAAByAA4AAAAJAAEAAABzAA4AAAAKAAEAAABzAA0AAAAKAAEAAABzAA8AAAAKAAEAAAByAA8AAAAJAAMAAABzABAAAAAKAAIAAABxAA8AAAAKAAAAAABwAA8AAAAKAAAAAAByABAAAAAKAAIAAABxABAAAAAKAAIAAABwABAAAAAKAAIAAABvAA8AAAAKAAAAAABvABAAAAAKAAIAAABuAA8AAAAKAAAAAABtAA8AAAAKAAAAAABuABAAAAAKAAIAAABtABAAAAAKAAIAAABsABAAAAAKAAIAAABsAA8AAAAKAAAAAABrAA8AAAAKAAAAAABrABAAAAAKAAIAAABqABAAAAAKAAIAAABqAA8AAAAKAAAAAABpAA8AAAAKAAAAAABpABAAAAAKAAMAAABoABAAAAAJAAMAAABoAA8AAAAJAAAAAABhAA4AAAALAAAAAABgAA4AAAAKAAAAAABfAA4AAAAKAAAAAABeAA4AAAAKAAAAAABdAA4AAAAKAAAAAABcAA4AAAAKAAAAAABhAA8AAAALAAEAAABgAA8AAAAKAAEAAABfAA8AAAAKAAEAAABeAA8AAAAKAAEAAABcAA8AAAAKAAEAAABdAA8AAAAKAAEAAABbAA4AAAAJAAAAAABbAA8AAAAJAAEAAABYAA0AAAALAAEAAABYAA4AAAALAAEAAABYAA8AAAALAAEAAABXAA8AAAAKAAEAAABXABAAAAAKAAEAAABWAA8AAAAJAAEAAABWABAAAAAJAAEAAABWABEAAAAJAAEAAABWABIAAAAJAAEAAABXABEAAAAKAAEAAABXABIAAAAKAAEAAABXABMAAAAKAAEAAABXABQAAAAKAAEAAABXABUAAAAKAAEAAABWABMAAAAJAAEAAABWABQAAAAJAAEAAABWABUAAAAJAAEAAABWABYAAAAJAAEAAABXABYAAAAKAAEAAABXABcAAAAKAAEAAABWABcAAAAJAAEAAABWABgAAAAJAAEAAABWABkAAAAJAAEAAABWABoAAAAJAAEAAABXABkAAAAKAAEAAABXABoAAAAKAAEAAABXABsAAAAKAAEAAABXABgAAAAKAAEAAABXABwAAAAKAAEAAABWABsAAAAJAAEAAABWABwAAAAJAAEAAABYABAAAAALAAEAAABYABEAAAALAAEAAABYABIAAAALAAEAAABYABMAAAALAAEAAABYABQAAAAIAAMAAABYABUAAAAKAAMAAABbABAAAAAJAAEAAABbABEAAAAJAAMAAABcABEAAAAKAAEAAABcABAAAAAKAAEAAABdABAAAAAKAAEAAABeABAAAAAKAAEAAABbABIAAAALAAMAAABbABMAAAAJAAEAAABcABIAAAAKAAEAAABcABMAAAAKAAMAAABaABEAAAAJAAAAAABZABQAAAALAAAAAABYABcAAAALAAEAAABYABYAAAALAAEAAABbABQAAAAJAAEAAABcABQAAAALAAEAAABcABUAAAALAAEAAABcABYAAAALAAIAAABbABYAAAAJAAIAAABbABUAAAAJAAEAAABYABgAAAALAAEAAABZABkAAAAKAAAAAABYABkAAAAIAAMAAABaABkAAAAKAAAAAABnABAAAAAKAAAAAABmABAAAAAKAAAAAABlABAAAAAKAAAAAABkABAAAAAKAAAAAABjABAAAAAKAAAAAABiABAAAAAKAAAAAABhABAAAAAIAAMAAABgABAAAAAKAAEAAABgABEAAAAKAAEAAABhABEAAAAKAAMAAABiABEAAAAKAAIAAABjABEAAAAKAAIAAABkABEAAAAKAAIAAABlABEAAAAKAAIAAABmABEAAAAKAAIAAABnABEAAAAKAAIAAABoABEAAAAKAAIAAABpABEAAAALAAIAAABfABEAAAAKAAEAAABeABEAAAAKAAEAAABeABIAAAAKAAIAAABdABIAAAAKAAMAAABdABMAAAALAAIAAABdABEAAAAKAAEAAABfABAAAAAKAAEAAABfABIAAAAKAAIAAABgABIAAAAKAAIAAABhABIAAAALAAIAAABdABoAAAAKAAAAAABbAB0AAAAKAAIAAABaAB0AAAAKAAIAAABZAB0AAAAKAAIAAABYAB0AAAAKAAIAAABXAB0AAAAKAAIAAABWAB0AAAAJAAIAAABZABwAAAAKAAEAAABaABwAAAAKAAEAAABbABwAAAAKAAEAAABcABwAAAAKAAEAAABcABsAAAAKAAEAAABcABoAAAAKAAAAAABbABoAAAAIAAMAAABaABoAAAAKAAEAAABZABoAAAAKAAEAAABYABoAAAAKAAEAAABYABsAAAAKAAEAAABYABwAAAAKAAEAAABaABsAAAAKAAEAAABbABsAAAAKAAEAAABZABsAAAAKAAEAAABZABUAAAALAAIAAABaABIAAAAJAAIAAABcAB0AAAAKAAIAAABdABsAAAAKAAEAAABdABwAAAAKAAEAAABdAB0AAAAKAAIAAABbABkAAAALAAAAAABeABoAAAAKAAAAAABfABoAAAALAAAAAABfABsAAAALAAEAAABfABwAAAALAAIAAABeABwAAAAKAAMAAABeABsAAAAKAAEAAABeAB0AAAALAAIAAABzABMAAAAKAAAAAAByABMAAAAKAAAAAAByABQAAAAKAAEAAAByABUAAAAKAAEAAAByABYAAAAKAAEAAABxABMAAAAKAAAAAABwABMAAAAJAAAAAABwABQAAAAJAAIAAABxABQAAAALAAMAAABxABUAAAAJAAEAAABxABYAAAAJAAEAAABxABcAAAAJAAIAAAByABcAAAALAAMAAAByABgAAAAJAAEAAAByABkAAAAJAAEAAAByABoAAAAJAAEAAAByABsAAAAJAAEAAAByABwAAAAJAAEAAAByAB0AAAAJAAIAAABzAB0AAAAKAAIAAABzABwAAAAKAAEAAABzABsAAAAKAAEAAABzABoAAAAKAAEAAABzABkAAAAKAAEAAABzABgAAAAKAAEAAABzABcAAAAKAAEAAABzABYAAAAKAAEAAABzABUAAAAKAAEAAABzABQAAAAKAAEAAAB0AB0AAAAKAAIAAAB0ABwAAAAKAAEAAAB0ABsAAAAKAAEAAAB0ABoAAAAKAAEAAAB0ABkAAAAKAAEAAAB0ABgAAAAKAAEAAAB0ABcAAAAKAAEAAAB0ABYAAAAKAAEAAAB0ABUAAAAKAAEAAAB0ABQAAAAKAAEAAAB0ABMAAAAKAAAAAAB0ABAAAAALAAIAAAB0AA8AAAALAAEAAAB0AA4AAAALAAEAAAB0AA0AAAAKAAMAAAB1AA0AAAALAAIAAAB1AAwAAAALAAEAAAB0AAsAAAAKAAEAAAB0AAwAAAAKAAEAAAB1AAsAAAALAAEAAAB1AAoAAAAKAAMAAAB1AAkAAAAIAAMAAAB0AAkAAAAKAAEAAAB0AAcAAAAKAAEAAAB0AAoAAAAKAAEAAAB0AAYAAAAKAAEAAAB0AAUAAAAKAAEAAAB0AAQAAAAKAAEAAAB0AAMAAAAKAAEAAAB0AAIAAAAKAAEAAAB0AAEAAAAKAAEAAAB0AAAAAAAKAAEAAAB0AP//AAAKAAEAAAB0AP7/AAAKAAEAAAB0AP3/AAAKAAEAAAB0APz/AAAKAAEAAAB0APv/AAAKAAEAAAB0APr/AAAKAAEAAAB1APv/AAALAAEAAAB1APz/AAALAAEAAAB1AP3/AAALAAEAAAB1AP7/AAALAAEAAAB1AP//AAALAAEAAAB1AAAAAAALAAEAAAB1AAEAAAALAAEAAAB1APr/AAALAAEAAAB1AAIAAAALAAEAAAB1AAMAAAALAAEAAAB1AAQAAAALAAEAAAB1AAUAAAALAAEAAAB1AAYAAAALAAEAAAB1AAcAAAALAAEAAAB1ABMAAAAKAAAAAAB2ABMAAAAKAAAAAAB3ABMAAAALAAAAAAB3ABQAAAALAAIAAAB1ABwAAAAKAAEAAAB1ABsAAAAKAAEAAAB1ABoAAAAKAAEAAAB1ABkAAAAKAAEAAAB1ABgAAAAKAAEAAAB1ABcAAAAKAAEAAAB1ABYAAAAKAAEAAAB1ABUAAAAKAAEAAAB1ABQAAAAKAAEAAAB2ABQAAAAKAAMAAAB2ABUAAAALAAEAAAB2ABYAAAALAAEAAAB2ABcAAAALAAEAAAB2ABgAAAALAAEAAAB2ABkAAAALAAEAAAB2ABoAAAALAAEAAAB2ABsAAAALAAEAAAB2ABwAAAALAAEAAAB2AB0AAAALAAIAAAB1AB0AAAAKAAIAAACFABkAAAAJAAAAAACGABkAAAAKAAAAAACHABkAAAAKAAAAAACGABoAAAALAAMAAACFABoAAAAJAAIAAACHABoAAAAKAAEAAACHAB0AAAAKAAIAAACGAB0AAAAJAAIAAACGABwAAAAJAAEAAACGABsAAAAJAAEAAACHABsAAAAKAAEAAACHABwAAAAKAAEAAACHABYAAAAJAAIAAACHABUAAAAJAAEAAACHABQAAAALAAMAAACGABQAAAAJAAIAAACGABMAAAAJAAEAAACGABIAAAAJAAEAAACHABMAAAAKAAEAAACHABIAAAAKAAEAAACGABEAAAAJAAEAAACGABAAAAALAAMAAACFABAAAAAJAAIAAACHABEAAAAKAAEAAACFAA8AAAALAAMAAACEAA8AAAAKAAIAAACEAA4AAAAKAAEAAACDAA4AAAAJAAEAAACDAA0AAAALAAMAAACFAA4AAAAKAAEAAACCAA0AAAAJAAIAAACCAAwAAAALAAMAAACBAAwAAAAKAAIAAACBAAsAAAAKAAEAAACAAAsAAAAKAAEAAAB/AAsAAAAJAAEAAAB/AAoAAAALAAMAAACAAAoAAAAKAAEAAACDAAwAAAAKAAEAAACEAA0AAAAKAAEAAACCAAsAAAAKAAEAAACGAA8AAAAKAAEAAACHABAAAAAKAAEAAACFAA0AAAAKAAEAAACGAA4AAAAKAAEAAACHAA8AAAAKAAEAAACHAA4AAAAKAAEAAACHAA0AAAAKAAEAAACHAAwAAAAKAAEAAACHAAsAAAAKAAEAAACGAAsAAAAKAAEAAACGAAwAAAAKAAEAAACGAA0AAAAKAAEAAACFAAwAAAAKAAEAAACEAAwAAAAKAAEAAACEAAsAAAAKAAEAAACDAAsAAAAKAAEAAACCAAoAAAAKAAEAAACDAA8AAAAJAAIAAACAAAwAAAAKAAIAAAB/AAwAAAAJAAIAAACFAAsAAAAKAAEAAACBAAoAAAAKAAEAAACDAAoAAAAKAAEAAACEAAoAAAAKAAEAAACFAAoAAAAKAAEAAACGAAoAAAAKAAEAAACHAAoAAAAKAAEAAACIAAoAAAAKAAEAAACIAAsAAAAKAAEAAACIAAwAAAAKAAEAAACIAA0AAAAKAAEAAACIAA4AAAAKAAEAAACIAA8AAAAKAAEAAACIABAAAAAKAAEAAACIABEAAAAKAAEAAACIABIAAAAKAAEAAACIABMAAAAKAAEAAACIABQAAAAKAAEAAACIABUAAAAKAAEAAACIABYAAAAKAAIAAACIABkAAAAKAAAAAACIABoAAAAKAAEAAACIABsAAAAKAAEAAACIABwAAAAKAAEAAACIAB0AAAAKAAIAAACJAAoAAAAKAAEAAACJAAsAAAAKAAEAAACJAAwAAAAKAAEAAACJAA0AAAAKAAEAAACJAA4AAAAKAAEAAACJAA8AAAAKAAEAAACJABAAAAAKAAEAAACJABEAAAAKAAEAAACJABIAAAAKAAEAAACJABMAAAAKAAEAAACJABQAAAAKAAEAAACJABUAAAAKAAEAAACJABYAAAAKAAIAAACJABkAAAALAAAAAACJABoAAAALAAEAAACJABsAAAALAAEAAACJABwAAAALAAEAAACJAB0AAAALAAIAAACKAAoAAAAKAAEAAACKAAsAAAAKAAEAAACKAAwAAAAKAAEAAACKAA0AAAAKAAEAAACKAA4AAAAKAAEAAACKAA8AAAAKAAEAAACKABAAAAAKAAEAAACKABEAAAAKAAMAAACKABIAAAALAAEAAACKABMAAAALAAEAAACKABQAAAALAAEAAACKABUAAAALAAEAAACKABYAAAALAAIAAACLAAoAAAAKAAEAAACLAAsAAAAKAAEAAACLAAwAAAAKAAEAAACLAA0AAAAKAAMAAACLAA4AAAALAAEAAACLAA8AAAALAAEAAACLABAAAAALAAEAAACLABEAAAALAAIAAACMAAoAAAAKAAEAAACMAAsAAAAKAAEAAACMAAwAAAAKAAMAAACMAA0AAAALAAIAAACNAAoAAAAKAAEAAACNAAsAAAAKAAEAAACNAAwAAAAKAAIAAACOAAoAAAAKAAEAAACOAAsAAAAKAAEAAACOAAwAAAAKAAIAAACPAAoAAAAKAAEAAACPAAsAAAAKAAEAAACPAAwAAAAKAAIAAACPAA8AAAAKAAAAAACPABAAAAAKAAEAAACPABEAAAAKAAEAAACPABIAAAAKAAEAAACPABMAAAAKAAEAAACPABQAAAAKAAEAAACPABUAAAAKAAEAAACPABYAAAAKAAEAAACQABoAAAAKAAEAAACOAA8AAAAJAAAAAACOABAAAAAJAAEAAACOABEAAAAJAAEAAACOABIAAAAJAAEAAACOABMAAAAJAAEAAACOABQAAAAJAAEAAACOABUAAAAJAAMAAACOABYAAAALAAMAAACPABcAAAAKAAEAAACPABgAAAAKAAEAAACPABkAAAAKAAEAAACPABoAAAALAAMAAACQABsAAAAKAAEAAACQABwAAAAKAAEAAACQAB0AAAAKAAIAAACPABsAAAAJAAEAAACPABwAAAAJAAEAAACPAB0AAAAJAAIAAACQABgAAAAKAAEAAACQABkAAAAKAAEAAACQABcAAAAKAAEAAACQABYAAAAKAAEAAACQABUAAAAKAAEAAACQABQAAAAKAAEAAACQABMAAAAKAAEAAACQABIAAAAKAAEAAACQABEAAAAKAAEAAACQABAAAAAKAAEAAACQAA8AAAAKAAAAAAB2AAoAAAAKAAIAAAB3AAoAAAAKAAIAAAB4AAoAAAAKAAIAAAB5AAoAAAAKAAIAAAB6AAoAAAAKAAIAAAB7AAoAAAAKAAIAAAB8AAoAAAAKAAIAAAB9AAoAAAAKAAIAAAB+AAoAAAAKAAIAAACQAAwAAAAKAAIAAACQAAsAAAAKAAEAAACQAAoAAAAKAAEAAACRABAAAAAKAAEAAACSABAAAAAKAAEAAACRAA8AAAAKAAAAAACSAA8AAAAKAAAAAACTAA8AAAALAAAAAACRAAwAAAAKAAIAAACSAAwAAAAKAAIAAACSAAsAAAAKAAEAAACTAAsAAAAKAAEAAACTAAwAAAAKAAIAAACRAAsAAAAKAAEAAACRAAoAAAAKAAEAAACSAAoAAAAKAAEAAACTAAoAAAAKAAEAAACUAAsAAAAKAAEAAACVAAsAAAAKAAMAAACVAAwAAAALAAIAAACUAAwAAAAKAAIAAACUAAoAAAAKAAEAAACWAAsAAAAKAAIAAACXAAsAAAAKAAIAAACYAAsAAAAKAAIAAACZAAsAAAAKAAIAAACaAAsAAAALAAIAAACaAAoAAAAKAAMAAACZAAoAAAAKAAEAAACYAAoAAAAKAAEAAACXAAoAAAAKAAEAAACWAAoAAAAKAAEAAACVAAoAAAAKAAEAAACbAAoAAAAKAAIAAACcAAoAAAAKAAIAAACdAAoAAAAKAAIAAACeAAoAAAALAAMAAACfAAoAAAAKAAEAAACgAAoAAAAKAAEAAACkAAoAAAAKAAEAAAClAAoAAAAKAAEAAACmAAoAAAAKAAEAAACnAAoAAAAKAAEAAACoAAoAAAAKAAEAAACpAAoAAAAKAAEAAACqAAoAAAAKAAMAAACrAAoAAAAKAAIAAACsAAoAAAAKAAIAAACSABEAAAAKAAEAAACSABIAAAAKAAMAAACSABMAAAALAAEAAACSABQAAAALAAEAAACRABQAAAAKAAEAAACRABUAAAAKAAEAAACRABYAAAAKAAEAAACRABcAAAAKAAEAAACRABgAAAAKAAEAAACRABkAAAAKAAEAAACRABoAAAAKAAEAAACRABsAAAAKAAEAAACRABwAAAAKAAEAAACRAB0AAAAKAAIAAACSAB0AAAALAAIAAACSABwAAAALAAEAAACSABsAAAALAAEAAACSABoAAAALAAEAAACSABkAAAALAAEAAACSABgAAAALAAEAAACSABcAAAALAAEAAACSABYAAAALAAEAAACSABUAAAALAAEAAACRABIAAAAKAAEAAACRABEAAAAKAAEAAACRABMAAAAKAAEAAACTABAAAAALAAEAAACTABEAAAALAAEAAACTABIAAAALAAIAAACjAA4AAAAJAAEAAACjAA8AAAAJAAEAAACjABAAAAAJAAIAAACjABQAAAAJAAAAAACjABUAAAAJAAEAAACjABYAAAAJAAIAAACkAA4AAAAKAAEAAACkAA8AAAAKAAEAAACkABAAAAAKAAIAAACkABQAAAAKAAAAAACkABUAAAAKAAEAAACkABYAAAALAAMAAACkAAsAAAAKAAEAAACkAAwAAAAKAAEAAACkAA0AAAAKAAEAAACkABcAAAAJAAEAAACkABgAAAAJAAEAAACkABkAAAAJAAEAAACkABoAAAAJAAEAAACkABsAAAAJAAEAAACkABwAAAAJAAEAAAClAAsAAAAKAAEAAAClAAwAAAAKAAEAAAClAA0AAAAKAAEAAAClAA4AAAAKAAEAAAClAA8AAAAKAAEAAAClABAAAAAKAAIAAAClABQAAAAKAAAAAAClABUAAAAKAAEAAAClABYAAAAKAAEAAAClABcAAAAKAAEAAAClABgAAAAKAAEAAAClABkAAAAKAAEAAAClABoAAAAKAAEAAAClABsAAAAKAAEAAAClABwAAAAKAAEAAACmAAsAAAAKAAEAAACmAAwAAAAKAAEAAACmAA0AAAAKAAEAAACmAA4AAAAKAAEAAACmAA8AAAAKAAEAAACmABAAAAAKAAIAAACmABQAAAAKAAAAAACmABUAAAAKAAEAAACmABYAAAAKAAMAAACmABcAAAALAAEAAACmABgAAAALAAEAAACmABkAAAALAAEAAACmABoAAAALAAEAAACmABsAAAALAAEAAACmABwAAAALAAEAAACnAA4AAAAKAAEAAACnAA8AAAAKAAEAAACnABAAAAAKAAIAAACnABQAAAALAAAAAACnABUAAAALAAEAAACnABYAAAALAAIAAAChAAoAAAAKAAEAAACiAAoAAAAKAAEAAACjAAoAAAAKAAEAAACrABsAAAAKAAEAAACqABsAAAAJAAEAAACsABsAAAAKAAEAAACqABwAAAAJAAEAAACrABwAAAAKAAEAAACsABwAAAAKAAEAAACqABoAAAAJAAEAAACrABoAAAAKAAEAAACsABoAAAAKAAEAAACtABsAAAALAAEAAACtABwAAAALAAEAAACtABoAAAAKAAMAAACqAB0AAAAJAAIAAACtAB0AAAALAAIAAACsAB0AAAAKAAIAAACmAB0AAAALAAIAAAClAB0AAAAKAAIAAACkAB0AAAAJAAIAAACrAB0AAAAKAAIAAACqAAsAAAALAAIAAACoAA8AAAALAAEAAACoABAAAAALAAIAAACpAA0AAAALAAIAAACoAA0AAAAKAAMAAACnAA0AAAAKAAEAAACoAA4AAAALAAEAAACnAAwAAAAKAAEAAACnAAsAAAAKAAEAAACoAAwAAAAKAAEAAACpAAwAAAALAAEAAACpAAsAAAAKAAMAAACoAAsAAAAKAAEAAACjAA0AAAALAAMAAACjAAwAAAAKAAEAAACiAAwAAAALAAMAAACiAAsAAAAKAAEAAACjAAsAAAAKAAEAAACiAA0AAAAJAAIAAAChAAwAAAAKAAIAAACgAAwAAAAJAAIAAACgAAsAAAALAAMAAAChAAsAAAAKAAEAAACfAAsAAAAKAAIAAACeAAsAAAAJAAIAAADBABUAAAAKAAAAAADBABYAAAAKAAEAAADBABcAAAAKAAEAAADBABgAAAAKAAEAAADBABkAAAAKAAEAAADBABoAAAAKAAEAAADBABsAAAAKAAEAAADBABwAAAAKAAEAAADBAB0AAAAKAAIAAADCABUAAAAKAAAAAADCABYAAAAKAAEAAADCABcAAAAKAAEAAADCABgAAAAKAAEAAADCABkAAAAKAAEAAADCABoAAAAKAAEAAADCABsAAAAKAAEAAADCABwAAAAKAAEAAADCAB0AAAAKAAIAAADpABQAAAAJAAAAAADpABUAAAAJAAEAAADpABYAAAAJAAIAAADqABQAAAAKAAAAAADqABUAAAAKAAEAAADqABYAAAAKAAIAAADrABQAAAAKAAAAAADrABUAAAAKAAEAAADrABYAAAALAAMAAAC2AB0AAAAKAAIAAAC3AB0AAAAKAAIAAAC1AB0AAAAKAAIAAAC1ABwAAAAKAAEAAAC1ABsAAAAKAAEAAAC1ABoAAAAKAAEAAAC1ABkAAAAKAAEAAAC1ABgAAAAKAAEAAAC2ABgAAAAKAAEAAAC2ABkAAAAKAAEAAAC2ABoAAAAKAAEAAAC2ABsAAAAKAAEAAAC2ABwAAAAKAAEAAAC3ABwAAAAKAAEAAAC3ABsAAAAKAAEAAAC3ABoAAAAKAAEAAAC3ABkAAAAKAAEAAAC3ABgAAAAKAAEAAAC4ABUAAAAJAAAAAAC4ABYAAAAJAAEAAAC4ABcAAAAJAAMAAAC4ABgAAAAKAAEAAAC4ABkAAAAKAAEAAAC4AB0AAAAKAAIAAAC4ABwAAAAKAAEAAAC4ABsAAAAKAAEAAAC4ABoAAAAKAAEAAAC0ABUAAAALAAAAAAC0ABYAAAALAAEAAAC0ABcAAAAIAAMAAAC0ABgAAAAKAAEAAAC0AB0AAAAKAAIAAAC0ABwAAAAKAAEAAAC0ABsAAAAKAAEAAAC0ABoAAAAKAAEAAAC0ABkAAAAKAAEAAACzABUAAAAJAAAAAACzABYAAAAJAAEAAACzABcAAAAJAAEAAACzABgAAAAJAAEAAACzABkAAAAJAAEAAACzABoAAAAJAAEAAACzABsAAAAJAAEAAACzABwAAAAJAAEAAACzAB0AAAAJAAIAAAC5ABcAAAALAAEAAAC5ABgAAAALAAEAAAC5ABkAAAALAAEAAAC5ABoAAAALAAEAAAC5ABsAAAALAAEAAAC5ABwAAAALAAEAAAC5AB0AAAALAAIAAAC5ABUAAAALAAAAAAC5ABYAAAALAAEAAAC0ABAAAAAKAAIAAACzABAAAAAJAAIAAACzAA8AAAAJAAEAAACzAA4AAAAJAAEAAACzAA0AAAAJAAEAAACzAAwAAAALAAMAAACzAAsAAAAKAAEAAACzAAoAAAAKAAEAAAC4ABAAAAAKAAIAAAC5AA8AAAAKAAMAAAC5AA4AAAAKAAEAAAC5AA0AAAAKAAEAAAC5AAwAAAAKAAEAAAC5AAsAAAAKAAEAAAC5AAoAAAAKAAEAAAC4AAoAAAAKAAEAAAC4AAsAAAAKAAEAAAC4AAwAAAAKAAEAAAC4AA0AAAAKAAEAAAC4AA4AAAAKAAEAAAC4AA8AAAAKAAEAAAC3ABcAAAAKAAAAAAC2ABcAAAAKAAAAAAC1ABcAAAAKAAAAAAC0AA8AAAAKAAEAAAC0AA4AAAAKAAEAAAC0AA0AAAAKAAEAAAC0AAsAAAAKAAEAAAC0AAoAAAAKAAEAAAC0AAwAAAAKAAEAAAC1AA8AAAAKAAMAAAC3AA8AAAALAAMAAAC1AA4AAAAKAAEAAAC2AA4AAAAKAAEAAAC3AA4AAAAKAAEAAAC3AA0AAAAKAAEAAAC2AA0AAAAKAAEAAAC1AA0AAAAKAAEAAAC1AAwAAAAKAAEAAAC2AAwAAAAKAAEAAAC3AAwAAAAKAAEAAAC1AAsAAAAKAAEAAAC2AAsAAAAKAAEAAAC3AAsAAAAKAAEAAAC2AAoAAAAKAAEAAAC1AAoAAAAKAAEAAAC3AAoAAAAKAAEAAAC2AA8AAAAKAAIAAAC1ABAAAAALAAIAAAC3ABAAAAAJAAIAAACyAAwAAAAJAAIAAACxAAsAAAAKAAIAAACwAAsAAAAJAAIAAACwAAoAAAALAAMAAACvAAoAAAAKAAIAAACuAAoAAAAKAAIAAACtAAoAAAAKAAIAAACxAAoAAAAKAAEAAACyAAoAAAAKAAEAAACyAAsAAAALAAMAAAC6AAoAAAAKAAEAAAC7AAoAAAAKAAEAAAC8AAoAAAAKAAEAAAC9AAoAAAAKAAEAAAC+AAoAAAAKAAEAAAC/AAoAAAAKAAEAAADAAAoAAAAKAAEAAADBAAoAAAAKAAEAAADCAAoAAAAKAAEAAADDAAoAAAAKAAEAAADEAAoAAAAKAAEAAADFAAoAAAAKAAMAAADGAAoAAAAKAAIAAADHAAoAAAAKAAIAAADIAAoAAAAKAAIAAADsABQAAAAKAAAAAADtABQAAAAKAAAAAADsABUAAAAKAAEAAADtABUAAAAKAAEAAADuABUAAAAKAAEAAADsABYAAAAKAAEAAADtABYAAAAKAAEAAADuABYAAAAKAAEAAADuABQAAAAKAAAAAADvABQAAAAKAAAAAADwABQAAAAKAAAAAADxABUAAAAKAAEAAADwABUAAAAKAAEAAADvABUAAAAKAAEAAADvABYAAAAKAAEAAADwABYAAAAKAAEAAADxABYAAAAKAAEAAADxAAoAAAAKAAEAAADwAAoAAAAKAAEAAADvAAoAAAAKAAEAAADuAAoAAAAKAAEAAADtAAoAAAAKAAEAAADsAAoAAAAKAAEAAADrAAoAAAAKAAEAAADqAAoAAAAKAAEAAADpAAoAAAAKAAEAAADoAAoAAAAKAAEAAADnAAoAAAAKAAEAAADmAAoAAAAKAAEAAADlAAoAAAAKAAEAAADkAAoAAAALAAMAAADjAAoAAAAKAAIAAADiAAoAAAAKAAIAAADhAAoAAAAKAAIAAADgAAoAAAAKAAIAAADfAAoAAAAKAAIAAADeAAoAAAAKAAIAAADdAAoAAAAKAAIAAADcAAoAAAAKAAIAAADbAAoAAAAKAAIAAADaAAoAAAAKAAIAAADZAAoAAAAKAAIAAADYAAoAAAAKAAIAAADXAAoAAAAKAAIAAADWAAoAAAAKAAIAAADVAAoAAAAKAAIAAADUAAoAAAAKAAIAAADTAAoAAAAKAAIAAADSAAoAAAAKAAIAAADRAAoAAAAKAAIAAADQAAoAAAAKAAIAAADPAAoAAAAKAAIAAADOAAoAAAAKAAIAAADNAAoAAAAKAAIAAADMAAoAAAAKAAIAAADLAAoAAAAKAAIAAADKAAoAAAAKAAIAAADJAAoAAAAKAAIAAADrABcAAAAJAAEAAADrABgAAAAJAAEAAADsABkAAAALAAMAAADsABgAAAAKAAEAAADrABkAAAAJAAIAAADsABoAAAAJAAEAAADsABsAAAAJAAEAAADsABwAAAAJAAEAAADsABcAAAAKAAEAAADtABkAAAAKAAEAAADtABgAAAAKAAEAAADsAB0AAAAJAAIAAADtABoAAAAKAAEAAADtABsAAAAKAAEAAADtABwAAAAKAAEAAADtAB0AAAAKAAIAAADtABcAAAAKAAEAAADuABoAAAAKAAEAAADuABkAAAAKAAEAAADuABgAAAAKAAEAAADuABcAAAAKAAEAAADwABcAAAAKAAEAAADwABgAAAAKAAEAAADwABkAAAAKAAEAAADxABkAAAAKAAEAAADxABoAAAAKAAEAAADxABgAAAAKAAEAAADxABcAAAAKAAEAAADxABsAAAAKAAEAAADxABwAAAAKAAEAAADxAB0AAAAKAAIAAADuAB0AAAAKAAIAAADvABwAAAAKAAEAAADvABsAAAAKAAEAAADvABoAAAAKAAEAAADvABkAAAAKAAEAAADvABgAAAAKAAEAAADvABcAAAAKAAEAAADuABwAAAAKAAEAAADuABsAAAAKAAEAAADwABsAAAAKAAEAAADwABoAAAAKAAEAAADwABwAAAAKAAEAAADwAB0AAAAKAAIAAADvAB0AAAAKAAIAAADAABMAAAAKAAIAAADAABUAAAAKAAAAAADAABYAAAAKAAEAAADAABcAAAAKAAEAAADAABgAAAAKAAEAAADAABkAAAAKAAEAAADAABoAAAAKAAEAAADAABsAAAAKAAEAAADAABwAAAAKAAEAAADAAB0AAAAKAAIAAADxABQAAAAKAAAAAADyABQAAAAKAAAAAADzABQAAAAKAAAAAAD0ABQAAAAKAAAAAAD0ABUAAAAKAAEAAAD0ABYAAAAKAAEAAAD0ABcAAAAKAAEAAAD0ABgAAAAKAAEAAAD0ABkAAAAKAAEAAAD0ABoAAAAKAAEAAAD0ABsAAAAKAAEAAAD0ABwAAAAKAAEAAADzABwAAAAKAAEAAADzABsAAAAKAAEAAADzABoAAAAKAAEAAADzABkAAAAKAAEAAADzABgAAAAKAAEAAADzABcAAAAKAAEAAADzABYAAAAKAAEAAADzABUAAAAKAAEAAADyABUAAAAKAAEAAADyABoAAAAKAAEAAADyABsAAAAKAAEAAADyABkAAAAKAAEAAADyABgAAAAKAAEAAADyABcAAAAKAAEAAADyABYAAAAKAAEAAADyABwAAAAKAAEAAAD1ABQAAAALAAAAAAD1ABUAAAALAAEAAAD1ABsAAAALAAEAAAD1ABwAAAALAAEAAAD1ABoAAAALAAEAAAD1ABkAAAALAAEAAAD1ABgAAAALAAEAAAD1ABcAAAALAAEAAAD1ABYAAAALAAEAAAD0AB0AAAAKAAIAAADzAB0AAAAKAAIAAADyAB0AAAAKAAIAAAD1AB0AAAALAAIAAAD/ABQAAAABAAMAAAAAARQAAAABAAMAAAD+ABQAAAABAAMAAAANARQAAAAKAAAAAAAMARQAAAAKAAAAAAALARQAAAAKAAAAAAAKARQAAAAKAAAAAAAJARQAAAAJAAAAAAAJARUAAAAJAAEAAAAJARYAAAAJAAEAAAAJARcAAAAJAAEAAAAJARgAAAAJAAEAAAAJARkAAAAJAAEAAAAJARoAAAAJAAEAAAAJARsAAAAJAAEAAAAJARwAAAAJAAEAAAAJAR0AAAAJAAIAAAAKAR0AAAAKAAIAAAALAR0AAAAKAAIAAAAMAR0AAAAKAAIAAAANAR0AAAAKAAIAAAANARwAAAAKAAEAAAANARsAAAAKAAEAAAANARoAAAAKAAEAAAANARkAAAAKAAEAAAANARgAAAAKAAEAAAANARcAAAAKAAEAAAANARYAAAAKAAEAAAANARUAAAAKAAEAAAAMARUAAAAKAAEAAAALARUAAAAKAAEAAAAKARUAAAAKAAEAAAAKARYAAAAKAAEAAAAKARcAAAAKAAEAAAAKARgAAAAKAAEAAAALARkAAAAKAAEAAAALARoAAAAKAAEAAAALARsAAAAKAAEAAAALARwAAAAKAAEAAAAKARsAAAAKAAEAAAAKARoAAAAKAAEAAAAKARkAAAAKAAEAAAAKARwAAAAKAAEAAAAMARwAAAAKAAEAAAAMARsAAAAKAAEAAAAMARoAAAAKAAEAAAAMARkAAAAKAAEAAAAMARgAAAAKAAEAAAAMARcAAAAKAAEAAAAMARYAAAAKAAEAAAALARYAAAAKAAEAAAALARcAAAAKAAEAAAALARgAAAAKAAEAAAAOARQAAAAKAAAAAAAOARUAAAAKAAEAAAAOARYAAAAKAAEAAAAOARcAAAAKAAEAAAAOARgAAAAKAAEAAAAOARkAAAAKAAEAAAAOARoAAAAKAAEAAAAOARsAAAAKAAEAAAAOARwAAAAKAAEAAAAOAR0AAAAKAAIAAAAPAR0AAAAKAAIAAAAPARwAAAAKAAEAAAAPARsAAAAKAAEAAAAPARoAAAAKAAEAAAAPARkAAAAKAAEAAAAPARgAAAAKAAEAAAAPARcAAAAKAAEAAAAPARYAAAAKAAEAAAAPARQAAAAKAAAAAAAPARUAAAAKAAEAAAAQARQAAAAKAAAAAAARARQAAAAJAAMAAAASARQAAAAKAAEAAAAMAREAAAAJAAIAAAAMARAAAAAJAAEAAAALAQ8AAAAJAAIAAAALAQ4AAAAJAAEAAAALAQ0AAAALAAMAAAAKAQ0AAAAJAAIAAAAKAQwAAAAJAAEAAAALAQwAAAAKAAEAAAAMAQ0AAAAKAAEAAAAMAQ4AAAAKAAEAAAAMAQ8AAAALAAMAAAANAREAAAAKAAIAAAAOAREAAAALAAIAAAAOARAAAAALAAEAAAANARAAAAAKAAEAAAANAQ8AAAAKAAEAAAANAQ4AAAAKAAEAAAANAQ0AAAAKAAEAAAAMAQwAAAAKAAEAAAAMAQsAAAAKAAEAAAALAQsAAAAKAAEAAAAKAQsAAAAJAAEAAAAOAQ8AAAALAAEAAAAOAQ4AAAALAAEAAAAOAQ0AAAAKAAMAAAAOAQwAAAAKAAEAAAANAQwAAAAKAAEAAAANAQsAAAAKAAEAAAAOAQsAAAAKAAEAAAAPAQwAAAAKAAMAAAAPAQsAAAAKAAEAAAARARMAAAAJAAEAAAASARMAAAAKAAEAAAASARIAAAAKAAEAAAASAREAAAAKAAEAAAARARIAAAAJAAEAAAARAREAAAAJAAEAAAASARAAAAAKAAEAAAARARAAAAAJAAEAAAASAQ8AAAAKAAAAAAARAQ8AAAAJAAAAAAAQAQwAAAAKAAIAAAAQAQsAAAAKAAEAAAARAQsAAAAKAAEAAAASAQsAAAAKAAEAAAATAQsAAAAKAAEAAAAUAQsAAAAKAAEAAAAXAQsAAAAKAAEAAAAXAQwAAAAKAAIAAAATAQwAAAAKAAIAAAASAQwAAAAKAAIAAAARAQwAAAAKAAIAAAAPAQ0AAAALAAIAAAASARUAAAAKAAEAAAARARUAAAAKAAEAAAAQARUAAAAKAAEAAAATAQ8AAAAKAAAAAAARARsAAAAKAAEAAAARARwAAAAKAAEAAAAQARwAAAAKAAEAAAAQARsAAAAKAAEAAAARARoAAAAKAAEAAAARARkAAAAKAAEAAAARARgAAAAKAAEAAAASARcAAAAKAAEAAAASARYAAAAKAAEAAAAQARoAAAAKAAEAAAAQARkAAAAKAAEAAAARARcAAAAKAAEAAAARARYAAAAKAAEAAAAQARgAAAAKAAEAAAAQARcAAAAKAAEAAAAQARYAAAAKAAEAAAAQAR0AAAAKAAIAAAARAR0AAAAKAAIAAAASAR0AAAAKAAIAAAATAR0AAAALAAIAAAASARwAAAAKAAEAAAATARwAAAALAAEAAAASARsAAAAKAAEAAAATARsAAAALAAEAAAASARoAAAAKAAEAAAATARoAAAALAAEAAAASARkAAAAKAAEAAAATARkAAAALAAEAAAASARgAAAAKAAEAAAATARgAAAALAAEAAAATARcAAAALAAEAAAATARYAAAAKAAMAAAATARUAAAAKAAEAAAAUARYAAAALAAIAAAAUARUAAAALAAEAAAATARQAAAAKAAEAAAAUARQAAAALAAEAAAATARMAAAAKAAEAAAAUARMAAAALAAEAAAATARIAAAAKAAEAAAAUARIAAAALAAEAAAATAREAAAAKAAEAAAAUAREAAAALAAEAAAATARAAAAAKAAEAAAAUARAAAAAKAAMAAAAUAQ8AAAAKAAAAAAAVAQ8AAAALAAAAAAAVARAAAAALAAIAAAAUAQwAAAAKAAIAAAAVAQwAAAAKAAIAAAAVAQsAAAAKAAEAAAAWAQwAAAAKAAIAAAAWAQsAAAAKAAEAAAAXAQoAAAAKAAEAAAAXAQkAAAAKAAEAAAAYAQkAAAAKAAEAAAAYAQgAAAAKAAEAAAAYAQcAAAAKAAEAAAAXAQcAAAAKAAEAAAAWAQcAAAAJAAMAAAAVAQcAAAAKAAAAAAAUAQcAAAAKAAAAAAATAQcAAAAKAAAAAAASAQcAAAAKAAAAAAARAQcAAAAKAAAAAAAQAQcAAAAKAAAAAAAPAQcAAAAKAAAAAAAOAQcAAAAKAAAAAAANAQcAAAAJAAAAAAANAQgAAAAJAAEAAAANAQkAAAAJAAMAAAANAQoAAAAKAAEAAAAOAQoAAAAKAAEAAAAPAQoAAAAKAAEAAAAQAQoAAAAKAAEAAAARAQoAAAAKAAEAAAASAQoAAAAKAAEAAAATAQoAAAAKAAEAAAAUAQoAAAAKAAEAAAAVAQoAAAAKAAEAAAAWAQoAAAAKAAEAAAAWAQkAAAAKAAEAAAAXAQgAAAAKAAEAAAAWAQgAAAAKAAEAAAAVAQgAAAAKAAEAAAAUAQgAAAAKAAEAAAATAQgAAAAKAAEAAAASAQgAAAAKAAEAAAARAQgAAAAKAAEAAAAQAQgAAAAKAAEAAAAPAQgAAAAKAAEAAAAPAQkAAAAKAAEAAAAOAQkAAAAKAAEAAAAOAQgAAAAKAAEAAAAQAQkAAAAKAAEAAAARAQkAAAAKAAEAAAASAQkAAAAKAAEAAAATAQkAAAAKAAEAAAAUAQkAAAAKAAEAAAAVAQkAAAAKAAEAAAAYAQYAAAAKAAEAAAAZAQYAAAAKAAEAAAAaAQYAAAAKAAEAAAAbAQYAAAAKAAEAAAAcAQYAAAAKAAEAAAAdAQYAAAAKAAEAAAAeAQYAAAAKAAEAAAAfAQYAAAAKAAEAAAAgAQYAAAAKAAEAAAAhAQYAAAAKAAEAAAAiAQYAAAAKAAEAAAAjAQYAAAAKAAEAAAAkAQYAAAAKAAEAAAAlAQYAAAAKAAEAAAAmAQYAAAAKAAEAAAAnAQYAAAAKAAEAAAAoAQYAAAAKAAEAAAApAQYAAAAKAAEAAAAqAQYAAAAKAAEAAAAXAQYAAAAKAAEAAAAWAQYAAAAJAAEAAAAXAQUAAAAKAAAAAAAYAQUAAAAKAAAAAAAZAQUAAAAKAAAAAAAaAQUAAAAKAAAAAAAbAQUAAAAKAAAAAAAcAQUAAAAKAAAAAAAdAQUAAAAKAAAAAAAeAQUAAAAKAAAAAAAfAQUAAAAKAAAAAAAgAQUAAAAKAAAAAAAhAQUAAAAKAAAAAAAiAQUAAAAKAAAAAAAjAQUAAAAKAAAAAAAkAQUAAAAKAAAAAAAlAQUAAAAKAAAAAAAmAQUAAAAKAAAAAAAnAQUAAAAKAAAAAAAoAQUAAAAKAAAAAAApAQUAAAAKAAAAAAAqAQUAAAAKAAAAAAAWAQUAAAAJAAAAAAAYAQ0AAAAJAAEAAAAYAQ4AAAAJAAIAAAAYAQwAAAALAAMAAAAYAQsAAAAKAAEAAAAZAQ0AAAAKAAEAAAAZAQwAAAAKAAEAAAAaAQwAAAAKAAEAAAAaAQ0AAAAKAAEAAAAZAQ4AAAAKAAIAAAAbAQwAAAALAAEAAAAbAQsAAAALAAEAAAAaAQ4AAAAKAAIAAAAbAQ4AAAALAAIAAAAbAQ0AAAALAAEAAAAcAQoAAAAKAAIAAAAdAQoAAAALAAIAAAAdAQkAAAAKAAMAAAAeAQkAAAAKAAIAAAAeAQgAAAAKAAEAAAAfAQgAAAAKAAEAAAAcAQkAAAAKAAEAAAAbAQoAAAAKAAMAAAAaAQoAAAAKAAEAAAAaAQsAAAAKAAEAAAAZAQsAAAAKAAEAAAAZAQoAAAAKAAEAAAAYAQoAAAAKAAEAAAAZAQkAAAAKAAEAAAAaAQkAAAAKAAEAAAAbAQkAAAAKAAEAAAAaAQgAAAAKAAEAAAAbAQgAAAAKAAEAAAAcAQgAAAAKAAEAAAAdAQcAAAAKAAEAAAAeAQcAAAAKAAEAAAAfAQcAAAAKAAEAAAAcAQcAAAAKAAEAAAAbAQcAAAAKAAEAAAAaAQcAAAAKAAEAAAAZAQcAAAAKAAEAAAAZAQgAAAAKAAEAAAAgAQcAAAAKAAEAAAAhAQcAAAAKAAEAAAAiAQcAAAAKAAEAAAAhAQgAAAAKAAIAAAAgAQgAAAAKAAMAAAAdAQgAAAAKAAEAAAAjAQcAAAAKAAEAAAAkAQcAAAAKAAEAAAAlAQcAAAAKAAEAAAAmAQcAAAAKAAEAAAAfAQkAAAAKAAIAAAAgAQkAAAALAAIAAAAiAQgAAAAKAAIAAAAjAQgAAAAKAAIAAAAkAQgAAAAKAAIAAAAlAQgAAAAKAAIAAAAmAQgAAAAKAAIAAAAnAQcAAAAKAAEAAAAoAQcAAAAKAAEAAAApAQcAAAAKAAEAAAAqAQcAAAAKAAEAAAAbARUAAAALAAAAAAAbARYAAAALAAIAAAAqAQsAAAAKAAAAAAApAQsAAAAKAAAAAAApAQwAAAAKAAEAAAAqAQwAAAAKAAEAAAAqAQ0AAAAKAAEAAAAqAQ4AAAAKAAEAAAAqAQ8AAAAKAAEAAAArAQsAAAAKAAAA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AAApARYAAAAJAAEAAAApARcAAAAJAAEAAAApARgAAAAJAAIAAAAoAQwAAAAJAAEAAAAoAQ0AAAAJAAIAAAArAQcAAAAKAAEAAAAsAQcAAAAKAAEAAAAtAQcAAAAKAAEAAAArAQYAAAAIAAMAAAAsAQYAAAAKAAAAAAArAQUAAAALAAAAAAAtAQYAAAAKAAAAAAAnAQgAAAAKAAIAAAAoAQgAAAAKAAIAAAApAQgAAAAKAAIAAAAqAQgAAAAKAAIAAAArAQgAAAAKAAIAAAAsAQgAAAAKAAIAAAAtAQgAAAAKAAIAAAAuAQgAAAAKAAIAAAAuAQcAAAAKAAEAAAAuAQYAAAAKAAAAAABDARAAAAAKAAAAAABEARAAAAAKAAAAAABFARAAAAAKAAAAAABGARAAAAAKAAAAAABHARAAAAAKAAAAAABCARAAAAAJAAAAAABDAREAAAAKAAIAAABEAREAAAALAAMAAABCAREAAAAJAAIAAABFAREAAAAKAAEAAABGAREAAAAKAAEAAABHAREAAAAKAAEAAABEARIAAAAJAAIAAABFARIAAAAKAAIAAABGARIAAAALAAMAAABHARIAAAAKAAEAAABHARMAAAAKAAEAAABHARQAAAAKAAEAAABHARUAAAAKAAEAAABHARYAAAAKAAEAAABHARcAAAAKAAEAAABGARUAAAAJAAEAAABGARQAAAAJAAEAAABGARMAAAAJAAEAAABGARYAAAAJAAEAAABGARcAAAAJAAEAAABIARAAAAAKAAAAAABIAREAAAAKAAEAAABIARIAAAAKAAEAAABIARMAAAAKAAEAAABIARQAAAAKAAEAAABIARUAAAAKAAEAAABIARYAAAAKAAEAAABIARcAAAAKAAEAAABIARgAAAAKAAIAAABHARgAAAAKAAIAAABGARgAAAAJAAIAAABJARAAAAAKAAAAAABKARAAAAAKAAAAAABLARAAAAAKAAAAAABMARAAAAAJAAMAAABMAREAAAAKAAEAAABMARIAAAAKAAMAAABMARMAAAALAAEAAABMARQAAAALAAEAAABMARUAAAALAAEAAABMARYAAAALAAEAAABMARcAAAALAAEAAABMARgAAAALAAIAAABLARgAAAAKAAIAAABKARgAAAAKAAIAAABJARgAAAAKAAIAAABJARcAAAAKAAEAAABKARcAAAAKAAEAAABLARcAAAAKAAEAAABLARYAAAAKAAEAAABKARYAAAAKAAEAAABJARYAAAAKAAEAAABJARUAAAAKAAEAAABKARUAAAAKAAEAAABLARUAAAAKAAEAAABJARQAAAAKAAEAAABKARQAAAAKAAEAAABLARQAAAAKAAEAAABLARMAAAAKAAEAAABKARMAAAAKAAEAAABJARMAAAAKAAEAAABJARIAAAAKAAEAAABKARIAAAAKAAEAAABLARIAAAAKAAEAAABLAREAAAAKAAEAAABKAREAAAAKAAEAAABJAREAAAAKAAEAAAA1ARIAAAAJAAIAAAA9ARIAAAALAAIAAAA8ARIAAAAKAAMAAAA7ARIAAAAKAAEAAAA6ARIAAAAKAAEAAAA5ARIAAAAKAAEAAAA4ARIAAAAKAAEAAAA3ARIAAAAKAAEAAAA2ARIAAAALAAMAAAA1AREAAAAJAAAAAAA2AREAAAAKAAAAAAA3AREAAAAKAAAAAAA4AREAAAAKAAAAAAA5AREAAAAKAAAAAAA6AREAAAAKAAAAAAA7AREAAAAKAAAAAAA8AREAAAAKAAAAAAA9AREAAAALAAAAAAA9AQwAAAALAAIAAAA8AQwAAAAKAAIAAAA7AQwAAAAKAAIAAAA6AQwAAAAKAAIAAAA5AQwAAAAKAAIAAAA4AQwAAAAKAAIAAAA3AQwAAAAKAAIAAAA2AQwAAAAKAAIAAAA1AQwAAAAJAAIAAAA1AQsAAAAJAAEAAAA2AQsAAAAKAAEAAAA3AQsAAAAKAAEAAAA4AQsAAAAKAAEAAAA5AQsAAAAKAAEAAAA6AQsAAAAKAAEAAAA7AQsAAAAKAAEAAAA8AQsAAAAKAAEAAAA9AQsAAAALAAEAAAA2ARMAAAAJAAIAAAA3ARMAAAALAAMAAAA4ARMAAAAKAAEAAAA5ARMAAAAKAAEAAAA6ARMAAAAKAAEAAAA7ARMAAAAKAAMAAAA8ARMAAAALAAIAAAA1AQoAAAALAAMAAAA2AQoAAAAKAAEAAAA3AQoAAAAKAAEAAAA4AQoAAAAKAAEAAAA5AQoAAAAKAAEAAAA6AQoAAAAKAAEAAAA7AQoAAAAKAAEAAAA8AQoAAAAKAAEAAAA9AQoAAAAKAAMAAAA1AQkAAAAKAAEAAAA0AQkAAAALAAMAAAAzAQkAAAAKAAIAAAAzAQgAAAAKAAEAAAAyAQgAAAAKAAEAAAAxAQgAAAAKAAEAAAAwAQgAAAALAAMAAAAwAQcAAAAKAAEAAAAvAQcAAAAKAAEAAAAxAQcAAAAKAAEAAAAyAQcAAAAKAAEAAAAvAQgAAAAKAAIAAAAvAQYAAAAKAAAAAAAwAQYAAAAKAAAAAAAxAQYAAAAKAAAAAAAzAQcAAAAKAAEAAAA0AQcAAAAKAAEAAAA1AQcAAAAKAAEAAAA1AQgAAAAKAAEAAAA2AQgAAAAKAAEAAAA2AQkAAAAKAAEAAAA0AQgAAAAKAAEAAAA0AQoAAAAJAAIAAAAxAQkAAAAKAAIAAAAyAQkAAAAKAAIAAAAwAQkAAAAJAAIAAAA9AQkAAAAKAAEAAAA+AQkAAAAKAAMAAAA/AQkAAAAKAAIAAAA+AQgAAAAKAAEAAAA/AQgAAAAKAAEAAABAAQgAAAAKAAMAAABBAQgAAAAKAAIAAABBAQcAAAAKAAEAAABCAQcAAAAKAAEAAABCAQYAAAAKAAAAAABDAQcAAAAKAAMAAABEAQcAAAAKAAIAAABEAQYAAAAKAAAAAABDAQYAAAAKAAAAAABBAQYAAAAKAAAAAABAAQYAAAAKAAAAAAA/AQYAAAAKAAAAAAA+AQYAAAAKAAAAAAA9AQYAAAAKAAAAAAA8AQYAAAAKAAAAAAA7AQYAAAAKAAAAAAA6AQYAAAAKAAAAAAA5AQYAAAAKAAAAAAA4AQYAAAAKAAAAAAA4AQcAAAAKAAEAAAA3AQcAAAAKAAEAAAA2AQcAAAAKAAEAAAA1AQYAAAAKAAAAAAA0AQYAAAAKAAAAAAAzAQYAAAAKAAAAAAAyAQYAAAAKAAAAAAA2AQYAAAAKAAAAAAA3AQYAAAAKAAAAAAA/AQcAAAAKAAEAAAA+AQcAAAAKAAEAAAA9AQcAAAAKAAEAAAA8AQcAAAAKAAEAAAA7AQcAAAAKAAEAAAA6AQcAAAAKAAEAAABAAQcAAAAKAAEAAAA5AQcAAAAKAAEAAAA3AQgAAAAKAAEAAAA4AQgAAAAKAAEAAAA5AQgAAAAKAAEAAAA6AQgAAAAKAAEAAAA7AQgAAAAKAAEAAAA8AQgAAAAKAAEAAAA9AQgAAAAKAAEAAAA8AQkAAAAKAAEAAAA7AQkAAAAKAAEAAAA6AQkAAAAKAAEAAAA5AQkAAAAKAAEA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AABSARIAAAAKAAIAAABTARIAAAAKAAIAAABUARIAAAAKAAIAAABVAREAAAAKAAEAAABVARAAAAAKAAEAAABVAQ8AAAAKAAEAAABVAQ4AAAAJAAMAAABVAQ0AAAAJAAEAAABVAQwAAAAJAAEAAABVAQsAAAAJAAEAAABVAQoAAAAJAAEAAABVAQkAAAAJAAEAAABVAQgAAAAJAAEAAABVAQcAAAAJAAEAAABWAQcAAAAKAAEAAABWAQgAAAAKAAEAAABWAQkAAAAKAAEAAABWAQoAAAAKAAEAAABWAQsAAAAKAAEAAABWAQwAAAAKAAEAAABWAQ0AAAAKAAEAAABWAQ4AAAAKAAEAAABWAQ8AAAAKAAEAAABWARAAAAAKAAEAAABWAREAAAAKAAEAAABVARIAAAAKAAIAAABWARIAAAAKAAIAAABXARIAAAAKAAIAAABXAREAAAAKAAEAAABXARAAAAAKAAEAAABXAQ8AAAAKAAEAAABXAQ4AAAAKAAEAAABXAQ0AAAAKAAEAAABXAQwAAAAKAAEAAABXAQsAAAAKAAEAAABXAQoAAAAKAAEAAABXAQkAAAAKAAEAAABXAQgAAAAKAAEAAABXAQcAAAAKAAEAAABJAQYAAAAKAAEAAABKAQYAAAAKAAEAAABLAQYAAAAKAAEAAABKAQUAAAAKAAEAAABLAQUAAAAKAAEAAABMAQUAAAAKAAEAAABJAQUAAAAKAAEAAABIAQUAAAAKAAEAAABHAQUAAAAJAAEAAABHAQQAAAAJAAEAAABIAQQAAAAKAAEAAABIAQMAAAAKAAEAAABJAQMAAAAKAAEAAABJAQIAAAAKAAEAAABJAQQAAAAKAAEAAABIAQIAAAAKAAEAAABHAQIAAAAJAAEAAABHAQMAAAAJAAEAAABHAQEAAAAJAAAAAABIAQEAAAAKAAAAAABJAQEAAAAKAAAAAABKAQEAAAAKAAAAAABLAQEAAAAKAAAAAABMAQEAAAAKAAAAAABNAQEAAAAKAAAAAABOAQEAAAAKAAAAAABPAQEAAAAKAAAAAABQAQEAAAAKAAAAAABRAQEAAAAKAAAAAABSAQEAAAAKAAAAAABTAQEAAAAKAAAAAABUAQEAAAAKAAAAAABVAQEAAAAKAAAAAABWAQEAAAAKAAAAAABXAQEAAAAKAAAAAABYAQEAAAAKAAAAAABYAQIAAAAKAAIAAABXAQIAAAAKAAIAAABWAQIAAAAKAAIAAABVAQIAAAAKAAIAAABUAQIAAAAKAAIAAABTAQIAAAAKAAIAAABSAQIAAAAKAAIAAABRAQIAAAAKAAMAAABQAQIAAAAKAAEAAABPAQIAAAAKAAEAAABOAQIAAAAKAAEAAABNAQIAAAAKAAEAAABMAQIAAAAKAAEAAABLAQIAAAAKAAEAAABKAQIAAAAKAAEAAABKAQMAAAAKAAEAAABKAQQAAAAKAAEAAABLAQQAAAAKAAEAAABMAQQAAAAKAAEAAABNAQQAAAAKAAEAAABOAQQAAAAKAAEAAABPAQMAAAAKAAEAAABQAQMAAAAKAAEAAABQAQQAAAAKAAEAAABPAQQAAAAKAAEAAABPAQUAAAAKAAEAAABOAQUAAAAKAAEAAABNAQUAAAAKAAEAAABMAQMAAAAKAAEAAABNAQMAAAAKAAEAAABOAQMAAAAKAAEAAABLAQMAAAAKAAEAAABMAQYAAAAKAAEAAABQAQUAAAAKAAEAAABYAQcAAAALAAEAAABYAQgAAAALAAEAAABYAQkAAAALAAEAAABYAQoAAAALAAEAAABYAQsAAAALAAEAAABYAQwAAAALAAEAAABYARAAAAAKAAEAAABYAREAAAAKAAEAAABYARIAAAAKAAIAAABYAQ8AAAAIAAMAAABYAQ4AAAALAAEAAABYAQ0AAAALAAEAAABMAQ8AAAAJAAAAAABNAQ8AAAAKAAAAAABOAQ8AAAAKAAAAAABPAQ8AAAAKAAAAAABQAQ8AAAAJAAMAAABRAQ8AAAAKAAEAAABSAQ8AAAAKAAEAAABTAQ8AAAAKAAEAAABUAQ8AAAAKAAEAAABSAQ4AAAAKAAAAAABTAQ4AAAAKAAAAAABUAQ4AAAAKAAAAAABRAQUAAAALAAEAAABRAQQAAAALAAEAAABRAQMAAAALAAEAAABIAQgAAAAJAAIAAABJAQgAAAAKAAIAAABKAQkAAAAJAAIAAABLAQkAAAALAAMAAABLAQoAAAAJAAIAAABMAQoAAAALAAMAAABKAQgAAAALAAMAAABLAQgAAAAKAAEAAABMAQkAAAAKAAEAAABNAQkAAAAKAAEAAABNAQoAAAAKAAEAAABKAQcAAAAKAAEAAABJAQcAAAAKAAEAAABMAQgAAAAKAAEAAABOAQoAAAAKAAEAAABOAQsAAAAKAAEAAABLAQcAAAAKAAEAAABOAQkAAAAKAAEAAABNAQsAAAAKAAEAAABNAQwAAAAKAAIAAABMAQsAAAAJAAEAAABMAQwAAAAJAAIAAABOAQwAAAAKAAIAAABPAQwAAAAKAAIAAABQAQwAAAAKAAIAAABRAQwAAAALAAIAAABRAQsAAAALAAEAAABRAQoAAAALAAEAAABRAQkAAAALAAEAAABRAQgAAAALAAEAAABRAQcAAAALAAEAAABRAQYAAAALAAEAAABQAQYAAAAKAAEAAABPAQYAAAAKAAEAAABOAQYAAAAKAAEAAABNAQYAAAAKAAEAAABMAQcAAAAKAAEAAABNAQcAAAAKAAEAAABNAQgAAAAKAAEAAABOAQgAAAAKAAEAAABOAQcAAAAKAAEAAABPAQcAAAAKAAEAAABQAQcAAAAKAAEAAABQAQgAAAAKAAEAAABQAQkAAAAKAAEAAABQAQoAAAAKAAEAAABPAQoAAAAKAAEAAABPAQgAAAAKAAEAAABPAQkAAAAKAAEAAABQAQsAAAAKAAEAAABPAQsAAAAKAAEAAABZAQIAAAAKAAIAAABaAQIAAAALAAMAAABbAQIAAAAKAAEAAABcAQIAAAAKAAEAAABdAQIAAAAKAAEAAABZAQEAAAAKAAAAAABaAQEAAAAKAAAAAABbAQEAAAAKAAAAAABcAQEAAAAKAAAAAABdAQEAAAAKAAAAAABeAQEAAAAKAAAAAABeAQIAAAAKAAEAAABaAQMAAAAJAAIAAABbAQMAAAALAAMAAABcAQMAAAAKAAEAAABdAQMAAAAKAAEAAABbAQQAAAAJAAEAAABcAQQAAAAKAAEAAABcAQUAAAAKAAEAAABcAQYAAAAKAAEAAABbAQUAAAAJAAEAAABbAQYAAAAJAAEAAABbAQcAAAAJAAEAAABbAQgAAAAJAAEAAABbAQkAAAAJAAEAAABcAQkAAAAKAAEAAABcAQgAAAAKAAEAAABcAQcAAAAKAAEAAABdAQQAAAAKAAEAAABdAQUAAAAKAAEAAABdAQYAAAAKAAEAAABeAQMAAAAKAAEAAABeAQQAAAAKAAEAAABeAQUAAAAKAAEAAABeAQYAAAAKAAEAAABeAQcAAAAKAAEAAABeAQgAAAAKAAEAAABeAQkAAAAKAAEAAABdAQgAAAAKAAEAAABdAQcAAAAKAAEAAABdAQkAAAAKAAEAAABdAQoAAAAKAAEAAABdAQsAAAAKAAEAAABeAQoAAAAKAAEAAABeAQsAAAAKAAMAAABeAQwAAAALAAIAAABdAQwAAAAKAAIAAABcAQsAAAAKAAEAAABcAQwAAAAKAAIAAABcAQoAAAAKAAEAAABbAQoAAAAJAAEAAABbAQsAAAAJAAEAAABbAQwAAAAJAAIAAABZAREAAAAKAAEAAABZARAAAAAKAAEAAABaARAAAAAKAAEAAABbARAAAAAKAAEAAABbAQ8AAAAKAAAAAABcAQ8AAAAKAAAAAABcARAAAAAKAAEAAABZAQ8AAAAKAAAAAABaAQ8AAAAKAAAAAABZARIAAAAKAAIAAABaARIAAAAKAAIAAABaAREAAAAKAAEAAABbAREAAAAKAAEAAABcAREAAAAKAAEAAABdAREAAAAKAAEAAABcARIAAAAKAAIAAABdARIAAAAKAAIAAABeARIAAAAKAAIAAABfARIAAAAKAAIAAABbARIAAAAKAAIAAABgARIAAAAKAAIAAABdARAAAAAKAAEAAABeARAAAAAKAAEAAABdAQ8AAAAKAAAAAABeAQ8AAAAKAAAAAABfAQ8AAAAJAAMAAABfARAAAAAKAAEAAABeAREAAAAKAAEAAABfAREAAAAKAAEAAABgAREAAAAKAAEAAABgARAAAAAKAAEAAABgAQ8AAAAKAAEAAABfAQsAAAAKAAIAAABgAQsAAAALAAIAAABgAQoAAAAKAAMAAABhAQoAAAALAAIAAABiAQkAAAAKAAIAAABjAQkAAAALAAIAAABjAQgAAAAKAAMAAABhAQkAAAAKAAMAAABiAQgAAAAKAAEAAABgAQkAAAAKAAEAAABfAQoAAAAKAAEAAABhAQgAAAAKAAEAAABfAQkAAAAKAAEAAABfAQgAAAAKAAEAAABgAQgAAAAKAAEAAABgAQcAAAAKAAEAAABhAQcAAAAKAAEAAABiAQcAAAAKAAEAAABjAQcAAAAKAAEAAABkAQgAAAAKAAIAAABkAQcAAAAKAAEAAABkAQYAAAAKAAEAAABkAQUAAAAKAAEAAABkAQQAAAAKAAEAAABkAQMAAAAKAAEAAABkAQIAAAAKAAEAAABkAQEAAAAJAAMAAABlAQcAAAALAAEAAABlAQgAAAALAAIAAABlAQYAAAAKAAMAAABlAQUAAAAKAAEAAABlAQQAAAAKAAEAAABlAQMAAAAKAAEAAABlAQIAAAAKAAEAAABlAQEAAAAKAAEAAABjAQEAAAAKAAAAAABiAQEAAAAKAAAAAABhAQEAAAAKAAAAAABgAQEAAAAKAAAAAABfAQEAAAAKAAAAAABfAQIAAAAKAAEAAABfAQMAAAAKAAEAAABfAQQAAAAKAAEAAABfAQUAAAAKAAEAAABfAQYAAAAKAAEAAABfAQcAAAAKAAEAAABgAQYAAAAKAAEAAABhAQYAAAAKAAEAAABiAQYAAAAKAAEAAABjAQYAAAAKAAEAAABjAQUAAAAKAAEAAABiAQUAAAAKAAEAAABhAQUAAAAKAAEAAABgAQUAAAAKAAEAAABgAQQAAAAKAAEAAABhAQQAAAAKAAEAAABiAQQAAAAKAAEAAABjAQQAAAAKAAEAAABjAQMAAAAKAAEAAABiAQMAAAAKAAEAAABhAQMAAAAKAAEAAABgAQMAAAAKAAEAAABhAQIAAAAKAAEAAABiAQIAAAAKAAEAAABjAQIAAAAKAAEAAABgAQIAAAAKAAEAAABhAQ8AAAAKAAEAAABiAQ8AAAAKAAEAAABjAQ8AAAAKAAEAAABhARAAAAAKAAEAAABhAREAAAAKAAEAAABiAREAAAAKAAEAAABiARIAAAAKAAIAAABhARIAAAAKAAIAAABjAREAAAAKAAEAAABkAREAAAAKAAMAAABjARAAAAAKAAEAAABiARAAAAAKAAEAAABkARAAAAAKAAEAAABjARIAAAAKAAIAAABkARIAAAALAAIAAABlAREAAAALAAIAAABlARAAAAALAAEAAABlAQ8AAAAKAAMAAABkAQ8AAAAKAAEAAABiAQ4AAAAJAAMAAABjAQ4AAAAKAAEAAABjAQ0AAAAKAAAAAABkAQ0AAAAKAAAAAABkAQ4AAAAKAAEAAABlAQ0AAAAKAAAAAABlAQ4AAAAKAAEAAABhAQ4AAAAKAAAAAABgAQ4AAAAKAAAAAABfAQ4AAAAJAAAAAABiAQ0AAAAJAAAAAABRAQ4AAAAKAAAAAABQAQ4AAAAJAAAAAABVAQYAAAAJAAAAAABYAQYAAAALAAAAAABXAQYAAAAKAAAAAABWAQYAAAAKAAAAAABmAQ0AAAAKAAAAAABnAQ0AAAAKAAAAAABoAQ0AAAAJAAMAAABpAQ0AAAAKAAEAAABqAQ0AAAAKAAEAAABmAQ4AAAAKAAEAAABnAQ4AAAAKAAEAAABoAQ4AAAAKAAEAAABpAQ4AAAAKAAEAAABqAQ4AAAAKAAEAAABqAQ8AAAAKAAIAAABpAQ8AAAAKAAIAAABoAQ8AAAAKAAIAAABnAQ8AAAAKAAIAAABmAQ8AAAAKAAIAAABqAQwAAAAIAAMAAABqAQsAAAALAAEAAABqAQoAAAALAAEAAABqAQkAAAALAAEAAABqAQgAAAALAAAAAABlAQAAAAAKAAEAAABlAf//AAAKAAEAAABkAf//AAAJAAEAAABkAQAAAAAJAAEAAABmAQIAAAAKAAEAAABmAQEAAAAKAAEAAABnAQEAAAAKAAEAAABnAQAAAAAKAAEAAABoAQAAAAAKAAEAAABoAf//AAAKAAEAAABnAQIAAAAKAAEAAABoAQEAAAAKAAEAAABpAQEAAAAKAAEAAABmAQAAAAAKAAEAAABnAf//AAAKAAEAAABmAf//AAAKAAEAAABoAQgAAAAJAAAAAABoAQkAAAAJAAEAAABoAQoAAAAJAAEAAABoAQsAAAAJAAEAAABoAQwAAAAJAAEAAABpAQwAAAAKAAEAAABpAQsAAAAKAAEAAABpAQoAAAAKAAEAAABpAQkAAAAKAAEAAABpAQgAAAAKAAAAAABtAQgAAAAKAAIAAABtAQcAAAAKAAEAAABtAQYAAAAKAAEAAABsAQYAAAALAAMAAABsAQUAAAAKAAEAAABtAQUAAAAKAAEAAABrAQUAAAAKAAEAAABqAQUAAAALAAMAAABrAQYAAAAKAAIAAABsAQgAAAAJAAIAAABsAQcAAAAJAAEAAABqAQYAAAAJAAIAAABsAQQAAAAKAAEAAABrAQQAAAAKAAEAAABrAQMAAAAKAAEAAABsAQMAAAAKAAEAAABrAQIAAAAKAAEAAABrAQEAAAAKAAEAAABsAQIAAAAKAAEAAABrAQAAAAAKAAEAAABqAQAAAAAKAAEAAABpAQAAAAAKAAEAAABpAf//AAAKAAEAAABkAf7/AAAJAAEAAABlAf7/AAAKAAEAAABmAf7/AAAKAAEAAABnAf7/AAAKAAEAAABoAf7/AAAKAAEAAABpAf7/AAAKAAEAAABqAf7/AAAKAAEAAABrAf//AAAKAAEAAABqAf//AAAKAAEAAABqAQQAAAAKAAEAAABpAQQAAAAKAAEAAABpAQMAAAAKAAEAAABoAQQAAAAKAAEAAABnAQQAAAAKAAEAAABmAQQAAAAKAAEAAABmAQUAAAAKAAMAAABnAQUAAAAKAAIAAABoAQUAAAAKAAIAAABmAQYAAAALAAIAAABpAQUAAAAKAAIAAABqAQMAAAAKAAEAAABqAQIAAAAKAAEAAABqAQEAAAAKAAEAAABpAQIAAAAKAAEAAABoAQIAAAAKAAEAAABoAQMAAAAKAAEAAABnAQMAAAAKAAEAAABmAQMAAAAKAAEAAABrAQwAAAAKAAAAAABrAQ0AAAAKAAMAAABrAf7/AAAKAAEAAABtAQQAAAAKAAEAAABtAQMAAAAKAAEAAABuAQMAAAAKAAMAAABuAQIAAAAKAAEAAABvAQIAAAALAAEAAABvAQEAAAAKAAMAAABwAQAAAAAKAAMAAABxAQAAAAALAAIAAABxAf//AAAKAAMAAABzAf7/AAALAAIAAABuAQQAAAALAAEAAABuAQUAAAALAAEAAABvAQMAAAALAAIAAABtAQIAAAAKAAEAAABuAQEAAAAKAAEAAABuAQAAAAAKAAEAAABvAQAAAAAKAAEAAABtAQEAAAAKAAEAAABsAQEAAAAKAAEAAABsAQAAAAAKAAEAAABsAf//AAAKAAEAAABsAf7/AAAKAAEAAABtAf7/AAAKAAEAAABuAf7/AAAKAAEAAABvAf7/AAAKAAEAAABwAf7/AAAKAAEAAABxAf7/AAAKAAEAAAByAf7/AAAKAAMAAABwAf//AAAKAAEAAABvAf//AAAKAAEAAABuAf//AAAKAAEAAABtAQAAAAAKAAEAAABtAf//AAAKAAEAAABzAf3/AAALAAEAAAByAf3/AAAJAAMAAABxAf3/AAAKAAAAAABwAf3/AAAKAAAAAABvAf3/AAAKAAAAAABuAf3/AAAKAAAAAABtAf3/AAAKAAAAAABnAf3/AAAKAAAAAABmAf3/AAAKAAAAAABlAf3/AAAKAAAAAABkAf3/AAAJAAAAAABoAf3/AAAKAAAAAABpAf3/AAAKAAAAAABqAf3/AAAKAAAAAABrAf3/AAAKAAAAAABsAf3/AAAKAAAAAABuAQgAAAALAAIAAABuAQcAAAALAAEAAABuAQYAAAALAAEAAAB9AQwAAAAJAAEAAAB+AQwAAAAKAAEAAAB9AQ0AAAAJAAEAAAB+AQ0AAAAKAAEAAAB/AQ0AAAAKAAEAAACAAQ0AAAAKAAEAAACBAQ0AAAAKAAEAAACBAQwAAAAKAAEAAACAAQwAAAAKAAEAAAB/AQwAAAAKAAEAAAB9AQ4AAAAJAAEAAAB+AQ4AAAAKAAEAAAB/AQ4AAAAKAAEAAACAAQ4AAAAKAAEAAACBAQ4AAAAKAAEAAAB9AQ8AAAAJAAIAAAB+AQ8AAAAKAAIAAAB/AQ8AAAAKAAIAAACAAQ8AAAAKAAIAAACBAQ8AAAAKAAIAAACBAQsAAAAKAAEAAACBAQoAAAAKAAEAAACBAQkAAAAKAAEAAACCAQ4AAAAKAAEAAACCAQ8AAAAKAAIAAACCAQ0AAAAKAAEAAACCAQwAAAAKAAEAAACCAQsAAAAKAAEAAACCAQoAAAAKAAEAAACCAQkAAAAKAAEAAACCAQgAAAAKAAEAAACCAQcAAAAKAAEAAACCAQYAAAAKAAEAAACCAQUAAAAKAAEAAACCAQQAAAAKAAEAAACBAQUAAAAKAAEAAACBAQYAAAAKAAEAAACBAQcAAAAKAAEAAACBAQgAAAAKAAEAAACAAQsAAAAKAAEAAACAAQoAAAAKAAEAAACAAQkAAAAJAAMAAACAAQgAAAAJAAEAAACAAQcAAAAJAAEAAACAAQYAAAAJAAEAAACAAQUAAAAJAAEAAACBAQQAAAAKAAEAAACAAQQAAAAJAAEAAACAAQMAAAAJAAAAAACBAQMAAAAKAAAAAACCAQMAAAAKAAAAAAB+Af//AAAKAAIAAAB8Af//AAAKAAEAAAB9Af//AAAKAAMAAAB/Af//AAAKAAIAAACAAf//AAAKAAIAAACBAf//AAAKAAIAAACBAf7/AAAKAAEAAACAAf7/AAAKAAEAAAB/Af7/AAAKAAEAAAB+Af7/AAAKAAEAAAB9Af7/AAAKAAEAAAB8Af7/AAAKAAEAAAB8Af3/AAAKAAAAAAB9Af3/AAAKAAAAAAB+Af3/AAAKAAAAAAB/Af3/AAAKAAAAAACAAf3/AAAKAAAAAACBAf3/AAAKAAAAAACCAf7/AAAKAAEAAACCAf//AAAKAAIAAACDAf//AAAKAAIAAACDAf7/AAAKAAEAAACCAf3/AAAKAAAAAACDAf3/AAAKAAAAAACEAf3/AAALAAAAAACEAf7/AAALAAEAAACEAf//AAALAAIAAACDAQMAAAAKAAAAAACEAQMAAAALAAAAAACEAQQAAAALAAEAAACEAQUAAAALAAEAAACEAQYAAAALAAEAAACEAQcAAAALAAEAAACEAQgAAAALAAEAAACEAQkAAAALAAEAAACEAQoAAAALAAEAAACEAQsAAAALAAEAAACEAQwAAAALAAEAAACEAQ0AAAALAAEAAACEAQ4AAAALAAEAAACEAQ8AAAALAAIAAACDAQ8AAAAKAAIAAACDAQ4AAAAKAAEAAACDAQ0AAAAKAAEAAACDAQwAAAAKAAEAAACDAQsAAAAKAAEAAACDAQoAAAAKAAEAAACDAQkAAAAKAAEAAACDAQgAAAAKAAEAAACDAQcAAAAKAAEAAACDAQYAAAAKAAEAAACDAQUAAAAKAAEAAACDAQQAAAAKAAEAAAB8AQAAAAAKAAIAAAB9AQAAAAALAAIAAAB7AQAAAAAJAAIAAAB7Af//AAALAAMAAAB7Af7/AAAKAAEAAAB7Af3/AAAKAAAAAAB6Af7/AAALAAMAAAB6Af3/AAAIAAMAAAB5Af3/AAAJAAEAAABsAQwAAAALAAAAAABsAQ0AAAALAAIAAABrAQ4AAAALAAEAAABrAQ8AAAALAAIAAABwAQsAAAAJAAAAAABwAQwAAAAJAAIAAABxAQoAAAAJAAAAAABxAQsAAAAJAAMAAABxAQwAAAAKAAIAAAByAQoAAAALAAAAAAByAQsAAAALAAEAAAByAQwAAAALAAIAAAB2AQkAAAAJAAAAAAB2AQoAAAAJAAIAAAB3AQkAAAAKAAAAAAB3AQoAAAAKAAIAAAB4AQkAAAALAAAAAAB4AQoAAAALAAIAAAB9AQsAAAALAAMAAAB+AQsAAAAKAAEAAAB/AQsAAAAKAAEAAAB/AQoAAAAKAAEAAAB+AQoAAAAKAAEAAAB9AQoAAAAKAAEAAAB8AQkAAAAJAAAAAAB9AQkAAAAKAAAAAAB+AQkAAAAKAAAAAAB/AQkAAAAKAAAAAAB8AQoAAAAJAAEAAAB8AQsAAAAJAAIAAAB5Af7/AAAJAAIAAAB6Af//AAAJAAIAAABwAQEAAAALAAIAAAByAf//AAALAAIAAABzAfz/AAAKAAMAAAB0Afz/AAAKAAIAAAB1Afz/AAAKAAIAAAB2Afz/AAAKAAIAAAB3Afz/AAAKAAIAAAB4Afz/AAAKAAIAAAB5Afz/AAALAAMAAAB6Afz/AAALAAEAAAByAfz/AAAJAAEAAABzAfv/AAAKAAAAAAB0Afv/AAAKAAAAAAB1Afv/AAAKAAAAAAB2Afv/AAAKAAAAAAB3Afv/AAAKAAAAAAB4Afv/AAAKAAAAAAB5Afv/AAAKAAAAAAByAfv/AAAJAAAAAAB6Afv/AAALAAAAAAD9ABQAAAAAAAMAAAABARQAAAACAAMAAADwAA8AAAAKAAIAAADxAA8AAAALAAIAAADwAA4AAAAKAAEAAADvAA4AAAAKAAEAAADvAA0AAAAKAAEAAADuAA0AAAAKAAEAAADuAAwAAAAKAAEAAADtAAwAAAAKAAEAAADtAAsAAAAKAAEAAADsAAsAAAAKAAEAAADrAAsAAAAKAAEAAADwAA0AAAAKAAEAAADxAA4AAAAKAAMAAADxAA0AAAAKAAEAAADyAA0AAAAKAAEAAADyAAwAAAAKAAEAAADzAAwAAAAKAAEAAAD0AAwAAAAKAAMAAADzAA0AAAAKAAEAAAD0AAsAAAAKAAEAAAD1AAsAAAAKAAMAAADzAAsAAAAKAAEAAADyAAsAAAAKAAEAAADxAAsAAAAKAAEAAADwAAsAAAAKAAEAAADvAAsAAAAKAAEAAADxAAwAAAAKAAEAAADwAAwAAAAKAAEAAADvAAwAAAAKAAEAAADuAAsAAAAKAAEAAADvAA8AAAAKAAIAAADuAA8AAAAKAAIAAADtAA8AAAAJAAIAAADrAA4AAAAKAAIAAADsAA4AAAAKAAIAAADtAA4AAAALAAMAAADuAA4AAAAKAAEAAADyAA4AAAAKAAIAAAD1AAwAAAALAAIAAAD2AAsAAAAKAAIAAAD0AA0AAAALAAEAAADzAA4AAAAKAAIAAAD0AA4AAAALAAIAAADtAA0AAAAKAAEAAADsAA0AAAAKAAEAAADrAAwAAAAKAAEAAADqAAwAAAAKAAEAAADqAAsAAAAKAAEAAADpAAsAAAAKAAEAAADsAAwAAAAKAAEAAADpAAwAAAALAAMAAADoAAwAAAAKAAIAAADrAA0AAAAKAAEAAADoAAsAAAAKAAEAAADnAAsAAAAKAAEAAADqAA0AAAALAAMAAADpAA0AAAAJAAIAAADnAAwAAAAKAAIAAADmAAwAAAAJAAIAAADmAAsAAAALAAMAAADlAAsAAAAKAAIAAADkAAsAAAAJAAIAAADqAA4AAAAJAAIAAAD3AAsAAAAKAAIAAAD4AAsAAAAKAAIAAAD5AAsAAAAKAAIAAAD6AAsAAAALAAIAAACNABUAAAAJAAAAAACOABcAAAAJAAEAAACNABYAAAAJAAIAAACOABgAAAAJAAEAAACOABkAAAAJAAEAAACOABoAAAAJAAIAAACtABkAAAAKAAEAAACsABkAAAAKAAEAAACrABkAAAAKAAEAAACqABkAAAAJAAEAAACqABgAAAAJAAEAAACqABcAAAAJAAAAAACrABcAAAAKAAAAAACsABcAAAAKAAAAAACsABgAAAAKAAEAAACrABgAAAAKAAEAAACtABgAAAAKAAEAAACtABcAAAAKAAAAAACuABoAAAALAAIAAACuABkAAAALAAEAAACuABgAAAALAAEAAACuABcAAAALAAAAAAB1AAgAAAALAAEAAAB0AAgAAAAKAAEAAABzAAgAAAAKAAEAAAByAAgAAAAJAAEAAABtAAkAAAALAAAAAABsAAoAAAAKAAEAAABrAAoAAAAKAAEAAABqAAoAAAAKAAEAAABpAAoAAAAKAAEAAABoAAsAAAAKAAEAAABnAAsAAAAKAAEAAABmAAsAAAAKAAEAAABlAAsAAAAKAAEAAABkAAwAAAAKAAIAAABjAAwAAAAKAAIAAABiAAwAAAAKAAIAAADDABMAAAAJAAEAAADDABQAAAAJAAEAAADDABUAAAAJAAMAAADDABYAAAAKAAEAAADDABcAAAAKAAEAAADDABgAAAAKAAEAAADDABkAAAAKAAEAAADDAB0AAAAKAAIAAADDABwAAAAKAAEAAADDABsAAAAKAAEAAADDABoAAAAKAAEAAADAABIAAAAIAAMAAADDABIAAAAJAAEAAADDABEAAAAJAAEAAADAABEAAAALAAEAAADCABAAAAAJAAIAAADDABAAAAALAAMAAADAABAAAAALAAEAAADAAA8AAAALAAEAAADCAA8AAAAJAAAAAADDAA8AAAAKAAAAAAC/ABUAAAAJAAAAAAC/ABYAAAAJAAEAAAC/ABcAAAAJAAEAAAC/ABgAAAAJAAEAAAC/ABkAAAAJAAEAAAC/ABoAAAAJAAEAAAC/ABsAAAAJAAEAAAC/ABwAAAAJAAEAAAC/AB0AAAAJAAIAAAC/ABMAAAAJAAIAAAC/ABIAAAAJAAEAAAC/ABEAAAAJAAEAAAC/ABAAAAALAAMAAAC/AA8AAAAKAAEAAADEAB0AAAALAAIAAADEABwAAAALAAEAAADEABsAAAALAAEAAADEABoAAAALAAEAAADEABkAAAALAAEAAADEABgAAAALAAEAAADEABcAAAALAAEAAADEABYAAAALAAEAAADEABUAAAALAAEAAADEABQAAAALAAEAAADEABMAAAALAAEAAADEABIAAAALAAEAAADEABEAAAALAAEAAADEABAAAAALAAEAAADEAA8AAAALAAAAAADBABIAAAALAAAAAADBABMAAAALAAIAAAC+ABAAAAAKAAIAAAC9ABAAAAAJAAIAAAC9AA8AAAALAAMAAAC8AA8AAAAKAAIAAAC8AA4AAAAKAAEAAAC7AA4AAAAKAAEAAAC6AA4AAAAKAAEAAAC7AA8AAAAKAAIAAAC6AA8AAAAKAAIAAAC5ABAAAAALAAIAAAC+AA8AAAAKAAEAAAC9AA4AAAAKAAEAAAC8AA0AAAAKAAEAAAC7AA0AAAAKAAEAAAC7AAwAAAAKAAEAAAC6AAwAAAAKAAEAAAC6AAsAAAAKAAEAAAC6AA0AAAAKAAEAAAC7AAsAAAAKAAEAAAC8AAsAAAAKAAEAAAC9AAsAAAAKAAEAAAC9AAwAAAAKAAEAAAC9AA0AAAAKAAEAAAC8AAwAAAAKAAEAAAC+AA4AAAAKAAEAAAC+AA0AAAAKAAEAAAC+AAwAAAAKAAEAAAC/AAwAAAAKAAEAAAC/AAsAAAAKAAEAAADAAAsAAAAKAAEAAAC+AAsAAAAKAAEAAAC/AA4AAAAKAAEAAAC/AA0AAAAKAAEAAADAAA0AAAALAAEAAADAAA4AAAALAAEAAADAAAwAAAAKAAMAAADBAAwAAAALAAIAAADBAAsAAAAKAAMAAADCAAsAAAAKAAIAAADDAAsAAAAKAAIAAADEAAsAAAAKAAIAAADFAAsAAAALAAIAAADh/wwAAAAKAAIAAADg/wwAAAAJAAIAAADg/wsAAAAJAAEAAADg/woAAAAJAAEAAADg/wkAAAAJAAEAAADg/wgAAAAJAAEAAADh/wgAAAAKAAEAAADh/wcAAAAKAAEAAADh/wYAAAAKAAEAAADh/wUAAAAKAAEAAADg/wUAAAAJAAEAAADg/wYAAAAJAAEAAADg/wcAAAAJAAEAAADh/wsAAAAKAAEAAADh/woAAAAKAAEAAADh/wkAAAAKAAEAAADh/wQAAAAKAAEAAADh/wMAAAAKAAEAAADh/wIAAAAKAAEAAADh/wEAAAAKAAEAAADh/wAAAAAKAAEAAADh////AAAKAAEAAADh//7/AAAKAAEAAADh//3/AAAKAAEAAADh//z/AAAKAAEAAADh//v/AAAKAAEAAADh//r/AAAKAAEAAADh//n/AAAKAAAAAADg/wQAAAAJAAEAAADg/wMAAAAJAAEAAADg/wIAAAAJAAEAAADg/wEAAAAJAAEAAADg/wAAAAAJAAEAAADg////AAAJAAEAAADg//7/AAAJAAEAAADg//3/AAAJAAEAAADg//z/AAAJAAEAAADg//v/AAAJAAEAAADg//r/AAAJAAEAAADg//n/AAAJAAAAAAA=")
 tile_set = ExtResource("15_5ae27")
 
-[node name="kill_tileset" type="TileMapLayer" parent="."]
+[node name="kill_tileset" type="TileMapLayer" parent="." unique_id=194052437]
 tile_map_data = PackedByteArray("AABkAAMAAAAEAAAAAABjAAMAAAACAAAAAABiAAQAAAACAAAAAABgAAUAAAACAAAAAABeAAYAAAACAAAAAABdAAcAAAACAAAAAABlAAMAAAAGAAAAAABmAAQAAAAGAAAAAABrAAcAAAAGAAAAAABcAAgAAAABAAAAAABpAAcAAAABAAAAAABnAAYAAAAHAAAAAABmAAYAAAAUAAAAAABlAAQAAAAUAAAAAABrAAkAAAAUAAAAAABrAAgAAAAMAAAAAABmAAUAAAAMAAAAAABqAAcAAAAEAAAAAABhAAUAAAAEAAAAAABfAAYAAAAEAAAAAABdAAgAAAAWAAAAAABeAAcAAAAWAAAAAABgAAYAAAAWAAAAAABiAAUAAAAWAAAAAABjAAQAAAAWAAAAAABsAAkAAAAEAAAAAABtAAkAAAAHAAAAAABSAAEAAAAOAAAAAABRAP//AAAOAAAAAABMAP//AAASAAAAAABLAP//AAAYAAAAAABMAP7/AAAYAAAAAABTAAEAAAAaAAAAAABSAP//AAAaAAAAAABRAP7/AAAaAAAAAABSAAAAAAAKAAAAAABTAAIAAAAKAAAAAABTAAMAAAAKAAAAAABTAAQAAAAKAAAAAABTAAUAAAAKAAAAAABTAAYAAAAKAAAAAABTAAcAAAAKAAAAAABTAAgAAAAOAAAAAABNAP7/AAAQAAAAAABOAP7/AAAQAAAAAABPAP7/AAAQAAAAAABQAP7/AAAQAAAAAABJAAUAAAAMAAAAAABJAAYAAAAMAAAAAABJAAcAAAASAAAAAABJAAQAAAAYAAAAAABKAAQAAAASAAAAAABKAAMAAAAMAAAAAABKAAIAAAAMAAAAAABLAAAAAAAMAAAAAABKAAEAAAAYAAAAAABLAAEAAAASAAAAAABsAA8AAAAEAAAAAABrAA8AAAAEAAAAAABiABAAAAAEAAAAAABjABAAAAAEAAAAAABkABAAAAAEAAAAAABlABAAAAAEAAAAAABmABAAAAAEAAAAAABnABAAAAAEAAAAAABhAA8AAAAMAAAAAABhAA4AAAAIAAAAAABhABAAAAAUAAAAAABoABAAAAAWAAAAAABoAA8AAAAAAAAAAABaABEAAAAAAAAAAABZABQAAAAIAAAAAABZABUAAAASAAAAAABaABIAAAAOAAAAAABYABUAAAAYAAAAAABbABIAAAAaAAAAAACjABQAAAABAAAAAACkABQAAAAEAAAAAAClABQAAAAEAAAAAACmABQAAAAEAAAAAACnABQAAAAGAAAAAACnABUAAAAMAAAAAACnABYAAAASAAAAAACmABYAAAAYAAAAAACmABcAAAAMAAAAAACmABgAAAAMAAAAAACmABkAAAAMAAAAAACmABoAAAAMAAAAAACmABsAAAAMAAAAAACmABwAAAAMAAAAAACkABAAAAAQAAAAAAClABAAAAAQAAAAAACmABAAAAAQAAAAAACnABAAAAAQAAAAAACjABAAAAAOAAAAAACoABAAAAASAAAAAACzABUAAAABAAAAAAC4ABUAAAABAAAAAAC0ABUAAAAHAAAAAAC5ABUAAAAHAAAAAACzABAAAAAOAAAAAAC3ABAAAAAOAAAAAAC1ABAAAAASAAAAAAC5ABAAAAASAAAAAAC4ABAAAAAQAAAAAAC0ABAAAAAQAAAAAAC2AA8AAAAQAAAAAAC1AA8AAAAYAAAAAAC3AA8AAAAaAAAAAAA9AQwAAAASAAAAAAA1AQwAAAAOAAAAAAA2AQwAAAAQAAAAAAA3AQwAAAAQAAAAAAA4AQwAAAAQAAAAAAA5AQwAAAAQAAAAAAA6AQwAAAAQAAAAAAA7AQwAAAAQAAAAAAA8AQwAAAAQAAAAAAA2AREAAAAEAAAAAAA3AREAAAAEAAAAAAA4AREAAAAEAAAAAAA5AREAAAAEAAAAAAA6AREAAAAEAAAAAAA7AREAAAAEAAAAAAA8AREAAAAEAAAAAAA1AREAAAACAAAAAAA9AREAAAAGAAAAAAA=")
 tile_set = ExtResource("16_5ae27")
 
-[node name="kill_player_area" parent="." node_paths=PackedStringArray("screen_manager") instance=ExtResource("3_v3wul")]
+[node name="kill_player_area" parent="." unique_id=536379153 node_paths=PackedStringArray("screen_manager") instance=ExtResource("3_v3wul")]
 screen_manager = NodePath("../screen_manager")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="kill_player_area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill_player_area" unique_id=1862098352]
 position = Vector2(1368, 440)
 shape = SubResource("RectangleShape2D_8demv")
 debug_color = Color(0.93401253, 0.12393322, 0.56228083, 0.41960785)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="kill_player_area"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="kill_player_area" unique_id=186404147]
 position = Vector2(5760, 968)
 shape = SubResource("RectangleShape2D_v3wul")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="kill_player_area"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="kill_player_area" unique_id=744285091]
 position = Vector2(9640, 816)
 shape = SubResource("RectangleShape2D_b3cf4")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="kill_player_area"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="kill_player_area" unique_id=557407669]
 position = Vector2(11920, 520)
 shape = SubResource("RectangleShape2D_pg7ka")
