@@ -28,4 +28,3 @@ func _on_body_exited(body: Node2D) -> void:
 
 func set_pull_force():
 	pull_force = max_pull_force / (global_position.distance_to(player_ref.global_position) / pull_area.shape.radius)
-	print(pull_force)

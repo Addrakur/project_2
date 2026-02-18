@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d0s8kajvudw04"]
+
+[ext_resource type="Texture2D" uid="uid://bpbrgklrlge01" path="res://assets/componentes/portal_omni.png" id="1_6b70y"]
+[ext_resource type="Script" uid="uid://cfradojl2i16o" path="res://componentes/portal_omni.gd" id="1_mnpxe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6b70y"]
+radius = 21.023796
+
+[node name="portal_omni" type="Area2D" unique_id=43940853]
+collision_layer = 4
+script = ExtResource("1_mnpxe")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=136589307]
+texture = ExtResource("1_6b70y")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=936765475]
+shape = SubResource("CircleShape2D_6b70y")
+
+[node name="portal_cooldown" type="Timer" parent="." unique_id=1804564225]
+one_shot = true
+
+[node name="exit_point" type="Marker2D" parent="." unique_id=306634015]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

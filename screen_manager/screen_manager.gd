@@ -15,6 +15,5 @@ func _ready() -> void:
 	for screen in screens:
 		if screen != starting_screen:
 			screen.deactivate()
-		print(screen.name + ": " + str(screen.active))
 	current_checkpoint = starting_screen.default_checkpoint
 	player.position = current_checkpoint.position

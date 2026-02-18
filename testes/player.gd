@@ -55,7 +55,7 @@ func _physics_process(delta: float) -> void:
 		if no_gravity:
 			velocity.y += rocket_velocity_y
 		else:
-			if Input.is_action_pressed("jetpack") and fuel > 0:
+			if Input.is_action_pressed("jetpack") and fuel > 0 and sin(deg_to_rad(texture.rotation_degrees)) > 0:
 				if velocity.y > less_gravity_limit:
 					velocity.y += rocket_velocity_y
 				else:
@@ -122,7 +122,6 @@ func _physics_process(delta: float) -> void:
 	set_animation()
 	
 	move_and_slide()
-	#print(velocity)
 
 func rocket_logic(delta: float):
 	texture.look_at(get_global_mouse_position())

@@ -7,8 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://meacflkbjib4" path="res://assets/player/player_walk.png" id="4_8rlj8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8rlj8"]
-radius = 9.0
-height = 32.0
+radius = 7.0
 
 [sub_resource type="Animation" id="Animation_8rlj8"]
 length = 0.001
@@ -165,9 +164,6 @@ rocket_max_speed = 90.0
 less_gravity_limit = 50.0
 progress_bar = NodePath("CanvasLayer/Control/ProgressBar")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=754920813]
-shape = SubResource("CapsuleShape2D_8rlj8")
-
 [node name="texture" type="Node2D" parent="." unique_id=509839083]
 
 [node name="texture" type="Sprite2D" parent="texture" unique_id=309682474]
@@ -177,6 +173,10 @@ texture = ExtResource("2_20rt8")
 [node name="player_sprite" type="Sprite2D" parent="." unique_id=275525146]
 texture = ExtResource("3_20rt8")
 hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=754920813]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_8rlj8")
 
 [node name="animations" type="AnimationPlayer" parent="." unique_id=646335221]
 libraries/ = SubResource("AnimationLibrary_s8gpv")
