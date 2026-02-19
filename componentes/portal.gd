@@ -17,11 +17,8 @@ func _on_body_entered(body: Node2D) -> void:
 			body.global_position = portal_par.exit_point.global_position
 			body.velocity = Vector2(player_vel * -cos(deg_to_rad(portal_par.exit_point.global_rotation_degrees)), -player_vel * sin(deg_to_rad(portal_par.exit_point.global_rotation_degrees)))
 		elif portal_par is OmniPortal:
-			player_vel = body.velocity
-			body.velocity = Vector2.ZERO
 			portal_par.portal_cooldown.start()
 			body.global_position = portal_par.exit_point.global_position
-			body.velocity = player_vel
 
 func _on_player_can_go_through_body_entered(body: Node2D) -> void:
 	if body is Player:

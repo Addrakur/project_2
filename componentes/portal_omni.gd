@@ -12,7 +12,7 @@ var player_vel: float
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player and portal_cooldown.is_stopped():
 		if portal_par is Portal:
-			player_vel = abs(body.velocity.x * cos(deg_to_rad(exit_point.global_rotation_degrees))) + abs(body.velocity.y * sin(deg_to_rad(exit_point.global_rotation_degrees)))
+			player_vel = abs(body.velocity.x) + abs(body.velocity.y)
 			body.velocity = Vector2.ZERO
 			body.global_position = portal_par.exit_point.global_position
 			body.velocity = Vector2(player_vel * -cos(deg_to_rad(portal_par.exit_point.global_rotation_degrees)), -player_vel * sin(deg_to_rad(portal_par.exit_point.global_rotation_degrees)))
