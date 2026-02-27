@@ -10,3 +10,6 @@ func _on_world_1_pressed() -> void:
 
 func _on_testes_pressed() -> void:
 	get_tree().change_scene_to_file("res://testes/loop_basico.tscn")
+
+func _on_open_world_pressed() -> void:
+		get_tree().change_scene_to_file("res://worlds/open_world.tscn")

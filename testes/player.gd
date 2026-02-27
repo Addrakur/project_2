@@ -59,7 +59,7 @@ func _physics_process(delta: float) -> void:
 				if velocity.y > less_gravity_limit:
 					velocity.y += rocket_velocity_y
 				else:
-					velocity.y +=  gravity * delta * gravity_mult * 0.5 + rocket_velocity_y
+					velocity.y +=  gravity * delta * gravity_mult * 0.3 + rocket_velocity_y
 			else:
 				velocity.y += gravity * delta * gravity_mult + rocket_velocity_y
 	
@@ -76,9 +76,11 @@ func _physics_process(delta: float) -> void:
 		elif collider.name == "kill_tileset":
 			position = screen_manager.current_checkpoint.position
 			fuel = max_fuel
-		elif collider.name == "moving_plat":
+		elif collider is MovingPlat:
 			on_moving_plat = true
 			moving_plat = collider
+			if collider.start_on_touch:
+				collider.play_animation()
 		else:
 			on_moving_plat = false
 			moving_plat = null
