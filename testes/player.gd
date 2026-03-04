@@ -76,6 +76,7 @@ func _physics_process(delta: float) -> void:
 		elif collider.name == "kill_tileset":
 			position = screen_manager.current_checkpoint.position
 			fuel = max_fuel
+			screen_manager.player_die()
 		elif collider is MovingPlat:
 			on_moving_plat = true
 			moving_plat = collider

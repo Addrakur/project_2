@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c35o7nhnr28fy"]
+
+[ext_resource type="Script" uid="uid://b3xp4lxsdpqta" path="res://componentes/door_manager.gd" id="1_bchq2"]
+
+[node name="door_manager" type="Node2D" unique_id=1843431491]
+script = ExtResource("1_bchq2")

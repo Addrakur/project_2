@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://ciwfkk27kgbbr"]
+
+[ext_resource type="Script" uid="uid://diw0cbbg51kfm" path="res://componentes/interactable_item.gd" id="1_foqun"]
+[ext_resource type="Texture2D" uid="uid://33ri277wn0iu" path="res://icon.svg" id="2_pybak"]
+
+[sub_resource type="Animation" id="Animation_2c2xi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2kc0v"]
+resource_name = "interacted"
+length = 0.1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 1, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_upj83"]
+_data = {
+&"RESET": SubResource("Animation_2c2xi"),
+&"interacted": SubResource("Animation_2kc0v")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kc0v"]
+size = Vector2(14, 14)
+
+[node name="interactable_item" type="Area2D" unique_id=460073895]
+collision_layer = 4
+script = ExtResource("1_foqun")
+
+[node name="animation" type="AnimationPlayer" parent="." unique_id=190454203]
+libraries/ = SubResource("AnimationLibrary_upj83")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=824576465]
+shape = SubResource("RectangleShape2D_2kc0v")
+
+[node name="texture" type="Sprite2D" parent="." unique_id=572685876]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(4.7683716e-07, 4.7683716e-07)
+scale = Vector2(0.109374985, 0.109374985)
+texture = ExtResource("2_pybak")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

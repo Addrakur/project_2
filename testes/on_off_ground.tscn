@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvgaw3tfxgdbq"]
+[gd_scene format=3 uid="uid://bvgaw3tfxgdbq"]
 
 [ext_resource type="Script" uid="uid://mamdggy3py63" path="res://testes/on_off_ground.gd" id="1_1yce1"]
 [ext_resource type="Texture2D" uid="uid://33ri277wn0iu" path="res://icon.svg" id="1_28icx"]
@@ -98,42 +98,34 @@ _data = {
 &"on": SubResource("Animation_28icx")
 }
 
-[node name="on_off_ground" type="StaticBody2D"]
+[node name="on_off_ground" type="StaticBody2D" unique_id=1750763923]
 collision_layer = 4
 script = ExtResource("1_1yce1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=73291605]
 visible = false
 position = Vector2(80, 8)
 shape = SubResource("RectangleShape2D_28icx")
 debug_color = Color(0.7743343, 0.441298, 0.058794983, 0.41960785)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1095285868]
 modulate = Color(0.25658363, 0.63532215, 1.1551381e-06, 1)
 position = Vector2(80, 8)
 scale = Vector2(1.25, 0.125)
 texture = ExtResource("1_28icx")
 
-[node name="animation" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_yho28")
-}
+[node name="animation" type="AnimationPlayer" parent="." unique_id=415472052]
+libraries/ = SubResource("AnimationLibrary_yho28")
 
-[node name="on_timer" type="Timer" parent="."]
+[node name="on_timer" type="Timer" parent="." unique_id=194576778]
 one_shot = true
 
-[node name="off_timer" type="Timer" parent="."]
+[node name="off_timer" type="Timer" parent="." unique_id=17874224]
 one_shot = true
 
-[node name="player_inside" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player_inside"]
-visible = false
-position = Vector2(80, 8)
-shape = SubResource("RectangleShape2D_28icx")
-debug_color = Color(0.7743343, 0.441298, 0.058794983, 0.41960785)
+[node name="delay_timer" type="Timer" parent="." unique_id=2138794799]
+one_shot = true
 
 [connection signal="timeout" from="on_timer" to="." method="_on_on_timer_timeout"]
 [connection signal="timeout" from="off_timer" to="." method="_on_off_timer_timeout"]
-[connection signal="body_entered" from="player_inside" to="." method="_on_player_inside_body_entered"]
-[connection signal="body_exited" from="player_inside" to="." method="_on_player_inside_body_exited"]
+[connection signal="timeout" from="delay_timer" to="." method="_on_delay_timer_timeout"]

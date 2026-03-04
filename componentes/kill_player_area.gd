@@ -4,6 +4,4 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		body.velocity = Vector2.ZERO
-		body.position = screen_manager.current_checkpoint.position
-		body.fuel = body.max_fuel
+		screen_manager.player_die()
