@@ -16,7 +16,6 @@ one_shot = true
 one_shot = true
 
 [node name="laser" type="Line2D" parent="." unique_id=299881151]
-visible = false
 points = PackedVector2Array(0, -15, 0, 18)
 texture = ExtResource("2_42dfe")
 texture_mode = 2

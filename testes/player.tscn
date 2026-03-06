@@ -159,13 +159,23 @@ rocket_max_force = 12.0
 rocket_force_up = 8.0
 rocket_force_down = 4.0
 rocket_max_speed = 90.0
-progress_bar = NodePath("CanvasLayer/Control/ProgressBar")
+progress_bar = NodePath("ProgressBar")
 
 [node name="texture" type="Node2D" parent="." unique_id=509839083]
 
 [node name="texture" type="Sprite2D" parent="texture" unique_id=309682474]
 position = Vector2(0, -4.410704e-06)
 texture = ExtResource("2_20rt8")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1967738219]
+modulate = Color(1, 1, 1, 0.2784314)
+z_index = 50
+offset_left = -32.0
+offset_top = -32.0
+offset_right = -16.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 5
+fill_mode = 3
 
 [node name="player_sprite" type="Sprite2D" parent="." unique_id=275525146]
 texture = ExtResource("3_20rt8")
@@ -188,22 +198,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control" unique_id=1967738219]
-layout_mode = 1
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 192.0
-offset_bottom = 43.0
-
 [node name="Button" type="Button" parent="CanvasLayer/Control" unique_id=1435501201]
-layout_mode = 0
-offset_left = 560.0
-offset_top = 16.0
-offset_right = 624.0
-offset_bottom = 47.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -40.0
+offset_right = 80.0
+offset_bottom = -9.0
+grow_vertical = 0
 text = "Menu"
 
 [node name="fps" type="Label" parent="CanvasLayer/Control" unique_id=1303264862]
+visible = false
 layout_mode = 0
 offset_left = 496.0
 offset_top = 16.0

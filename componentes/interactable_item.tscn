@@ -42,7 +42,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2kc0v"]
-size = Vector2(14, 14)
+size = Vector2(26, 26)
 
 [node name="interactable_item" type="Area2D" unique_id=460073895]
 collision_layer = 4
@@ -56,8 +56,8 @@ shape = SubResource("RectangleShape2D_2kc0v")
 
 [node name="texture" type="Sprite2D" parent="." unique_id=572685876]
 modulate = Color(0, 0, 1, 1)
-position = Vector2(4.7683716e-07, 4.7683716e-07)
-scale = Vector2(0.109374985, 0.109374985)
+position = Vector2(-1.0728836e-06, -1.0728836e-06)
+scale = Vector2(0.20312497, 0.20312497)
 texture = ExtResource("2_pybak")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

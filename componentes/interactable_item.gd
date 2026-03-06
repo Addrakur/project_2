@@ -1,7 +1,7 @@
 class_name InteractableItem
 extends Area2D
 
-@export var manager: Node2D
+@export var manager: DoorManager
 @onready var animation: AnimationPlayer = $animation
 var interacted: bool = false
 
