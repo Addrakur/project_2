@@ -48,44 +48,6 @@ point_count = 4
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y6lqt"]
 size = Vector2(128, 32)
 
-[sub_resource type="Animation" id="Animation_5ymgr"]
-resource_name = "1"
-length = 16.0
-step = 1.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("plat_1/PathFollow2D:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 10, 12, 14, 16),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.248, 0.6925, 1.0, 1.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_03hfi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("plat_1/PathFollow2D:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_te83i"]
-_data = {
-&"1": SubResource("Animation_5ymgr"),
-&"RESET": SubResource("Animation_03hfi")
-}
-
 [sub_resource type="Curve2D" id="Curve2D_y6lqt"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 11488, -1920, 0, 0, 0, 0, 11824, -1920, 0, 0, 0, 0, 11824, -1616, 0, 0, 0, 0, 12688, -1616, 0, 0, 0, 0, 12688, -2096)
@@ -133,17 +95,46 @@ _data = {
 &"RESET": SubResource("Animation_josvm")
 }
 
+[sub_resource type="Animation" id="Animation_5ymgr"]
+resource_name = "1"
+length = 16.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("plat_1/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 10, 12, 14, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.248, 0.6925, 1.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_03hfi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("plat_1/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_te83i"]
+_data = {
+&"1": SubResource("Animation_5ymgr"),
+&"RESET": SubResource("Animation_03hfi")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t6gwt"]
 size = Vector2(2368, 1968)
-
-[sub_resource type="Curve2D" id="Curve2D_tti22"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 15120, -2288, 0, 0, 0, 0, 15120, -1232, 0, 0, 0, 0, 13680, -1232)
-}
-point_count = 3
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3abq"]
-size = Vector2(224, 32)
 
 [sub_resource type="Animation" id="Animation_1pdh2"]
 resource_name = "1"
@@ -183,17 +174,17 @@ _data = {
 &"RESET": SubResource("Animation_wpuex")
 }
 
+[sub_resource type="Curve2D" id="Curve2D_tti22"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 15120, -2288, 0, 0, 0, 0, 15120, -1232, 0, 0, 0, 0, 13680, -1232)
+}
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3abq"]
+size = Vector2(224, 32)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03hfi"]
 size = Vector2(2224, 1328)
-
-[sub_resource type="Curve2D" id="Curve2D_y3abq"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 16752, -624, 0, 0, 0, 0, 16752, -208)
-}
-point_count = 2
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_1pdh2"]
-radius = 48.0
 
 [sub_resource type="Animation" id="Animation_vblt4"]
 resource_name = "1"
@@ -234,6 +225,15 @@ _data = {
 &"RESET": SubResource("Animation_gr0id")
 }
 
+[sub_resource type="Curve2D" id="Curve2D_y3abq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 16752, -624, 0, 0, 0, 0, 16752, -208)
+}
+point_count = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1pdh2"]
+radius = 48.0
+
 [sub_resource type="Curve2D" id="Curve2D_josvm"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 16848, -816, 0, 0, 0, 0, 17392, -816)
@@ -248,15 +248,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 18192, -1232, 0, 0, 0, 0, 18192, -2528)
 }
 point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_wpuex"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 17920, -1120, 0, 0, 0, 0, 17920, -2368, 0, 0, 0, 0, 18592, -2368)
-}
-point_count = 3
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vaq7k"]
-size = Vector2(192, 32)
 
 [sub_resource type="Animation" id="Animation_wvxpo"]
 resource_name = "1"
@@ -295,6 +286,15 @@ _data = {
 &"1": SubResource("Animation_wvxpo"),
 &"RESET": SubResource("Animation_k4lyo")
 }
+
+[sub_resource type="Curve2D" id="Curve2D_wpuex"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 17920, -1120, 0, 0, 0, 0, 17920, -2368, 0, 0, 0, 0, 18592, -2368)
+}
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vaq7k"]
+size = Vector2(192, 32)
 
 [sub_resource type="Animation" id="Animation_t6gwt"]
 resource_name = "1"
@@ -836,7 +836,7 @@ remote_path = NodePath("../../moving_plat")
 [node name="moving_plat" parent="screen_manager/screen_5/objs/plat_1" unique_id=1188621071 node_paths=PackedStringArray("animation") instance=ExtResource("9_y6lqt")]
 position = Vector2(10320, -1216)
 start_on_touch = true
-animation = NodePath("../AnimationPlayer")
+animation = NodePath("../../../AnimationPlayer")
 
 [node name="Icon" type="Sprite2D" parent="screen_manager/screen_5/objs/plat_1/moving_plat" unique_id=817694311]
 position = Vector2(0, 6.1035156e-05)
@@ -846,10 +846,6 @@ texture = ExtResource("10_tti22")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="screen_manager/screen_5/objs/plat_1/moving_plat" unique_id=28163309]
 shape = SubResource("RectangleShape2D_y6lqt")
 one_way_collision = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="screen_manager/screen_5/objs/plat_1" unique_id=1340406088]
-root_node = NodePath("../..")
-libraries/ = SubResource("AnimationLibrary_te83i")
 
 [node name="plat_2" type="Path2D" parent="screen_manager/screen_5/objs" unique_id=1204809229]
 curve = SubResource("Curve2D_y6lqt")
@@ -877,6 +873,10 @@ one_way_collision = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="screen_manager/screen_5/objs/plat_2" unique_id=506731287]
 libraries/ = SubResource("AnimationLibrary_1pdh2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen_manager/screen_5" unique_id=1340406088]
+root_node = NodePath("../objs")
+libraries/ = SubResource("AnimationLibrary_te83i")
 
 [node name="screen_6" type="Node2D" parent="screen_manager" unique_id=1090893699 node_paths=PackedStringArray("camera", "default_checkpoint")]
 script = ExtResource("11_tti22")
@@ -907,6 +907,10 @@ position = Vector2(13104, -2352)
 
 [node name="2" type="Marker2D" parent="screen_manager/screen_6" unique_id=1682005495]
 position = Vector2(13456, -1200)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen_manager/screen_6" unique_id=2013456631]
+root_node = NodePath("../objs/plat_3")
+libraries/ = SubResource("AnimationLibrary_vblt4")
 
 [node name="screen_changer_6_5" parent="screen_manager/screen_6" unique_id=127355550 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("9_y3abq")]
 screen_manager = NodePath("../..")
@@ -945,7 +949,7 @@ remote_path = NodePath("../../moving_plat")
 [node name="moving_plat" parent="screen_manager/screen_6/objs/plat_3" unique_id=459745729 node_paths=PackedStringArray("animation") instance=ExtResource("9_y6lqt")]
 position = Vector2(15120, -2288)
 start_on_touch = true
-animation = NodePath("../AnimationPlayer")
+animation = NodePath("../../../AnimationPlayer")
 
 [node name="Icon" type="Sprite2D" parent="screen_manager/screen_6/objs/plat_3/moving_plat" unique_id=1193542934]
 position = Vector2(2.728484e-12, 6.1035156e-05)
@@ -955,9 +959,6 @@ texture = ExtResource("10_tti22")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="screen_manager/screen_6/objs/plat_3/moving_plat" unique_id=1206269063]
 shape = SubResource("RectangleShape2D_y3abq")
 one_way_collision = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="screen_manager/screen_6/objs/plat_3" unique_id=2013456631]
-libraries/ = SubResource("AnimationLibrary_vblt4")
 
 [node name="screen_7" parent="screen_manager" unique_id=852187978 node_paths=PackedStringArray("camera", "default_checkpoint") instance=ExtResource("4_yfak3")]
 camera = NodePath("0")
@@ -1064,7 +1065,7 @@ polygon = PackedVector2Array(15392, -208, 15360, -208, 15360, -304, 15392, -304)
 script = ExtResource("11_tti22")
 camera = NodePath("0")
 default_checkpoint = NodePath("1")
-moving_objs_animation = [NodePath("objs/Path2D/AnimationPlayer"), NodePath("objs/Path2D2/AnimationPlayer")]
+moving_objs_animation = [NodePath("AnimationPlayer"), NodePath("objs/Path2D2/AnimationPlayer")]
 metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
 
 [node name="0" type="Node2D" parent="screen_manager/screen_9" unique_id=1274751620 node_paths=PackedStringArray("follow_target")]
@@ -1090,6 +1091,10 @@ position = Vector2(15392, -240)
 
 [node name="2" type="Marker2D" parent="screen_manager/screen_9" unique_id=30209547]
 position = Vector2(17504, -976)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen_manager/screen_9" unique_id=1821634204]
+root_node = NodePath("../objs/Path2D")
+libraries/ = SubResource("AnimationLibrary_gr0id")
 
 [node name="objs" type="Node2D" parent="screen_manager/screen_9" unique_id=172763916]
 
@@ -1117,9 +1122,6 @@ modulate = Color(1, 0, 0, 1)
 rotation = -1.5707964
 scale = Vector2(0.74999046, 0.75000006)
 texture = ExtResource("10_tti22")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="screen_manager/screen_9/objs/Path2D" unique_id=1821634204]
-libraries/ = SubResource("AnimationLibrary_gr0id")
 
 [node name="Path2D2" type="Path2D" parent="screen_manager/screen_9/objs" unique_id=944535405]
 curve = SubResource("Curve2D_josvm")
@@ -1201,6 +1203,10 @@ position = Vector2(17600, -976)
 [node name="2" type="Marker2D" parent="screen_manager/screen_10" unique_id=625462545]
 position = Vector2(18784, -2416)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen_manager/screen_10" unique_id=2145160532]
+root_node = NodePath("../moving_plat")
+libraries/ = SubResource("AnimationLibrary_k4lyo")
+
 [node name="moving_plat" type="Path2D" parent="screen_manager/screen_10" unique_id=145315629]
 curve = SubResource("Curve2D_wpuex")
 
@@ -1216,7 +1222,7 @@ remote_path = NodePath("../../moving_plat")
 [node name="moving_plat" parent="screen_manager/screen_10/moving_plat" unique_id=556941075 node_paths=PackedStringArray("animation") instance=ExtResource("9_y6lqt")]
 position = Vector2(17920, -1120)
 start_on_touch = true
-animation = NodePath("../AnimationPlayer")
+animation = NodePath("../../AnimationPlayer")
 
 [node name="Icon" type="Sprite2D" parent="screen_manager/screen_10/moving_plat/moving_plat" unique_id=1500512344]
 position = Vector2(0.00029945374, -1.5258789e-05)
@@ -1226,9 +1232,6 @@ texture = ExtResource("10_tti22")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="screen_manager/screen_10/moving_plat/moving_plat" unique_id=555339997]
 shape = SubResource("RectangleShape2D_vaq7k")
 one_way_collision = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="screen_manager/screen_10/moving_plat" unique_id=2145160532]
-libraries/ = SubResource("AnimationLibrary_k4lyo")
 
 [node name="screen_changer_10_9" parent="screen_manager/screen_10" unique_id=1203471347 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("9_y3abq")]
 screen_manager = NodePath("../..")
