@@ -5,17 +5,19 @@
 
 [sub_resource type="Animation" id="Animation_2c2xi"]
 length = 0.001
-tracks/0/type = "value"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("texture:modulate")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 1, 1)]
+"values": [{
+"args": [],
+"method": &"set_reset_color"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_2kc0v"]
@@ -50,12 +52,12 @@ script = ExtResource("1_foqun")
 
 [node name="animation" type="AnimationPlayer" parent="." unique_id=190454203]
 libraries/ = SubResource("AnimationLibrary_upj83")
+autoplay = &"RESET"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=824576465]
 shape = SubResource("RectangleShape2D_2kc0v")
 
 [node name="texture" type="Sprite2D" parent="." unique_id=572685876]
-modulate = Color(0, 0, 1, 1)
 position = Vector2(-1.0728836e-06, -1.0728836e-06)
 scale = Vector2(0.20312497, 0.20312497)
 texture = ExtResource("2_pybak")
