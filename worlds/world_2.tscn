@@ -325,7 +325,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sdsj4"]
-size = Vector2(832, 32)
+size = Vector2(1920, 32)
 
 [node name="world_2" type="Node2D" unique_id=2074174723 node_paths=PackedStringArray("player")]
 script = ExtResource("1_d1a7n")
@@ -1483,7 +1483,7 @@ polygon = PackedVector2Array(4626, -293, 4622, -293, 4622, -251, 4626, -251)
 polygon = PackedVector2Array(4658, -293, 4654, -293, 4654, -251, 4658, -251)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="objs/kill_player_area" unique_id=1115258089]
-position = Vector2(5520, -464)
+position = Vector2(6064, -464)
 shape = SubResource("RectangleShape2D_sdsj4")
 
 [node name="laser_7_1" type="CollisionPolygon2D" parent="objs/kill_player_area" unique_id=2136559340]
