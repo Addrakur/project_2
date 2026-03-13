@@ -5,7 +5,7 @@ extends Node2D
 @export var screens: Array[Screen]
 @export var current_checkpoint: Marker2D
 
-var starting_screen_index: float = 9
+var starting_screen_index: float = 0
 var current_screen: float
 
 func _ready() -> void:
