@@ -5,7 +5,7 @@ extends Node2D
 @export var screens: Array[Screen]
 @export var current_checkpoint: Marker2D
 
-var starting_screen_index: float = 7
+var starting_screen_index: float = 9
 var current_screen: float
 
 func _ready() -> void:
@@ -25,6 +25,7 @@ func player_die():
 	player.fuel = player.max_fuel
 	for item in screens[current_screen].all_animation_players:
 		item.play("RESET")
+		item.play("1")
 	for door in screens[current_screen].doors:
 		for item in door.interactables:
 			item.interacted = false
