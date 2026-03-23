@@ -191,6 +191,7 @@ libraries/ = SubResource("AnimationLibrary_s8gpv")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1291338245]
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=942899916]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

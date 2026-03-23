@@ -30,6 +30,8 @@ var rocket_velocity_x: float
 var rocket_velocity_y: float
 var side_force: float
 var side_velocity: float
+var up_down_force: float
+var up_down_velocity: float
 var fuel
 var gravity_mult: float = 1
 var gravity: float
@@ -103,10 +105,11 @@ func _physics_process(delta: float) -> void:
 			fuel += fuel_restore * delta * 0.2
 	
 	progress_bar.value = fuel
-	
+	if no_gravity:
+		move_up_down_logic(delta)
+		velocity.y += up_down_velocity
 	move_side_logic(delta)
 	velocity.x += side_velocity + rocket_velocity_x
-	
 	rocket_logic(delta)
 	
 	if velocity.x > max_x_velocity:
@@ -143,7 +146,8 @@ func rocket_logic(delta: float):
 	rocket_velocity_x = rocket_speed * rocket_force * delta * cos(deg_to_rad(texture.rotation_degrees))
 		
 	rocket_velocity_y = rocket_speed * rocket_force * delta * sin(deg_to_rad(texture.rotation_degrees))
-		
+	
+	
 	#Codigo que faz sempre o mesmo lado do foguete estar para cima
 	#if cos(deg_to_rad(texture.rotation_degrees)) < 0:
 		#texture_image.flip_v = true
@@ -171,6 +175,26 @@ func move_side_logic(delta: float):
 		side_velocity = side_force * speed * delta
 	else:
 		side_velocity = 0
+	
+	if velocity.x > max_running_speed and Input.is_action_pressed("right") or velocity.x < -max_running_speed and Input.is_action_pressed("left"):
+		side_velocity = 0
+	else:
+		side_velocity = side_force * speed * delta
+
+func move_up_down_logic(delta: float):
+	if Input.is_action_pressed("down"):
+		if up_down_force < max_side_force:
+			up_down_force += air_side_to_side_force
+	elif Input.is_action_pressed("up"):
+		if up_down_force > -max_side_force:
+				up_down_force -= air_side_to_side_force
+	else:
+		up_down_force = move_toward(up_down_force, 0, floor_delta_towards_zero)
+	
+	if velocity.y > max_running_speed * 0.5 and Input.is_action_pressed("down") or velocity.y < -max_running_speed * 0.5 and Input.is_action_pressed("up"):
+		up_down_velocity = 0
+	else:
+		up_down_velocity = up_down_force * speed * delta
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://menu/menu.tscn")

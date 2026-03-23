@@ -13,7 +13,8 @@ extends StaticBody2D
 func _ready() -> void:
 	on_timer.wait_time = on_time
 	off_timer.wait_time = off_time
-	delay_timer.wait_time = delay_time 
+	if delay_time > 0:
+		delay_timer.wait_time = delay_time
 	if delay_time > 0:
 		delay_timer.start()
 	else:
