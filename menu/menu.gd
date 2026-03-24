@@ -13,3 +13,6 @@ func _on_testes_pressed() -> void:
 
 func _on_open_world_pressed() -> void:
 		get_tree().change_scene_to_file("res://worlds/open_world.tscn")
+
+func _on_prison_pressed() -> void:
+	get_tree().change_scene_to_file("res://worlds/world_2.tscn")

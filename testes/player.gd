@@ -171,15 +171,16 @@ func move_side_logic(delta: float):
 	else:
 		side_force = move_toward(side_force, 0, floor_delta_towards_zero)
 	
-	if velocity.x < max_running_speed and velocity.x > -max_running_speed:
-		side_velocity = side_force * speed * delta
+	if no_gravity:
+		if velocity.x > max_running_speed * 0.5 and Input.is_action_pressed("right") or velocity.x < -max_running_speed * 0.5 and Input.is_action_pressed("left"):
+			side_velocity = 0
+		else:
+			side_velocity = side_force * speed * delta
 	else:
-		side_velocity = 0
-	
-	if velocity.x > max_running_speed and Input.is_action_pressed("right") or velocity.x < -max_running_speed and Input.is_action_pressed("left"):
-		side_velocity = 0
-	else:
-		side_velocity = side_force * speed * delta
+		if velocity.x > max_running_speed and Input.is_action_pressed("right") or velocity.x < -max_running_speed and Input.is_action_pressed("left"):
+			side_velocity = 0
+		else:
+			side_velocity = side_force * speed * delta
 
 func move_up_down_logic(delta: float):
 	if Input.is_action_pressed("down"):
