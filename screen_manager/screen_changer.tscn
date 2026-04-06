@@ -1,11 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cckpemnvqsmct"]
+[gd_scene format=3 uid="uid://cckpemnvqsmct"]
 
 [ext_resource type="Script" uid="uid://c2khuaa73n8u2" path="res://screen_manager/screen_changer.gd" id="1_sj66c"]
 
-[node name="screen_changer" type="Area2D"]
+[node name="screen_changer" type="Area2D" unique_id=1807783727]
 collision_layer = 0
 script = ExtResource("1_sj66c")
 
-[node name="collision" type="CollisionPolygon2D" parent="."]
+[node name="collision" type="CollisionPolygon2D" parent="." unique_id=1346004148]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

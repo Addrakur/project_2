@@ -11,8 +11,9 @@ extends Area2D
 func _ready() -> void:
 	collision.polygon = door_shape.polygon
 
-func _on_body_entered(_body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
 	if old_screen.active:
+		print(body.global_position)
 		old_screen.deactivate()
 		new_screen.activate()
 		screen_manager.current_checkpoint = checkpoint
