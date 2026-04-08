@@ -5,6 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://xycijnbpmjli" path="res://assets/player/player_idle.png" id="3_20rt8"]
 [ext_resource type="Script" uid="uid://c0u744ywumy15" path="res://testes/fps.gd" id="3_e0bjr"]
 [ext_resource type="Texture2D" uid="uid://meacflkbjib4" path="res://assets/player/player_walk.png" id="4_8rlj8"]
+[ext_resource type="Script" uid="uid://bi54fexffc4n0" path="res://state_machine/state_machine.gd" id="6_tr8e5"]
+[ext_resource type="Script" uid="uid://d5xp6b6dkadf" path="res://state_machine/player/player_ground_state.gd" id="7_s8gpv"]
+[ext_resource type="Script" uid="uid://bgh7tn0t2wxi8" path="res://state_machine/player/player_air_state.gd" id="8_ef3dy"]
+[ext_resource type="Script" uid="uid://ej38sx8do0iw" path="res://state_machine/player/player_zero_gravity_state.gd" id="9_h6o3d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8rlj8"]
 radius = 7.0
@@ -141,19 +145,24 @@ _data = {
 
 [node name="player" type="CharacterBody2D" unique_id=493830883 node_paths=PackedStringArray("progress_bar")]
 collision_mask = 6
+wall_min_slide_angle = 0.0
 script = ExtResource("1_wof7s")
 max_side_force = 10.0
 side_to_side_force = 6.0
-air_side_to_side_force = 6.0
+air_side_to_side_force = 3.0
+no_gravity_directional_force = 0.1
 floor_delta_towards_zero = 10.0
 air_delta_towards_zero = 0.6
 speed = 30.0
 max_running_speed = 100.0
 jump_force = -90.0
 max_x_velocity = 200.0
+max_speed_zero_gravity = 30.0
 max_fuel = 15.0
 fuel_consume = 0.1
 fuel_restore = 20.0
+fuel_air_restore = 2.0
+fuel_zero_gravity_restore = 8.0
 rocket_speed = -5.0
 rocket_max_force = 12.0
 rocket_force_up = 8.0
@@ -219,5 +228,22 @@ offset_top = 16.0
 offset_right = 536.0
 offset_bottom = 39.0
 script = ExtResource("3_e0bjr")
+
+[node name="StateMachine" type="Node" parent="." unique_id=784045105 node_paths=PackedStringArray("state")]
+script = ExtResource("6_tr8e5")
+state = NodePath("ground_state")
+metadata/_custom_type_script = "uid://bi54fexffc4n0"
+
+[node name="ground_state" type="Node" parent="StateMachine" unique_id=1099748339 node_paths=PackedStringArray("player")]
+script = ExtResource("7_s8gpv")
+player = NodePath("../..")
+
+[node name="air_state" type="Node" parent="StateMachine" unique_id=2053728089 node_paths=PackedStringArray("player")]
+script = ExtResource("8_ef3dy")
+player = NodePath("../..")
+
+[node name="zero_gravity_state" type="Node" parent="StateMachine" unique_id=1238675037 node_paths=PackedStringArray("player")]
+script = ExtResource("9_h6o3d")
+player = NodePath("../..")
 
 [connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]
