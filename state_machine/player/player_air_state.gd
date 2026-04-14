@@ -7,11 +7,11 @@ func _ready() -> void:
 
 func enter_state():
 	set_physics_process(true)
-	print("entrou " + name)
+	#print("entrou " + name)
 
 func exit_state():
 	set_physics_process(false)
-	print("saiu " + name)
+	#print("saiu " + name)
 
 func _physics_process(delta: float) -> void:
 	#print(name)

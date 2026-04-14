@@ -7,13 +7,11 @@ func _ready() -> void:
 
 func enter_state():
 	set_physics_process(true)
-	#player.set_motion_mode(CharacterBody2D.MOTION_MODE_FLOATING)
-	print("entrou " + name)
+	#print("entrou " + name)
 
 func exit_state():
 	set_physics_process(false)
-	#player.set_motion_mode(CharacterBody2D.MOTION_MODE_GROUNDED)
-	print("saiu " + name)
+	#print("saiu " + name)
 
 func _physics_process(delta: float) -> void:
 	#print(name)

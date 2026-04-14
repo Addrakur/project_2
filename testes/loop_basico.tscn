@@ -59,7 +59,6 @@ metadata/_custom_type_script = "uid://bnvqoglkbsle4"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=981919295]
 position = Vector2(-480, 128)
 zoom = Vector2(0.7, 0.7)
-editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1586024253]
 process_priority = 300
@@ -81,7 +80,6 @@ position = Vector2(-480, 128)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
 tween_resource = SubResource("Resource_i5n0t")
-draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="spawn_point" type="Marker2D" parent="screen_manager/screen_0" unique_id=317607068]
@@ -107,7 +105,6 @@ position = Vector2(448, 128)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
 tween_resource = SubResource("Resource_i5n0t")
-draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="spawn_points" type="Node2D" parent="screen_manager/screen_1" unique_id=133969627]
@@ -158,7 +155,6 @@ position = Vector2(1376, 128)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
 tween_resource = SubResource("Resource_i5n0t")
-draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="screen_changer_2_1" parent="screen_manager/screen_2" unique_id=1653141667 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
@@ -205,7 +201,6 @@ position = Vector2(2304, 128)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
 tween_resource = SubResource("Resource_i5n0t")
-draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="spawn_points" type="Node2D" parent="screen_manager/screen_3" unique_id=764619794]
@@ -274,7 +269,6 @@ position = Vector2(3232, 128)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
 tween_resource = SubResource("Resource_i5n0t")
-draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="screen_changer_4_3" parent="screen_manager/screen_4" unique_id=2071827984 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
@@ -316,7 +310,6 @@ position = Vector2(3232, 656)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
 tween_resource = SubResource("Resource_i5n0t")
-draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="screen_changer_5_6" parent="screen_manager/screen_5" unique_id=232582089 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
@@ -361,7 +354,6 @@ position = Vector2(4160, 656)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
 tween_resource = SubResource("Resource_i5n0t")
-draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="screen_changer_6_5" parent="screen_manager/screen_6" unique_id=432490882 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("6_qahnf")]
@@ -407,7 +399,6 @@ follow_target = NodePath("../../../player")
 follow_path = NodePath("../camera_path")
 zoom = Vector2(0.7, 0.7)
 tween_resource = SubResource("Resource_i5n0t")
-draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="camera_path" type="Path2D" parent="screen_manager/screen_7" unique_id=2079637737]
@@ -465,7 +456,6 @@ position = Vector2(8176, 656)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
 tween_resource = SubResource("Resource_i5n0t")
-draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="rotate_obstacle" type="Path2D" parent="screen_manager/screen_8" unique_id=1367635656]
@@ -529,7 +519,6 @@ position = Vector2(9104, 496)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
 tween_resource = SubResource("Resource_i5n0t")
-draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="rotate_obstacle" type="Path2D" parent="screen_manager/screen_9" unique_id=930056068]
@@ -593,7 +582,6 @@ position = Vector2(10032, 496)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
 tween_resource = SubResource("Resource_i5n0t")
-draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="spawn_points" type="Node2D" parent="screen_manager/screen_10" unique_id=235434220]
@@ -635,7 +623,6 @@ position = Vector2(10960, 320)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
 tween_resource = SubResource("Resource_i5n0t")
-draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="spawn_points" type="Node2D" parent="screen_manager/screen_11" unique_id=462255128]
@@ -684,7 +671,6 @@ position = Vector2(11888, 208)
 script = ExtResource("2_kp1nd")
 zoom = Vector2(0.7, 0.7)
 tween_resource = SubResource("Resource_i5n0t")
-draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="spawn_points" type="Node2D" parent="screen_manager/screen_12" unique_id=1257788491]
@@ -737,7 +723,7 @@ tile_map_data = PackedByteArray("AAAjAAcAAAAKAAMAAAAjAAgAAAALAAEAAAAiAAgAAAAKAAE
 tile_set = ExtResource("15_5ae27")
 
 [node name="kill_tileset" type="TileMapLayer" parent="." unique_id=194052437]
-tile_map_data = PackedByteArray("AABkAAMAAAAEAAAAAABjAAMAAAACAAAAAABiAAQAAAACAAAAAABgAAUAAAACAAAAAABeAAYAAAACAAAAAABdAAcAAAACAAAAAABlAAMAAAAGAAAAAABmAAQAAAAGAAAAAABrAAcAAAAGAAAAAABcAAgAAAABAAAAAABpAAcAAAABAAAAAABnAAYAAAAHAAAAAABmAAYAAAAUAAAAAABlAAQAAAAUAAAAAABrAAkAAAAUAAAAAABrAAgAAAAMAAAAAABmAAUAAAAMAAAAAABqAAcAAAAEAAAAAABhAAUAAAAEAAAAAABfAAYAAAAEAAAAAABdAAgAAAAWAAAAAABeAAcAAAAWAAAAAABgAAYAAAAWAAAAAABiAAUAAAAWAAAAAABjAAQAAAAWAAAAAABsAAkAAAAEAAAAAABtAAkAAAAHAAAAAABSAAEAAAAOAAAAAABRAP//AAAOAAAAAABMAP//AAASAAAAAABLAP//AAAYAAAAAABMAP7/AAAYAAAAAABTAAEAAAAaAAAAAABSAP//AAAaAAAAAABRAP7/AAAaAAAAAABSAAAAAAAKAAAAAABTAAIAAAAKAAAAAABTAAMAAAAKAAAAAABTAAQAAAAKAAAAAABTAAUAAAAKAAAAAABTAAYAAAAKAAAAAABTAAcAAAAKAAAAAABTAAgAAAAOAAAAAABNAP7/AAAQAAAAAABOAP7/AAAQAAAAAABPAP7/AAAQAAAAAABQAP7/AAAQAAAAAABJAAUAAAAMAAAAAABJAAYAAAAMAAAAAABJAAcAAAASAAAAAABJAAQAAAAYAAAAAABKAAQAAAASAAAAAABKAAMAAAAMAAAAAABKAAIAAAAMAAAAAABLAAAAAAAMAAAAAABKAAEAAAAYAAAAAABLAAEAAAASAAAAAABsAA8AAAAEAAAAAABrAA8AAAAEAAAAAABiABAAAAAEAAAAAABjABAAAAAEAAAAAABkABAAAAAEAAAAAABlABAAAAAEAAAAAABmABAAAAAEAAAAAABnABAAAAAEAAAAAABhAA8AAAAMAAAAAABhAA4AAAAIAAAAAABhABAAAAAUAAAAAABoABAAAAAWAAAAAABoAA8AAAAAAAAAAABaABEAAAAAAAAAAABZABQAAAAIAAAAAABZABUAAAASAAAAAABaABIAAAAOAAAAAABYABUAAAAYAAAAAABbABIAAAAaAAAAAACjABQAAAABAAAAAACkABQAAAAEAAAAAAClABQAAAAEAAAAAACmABQAAAAEAAAAAACnABQAAAAGAAAAAACnABUAAAAMAAAAAACnABYAAAASAAAAAACmABYAAAAYAAAAAACmABcAAAAMAAAAAACmABgAAAAMAAAAAACmABkAAAAMAAAAAACmABoAAAAMAAAAAACmABsAAAAMAAAAAACmABwAAAAMAAAAAACkABAAAAAQAAAAAAClABAAAAAQAAAAAACmABAAAAAQAAAAAACnABAAAAAQAAAAAACjABAAAAAOAAAAAACoABAAAAASAAAAAACzABUAAAABAAAAAAC4ABUAAAABAAAAAAC0ABUAAAAHAAAAAAC5ABUAAAAHAAAAAACzABAAAAAOAAAAAAC3ABAAAAAOAAAAAAC1ABAAAAASAAAAAAC5ABAAAAASAAAAAAC4ABAAAAAQAAAAAAC0ABAAAAAQAAAAAAC2AA8AAAAQAAAAAAC1AA8AAAAYAAAAAAC3AA8AAAAaAAAAAAA9AQwAAAASAAAAAAA1AQwAAAAOAAAAAAA2AQwAAAAQAAAAAAA3AQwAAAAQAAAAAAA4AQwAAAAQAAAAAAA5AQwAAAAQAAAAAAA6AQwAAAAQAAAAAAA7AQwAAAAQAAAAAAA8AQwAAAAQAAAAAAA2AREAAAAEAAAAAAA3AREAAAAEAAAAAAA4AREAAAAEAAAAAAA5AREAAAAEAAAAAAA6AREAAAAEAAAAAAA7AREAAAAEAAAAAAA8AREAAAAEAAAAAAA1AREAAAACAAAAAAA9AREAAAAGAAAAAAA=")
+tile_map_data = PackedByteArray("AABkAAMAAAAEAAAAAABjAAMAAAACAAAAAABiAAQAAAACAAAAAABgAAUAAAACAAAAAABeAAYAAAACAAAAAABdAAcAAAACAAAAAABlAAMAAAAGAAAAAABmAAQAAAAGAAAAAABrAAcAAAAGAAAAAABcAAgAAAABAAAAAABpAAcAAAABAAAAAABnAAYAAAAHAAAAAABmAAYAAAAUAAAAAABlAAQAAAAUAAAAAABrAAkAAAAUAAAAAABrAAgAAAAMAAAAAABmAAUAAAAMAAAAAABqAAcAAAAEAAAAAABhAAUAAAAEAAAAAABfAAYAAAAEAAAAAABdAAgAAAAWAAAAAABeAAcAAAAWAAAAAABgAAYAAAAWAAAAAABiAAUAAAAWAAAAAABjAAQAAAAWAAAAAABsAAkAAAAEAAAAAABtAAkAAAAHAAAAAABSAAEAAAAOAAAAAABRAP//AAAOAAAAAABMAP//AAASAAAAAABSAAAAAAAKAAAAAABTAAIAAAAKAAAAAABTAAMAAAAKAAAAAABTAAQAAAAKAAAAAABTAAUAAAAKAAAAAABTAAYAAAAKAAAAAABTAAcAAAAKAAAAAABTAAgAAAAOAAAAAABNAP7/AAAQAAAAAABOAP7/AAAQAAAAAABPAP7/AAAQAAAAAABQAP7/AAAQAAAAAABJAAUAAAAMAAAAAABJAAYAAAAMAAAAAABJAAcAAAASAAAAAABKAAQAAAASAAAAAABKAAMAAAAMAAAAAABKAAIAAAAMAAAAAABLAAAAAAAMAAAAAABLAAEAAAASAAAAAABsAA8AAAAEAAAAAABrAA8AAAAEAAAAAABiABAAAAAEAAAAAABjABAAAAAEAAAAAABkABAAAAAEAAAAAABlABAAAAAEAAAAAABmABAAAAAEAAAAAABnABAAAAAEAAAAAABhAA8AAAAMAAAAAABhAA4AAAAIAAAAAABhABAAAAAUAAAAAABoABAAAAAWAAAAAABoAA8AAAAAAAAAAABaABEAAAAAAAAAAABZABQAAAAIAAAAAABZABUAAAASAAAAAABaABIAAAAOAAAAAACjABQAAAABAAAAAACkABQAAAAEAAAAAAClABQAAAAEAAAAAACmABQAAAAEAAAAAACnABQAAAAGAAAAAACnABUAAAAMAAAAAACnABYAAAASAAAAAACmABcAAAAMAAAAAACmABgAAAAMAAAAAACmABkAAAAMAAAAAACmABoAAAAMAAAAAACmABsAAAAMAAAAAACmABwAAAAMAAAAAACkABAAAAAQAAAAAAClABAAAAAQAAAAAACmABAAAAAQAAAAAACnABAAAAAQAAAAAACjABAAAAAOAAAAAACoABAAAAASAAAAAACzABUAAAABAAAAAAC4ABUAAAABAAAAAAC0ABUAAAAHAAAAAAC5ABUAAAAHAAAAAACzABAAAAAOAAAAAAC3ABAAAAAOAAAAAAC1ABAAAAASAAAAAAC5ABAAAAASAAAAAAC4ABAAAAAQAAAAAAC0ABAAAAAQAAAAAAC2AA8AAAAQAAAAAAA9AQwAAAASAAAAAAA1AQwAAAAOAAAAAAA2AQwAAAAQAAAAAAA3AQwAAAAQAAAAAAA4AQwAAAAQAAAAAAA5AQwAAAAQAAAAAAA6AQwAAAAQAAAAAAA7AQwAAAAQAAAAAAA8AQwAAAAQAAAAAAA2AREAAAAEAAAAAAA3AREAAAAEAAAAAAA4AREAAAAEAAAAAAA5AREAAAAEAAAAAAA6AREAAAAEAAAAAAA7AREAAAAEAAAAAAA8AREAAAAEAAAAAAA1AREAAAACAAAAAAA9AREAAAAGAAAAAAA=")
 tile_set = ExtResource("16_5ae27")
 
 [node name="kill_player_area" parent="." unique_id=536379153 node_paths=PackedStringArray("screen_manager") instance=ExtResource("3_v3wul")]

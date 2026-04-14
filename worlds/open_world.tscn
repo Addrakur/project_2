@@ -475,8 +475,8 @@ metadata/_custom_type_script = "uid://bnvqoglkbsle4"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=967580903]
 physics_interpolation_mode = 1
-position = Vector2(640, -24)
-zoom = Vector2(0.5, 0.5)
+position = Vector2(533.3333, 36)
+zoom = Vector2(0.6, 0.6)
 process_callback = 0
 limit_left = 0
 limit_top = -496
@@ -501,11 +501,11 @@ default_checkpoint = NodePath("1")
 
 [node name="0" type="Node2D" parent="screen_manager/screen_0" unique_id=340959178 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(640, -24)
+position = Vector2(533.3333, 36)
 script = ExtResource("5_tgkf7")
 follow_mode = 1
 follow_target = NodePath("../../../objs/player")
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.6, 0.6)
 tween_resource = SubResource("Resource_fag3t")
 follow_damping = true
 follow_damping_value = Vector2(0.4, 0.4)
@@ -544,11 +544,11 @@ metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
 
 [node name="0" type="Node2D" parent="screen_manager/screen_1" unique_id=258961497 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(3056, 24)
+position = Vector2(2949.3333, 84)
 script = ExtResource("5_tgkf7")
 follow_mode = 1
 follow_target = NodePath("../../../objs/player")
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.6, 0.6)
 tween_resource = SubResource("Resource_fag3t")
 follow_damping = true
 follow_damping_value = Vector2(0.4, 0.4)
@@ -596,11 +596,11 @@ metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
 
 [node name="0" type="Node2D" parent="screen_manager/screen_2" unique_id=1085579204 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(5088, -696)
+position = Vector2(4981.3335, -636)
 script = ExtResource("5_tgkf7")
 follow_mode = 1
 follow_target = NodePath("../../../objs/player")
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.6, 0.6)
 tween_resource = SubResource("Resource_fag3t")
 follow_damping = true
 follow_damping_value = Vector2(0.4, 0.4)
@@ -648,11 +648,11 @@ metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
 
 [node name="0" type="Node2D" parent="screen_manager/screen_3" unique_id=552640110 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(6656, -552)
+position = Vector2(6549.3335, -492)
 script = ExtResource("5_tgkf7")
 follow_mode = 1
 follow_target = NodePath("../../../objs/player")
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.6, 0.6)
 tween_resource = SubResource("Resource_fag3t")
 follow_damping = true
 follow_damping_value = Vector2(0.4, 0.4)
@@ -708,11 +708,11 @@ metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
 
 [node name="0" type="Node2D" parent="screen_manager/screen_4" unique_id=597304935 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(8736, -1032)
+position = Vector2(8629.333, -972)
 script = ExtResource("5_tgkf7")
 follow_mode = 1
 follow_target = NodePath("../../../objs/player")
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.6, 0.6)
 tween_resource = SubResource("Resource_fag3t")
 follow_damping = true
 follow_damping_value = Vector2(0.4, 0.4)
@@ -777,11 +777,11 @@ metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
 
 [node name="0" type="Node2D" parent="screen_manager/screen_5" unique_id=803160796 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(10480, -1400)
+position = Vector2(10373.333, -1340)
 script = ExtResource("5_tgkf7")
 follow_mode = 1
 follow_target = NodePath("../../../objs/player")
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.6, 0.6)
 tween_resource = SubResource("Resource_fag3t")
 follow_damping = true
 follow_damping_value = Vector2(0.4, 0.4)
@@ -886,11 +886,11 @@ metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
 
 [node name="0" type="Node2D" parent="screen_manager/screen_6" unique_id=245846461 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(13664, -1448)
+position = Vector2(13557.333, -1388)
 script = ExtResource("5_tgkf7")
 follow_mode = 1
 follow_target = NodePath("../../../objs/player")
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.6, 0.6)
 tween_resource = SubResource("Resource_fag3t")
 follow_damping = true
 follow_damping_value = Vector2(0.4, 0.4)
@@ -1070,11 +1070,11 @@ metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
 
 [node name="0" type="Node2D" parent="screen_manager/screen_9" unique_id=1274751620 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(15968, -312)
+position = Vector2(15861.333, -252)
 script = ExtResource("5_tgkf7")
 follow_mode = 1
 follow_target = NodePath("../../../objs/player")
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.6, 0.6)
 tween_resource = SubResource("Resource_fag3t")
 follow_damping = true
 follow_damping_value = Vector2(0.4, 0.4)

@@ -20,8 +20,8 @@ func _ready() -> void:
 	laser_collision.disabled = true
 	laser.points[0] = laser_origin_a.position
 	laser.points[1] = laser_origin_b.position
-	laser_timer.wait_time = laser_time_on
-	laser_cooldown_timer.wait_time = laser_cooldown
+	laser_timer.wait_time = laser_time_on if laser_time_on != 0 else 0.1
+	laser_cooldown_timer.wait_time = laser_cooldown if laser_cooldown != 0 else 0.1
 	if laser_start_delay != 0:
 		laser_start_delay_timer.wait_time = laser_start_delay
 		laser_start_delay_timer.start()
