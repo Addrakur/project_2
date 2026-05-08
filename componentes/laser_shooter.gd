@@ -18,8 +18,8 @@ func _ready() -> void:
 	if turning_on_speed == 0:
 		turning_on_speed = 1
 	laser_collision.disabled = true
-	laser.points[0] = laser_origin_a.position
-	laser.points[1] = laser_origin_b.position
+	laser.points[0] = laser_origin_a.global_position
+	laser.points[1] = laser_origin_b.global_position
 	laser_timer.wait_time = laser_time_on if laser_time_on != 0 else 0.1
 	laser_cooldown_timer.wait_time = laser_cooldown if laser_cooldown != 0 else 0.1
 	if laser_start_delay != 0:

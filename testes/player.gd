@@ -120,7 +120,7 @@ func _physics_process(delta: float) -> void:
 		var collider = get_slide_collision(i).get_collider()
 		if collider is FragileGround:
 			collider.animation.play("break")
-		elif collider.name == "kill_tileset":
+		elif collider.is_in_group("kill_tile"):
 			screen_manager.player_die()
 		elif collider is MovingPlat:
 			on_moving_plat = true

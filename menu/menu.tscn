@@ -13,48 +13,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="tutorial" type="Button" parent="Control" unique_id=574312253]
-layout_mode = 0
-offset_left = 272.0
-offset_top = 48.0
-offset_right = 368.0
-offset_bottom = 80.0
-text = "Tutorial"
-
-[node name="closed_world" type="Button" parent="Control" unique_id=1959417776]
-layout_mode = 0
-offset_left = 256.0
-offset_top = 112.0
-offset_right = 384.0
-offset_bottom = 144.0
-text = "Closed World"
-
 [node name="open_world" type="Button" parent="Control" unique_id=195682029]
 layout_mode = 0
 offset_left = 256.0
-offset_top = 176.0
+offset_top = 32.0
 offset_right = 384.0
-offset_bottom = 208.0
+offset_bottom = 64.0
 text = "Forest"
 
 [node name="prison" type="Button" parent="Control" unique_id=170677256]
 layout_mode = 0
 offset_left = 256.0
-offset_top = 240.0
+offset_top = 96.0
 offset_right = 384.0
-offset_bottom = 272.0
+offset_bottom = 128.0
 text = "Prison"
 
-[node name="testes" type="Button" parent="Control" unique_id=1866688353]
-layout_mode = 0
-offset_left = 272.0
-offset_top = 304.0
-offset_right = 368.0
-offset_bottom = 336.0
-text = "Testes"
-
-[connection signal="pressed" from="Control/tutorial" to="." method="_on_tutorial_pressed"]
-[connection signal="pressed" from="Control/closed_world" to="." method="_on_world_1_pressed"]
 [connection signal="pressed" from="Control/open_world" to="." method="_on_open_world_pressed"]
 [connection signal="pressed" from="Control/prison" to="." method="_on_prison_pressed"]
-[connection signal="pressed" from="Control/testes" to="." method="_on_testes_pressed"]

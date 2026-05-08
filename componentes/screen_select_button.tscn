@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cwejeh6yahf8j"]
+
+[ext_resource type="Script" uid="uid://4rxs52c073a6" path="res://componentes/screen_select_button.gd" id="1_ukygg"]
+
+[node name="screen_select_button" type="Button" unique_id=1016596952]
+offset_right = 24.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 11
+text = "0"
+script = ExtResource("1_ukygg")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

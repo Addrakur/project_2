@@ -5,6 +5,7 @@ extends Area2D
 @export var old_screen: Screen
 @export var door_shape: Polygon2D
 @export var checkpoint: Marker2D
+@export var add_velocity: Vector2
 
 @onready var collision: CollisionPolygon2D = $collision
 
@@ -18,6 +19,7 @@ func _on_body_entered(body: Node2D) -> void:
 		new_screen.activate()
 		screen_manager.current_checkpoint = checkpoint
 		screen_manager.player.fuel = screen_manager.player.max_fuel
+		screen_manager.player.velocity += add_velocity
 		
 		for screen in screen_manager.screens:
 			print(screen.name + ": " + str(screen.active))
