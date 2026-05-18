@@ -41,6 +41,7 @@ var gravity_mult: float = 1
 var gravity: float
 var no_gravity: bool = false
 var rocket_no_recharge: bool = false
+var can_move: bool = true
 
 var on_moving_plat: bool = false
 var moving_plat: AnimatableBody2D
@@ -136,6 +137,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func rocket_logic(delta: float):
+	if not can_move:
+		return
 	if Input.is_action_pressed("jetpack") and fuel > 0 and rocket_active:
 		if no_gravity:
 			fuel -= fuel_consume
@@ -153,7 +156,7 @@ func rocket_logic(delta: float):
 		
 	rocket_velocity_y = rocket_speed * rocket_force * delta * sin(deg_to_rad(texture.rotation_degrees))
 	
-	
+
 	#Codigo que faz sempre o mesmo lado do foguete estar para cima
 	#if cos(deg_to_rad(texture.rotation_degrees)) < 0:
 		#texture_image.flip_v = true
@@ -162,6 +165,8 @@ func rocket_logic(delta: float):
 		
 
 func move_side_logic(delta: float, side_to_side_current_force: float, current_max_running_speed: float):
+	if not can_move:
+		return
 	if Input.is_action_pressed("right"):
 		if side_force < max_side_force:
 			side_force += side_to_side_current_force
@@ -177,6 +182,8 @@ func move_side_logic(delta: float, side_to_side_current_force: float, current_ma
 		side_velocity = side_force * speed * delta
 
 func move_up_down_logic(delta: float, up_down_current_force: float, current_max_running_speed: float):
+	if not can_move:
+		return
 	if Input.is_action_pressed("down"):
 		if up_down_force < max_side_force:
 			up_down_force += up_down_current_force
@@ -192,7 +199,7 @@ func move_up_down_logic(delta: float, up_down_current_force: float, current_max_
 		up_down_velocity = up_down_force * speed * delta
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://menu/menu.tscn")
+	get_tree().change_scene_to_file("uid://c2nvdwxw0kq7q")
 
 func set_animation():
 	if gravity_mult < 0:

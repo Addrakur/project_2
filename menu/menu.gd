@@ -1,18 +1,7 @@
 extends CanvasLayer
 
-func _on_tutorial_pressed() -> void:
-	get_tree().change_scene_to_file("res://worlds/tutorial.tscn")
-
-
 func _on_world_1_pressed() -> void:
-	get_tree().change_scene_to_file("res://worlds/world_1.tscn")
+	get_tree().change_scene_to_file("uid://bswti3ik2kxnt")
 
-
-func _on_testes_pressed() -> void:
-	get_tree().change_scene_to_file("res://testes/loop_basico.tscn")
-
-func _on_open_world_pressed() -> void:
-		get_tree().change_scene_to_file("res://worlds/open_world.tscn")
-
-func _on_prison_pressed() -> void:
-	get_tree().change_scene_to_file("res://worlds/world_2.tscn")
+func _on_world_2_pressed() -> void:
+	get_tree().change_scene_to_file("uid://bnpgl1dy1lnnd")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w31whklw3jh"
-path="res://.godot/imported/laser_shooter.png-392d03e789819d0808111c5281852dc8.ctex"
+uid="uid://cdsmhfm67iihp"
+path="res://.godot/imported/alien_pc.png-a3b875bdae45770746401315692b2e1b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/componentes/laser_shooter.png"
-dest_files=["res://.godot/imported/laser_shooter.png-392d03e789819d0808111c5281852dc8.ctex"]
+source_file="res://assets/componentes/lab/alien_pc.png"
+dest_files=["res://.godot/imported/alien_pc.png-a3b875bdae45770746401315692b2e1b.ctex"]
 
 [params]
 

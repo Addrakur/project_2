@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://yvmomcqbyish"]
 
 [ext_resource type="Script" uid="uid://cxdtpvcqnotql" path="res://componentes/laser_shooter.gd" id="1_42dfe"]
-[ext_resource type="Texture2D" uid="uid://f4vy203i2k5j" path="res://assets/componentes/laser_beam.png" id="2_42dfe"]
-[ext_resource type="Texture2D" uid="uid://chgpd31x83kfy" path="res://assets/componentes/laser_beam_off.png" id="3_10leg"]
+[ext_resource type="Texture2D" uid="uid://f4vy203i2k5j" path="res://assets/componentes/lab/laser_beam.png" id="2_42dfe"]
+[ext_resource type="Texture2D" uid="uid://chgpd31x83kfy" path="res://assets/componentes/lab/laser_beam_off.png" id="3_10leg"]
 
 [sub_resource type="Animation" id="Animation_42dfe"]
 length = 0.001

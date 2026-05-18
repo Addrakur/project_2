@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj2xjl56kgghp"
-path="res://.godot/imported/computer.png-9fec895b50948ad110d6e9118ca89682.ctex"
+uid="uid://u1b407mfwkdv"
+path="res://.godot/imported/mushroom_caves_ground.png-7cff6362762c5421c7964666398107ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/componentes/computer.png"
-dest_files=["res://.godot/imported/computer.png-9fec895b50948ad110d6e9118ca89682.ctex"]
+source_file="res://assets/tilesets/mushroom_caves_ground.png"
+dest_files=["res://.godot/imported/mushroom_caves_ground.png-7cff6362762c5421c7964666398107ae.ctex"]
 
 [params]
 

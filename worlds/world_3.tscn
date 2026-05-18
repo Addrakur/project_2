@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://077eo1dbp8l8"]
+
+[ext_resource type="Script" uid="uid://bnvqoglkbsle4" path="res://worlds/world.gd" id="1_xw1xx"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_858ox"]
+[ext_resource type="Script" uid="uid://cmnl8rde72dq3" path="res://screen_manager/screen_manager.gd" id="3_66mp7"]
+[ext_resource type="PackedScene" uid="uid://bx2l4ln2h5uh" path="res://testes/player.tscn" id="4_66mp7"]
+[ext_resource type="Script" uid="uid://c6q8tsrrnwhev" path="res://screen_manager/screen.gd" id="4_shcc5"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_5q6nr"]
+[ext_resource type="PackedScene" uid="uid://sfv4u8eql4q3" path="res://componentes/kill_player_area.tscn" id="5_kneej"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_14hpg"]
+
+[sub_resource type="Resource" id="Resource_l2u01"]
+script = ExtResource("6_14hpg")
+duration = 0.5
+
+[node name="world_3" type="Node2D" unique_id=1238504135 node_paths=PackedStringArray("player")]
+script = ExtResource("1_xw1xx")
+player = NodePath("objs/player")
+gravity = 120.0
+metadata/_custom_type_script = "uid://bnvqoglkbsle4"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=299520503]
+position = Vector2(536, -304)
+zoom = Vector2(0.6, 0.6)
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=511638370]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_858ox")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="ScreenManager" type="Node2D" parent="." unique_id=1229717700 node_paths=PackedStringArray("player")]
+position = Vector2(640, -496)
+script = ExtResource("3_66mp7")
+player = NodePath("../objs/player")
+metadata/_custom_type_script = "uid://cmnl8rde72dq3"
+
+[node name="screen_0" type="Node2D" parent="ScreenManager" unique_id=2023449395]
+script = ExtResource("4_shcc5")
+metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
+
+[node name="0" type="Node2D" parent="ScreenManager/screen_0" unique_id=1649477202]
+position = Vector2(-104, 192)
+script = ExtResource("5_5q6nr")
+zoom = Vector2(0.6, 0.6)
+tween_resource = SubResource("Resource_l2u01")
+follow_damping = true
+follow_damping_value = Vector2(0.4, 0.4)
+draw_limits = true
+limit_target = NodePath("../camera_limit")
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="objs" type="Node2D" parent="." unique_id=2093089612]
+
+[node name="player" parent="objs" unique_id=493830883 node_paths=PackedStringArray("screen_manager") instance=ExtResource("4_66mp7")]
+position = Vector2(48, -304)
+screen_manager = NodePath("../../ScreenManager")
+
+[node name="kill_player_area" parent="objs" unique_id=1140896561 instance=ExtResource("5_kneej")]
+
+[node name="ground" type="TileMapLayer" parent="objs" unique_id=948369491]

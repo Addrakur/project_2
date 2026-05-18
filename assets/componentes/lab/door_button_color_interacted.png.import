@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdsmhfm67iihp"
-path="res://.godot/imported/alien_pc.png-ab65f2567e960437ba5d7a2581b13a97.ctex"
+uid="uid://cgbkiodnk8gu"
+path="res://.godot/imported/door_button_color_interacted.png-aa867ee53019394e9ff2fc19ec34d79e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/componentes/alien_pc.png"
-dest_files=["res://.godot/imported/alien_pc.png-ab65f2567e960437ba5d7a2581b13a97.ctex"]
+source_file="res://assets/componentes/lab/door_button_color_interacted.png"
+dest_files=["res://.godot/imported/door_button_color_interacted.png-aa867ee53019394e9ff2fc19ec34d79e.ctex"]
 
 [params]
 

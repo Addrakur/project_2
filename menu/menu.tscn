@@ -13,7 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="open_world" type="Button" parent="Control" unique_id=195682029]
+[node name="world_1" type="Button" parent="Control" unique_id=195682029]
 layout_mode = 0
 offset_left = 256.0
 offset_top = 32.0
@@ -21,13 +21,13 @@ offset_right = 384.0
 offset_bottom = 64.0
 text = "Forest"
 
-[node name="prison" type="Button" parent="Control" unique_id=170677256]
+[node name="world_2" type="Button" parent="Control" unique_id=170677256]
 layout_mode = 0
 offset_left = 256.0
 offset_top = 96.0
 offset_right = 384.0
 offset_bottom = 128.0
-text = "Prison"
+text = "Lab"
 
-[connection signal="pressed" from="Control/open_world" to="." method="_on_open_world_pressed"]
-[connection signal="pressed" from="Control/prison" to="." method="_on_prison_pressed"]
+[connection signal="pressed" from="Control/world_1" to="." method="_on_world_1_pressed"]
+[connection signal="pressed" from="Control/world_2" to="." method="_on_world_2_pressed"]

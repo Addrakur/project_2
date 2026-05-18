@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://ciwfkk27kgbbr"]
 
 [ext_resource type="Script" uid="uid://diw0cbbg51kfm" path="res://componentes/interactable_item.gd" id="1_foqun"]
-[ext_resource type="Texture2D" uid="uid://cgbkiodnk8gu" path="res://assets/componentes/door_button_color_interacted.png" id="2_pybak"]
-[ext_resource type="Texture2D" uid="uid://6yjytawt60iv" path="res://assets/componentes/door_button_color.png" id="2_wbygg"]
-[ext_resource type="Texture2D" uid="uid://dlwuoxumomjpw" path="res://assets/componentes/door_button_frame.png" id="3_wbygg"]
+[ext_resource type="Texture2D" uid="uid://cgbkiodnk8gu" path="res://assets/componentes/lab/door_button_color_interacted.png" id="2_pybak"]
+[ext_resource type="Texture2D" uid="uid://6yjytawt60iv" path="res://assets/componentes/lab/door_button_color.png" id="2_wbygg"]
+[ext_resource type="Texture2D" uid="uid://dlwuoxumomjpw" path="res://assets/componentes/lab/door_button_frame.png" id="3_wbygg"]
 
 [sub_resource type="Animation" id="Animation_2c2xi"]
 length = 0.001

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f4vy203i2k5j"
-path="res://.godot/imported/laser_beam.png-95951f9762421c382b4f8856525d84de.ctex"
+uid="uid://6yjytawt60iv"
+path="res://.godot/imported/door_button_color.png-b7ebd4c3c350eaffe1daf8424b650af3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/componentes/laser_beam.png"
-dest_files=["res://.godot/imported/laser_beam.png-95951f9762421c382b4f8856525d84de.ctex"]
+source_file="res://assets/componentes/lab/door_button_color.png"
+dest_files=["res://.godot/imported/door_button_color.png-b7ebd4c3c350eaffe1daf8424b650af3.ctex"]
 
 [params]
 
