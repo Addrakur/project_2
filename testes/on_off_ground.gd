@@ -4,6 +4,8 @@ extends StaticBody2D
 @export var off_time: float
 @export var delay_time: float
 @export var start_off: bool
+@export var collision: CollisionShape2D
+@export var texture: NinePatchRect
 
 @onready var on_timer: Timer = $on_timer
 @onready var off_timer: Timer = $off_timer
@@ -41,4 +43,11 @@ func _on_delay_timer_timeout() -> void:
 	else:
 		animation.play("on")
 		on_timer.start()
-		
+
+func turn_on() -> void:
+	collision.disabled = false
+	texture.self_modulate = Color8(255, 255, 255, 255)
+
+func turn_off() -> void:
+	collision.disabled = true
+	texture.self_modulate = Color8(255, 255, 255, 80)
