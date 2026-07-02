@@ -3324,7 +3324,8 @@ color = Color(1, 1, 1, 1)
 
 [node name="lasers_1" type="Node2D" parent="ScreenManager/screen_5" unique_id=678434108]
 
-[node name="laser_shooter_manager" parent="ScreenManager/screen_5/lasers_1" unique_id=264350331 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+[node name="laser_shooter_manager" parent="ScreenManager/screen_5/lasers_1" unique_id=264350331 node_paths=PackedStringArray("screen", "laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+screen = NodePath("../..")
 laser_origin_a = NodePath("a")
 laser_origin_b = NodePath("b")
 laser_time_on = 2.0
@@ -3351,11 +3352,12 @@ texture = ExtResource("15_cn1xd")
 
 [node name="lasers_2" type="Node2D" parent="ScreenManager/screen_5" unique_id=704677543]
 
-[node name="laser_shooter_manager" parent="ScreenManager/screen_5/lasers_2" unique_id=1779286729 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+[node name="laser_shooter_manager" parent="ScreenManager/screen_5/lasers_2" unique_id=1779286729 node_paths=PackedStringArray("screen", "laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+screen = NodePath("../..")
 laser_origin_a = NodePath("a")
 laser_origin_b = NodePath("b")
-laser_time_on = 3.0
-laser_cooldown = 1.0
+laser_time_on = 2.0
+laser_cooldown = 2.5
 laser_collision = NodePath("../../../../objs/kill_player_area/laser_5_2_1")
 
 [node name="a" type="Marker2D" parent="ScreenManager/screen_5/lasers_2/laser_shooter_manager" unique_id=698025398]
@@ -3375,12 +3377,13 @@ position = Vector2(4528, -86)
 rotation = 3.1415927
 texture = ExtResource("15_cn1xd")
 
-[node name="laser_shooter_manager2" parent="ScreenManager/screen_5/lasers_2" unique_id=1681436961 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+[node name="laser_shooter_manager2" parent="ScreenManager/screen_5/lasers_2" unique_id=1681436961 node_paths=PackedStringArray("screen", "laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+screen = NodePath("../..")
 laser_origin_a = NodePath("a")
 laser_origin_b = NodePath("b")
-laser_time_on = 3.0
-laser_cooldown = 1.0
-laser_start_delay = 1.5
+laser_time_on = 2.0
+laser_cooldown = 2.5
+laser_start_delay = 2.0
 laser_collision = NodePath("../../../../objs/kill_player_area/laser_5_2_2")
 
 [node name="a" type="Marker2D" parent="ScreenManager/screen_5/lasers_2/laser_shooter_manager2" unique_id=1969433129]
@@ -3400,12 +3403,13 @@ position = Vector2(4560, -86)
 rotation = 3.1415927
 texture = ExtResource("15_cn1xd")
 
-[node name="laser_shooter_manager3" parent="ScreenManager/screen_5/lasers_2" unique_id=758460753 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+[node name="laser_shooter_manager3" parent="ScreenManager/screen_5/lasers_2" unique_id=758460753 node_paths=PackedStringArray("screen", "laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+screen = NodePath("../..")
 laser_origin_a = NodePath("a")
 laser_origin_b = NodePath("b")
-laser_time_on = 3.0
-laser_cooldown = 1.0
-laser_start_delay = 3.0
+laser_time_on = 2.0
+laser_cooldown = 2.5
+laser_start_delay = 4.0
 laser_collision = NodePath("../../../../objs/kill_player_area/laser_5_2_3")
 
 [node name="a" type="Marker2D" parent="ScreenManager/screen_5/lasers_2/laser_shooter_manager3" unique_id=887139196]
@@ -3425,12 +3429,13 @@ position = Vector2(4592, -86)
 rotation = 3.1415927
 texture = ExtResource("15_cn1xd")
 
-[node name="laser_shooter_manager4" parent="ScreenManager/screen_5/lasers_2" unique_id=1307086180 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+[node name="laser_shooter_manager4" parent="ScreenManager/screen_5/lasers_2" unique_id=1307086180 node_paths=PackedStringArray("screen", "laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+screen = NodePath("../..")
 laser_origin_a = NodePath("a")
 laser_origin_b = NodePath("b")
-laser_time_on = 3.0
-laser_cooldown = 1.0
-laser_start_delay = 4.5
+laser_time_on = 2.0
+laser_cooldown = 2.5
+laser_start_delay = 6.0
 laser_collision = NodePath("../../../../objs/kill_player_area/laser_5_2_4")
 
 [node name="a" type="Marker2D" parent="ScreenManager/screen_5/lasers_2/laser_shooter_manager4" unique_id=894365005]
@@ -3450,12 +3455,13 @@ position = Vector2(4624, -86)
 rotation = 3.1415927
 texture = ExtResource("15_cn1xd")
 
-[node name="laser_shooter_manager5" parent="ScreenManager/screen_5/lasers_2" unique_id=614261162 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+[node name="laser_shooter_manager5" parent="ScreenManager/screen_5/lasers_2" unique_id=614261162 node_paths=PackedStringArray("screen", "laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+screen = NodePath("../..")
 laser_origin_a = NodePath("a")
 laser_origin_b = NodePath("b")
-laser_time_on = 3.0
-laser_cooldown = 1.0
-laser_start_delay = 6.0
+laser_time_on = 2.0
+laser_cooldown = 2.5
+laser_start_delay = 8.0
 laser_collision = NodePath("../../../../objs/kill_player_area/laser_5_2_5")
 
 [node name="a" type="Marker2D" parent="ScreenManager/screen_5/lasers_2/laser_shooter_manager5" unique_id=1070118168]
@@ -3477,7 +3483,8 @@ texture = ExtResource("15_cn1xd")
 
 [node name="lasers_3" type="Node2D" parent="ScreenManager/screen_5" unique_id=80057860]
 
-[node name="laser_shooter_manager" parent="ScreenManager/screen_5/lasers_3" unique_id=1543461622 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+[node name="laser_shooter_manager" parent="ScreenManager/screen_5/lasers_3" unique_id=1543461622 node_paths=PackedStringArray("screen", "laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+screen = NodePath("../..")
 laser_origin_a = NodePath("a")
 laser_origin_b = NodePath("b")
 laser_time_on = 3.0
@@ -3502,7 +3509,8 @@ position = Vector2(4528, -246)
 rotation = 3.1415927
 texture = ExtResource("15_cn1xd")
 
-[node name="laser_shooter_manager2" parent="ScreenManager/screen_5/lasers_3" unique_id=365125999 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+[node name="laser_shooter_manager2" parent="ScreenManager/screen_5/lasers_3" unique_id=365125999 node_paths=PackedStringArray("screen", "laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+screen = NodePath("../..")
 laser_origin_a = NodePath("a")
 laser_origin_b = NodePath("b")
 laser_time_on = 3.0
@@ -3527,7 +3535,8 @@ position = Vector2(4560, -246)
 rotation = 3.1415927
 texture = ExtResource("15_cn1xd")
 
-[node name="laser_shooter_manager3" parent="ScreenManager/screen_5/lasers_3" unique_id=1540598269 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+[node name="laser_shooter_manager3" parent="ScreenManager/screen_5/lasers_3" unique_id=1540598269 node_paths=PackedStringArray("screen", "laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+screen = NodePath("../..")
 laser_origin_a = NodePath("a")
 laser_origin_b = NodePath("b")
 laser_time_on = 3.0
@@ -3552,7 +3561,8 @@ position = Vector2(4592, -246)
 rotation = 3.1415927
 texture = ExtResource("15_cn1xd")
 
-[node name="laser_shooter_manager4" parent="ScreenManager/screen_5/lasers_3" unique_id=2112699604 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+[node name="laser_shooter_manager4" parent="ScreenManager/screen_5/lasers_3" unique_id=2112699604 node_paths=PackedStringArray("screen", "laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+screen = NodePath("../..")
 laser_origin_a = NodePath("a")
 laser_origin_b = NodePath("b")
 laser_time_on = 3.0
@@ -3577,7 +3587,8 @@ position = Vector2(4624, -246)
 rotation = 3.1415927
 texture = ExtResource("15_cn1xd")
 
-[node name="laser_shooter_manager5" parent="ScreenManager/screen_5/lasers_3" unique_id=445380205 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+[node name="laser_shooter_manager5" parent="ScreenManager/screen_5/lasers_3" unique_id=445380205 node_paths=PackedStringArray("screen", "laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+screen = NodePath("../..")
 laser_origin_a = NodePath("a")
 laser_origin_b = NodePath("b")
 laser_time_on = 3.0
@@ -3789,7 +3800,8 @@ shape = SubResource("RectangleShape2D_2urih")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ScreenManager/screen_7/door_manager" unique_id=1955683818]
 libraries/ = SubResource("AnimationLibrary_alvj1")
 
-[node name="laser_shooter_manager_1" parent="ScreenManager/screen_7" unique_id=1778198161 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+[node name="laser_shooter_manager_1" parent="ScreenManager/screen_7" unique_id=1778198161 node_paths=PackedStringArray("screen", "laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+screen = NodePath("..")
 laser_origin_a = NodePath("a")
 laser_origin_b = NodePath("b")
 laser_time_on = 2.0
@@ -3814,7 +3826,8 @@ position = Vector2(6107, -680)
 [node name="b" type="Marker2D" parent="ScreenManager/screen_7/laser_shooter_manager_1" unique_id=1364632638]
 position = Vector2(6181, -680)
 
-[node name="laser_shooter_manager_2" parent="ScreenManager/screen_7" unique_id=309262760 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+[node name="laser_shooter_manager_2" parent="ScreenManager/screen_7" unique_id=309262760 node_paths=PackedStringArray("screen", "laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+screen = NodePath("..")
 laser_origin_a = NodePath("a")
 laser_origin_b = NodePath("b")
 laser_time_on = 2.0
@@ -3840,7 +3853,8 @@ position = Vector2(6107, -808)
 [node name="b" type="Marker2D" parent="ScreenManager/screen_7/laser_shooter_manager_2" unique_id=1760943913]
 position = Vector2(6181, -808)
 
-[node name="laser_shooter_manager_3" parent="ScreenManager/screen_7" unique_id=244402727 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+[node name="laser_shooter_manager_3" parent="ScreenManager/screen_7" unique_id=244402727 node_paths=PackedStringArray("screen", "laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+screen = NodePath("..")
 laser_origin_a = NodePath("a")
 laser_origin_b = NodePath("b")
 laser_time_on = 2.0
@@ -4425,7 +4439,8 @@ polygon = PackedVector2Array(12768, -832, 12768, -1424, 14160, -1424, 14160, -83
 
 [node name="lasers" type="Node2D" parent="ScreenManager/screen_12" unique_id=1244547375]
 
-[node name="laser_shooter_manager" parent="ScreenManager/screen_12/lasers" unique_id=1440137438 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+[node name="laser_shooter_manager" parent="ScreenManager/screen_12/lasers" unique_id=1440137438 node_paths=PackedStringArray("screen", "laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+screen = NodePath("../..")
 laser_origin_a = NodePath("a")
 laser_origin_b = NodePath("b")
 laser_time_on = 1.5
@@ -4450,7 +4465,8 @@ position = Vector2(13056, -1189)
 [node name="b" type="Marker2D" parent="ScreenManager/screen_12/lasers/laser_shooter_manager" unique_id=1731037436]
 position = Vector2(13056, -1051)
 
-[node name="laser_shooter_manager2" parent="ScreenManager/screen_12/lasers" unique_id=421973479 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+[node name="laser_shooter_manager2" parent="ScreenManager/screen_12/lasers" unique_id=421973479 node_paths=PackedStringArray("screen", "laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+screen = NodePath("../..")
 laser_origin_a = NodePath("a")
 laser_origin_b = NodePath("b")
 laser_time_on = 1.5
@@ -4476,7 +4492,8 @@ position = Vector2(13088, -1189)
 [node name="b" type="Marker2D" parent="ScreenManager/screen_12/lasers/laser_shooter_manager2" unique_id=1333897949]
 position = Vector2(13088, -1051)
 
-[node name="laser_shooter_manager3" parent="ScreenManager/screen_12/lasers" unique_id=498507678 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+[node name="laser_shooter_manager3" parent="ScreenManager/screen_12/lasers" unique_id=498507678 node_paths=PackedStringArray("screen", "laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+screen = NodePath("../..")
 laser_origin_a = NodePath("a")
 laser_origin_b = NodePath("b")
 laser_time_on = 1.5
@@ -4502,7 +4519,8 @@ position = Vector2(13120, -1189)
 [node name="b" type="Marker2D" parent="ScreenManager/screen_12/lasers/laser_shooter_manager3" unique_id=1803611981]
 position = Vector2(13120, -1051)
 
-[node name="laser_shooter_manager4" parent="ScreenManager/screen_12/lasers" unique_id=1932357593 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+[node name="laser_shooter_manager4" parent="ScreenManager/screen_12/lasers" unique_id=1932357593 node_paths=PackedStringArray("screen", "laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+screen = NodePath("../..")
 laser_origin_a = NodePath("a")
 laser_origin_b = NodePath("b")
 laser_time_on = 1.5
@@ -4528,7 +4546,8 @@ position = Vector2(13152, -1189)
 [node name="b" type="Marker2D" parent="ScreenManager/screen_12/lasers/laser_shooter_manager4" unique_id=159716626]
 position = Vector2(13152, -1051)
 
-[node name="laser_shooter_manager5" parent="ScreenManager/screen_12/lasers" unique_id=962972853 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+[node name="laser_shooter_manager5" parent="ScreenManager/screen_12/lasers" unique_id=962972853 node_paths=PackedStringArray("screen", "laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+screen = NodePath("../..")
 laser_origin_a = NodePath("a")
 laser_origin_b = NodePath("b")
 laser_time_on = 1.5
@@ -4554,7 +4573,8 @@ position = Vector2(13184, -1189)
 [node name="b" type="Marker2D" parent="ScreenManager/screen_12/lasers/laser_shooter_manager5" unique_id=1480481808]
 position = Vector2(13184, -1051)
 
-[node name="laser_shooter_manager6" parent="ScreenManager/screen_12/lasers" unique_id=378655474 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+[node name="laser_shooter_manager6" parent="ScreenManager/screen_12/lasers" unique_id=378655474 node_paths=PackedStringArray("screen", "laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+screen = NodePath("../..")
 laser_origin_a = NodePath("a")
 laser_origin_b = NodePath("b")
 laser_time_on = 1.5
@@ -4580,7 +4600,8 @@ position = Vector2(13216, -1189)
 [node name="b" type="Marker2D" parent="ScreenManager/screen_12/lasers/laser_shooter_manager6" unique_id=1493069796]
 position = Vector2(13216, -1051)
 
-[node name="laser_shooter_manager7" parent="ScreenManager/screen_12/lasers" unique_id=1357356834 node_paths=PackedStringArray("laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+[node name="laser_shooter_manager7" parent="ScreenManager/screen_12/lasers" unique_id=1357356834 node_paths=PackedStringArray("screen", "laser_origin_a", "laser_origin_b", "laser_collision") instance=ExtResource("14_jw6vm")]
+screen = NodePath("../..")
 laser_origin_a = NodePath("a")
 laser_origin_b = NodePath("b")
 laser_time_on = 1.5

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://r2goq7l07d0g"]
+
+[ext_resource type="Script" uid="uid://drjy68bd7efj6" path="res://componentes/rotate_object.gd" id="1_41bcy"]
+
+[node name="rotate_object" type="Node2D" unique_id=1734120012]
+script = ExtResource("1_41bcy")
