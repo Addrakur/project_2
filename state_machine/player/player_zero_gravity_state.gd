@@ -7,10 +7,14 @@ func _ready() -> void:
 
 func enter_state():
 	set_physics_process(true)
+	player.floor_max_angle = 0
+	#print(player.floor_max_angle)
 	#print("entrou " + name)
 
 func exit_state():
 	set_physics_process(false)
+	player.floor_max_angle = 0.78
+	#print(player.floor_max_angle)
 	#print("saiu " + name)
 
 func _physics_process(delta: float) -> void:

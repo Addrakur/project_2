@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bs5c8ijf6lcnb"]
+
+[ext_resource type="Script" uid="uid://ddm0eewfmkk3q" path="res://path_trace.gd" id="1_i6tjg"]
+
+[node name="path_trace" type="Line2D" unique_id=1462285140]
+width = 1.0
+script = ExtResource("1_i6tjg")

@@ -29,5 +29,14 @@ offset_right = 384.0
 offset_bottom = 128.0
 text = "Lab"
 
+[node name="world_3" type="Button" parent="Control" unique_id=671359956]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 160.0
+offset_right = 384.0
+offset_bottom = 192.0
+text = "World 3"
+
 [connection signal="pressed" from="Control/world_1" to="." method="_on_world_1_pressed"]
 [connection signal="pressed" from="Control/world_2" to="." method="_on_world_2_pressed"]
+[connection signal="pressed" from="Control/world_3" to="." method="_on_world_3_pressed"]
