@@ -170,6 +170,7 @@ rocket_max_force = 12.0
 rocket_force_up = 8.0
 rocket_force_down = 4.0
 rocket_max_speed = 100.0
+less_gravity_limit = 30.0
 progress_bar = NodePath("ProgressBar")
 
 [node name="texture" type="Node2D" parent="." unique_id=509839083]

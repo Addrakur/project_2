@@ -61,7 +61,9 @@ func _ready() -> void:
 	progress_bar.max_value = max_fuel
 
 func _physics_process(delta: float) -> void:
-	
+
+	#print(velocity)
+
 	#Codigo que verifica qual vai ser a velocidade no eixo Y
 	if no_gravity:
 		velocity.y += rocket_velocity_y
@@ -137,9 +139,7 @@ func _physics_process(delta: float) -> void:
 
 func rocket_logic(delta: float):
 	if Input.is_action_pressed("jetpack") and fuel > 0 and rocket_active:
-		if no_gravity:
-			fuel -= fuel_consume
-		elif not on_floor_or_ceiling():
+		if no_gravity or not on_floor_or_ceiling():
 			fuel -= fuel_consume
 		
 		if rocket_force < rocket_max_force:
@@ -163,9 +163,13 @@ func rocket_logic(delta: float):
 
 func move_side_logic(delta: float, side_to_side_current_force: float, current_max_running_speed: float):
 	if Input.is_action_pressed("right"):
+		if side_force < 0 and no_gravity:
+			side_to_side_current_force *= 20
 		if side_force < max_side_force:
 			side_force += side_to_side_current_force
 	elif Input.is_action_pressed("left"):
+		if side_force > 0 and no_gravity:
+			side_to_side_current_force *= 20
 		if side_force > -max_side_force:
 			side_force -= side_to_side_current_force
 	else:
@@ -173,20 +177,28 @@ func move_side_logic(delta: float, side_to_side_current_force: float, current_ma
 	
 	if velocity.x > current_max_running_speed and Input.is_action_pressed("right") or velocity.x < -current_max_running_speed and Input.is_action_pressed("left"):
 		side_velocity = 0
+	elif Input.is_action_pressed("right") and side_force < 0 and no_gravity or Input.is_action_pressed("left") and side_force > 0 and no_gravity:
+		side_velocity = 0
 	else:
 		side_velocity = side_force * speed * delta
 
 func move_up_down_logic(delta: float, up_down_current_force: float, current_max_running_speed: float):
 	if Input.is_action_pressed("down"):
+		if up_down_force < 0 and no_gravity:
+			up_down_current_force *= 20
 		if up_down_force < max_side_force:
 			up_down_force += up_down_current_force
 	elif Input.is_action_pressed("up"):
+		if up_down_force > 0 and no_gravity:
+			up_down_current_force *= 20
 		if up_down_force > -max_side_force:
 				up_down_force -= up_down_current_force
 	else:
 		up_down_force = move_toward(up_down_force, 0, floor_delta_towards_zero)
 	
 	if velocity.y > current_max_running_speed and Input.is_action_pressed("down") or velocity.y < -current_max_running_speed and Input.is_action_pressed("up"):
+		up_down_velocity = 0
+	elif Input.is_action_pressed("down") and up_down_force < 0 and no_gravity or Input.is_action_pressed("up") and up_down_force > 0 and no_gravity:
 		up_down_velocity = 0
 	else:
 		up_down_velocity = up_down_force * speed * delta
