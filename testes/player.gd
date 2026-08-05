@@ -68,7 +68,7 @@ func _physics_process(delta: float) -> void:
 	if no_gravity:
 		velocity.y += rocket_velocity_y
 	elif gravity_mult > 0:
-		if Input.is_action_pressed("jetpack") and fuel > 0 and sin(deg_to_rad(texture.rotation_degrees)) > 0:
+		if Input.is_action_pressed("jetpack") and fuel > 0 and sin(deg_to_rad(texture.rotation_degrees)) < 0:
 			if velocity.y > less_gravity_limit:
 				velocity.y += rocket_velocity_y
 			else:
@@ -76,7 +76,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.y += gravity * delta * gravity_mult + rocket_velocity_y
 	else:
-		if Input.is_action_pressed("jetpack") and fuel > 0 and sin(deg_to_rad(texture.rotation_degrees)) < 0:
+		if Input.is_action_pressed("jetpack") and fuel > 0 and sin(deg_to_rad(texture.rotation_degrees)) > 0:
 			if velocity.y < -less_gravity_limit:
 				velocity.y += rocket_velocity_y
 			else:
@@ -152,7 +152,6 @@ func rocket_logic(delta: float):
 	rocket_velocity_x = rocket_speed * rocket_force * delta * cos(deg_to_rad(texture.rotation_degrees))
 		
 	rocket_velocity_y = rocket_speed * rocket_force * delta * sin(deg_to_rad(texture.rotation_degrees))
-	
 
 	#Codigo que faz sempre o mesmo lado do foguete estar para cima
 	#if cos(deg_to_rad(texture.rotation_degrees)) < 0:

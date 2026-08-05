@@ -15,26 +15,26 @@ grow_vertical = 2
 
 [node name="world_1" type="Button" parent="Control" unique_id=195682029]
 layout_mode = 0
-offset_left = 256.0
+offset_left = 32.0
 offset_top = 32.0
-offset_right = 384.0
+offset_right = 64.0
 offset_bottom = 64.0
-text = "Forest"
+text = "1-1"
 
 [node name="world_2" type="Button" parent="Control" unique_id=170677256]
 layout_mode = 0
-offset_left = 256.0
-offset_top = 96.0
-offset_right = 384.0
-offset_bottom = 128.0
+offset_left = 32.0
+offset_top = 144.0
+offset_right = 160.0
+offset_bottom = 176.0
 text = "Lab"
 
 [node name="world_3" type="Button" parent="Control" unique_id=671359956]
 layout_mode = 0
-offset_left = 256.0
-offset_top = 160.0
-offset_right = 384.0
-offset_bottom = 192.0
+offset_left = 32.0
+offset_top = 272.0
+offset_right = 160.0
+offset_bottom = 304.0
 text = "World 3"
 
 [connection signal="pressed" from="Control/world_1" to="." method="_on_world_1_pressed"]
