@@ -26,9 +26,12 @@ func _physics_process(delta: float) -> void:
 	player.move_side_logic(delta,player.side_to_side_force,player.max_running_speed)
 	
 	if Input.is_action_just_pressed("up") and player.is_on_floor() and player.gravity_mult == 1:
-		if player.on_moving_plat and player.moving_plat.coyote_time:
-			player.on_moving_plat = false
-			player.velocity += player.moving_plat.throw_speed
+		if player.on_moving_plat:
+			if player.moving_plat.coyote_time:
+				player.on_moving_plat = false
+				player.velocity += player.moving_plat.throw_speed
+			else:
+				player.velocity.y = player.jump_force
 		else:
 			player.velocity.y = player.jump_force
 	
