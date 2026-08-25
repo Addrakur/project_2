@@ -209,6 +209,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("plat_1/moving_plat")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(16),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"set_speeds"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_03hfi"]
 length = 0.001
@@ -279,6 +293,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("moving_plat")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(18),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"set_speeds"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_josvm"]
@@ -782,8 +810,6 @@ position = Vector2(368, 112)
 [node name="2" type="Marker2D" parent="screen_manager/screen_0" unique_id=636094112]
 position = Vector2(2368, -144)
 
-[node name="objs" type="Node2D" parent="screen_manager/screen_0" unique_id=540951148]
-
 [node name="screen_changer_0_1" parent="screen_manager/screen_0" unique_id=679052599 node_paths=PackedStringArray("screen_manager", "new_screen", "old_screen", "door_shape", "checkpoint") instance=ExtResource("9_y3abq")]
 screen_manager = NodePath("../..")
 new_screen = NodePath("../../screen_1")
@@ -1032,10 +1058,11 @@ position = Vector2(9344, -1088)
 [node name="fragile_ground" parent="screen_manager/screen_4" unique_id=228910512 instance=ExtResource("7_6jt6c")]
 position = Vector2(8336, -1488)
 
-[node name="screen_5" type="Node2D" parent="screen_manager" unique_id=1222902849 node_paths=PackedStringArray("camera", "default_checkpoint")]
+[node name="screen_5" type="Node2D" parent="screen_manager" unique_id=1222902849 node_paths=PackedStringArray("camera", "default_checkpoint", "start_on_touch_plats")]
 script = ExtResource("11_tti22")
 camera = NodePath("0")
 default_checkpoint = NodePath("1")
+start_on_touch_plats = [NodePath("objs/plat_1/moving_plat"), NodePath("objs/plat_2/moving_plat")]
 metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
 
 [node name="0" type="Node2D" parent="screen_manager/screen_5" unique_id=803160796 node_paths=PackedStringArray("follow_target")]
@@ -1139,10 +1166,11 @@ one_way_collision = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="screen_manager/screen_5/objs/plat_2" unique_id=506731287]
 libraries/ = SubResource("AnimationLibrary_1pdh2")
 
-[node name="screen_6" type="Node2D" parent="screen_manager" unique_id=1090893699 node_paths=PackedStringArray("camera", "default_checkpoint")]
+[node name="screen_6" type="Node2D" parent="screen_manager" unique_id=1090893699 node_paths=PackedStringArray("camera", "default_checkpoint", "start_on_touch_plats")]
 script = ExtResource("11_tti22")
 camera = NodePath("0")
 default_checkpoint = NodePath("1")
+start_on_touch_plats = [NodePath("objs/plat_3/moving_plat")]
 metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
 
 [node name="0" type="Node2D" parent="screen_manager/screen_6" unique_id=245846461 node_paths=PackedStringArray("follow_target")]
@@ -1427,10 +1455,11 @@ checkpoint = NodePath("../../screen_10/1")
 visible = false
 polygon = PackedVector2Array(17600, -944, 17600, -1328, 17568, -1328, 17536, -1328, 17536, -1296, 17568, -1296, 17568, -944)
 
-[node name="screen_10" type="Node2D" parent="screen_manager" unique_id=72889488 node_paths=PackedStringArray("camera", "default_checkpoint")]
+[node name="screen_10" type="Node2D" parent="screen_manager" unique_id=72889488 node_paths=PackedStringArray("camera", "default_checkpoint", "start_on_touch_plats")]
 script = ExtResource("11_tti22")
 camera = NodePath("0")
 default_checkpoint = NodePath("1")
+start_on_touch_plats = [NodePath("moving_plat/moving_plat")]
 metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
 
 [node name="0" type="Node2D" parent="screen_manager/screen_10" unique_id=952657123 node_paths=PackedStringArray("follow_target", "follow_path")]

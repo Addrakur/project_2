@@ -7,7 +7,7 @@ collision_layer = 4
 script = ExtResource("1_uplg2")
 
 [node name="coyote_time" type="Timer" parent="." unique_id=1209765611]
-wait_time = 0.2
+wait_time = 3.0
 one_shot = true
 
 [connection signal="timeout" from="coyote_time" to="." method="_on_coyote_time_timeout"]

@@ -5,17 +5,13 @@ extends Node2D
 @export var default_checkpoint: Marker2D
 @export var moving_objs_animation: Array[AnimationPlayer]
 @export var doors: Array[DoorManager]
-var all_animation_players: Array[AnimationPlayer]
+@export var start_on_touch_plats: Array[MovingPlat]
 
 var active: bool = false
 var number: float
 
 func _ready() -> void:
 	number = float(name.erase(0,7))
-	var children = get_children()
-	for child in children:
-		if child is AnimationPlayer:
-			all_animation_players.append(child)
 
 func activate():
 	var screen_manager: ScreenManager = get_parent()

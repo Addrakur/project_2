@@ -23,9 +23,10 @@ func player_die():
 	player.velocity = Vector2.ZERO
 	player.position = current_checkpoint.position
 	player.fuel = player.max_fuel
-	for item in screens[current_screen].all_animation_players:
-		item.play("RESET")
+	for item in screens[current_screen].start_on_touch_plats:
+		item.animation.play("RESET")
 	for item in screens[current_screen].moving_objs_animation:
+		item.play("RESET")
 		item.play("1")
 	for door in screens[current_screen].doors:
 		door.animation_player.play("RESET")

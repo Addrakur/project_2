@@ -13,13 +13,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="world_1" type="Button" parent="Control" unique_id=195682029]
+[node name="1_1" type="Button" parent="Control" unique_id=195682029]
 layout_mode = 0
 offset_left = 32.0
 offset_top = 32.0
 offset_right = 64.0
 offset_bottom = 64.0
 text = "1-1"
+
+[node name="1_2" type="Button" parent="Control" unique_id=721526575]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 32.0
+offset_right = 128.0
+offset_bottom = 63.0
+text = "1-2"
 
 [node name="world_2" type="Button" parent="Control" unique_id=170677256]
 layout_mode = 0
@@ -37,6 +45,7 @@ offset_right = 160.0
 offset_bottom = 304.0
 text = "World 3"
 
-[connection signal="pressed" from="Control/world_1" to="." method="_on_world_1_pressed"]
+[connection signal="pressed" from="Control/1_1" to="." method="_on_world_1_pressed"]
+[connection signal="pressed" from="Control/1_2" to="." method="_on_1_2_pressed"]
 [connection signal="pressed" from="Control/world_2" to="." method="_on_world_2_pressed"]
 [connection signal="pressed" from="Control/world_3" to="." method="_on_world_3_pressed"]

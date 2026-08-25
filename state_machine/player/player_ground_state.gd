@@ -7,10 +7,12 @@ func _ready() -> void:
 
 func enter_state():
 	set_physics_process(true)
-	#print("entrou " + name)
+	if player.on_moving_plat:
+		player.velocity = Vector2(player.velocity.x - player.moving_plat.speed_x, player.velocity.y - player.moving_plat.speed_y)
 
 func exit_state():
 	set_physics_process(false)
+	player.on_moving_plat = false
 	#print("saiu " + name)
 
 func _physics_process(delta: float) -> void:
@@ -32,6 +34,7 @@ func _physics_process(delta: float) -> void:
 				player.velocity += player.moving_plat.throw_speed
 			else:
 				player.velocity.y = player.jump_force
+				#player.velocity.x = 0
 		else:
 			player.velocity.y = player.jump_force
 	

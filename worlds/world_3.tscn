@@ -1091,7 +1091,7 @@ _data = {
 
 [sub_resource type="Curve2D" id="Curve2D_dna5h"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 14400, -952, 0, 0, 0, 0, 14528, -984)
+"points": PackedVector2Array(0, 0, 0, 0, 14560, -952, 0, 0, 0, 0, 14728, -976)
 }
 point_count = 2
 
@@ -1101,7 +1101,7 @@ size = Vector2(80, 32)
 [sub_resource type="Animation" id="Animation_ov5c5"]
 resource_name = "1"
 length = 3.0000200447037817
-step = 0.2
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1109,7 +1109,7 @@ tracks/0/path = NodePath("PathFollow2D:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 1.4, 3),
+"times": PackedFloat32Array(0, 0.7, 1.6999999, 3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
@@ -1121,11 +1121,14 @@ tracks/1/path = NodePath("moving_plat")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.4),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.6, 3),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"coyote_time_true"
+}, {
+"args": [],
+"method": &"set_speeds"
 }]
 }
 
@@ -1148,6 +1151,54 @@ tracks/0/keys = {
 _data = {
 &"1": SubResource("Animation_ov5c5"),
 &"RESET": SubResource("Animation_xiotr")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_k3m20"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 14520, -1200, 0, 0, 0, 0, 14520, -1040, 0, 0, 0, 0, 14840, -1040, 0, 0, 0, 0, 14840, -1200, 0, 0, 0, 0, 14520, -1200)
+}
+point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmw4r"]
+size = Vector2(16, 112)
+
+[sub_resource type="Animation" id="Animation_4vriq"]
+resource_name = "1"
+length = 8.000020119209589
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ssthc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ne2ub"]
+_data = {
+&"1": SubResource("Animation_4vriq"),
+&"RESET": SubResource("Animation_ssthc")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0sbul"]
@@ -2482,10 +2533,11 @@ checkpoint = NodePath("../../screen_9/9_2")
 visible = false
 polygon = PackedVector2Array(13328, -984, 13328, -1096, 13360, -1080, 13360, -984)
 
-[node name="screen_11" type="Node2D" parent="ScreenManager" unique_id=2006490279 node_paths=PackedStringArray("camera", "default_checkpoint")]
+[node name="screen_11" type="Node2D" parent="ScreenManager" unique_id=2006490279 node_paths=PackedStringArray("camera", "default_checkpoint", "moving_objs_animation")]
 script = ExtResource("4_shcc5")
 camera = NodePath("11")
 default_checkpoint = NodePath("Marker2D")
+moving_objs_animation = [NodePath("Path2D2/AnimationPlayer")]
 metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
 
 [node name="11" type="Node2D" parent="ScreenManager/screen_11" unique_id=345024917]
@@ -2501,34 +2553,63 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="Marker2D" type="Marker2D" parent="ScreenManager/screen_11" unique_id=1741450854]
 position = Vector2(14320, -1064)
 
-[node name="Path2D" type="Path2D" parent="ScreenManager/screen_11" unique_id=188241023]
+[node name="on_touch" type="Path2D" parent="ScreenManager/screen_11" unique_id=188241023]
 curve = SubResource("Curve2D_dna5h")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="ScreenManager/screen_11/Path2D" unique_id=870572593]
-position = Vector2(14400, -952)
+[node name="PathFollow2D" type="PathFollow2D" parent="ScreenManager/screen_11/on_touch" unique_id=870572593]
+position = Vector2(14560, -952)
 rotates = false
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="ScreenManager/screen_11/Path2D/PathFollow2D" unique_id=2847548]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="ScreenManager/screen_11/on_touch/PathFollow2D" unique_id=2847548]
 remote_path = NodePath("../../moving_plat")
 
-[node name="moving_plat" parent="ScreenManager/screen_11/Path2D" unique_id=1188621071 node_paths=PackedStringArray("animation") instance=ExtResource("13_jbrhb")]
-position = Vector2(14400, -952)
-throw_speed = Vector2(50, -50)
+[node name="moving_plat" parent="ScreenManager/screen_11/on_touch" unique_id=1188621071 node_paths=PackedStringArray("animation") instance=ExtResource("13_jbrhb")]
+position = Vector2(14560, -952)
+throw_speed = Vector2(100, -100)
 start_on_touch = true
 animation = NodePath("../AnimationPlayer")
 
-[node name="Icon" type="Sprite2D" parent="ScreenManager/screen_11/Path2D/moving_plat" unique_id=643596917]
+[node name="Icon" type="Sprite2D" parent="ScreenManager/screen_11/on_touch/moving_plat" unique_id=643596917]
 position = Vector2(-0.00036621094, 3.0517578e-05)
 scale = Vector2(0.6250025, 0.2500006)
 texture = ExtResource("14_dsiu5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenManager/screen_11/Path2D/moving_plat" unique_id=393998965]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenManager/screen_11/on_touch/moving_plat" unique_id=393998965]
 shape = SubResource("RectangleShape2D_lk3av")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ScreenManager/screen_11/Path2D" unique_id=180898915]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScreenManager/screen_11/on_touch" unique_id=180898915]
 libraries/ = SubResource("AnimationLibrary_kyukn")
 
-[node name="path_trace" parent="ScreenManager/screen_11/Path2D" unique_id=170204672 instance=ExtResource("11_h4kwi")]
+[node name="path_trace" parent="ScreenManager/screen_11/on_touch" unique_id=170204672 instance=ExtResource("11_h4kwi")]
+
+[node name="Path2D2" type="Path2D" parent="ScreenManager/screen_11" unique_id=1430399380]
+curve = SubResource("Curve2D_k3m20")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="ScreenManager/screen_11/Path2D2" unique_id=205688518]
+position = Vector2(14520, -1200)
+rotation = 1.5707964
+rotates = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="ScreenManager/screen_11/Path2D2/PathFollow2D" unique_id=889734109]
+remote_path = NodePath("../../moving_plat")
+
+[node name="moving_plat" parent="ScreenManager/screen_11/Path2D2" unique_id=76708263 node_paths=PackedStringArray("animation") instance=ExtResource("13_jbrhb")]
+position = Vector2(14520, -1200)
+rotation = 1.5707964
+animation = NodePath("../AnimationPlayer")
+
+[node name="Icon" type="Sprite2D" parent="ScreenManager/screen_11/Path2D2/moving_plat" unique_id=783146065]
+rotation = -1.5707964
+scale = Vector2(0.8749972, 0.1250006)
+texture = ExtResource("14_dsiu5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenManager/screen_11/Path2D2/moving_plat" unique_id=820878897]
+shape = SubResource("RectangleShape2D_cmw4r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScreenManager/screen_11/Path2D2" unique_id=86579834]
+libraries/ = SubResource("AnimationLibrary_ne2ub")
+
+[node name="path_trace" parent="ScreenManager/screen_11/Path2D2" unique_id=425958121 instance=ExtResource("11_h4kwi")]
 
 [node name="objs" type="Node2D" parent="." unique_id=2093089612]
 

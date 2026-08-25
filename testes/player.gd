@@ -42,6 +42,9 @@ var gravity: float
 var no_gravity: bool = false
 var rocket_no_recharge: bool = false
 
+var speed_test: float
+var previous_position: Vector2
+
 var on_moving_plat: bool = false
 var moving_plat: AnimatableBody2D
 
@@ -133,9 +136,15 @@ func _physics_process(delta: float) -> void:
 			on_moving_plat = false
 			moving_plat = null
 	
+	speed_test = (global_position.x - previous_position.x) / delta
+	previous_position = global_position
+	
 	set_animation()
 	
 	move_and_slide()
+
+	#print("Velocity X: " + str(velocity.x))
+	#print("Speed: " + str(speed_test))
 
 func rocket_logic(delta: float):
 	if Input.is_action_pressed("jetpack") and fuel > 0 and rocket_active:
