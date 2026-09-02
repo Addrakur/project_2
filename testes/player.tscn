@@ -158,7 +158,7 @@ air_delta_towards_zero = 0.6
 speed = 30.0
 max_running_speed = 100.0
 jump_force = -90.0
-max_x_velocity = 200.0
+max_x_velocity = 170.0
 max_speed_zero_gravity = 30.0
 max_fuel = 15.0
 fuel_consume = 0.1
@@ -169,8 +169,8 @@ rocket_speed = 5.0
 rocket_max_force = 12.0
 rocket_force_up = 8.0
 rocket_force_down = 4.0
-rocket_max_speed = 100.0
-less_gravity_limit = 30.0
+rocket_max_speed = 80.0
+less_gravity_limit = 20.0
 progress_bar = NodePath("ProgressBar")
 
 [node name="texture" type="Node2D" parent="." unique_id=509839083]

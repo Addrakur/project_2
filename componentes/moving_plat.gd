@@ -14,19 +14,18 @@ var speed_y: float
 var previous_position: Vector2
 
 func _ready() -> void:
-	var children = get_children()
-	for child in children:
-		if child is CollisionShape2D:
-			child.one_way_collision = true
+#	var children = get_children()
+#	for child in children:
+#		if child is CollisionShape2D:
+#			child.one_way_collision = true
 	speed_x = 0
 	speed_y = 0
 
-func _on_coyote_time_timeout() -> void:
-	coyote_time = false
-
 func coyote_time_true():
 	coyote_time = true
-	$coyote_time.start()
+
+func coyote_time_false():
+	coyote_time = false
 
 func play_animation():
 	animation.play("1")

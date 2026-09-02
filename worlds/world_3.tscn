@@ -1210,7 +1210,6 @@ size = Vector2(1009, 20)
 [node name="world_3" type="Node2D" unique_id=1238504135 node_paths=PackedStringArray("player")]
 script = ExtResource("1_xw1xx")
 player = NodePath("objs/player")
-gravity = 120.0
 metadata/_custom_type_script = "uid://bnvqoglkbsle4"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=299520503]
@@ -1218,10 +1217,6 @@ physics_interpolation_mode = 1
 position = Vector2(400, -137)
 zoom = Vector2(0.8, 0.8)
 process_callback = 0
-limit_left = 0
-limit_top = -536
-limit_right = 1272
-limit_bottom = 88
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=511638370]

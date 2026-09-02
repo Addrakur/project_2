@@ -1,0 +1,14 @@
+[gd_resource type="TileSet" format=3 uid="uid://djbnfr3lc6o7f"]
+
+[ext_resource type="Texture2D" uid="uid://u2oodajijhi5" path="res://assets/tilesets/map_limit.png" id="1_fmm7e"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0mvmc"]
+texture = ExtResource("1_fmm7e")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[resource]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 4
+sources/0 = SubResource("TileSetAtlasSource_0mvmc")

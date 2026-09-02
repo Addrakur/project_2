@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 	elif gravity_mult > 0:
 		if Input.is_action_pressed("jetpack") and fuel > 0 and sin(deg_to_rad(texture.rotation_degrees)) < 0:
 			if velocity.y > less_gravity_limit:
-				velocity.y += rocket_velocity_y
+				velocity.y += rocket_velocity_y*2
 			else:
 				velocity.y +=  gravity * delta * gravity_mult * 0.3 + rocket_velocity_y
 		else:
