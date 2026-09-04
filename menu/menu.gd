@@ -14,3 +14,6 @@ func _on_1_4_pressed() -> void:
 
 func _on_1_5_pressed() -> void:
 	get_tree().change_scene_to_file("uid://62rehkusbvss")
+
+func _on_2_6_pressed() -> void:
+	get_tree().change_scene_to_file("uid://4ob6k6a75tky")

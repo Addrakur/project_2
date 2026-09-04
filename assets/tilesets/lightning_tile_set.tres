@@ -1,0 +1,63 @@
+[gd_resource type="TileSet" format=3 uid="uid://dy022kmr55x41"]
+
+[ext_resource type="Texture2D" uid="uid://wvsqwpwqkl8o" path="res://assets/tilesets/lightning_tile.png" id="1_x7upf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_alvj1"]
+texture = ExtResource("1_x7upf")
+texture_region_size = Vector2i(32, 32)
+0:0/animation_columns = 6
+0:0/animation_speed = 10.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -15, 16, -15, 16, -11, -16, -11)
+0:1/animation_columns = 6
+0:1/animation_speed = 10.0
+0:1/animation_frame_0/duration = 1.0
+0:1/animation_frame_1/duration = 1.0
+0:1/animation_frame_2/duration = 1.0
+0:1/animation_frame_3/duration = 1.0
+0:1/animation_frame_4/duration = 1.0
+0:1/animation_frame_5/duration = 1.0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15, -15, 15, -15, 15, 15, 11, 15, -15, -11)
+0:2/animation_columns = 6
+0:2/animation_speed = 10.0
+0:2/animation_frame_0/duration = 1.0
+0:2/animation_frame_1/duration = 1.0
+0:2/animation_frame_2/duration = 1.0
+0:2/animation_frame_3/duration = 1.0
+0:2/animation_frame_4/duration = 1.0
+0:2/animation_frame_5/duration = 1.0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(15, 16, 15, -8, 11, -8, 11, 16)
+0:3/animation_columns = 6
+0:3/animation_speed = 10.0
+0:3/animation_frame_0/duration = 1.0
+0:3/animation_frame_1/duration = 1.0
+0:3/animation_frame_2/duration = 1.0
+0:3/animation_frame_3/duration = 1.0
+0:3/animation_frame_4/duration = 1.0
+0:3/animation_frame_5/duration = 1.0
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -11, 8, -15, -16, -15, -16, -11)
+0:4/animation_columns = 6
+0:4/animation_speed = 10.0
+0:4/animation_frame_0/duration = 1.0
+0:4/animation_frame_1/duration = 1.0
+0:4/animation_frame_2/duration = 1.0
+0:4/animation_frame_3/duration = 1.0
+0:4/animation_frame_4/duration = 1.0
+0:4/animation_frame_5/duration = 1.0
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 15, 15, -16, 11, -16, -16, 11)
+0:5/0 = 0
+
+[resource]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 2
+sources/0 = SubResource("TileSetAtlasSource_alvj1")

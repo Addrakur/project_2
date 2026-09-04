@@ -40,13 +40,12 @@ size = Vector2(1440, 976)
 [node name="world_1_1" type="Node2D" unique_id=450537074 node_paths=PackedStringArray("player", "map_limit")]
 script = ExtResource("1_c8diu")
 player = NodePath("objs/player")
-gravity = 120.0
 map_limit = NodePath("objs/map_limit")
 metadata/_custom_type_script = "uid://bnvqoglkbsle4"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1922368755]
 physics_interpolation_mode = 1
-position = Vector2(1882.6667, -196)
+position = Vector2(533.3333, -44)
 zoom = Vector2(0.6, 0.6)
 process_callback = 0
 limit_left = 0
@@ -75,7 +74,7 @@ metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
 
 [node name="0" type="Node2D" parent="ScreenManager/screen_0" unique_id=1904517438 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(1882.6667, -196)
+position = Vector2(533.3333, -44)
 script = ExtResource("5_hoqy1")
 follow_mode = 1
 follow_target = NodePath("../../../objs/player")
@@ -116,7 +115,7 @@ metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
 
 [node name="0" type="Node2D" parent="ScreenManager/screen_1" unique_id=836988790 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(3946.6667, -480)
+position = Vector2(2949.3333, 84)
 script = ExtResource("5_hoqy1")
 follow_mode = 1
 follow_target = NodePath("../../../objs/player")
@@ -168,7 +167,7 @@ metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
 
 [node name="0" type="Node2D" parent="ScreenManager/screen_2" unique_id=1815771221 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(5386.6665, -636)
+position = Vector2(5013.3335, -636)
 script = ExtResource("5_hoqy1")
 follow_mode = 1
 follow_target = NodePath("../../../objs/player")
@@ -207,7 +206,7 @@ polygon = PackedVector2Array(4464, -544, 4464, -864, 4432, -864, 4432, -544)
 [node name="objs" type="Node2D" parent="." unique_id=2050368554]
 
 [node name="player" parent="objs" unique_id=493830883 node_paths=PackedStringArray("screen_manager") instance=ExtResource("9_to06p")]
-position = Vector2(5680, -480)
+position = Vector2(368, 96)
 screen_manager = NodePath("../../ScreenManager")
 
 [node name="stone" type="TileMapLayer" parent="objs" unique_id=309698449]

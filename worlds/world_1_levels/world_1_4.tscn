@@ -314,9 +314,10 @@ metadata/_custom_type_script = "uid://bnvqoglkbsle4"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=312333641]
 physics_interpolation_mode = 1
-position = Vector2(528, -960)
+position = Vector2(528, -304)
 zoom = Vector2(0.6, 0.6)
 process_callback = 0
+editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=16320356]
 process_priority = 300
@@ -340,7 +341,7 @@ metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
 
 [node name="0" type="Node2D" parent="ScreenManager/screen_0" unique_id=1759014961 node_paths=PackedStringArray("follow_target", "follow_path")]
 top_level = true
-position = Vector2(528, -960)
+position = Vector2(528, -304)
 script = ExtResource("5_8qj5d")
 follow_mode = 4
 follow_target = NodePath("../../../objs/player")
@@ -349,6 +350,7 @@ zoom = Vector2(0.6, 0.6)
 tween_resource = SubResource("Resource_a30db")
 follow_damping = true
 follow_damping_value = Vector2(0.4, 0.4)
+draw_limits = true
 limit_target = NodePath("../camera_limit")
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
@@ -481,7 +483,7 @@ metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
 
 [node name="1" type="Node2D" parent="ScreenManager/screen_1" unique_id=1444971925 node_paths=PackedStringArray("follow_target", "follow_path")]
 top_level = true
-position = Vector2(2736, -1200)
+position = Vector2(1600, -1200)
 script = ExtResource("5_8qj5d")
 follow_mode = 4
 follow_target = NodePath("../../../objs/player")
@@ -490,6 +492,7 @@ zoom = Vector2(0.6, 0.6)
 tween_resource = SubResource("Resource_a30db")
 follow_damping = true
 follow_damping_value = Vector2(0.4, 0.4)
+draw_limits = true
 limit_target = NodePath("../camera_limit")
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
@@ -565,6 +568,7 @@ zoom = Vector2(0.6, 0.6)
 tween_resource = SubResource("Resource_a30db")
 follow_damping = true
 follow_damping_value = Vector2(0.4, 0.4)
+draw_limits = true
 limit_target = NodePath("../camera_limit")
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
@@ -614,7 +618,7 @@ polygon = PackedVector2Array(3120, -912, 3216, -912, 3216, -944, 3120, -944)
 [node name="objs" type="Node2D" parent="." unique_id=1375869357]
 
 [node name="player" parent="objs" unique_id=493830883 node_paths=PackedStringArray("screen_manager") instance=ExtResource("4_a314r")]
-position = Vector2(3040, -1024)
+position = Vector2(80, -224)
 screen_manager = NodePath("../../ScreenManager")
 
 [node name="grass" type="TileMapLayer" parent="objs" unique_id=1882700362]
