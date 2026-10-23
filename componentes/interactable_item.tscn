@@ -72,6 +72,7 @@ autoplay = &"RESET"
 shape = SubResource("CircleShape2D_pu80n")
 
 [node name="texture" type="Sprite2D" parent="." unique_id=572685876]
+modulate = Color(1.658, 1.658, 1.658, 1)
 position = Vector2(-1.0728836e-06, -1.0728836e-06)
 texture = ExtResource("2_wbygg")
 

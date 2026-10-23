@@ -53,7 +53,7 @@ offset_right = 320.0
 offset_bottom = 63.0
 text = "1-5"
 
-[node name="1_6" type="Button" parent="Control" unique_id=783780479]
+[node name="2_1" type="Button" parent="Control" unique_id=783780479]
 layout_mode = 0
 offset_left = 32.0
 offset_top = 96.0
@@ -61,9 +61,18 @@ offset_right = 66.0
 offset_bottom = 127.0
 text = "2-1"
 
+[node name="2_2" type="Button" parent="Control" unique_id=1953231869]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 96.0
+offset_right = 130.0
+offset_bottom = 127.0
+text = "2-2"
+
 [connection signal="pressed" from="Control/1_1" to="." method="_on_1_1_pressed"]
 [connection signal="pressed" from="Control/1_2" to="." method="_on_1_2_pressed"]
 [connection signal="pressed" from="Control/1_3" to="." method="_on_1_3_pressed"]
 [connection signal="pressed" from="Control/1_4" to="." method="_on_1_4_pressed"]
 [connection signal="pressed" from="Control/1_5" to="." method="_on_1_5_pressed"]
-[connection signal="pressed" from="Control/1_6" to="." method="_on_2_6_pressed"]
+[connection signal="pressed" from="Control/2_1" to="." method="_on_2_1_pressed"]
+[connection signal="pressed" from="Control/2_2" to="." method="_on_2_2_pressed"]

@@ -1,0 +1,4564 @@
+[gd_scene format=4 uid="uid://drd56j2a4i2uj"]
+
+[ext_resource type="Script" uid="uid://bnvqoglkbsle4" path="res://worlds/world.gd" id="1_db87c"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_qont5"]
+[ext_resource type="Script" uid="uid://cmnl8rde72dq3" path="res://screen_manager/screen_manager.gd" id="3_qont5"]
+[ext_resource type="Script" uid="uid://c6q8tsrrnwhev" path="res://screen_manager/screen.gd" id="4_4qndx"]
+[ext_resource type="PackedScene" uid="uid://bx2l4ln2h5uh" path="res://testes/player.tscn" id="4_6lsfh"]
+[ext_resource type="TileSet" uid="uid://dui84x42x6ts" path="res://assets/tilesets/prison_ground.tres" id="5_mmfav"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_tsdqa"]
+[ext_resource type="TileSet" uid="uid://dy022kmr55x41" path="res://assets/tilesets/lightning_tile_set.tres" id="6_60qj4"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_470js"]
+[ext_resource type="TileSet" uid="uid://djbnfr3lc6o7f" path="res://assets/tilesets/map_limit_tile.tres" id="7_4qndx"]
+[ext_resource type="PackedScene" uid="uid://c35o7nhnr28fy" path="res://componentes/door_manager.tscn" id="7_470js"]
+[ext_resource type="PackedScene" uid="uid://ciwfkk27kgbbr" path="res://componentes/interactable_item.tscn" id="8_np80s"]
+[ext_resource type="Texture2D" uid="uid://dq44xuugickbx" path="res://assets/componentes/metal_door/metal_door_loop.png" id="9_0nm8u"]
+[ext_resource type="Texture2D" uid="uid://fepc43heoe5r" path="res://assets/componentes/metal_door/metal_door_end.png" id="10_5v8if"]
+[ext_resource type="Texture2D" uid="uid://nt6ovvyld1b0" path="res://assets/componentes/metal_door/metal_door_base.png" id="11_40mqc"]
+[ext_resource type="PackedScene" uid="uid://0k4iaeeb2hhh" path="res://componentes/fuel_pickup.tscn" id="12_7j6iy"]
+[ext_resource type="PackedScene" uid="uid://sfv4u8eql4q3" path="res://componentes/kill_player_area.tscn" id="16_8jvfq"]
+[ext_resource type="PackedScene" uid="uid://bc0h52fcbkhl2" path="res://componentes/level_select.tscn" id="16_40mqc"]
+[ext_resource type="PackedScene" uid="uid://cwejeh6yahf8j" path="res://componentes/screen_select_button.tscn" id="17_8jvfq"]
+
+[sub_resource type="Resource" id="Resource_np80s"]
+script = ExtResource("6_470js")
+duration = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jvfq"]
+size = Vector2(746, 22)
+
+[sub_resource type="Animation" id="Animation_0nm8u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door1/MetalDoorLoop5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door1/MetalDoorLoop6:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(24, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("door1/MetalDoorLoop7:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(40, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("door1/MetalDoorLoop8:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(56, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("door1/MetalDoorLoop9:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(72, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("door1/MetalDoorLoop10:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(88, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("door1/MetalDoorLoop11:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(104, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("door1/MetalDoorLoop12:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(120, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("door1/MetalDoorLoop13:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(136, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("door1/MetalDoorLoop14:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(152, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("door1/MetalDoorLoop15:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(168, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("door1/MetalDoorLoop16:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(184, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("door1/MetalDoorLoop17:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(200, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("door1/MetalDoorLoop18:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(216, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("door1/MetalDoorLoop19:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(232, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("door1/MetalDoorLoop20:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(248, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("door1/MetalDoorLoop21:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(264, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("door1/MetalDoorLoop22:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(280, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("door1/MetalDoorLoop23:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(296, 0)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("door1/MetalDoorLoop24:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(312, 0)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("door1/MetalDoorLoop25:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(328, 0)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("door1/MetalDoorLoop26:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(344, 0)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("door1/MetalDoorLoop27:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(360, 0)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("door1/MetalDoorLoop28:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(376, 0)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("door1/MetalDoorLoop29:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(392, 0)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("door1/MetalDoorLoop30:position")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(408, 0)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("door1/MetalDoorLoop31:position")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(424, 0)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("door1/MetalDoorLoop32:position")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(440, 0)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("door1/MetalDoorLoop33:position")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(456, 0)]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("door1/MetalDoorLoop34:position")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(472, 0)]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("door1/MetalDoorLoop35:position")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(488, 0)]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("door1/MetalDoorLoop36:position")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(504, 0)]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("door1/MetalDoorLoop37:position")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(520, 0)]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("door1/MetalDoorLoop38:position")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(536, 0)]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("door1/MetalDoorLoop39:position")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(552, 0)]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("door1/MetalDoorLoop40:position")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(568, 0)]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("door1/MetalDoorLoop41:position")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(584, 0)]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("door1/MetalDoorLoop42:position")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(600, 0)]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("door1/MetalDoorLoop43:position")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(616, 0)]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("door1/MetalDoorLoop44:position")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(632, 0)]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("door1/MetalDoorLoop45:position")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(648, 0)]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("door1/MetalDoorLoop46:position")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(664, 0)]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("door1/MetalDoorLoop47:position")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(680, 0)]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("door1/MetalDoorLoop48:position")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(696, 0)]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("door1/MetalDoorLoop49:position")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(712, 0)]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("door1/MetalDoorEnd:position")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(730.5, 0)]
+}
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("door1/CollisionShape2D:position")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(408, 0)]
+}
+tracks/47/type = "value"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("door1/CollisionShape2D:shape:size")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(746, 22)]
+}
+tracks/48/type = "value"
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/path = NodePath("door1/color:position")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-32.507965, -7.6293945e-06)]
+}
+tracks/49/type = "value"
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/path = NodePath("door1/color:scale")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.49206287, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5v8if"]
+resource_name = "open"
+length = 20.0001
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door1/MetalDoorLoop5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(8, 0), Vector2(-13, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door1/MetalDoorLoop6:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(24, 0), Vector2(-13, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("door1/MetalDoorLoop7:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(40, 0), Vector2(-13, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("door1/MetalDoorLoop8:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(56, 0), Vector2(-13, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("door1/MetalDoorLoop9:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(72, 0), Vector2(-13, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("door1/MetalDoorLoop10:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(88, 0), Vector2(-13, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("door1/MetalDoorLoop11:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(104, 0), Vector2(-13, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("door1/MetalDoorLoop12:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(120, 0), Vector2(-13, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("door1/MetalDoorLoop13:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(136, 0), Vector2(-13, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("door1/MetalDoorLoop14:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(152, 0), Vector2(-13, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("door1/MetalDoorLoop15:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(168, 0), Vector2(-13, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("door1/MetalDoorLoop16:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(184, 0), Vector2(-13, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("door1/MetalDoorLoop17:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(200, 0), Vector2(-13, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("door1/MetalDoorLoop18:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(216, 0), Vector2(-13, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("door1/MetalDoorLoop19:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(232, 0), Vector2(-13, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("door1/MetalDoorLoop20:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(248, 0), Vector2(-13, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("door1/MetalDoorLoop21:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(264, 0), Vector2(-13, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("door1/MetalDoorLoop22:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(280, 0), Vector2(-13, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("door1/MetalDoorLoop23:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(296, 0), Vector2(-13, 0)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("door1/MetalDoorLoop24:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(312, 0), Vector2(-13, 0)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("door1/MetalDoorLoop25:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(328, 0), Vector2(-13, 0)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("door1/MetalDoorLoop26:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(344, 0), Vector2(-13, 0)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("door1/MetalDoorLoop27:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(360, 0), Vector2(-13, 0)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("door1/MetalDoorLoop28:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(376, 0), Vector2(-13, 0)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("door1/MetalDoorLoop29:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(392, 0), Vector2(-13, 0)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("door1/MetalDoorLoop30:position")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(408, 0), Vector2(-13, 0)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("door1/MetalDoorLoop31:position")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(424, 0), Vector2(-13, 0)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("door1/MetalDoorLoop32:position")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(440, 0), Vector2(-13, 0)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("door1/MetalDoorLoop33:position")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(456, 0), Vector2(-13, 0)]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("door1/MetalDoorLoop34:position")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(472, 0), Vector2(-13, 0)]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("door1/MetalDoorLoop35:position")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(488, 0), Vector2(-13, 0)]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("door1/MetalDoorLoop36:position")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(504, 0), Vector2(-13, 0)]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("door1/MetalDoorLoop37:position")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(520, 0), Vector2(-13, 0)]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("door1/MetalDoorLoop38:position")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(536, 0), Vector2(-13, 0)]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("door1/MetalDoorLoop39:position")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(552, 0), Vector2(-13, 0)]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("door1/MetalDoorLoop40:position")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(568, 0), Vector2(-13, 0)]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("door1/MetalDoorLoop41:position")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(584, 0), Vector2(-13, 0)]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("door1/MetalDoorLoop42:position")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(600, 0), Vector2(-13, 0)]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("door1/MetalDoorLoop43:position")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(616, 0), Vector2(-13, 0)]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("door1/MetalDoorLoop44:position")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(632, 0), Vector2(-13, 0)]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("door1/MetalDoorLoop45:position")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(648, 0), Vector2(-13, 0)]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("door1/MetalDoorLoop46:position")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(664, 0), Vector2(-13, 0)]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("door1/MetalDoorLoop47:position")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(680, 0), Vector2(-13, 0)]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("door1/MetalDoorLoop48:position")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(696, 0), Vector2(-13, 0)]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("door1/MetalDoorLoop49:position")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(712, 0), Vector2(-13, 0)]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("door1/MetalDoorEnd:position")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(730.5, 0), Vector2(-15.5, 0)]
+}
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("door1/CollisionShape2D:position")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(368, 0), Vector2(-5, 0)]
+}
+tracks/47/type = "value"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("door1/CollisionShape2D:shape:size")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(746, 22), Vector2(0, 22)]
+}
+tracks/48/type = "value"
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/path = NodePath("door1/color:position")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-32.507965, -7.6293945e-06), Vector2(-11.999996, -7.6293945e-06)]
+}
+tracks/49/type = "value"
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/path = NodePath("door1/color:scale")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.49206287, 1), Vector2(-8.1807375e-05, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_40mqc"]
+_data = {
+&"RESET": SubResource("Animation_0nm8u"),
+&"open": SubResource("Animation_5v8if")
+}
+
+[sub_resource type="Animation" id="Animation_8jvfq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door2/MetalDoorLoop5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door2/MetalDoorLoop6:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("door2/MetalDoorLoop7:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("door2/MetalDoorLoop8:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("door2/MetalDoorLoop9:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("door2/MetalDoorLoop10:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("door2/MetalDoorLoop11:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("door2/MetalDoorLoop12:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("door2/MetalDoorLoop13:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("door2/MetalDoorLoop14:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("door2/MetalDoorLoop15:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("door2/MetalDoorLoop16:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("door2/MetalDoorLoop17:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("door2/MetalDoorLoop18:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("door2/MetalDoorLoop19:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("door2/MetalDoorLoop20:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("door2/MetalDoorLoop21:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("door2/MetalDoorLoop22:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("door2/MetalDoorLoop23:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("door2/MetalDoorLoop24:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("door2/MetalDoorLoop25:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("door2/MetalDoorLoop26:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("door2/MetalDoorLoop27:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("door2/MetalDoorLoop28:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("door2/MetalDoorLoop29:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("door2/MetalDoorLoop30:position")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("door2/MetalDoorLoop31:position")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("door2/MetalDoorLoop32:position")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("door2/MetalDoorLoop33:position")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("door2/MetalDoorLoop34:position")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("door2/MetalDoorLoop35:position")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("door2/MetalDoorLoop36:position")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("door2/MetalDoorLoop37:position")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("door2/MetalDoorLoop38:position")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("door2/MetalDoorLoop39:position")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("door2/MetalDoorLoop40:position")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("door2/MetalDoorLoop41:position")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("door2/MetalDoorLoop42:position")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("door2/MetalDoorLoop43:position")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("door2/MetalDoorLoop44:position")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("door2/MetalDoorLoop45:position")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("door2/MetalDoorLoop46:position")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("door2/MetalDoorLoop47:position")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("door2/MetalDoorLoop48:position")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("door2/MetalDoorLoop49:position")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("door2/MetalDoorLoop50:position")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("door2/MetalDoorLoop51:position")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/47/type = "value"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("door2/MetalDoorLoop52:position")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/48/type = "value"
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/path = NodePath("door2/MetalDoorLoop53:position")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/49/type = "value"
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/path = NodePath("door2/MetalDoorLoop54:position")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/50/type = "value"
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/path = NodePath("door2/MetalDoorLoop55:position")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/51/type = "value"
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/path = NodePath("door2/MetalDoorLoop56:position")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/52/type = "value"
+tracks/52/imported = false
+tracks/52/enabled = true
+tracks/52/path = NodePath("door2/MetalDoorLoop57:position")
+tracks/52/interp = 1
+tracks/52/loop_wrap = true
+tracks/52/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/53/type = "value"
+tracks/53/imported = false
+tracks/53/enabled = true
+tracks/53/path = NodePath("door2/MetalDoorLoop58:position")
+tracks/53/interp = 1
+tracks/53/loop_wrap = true
+tracks/53/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/54/type = "value"
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/path = NodePath("door2/MetalDoorLoop59:position")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 0)]
+}
+tracks/55/type = "value"
+tracks/55/imported = false
+tracks/55/enabled = true
+tracks/55/path = NodePath("door2/MetalDoorEnd:position")
+tracks/55/interp = 1
+tracks/55/loop_wrap = true
+tracks/55/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-15.5, 0)]
+}
+tracks/56/type = "value"
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/path = NodePath("door2/CollisionShape2D:shape:size")
+tracks/56/interp = 1
+tracks/56/loop_wrap = true
+tracks/56/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 22)]
+}
+tracks/57/type = "value"
+tracks/57/imported = false
+tracks/57/enabled = true
+tracks/57/path = NodePath("door2/CollisionShape2D:position")
+tracks/57/interp = 1
+tracks/57/loop_wrap = true
+tracks/57/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5, 0)]
+}
+tracks/58/type = "value"
+tracks/58/imported = false
+tracks/58/enabled = true
+tracks/58/path = NodePath("door2/color:position")
+tracks/58/interp = 1
+tracks/58/loop_wrap = true
+tracks/58/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, 0)]
+}
+tracks/59/type = "value"
+tracks/59/imported = false
+tracks/59/enabled = true
+tracks/59/path = NodePath("door2/color:scale")
+tracks/59/interp = 1
+tracks/59/loop_wrap = true
+tracks/59/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-7.4996784e-08, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_40mqc"]
+resource_name = "open"
+length = 5.0001
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door2/MetalDoorLoop5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(8, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door2/MetalDoorLoop6:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(24, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("door2/MetalDoorLoop7:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(40, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("door2/MetalDoorLoop8:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(56, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("door2/MetalDoorLoop9:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(72, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("door2/MetalDoorLoop10:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(88, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("door2/MetalDoorLoop11:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(104, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("door2/MetalDoorLoop12:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(120, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("door2/MetalDoorLoop13:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(136, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("door2/MetalDoorLoop14:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(152, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("door2/MetalDoorLoop15:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(168, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("door2/MetalDoorLoop16:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(184, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("door2/MetalDoorLoop17:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(200, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("door2/MetalDoorLoop18:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(216, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("door2/MetalDoorLoop19:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(232, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("door2/MetalDoorLoop20:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(248, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("door2/MetalDoorLoop21:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(264, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("door2/MetalDoorLoop22:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(280, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("door2/MetalDoorLoop23:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(296, 0)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("door2/MetalDoorLoop24:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(312, 0)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("door2/MetalDoorLoop25:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(328, 0)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("door2/MetalDoorLoop26:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(344, 0)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("door2/MetalDoorLoop27:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(360, 0)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("door2/MetalDoorLoop28:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(376, 0)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("door2/MetalDoorLoop29:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(392, 0)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("door2/MetalDoorLoop30:position")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(408, 0)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("door2/MetalDoorLoop31:position")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(424, 0)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("door2/MetalDoorLoop32:position")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(440, 0)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("door2/MetalDoorLoop33:position")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(456, 0)]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("door2/MetalDoorLoop34:position")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(472, 0)]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("door2/MetalDoorLoop35:position")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(488, 0)]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("door2/MetalDoorLoop36:position")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(504, 0)]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("door2/MetalDoorLoop37:position")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(520, 0)]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("door2/MetalDoorLoop38:position")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(536, 0)]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("door2/MetalDoorLoop39:position")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(552, 0)]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("door2/MetalDoorLoop40:position")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(568, 0)]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("door2/MetalDoorLoop41:position")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(584, 0)]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("door2/MetalDoorLoop42:position")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(600, 0)]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("door2/MetalDoorLoop43:position")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(616, 0)]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("door2/MetalDoorLoop44:position")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(632, 0)]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("door2/MetalDoorLoop45:position")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(648, 0)]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("door2/MetalDoorLoop46:position")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(664, 0)]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("door2/MetalDoorLoop47:position")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(680, 0)]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("door2/MetalDoorLoop48:position")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(696, 0)]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("door2/MetalDoorLoop49:position")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(712, 0)]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("door2/MetalDoorLoop50:position")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(728, 0)]
+}
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("door2/MetalDoorLoop51:position")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(744, 0)]
+}
+tracks/47/type = "value"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("door2/MetalDoorLoop52:position")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(760, 0)]
+}
+tracks/48/type = "value"
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/path = NodePath("door2/MetalDoorLoop53:position")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(776, 0)]
+}
+tracks/49/type = "value"
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/path = NodePath("door2/MetalDoorLoop54:position")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(792, 0)]
+}
+tracks/50/type = "value"
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/path = NodePath("door2/MetalDoorLoop55:position")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(808, 0)]
+}
+tracks/51/type = "value"
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/path = NodePath("door2/MetalDoorLoop56:position")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(824, 0)]
+}
+tracks/52/type = "value"
+tracks/52/imported = false
+tracks/52/enabled = true
+tracks/52/path = NodePath("door2/MetalDoorLoop57:position")
+tracks/52/interp = 1
+tracks/52/loop_wrap = true
+tracks/52/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(840, 0)]
+}
+tracks/53/type = "value"
+tracks/53/imported = false
+tracks/53/enabled = true
+tracks/53/path = NodePath("door2/MetalDoorLoop58:position")
+tracks/53/interp = 1
+tracks/53/loop_wrap = true
+tracks/53/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(856, 0)]
+}
+tracks/54/type = "value"
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/path = NodePath("door2/MetalDoorLoop59:position")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-13, 0), Vector2(872, 0)]
+}
+tracks/55/type = "value"
+tracks/55/imported = false
+tracks/55/enabled = true
+tracks/55/path = NodePath("door2/MetalDoorEnd:position")
+tracks/55/interp = 1
+tracks/55/loop_wrap = true
+tracks/55/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-15.5, 0), Vector2(890.5, 0)]
+}
+tracks/56/type = "value"
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/path = NodePath("door2/CollisionShape2D:shape:size")
+tracks/56/interp = 1
+tracks/56/loop_wrap = true
+tracks/56/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 22), Vector2(906, 22)]
+}
+tracks/57/type = "value"
+tracks/57/imported = false
+tracks/57/enabled = true
+tracks/57/path = NodePath("door2/CollisionShape2D:position")
+tracks/57/interp = 1
+tracks/57/loop_wrap = true
+tracks/57/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-5, 0), Vector2(448, 0)]
+}
+tracks/58/type = "value"
+tracks/58/imported = false
+tracks/58/enabled = true
+tracks/58/path = NodePath("door2/color:position")
+tracks/58/interp = 1
+tracks/58/loop_wrap = true
+tracks/58/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-12, 0), Vector2(-32.507965, -7.6293945e-06)]
+}
+tracks/59/type = "value"
+tracks/59/imported = false
+tracks/59/enabled = true
+tracks/59/path = NodePath("door2/color:scale")
+tracks/59/interp = 1
+tracks/59/loop_wrap = true
+tracks/59/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-7.4996784e-08, 1), Vector2(0.49206287, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8jvfq"]
+_data = {
+&"RESET": SubResource("Animation_8jvfq"),
+&"open": SubResource("Animation_40mqc")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7j6iy"]
+size = Vector2(0, 22)
+
+[sub_resource type="Animation" id="Animation_7j6iy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door1/MetalDoorEnd:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(58.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door1/MetalDoorLoop7:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(40, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("door1/MetalDoorLoop6:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(24, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("door1/MetalDoorLoop5:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("door1/CollisionShape2D:shape:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(74, 22)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("door1/CollisionShape2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("door1/color:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-32.507965, -7.6293945e-06)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("door1/color:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.49206287, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p7g5e"]
+resource_name = "open"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door1/MetalDoorEnd:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(58.5, 0), Vector2(-15.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door1/MetalDoorLoop7:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(40, 0), Vector2(-13, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("door1/MetalDoorLoop6:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(24, 0), Vector2(-13, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("door1/MetalDoorLoop5:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(8, 0), Vector2(-13, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("door1/CollisionShape2D:shape:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(74, 22), Vector2(0, 22)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("door1/CollisionShape2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(32, 0), Vector2(-5, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("door1/color:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-32.507965, -7.6293945e-06), Vector2(-106.00003, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("door1/color:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.49206287, 1), Vector2(0.49206287, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rkh1m"]
+_data = {
+&"RESET": SubResource("Animation_7j6iy"),
+&"open": SubResource("Animation_p7g5e")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vpqb"]
+size = Vector2(74, 22)
+
+[sub_resource type="Animation" id="Animation_3vpqb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door1/MetalDoorEnd:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, -58.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door1/MetalDoorLoop9:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, -40)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("door1/MetalDoorLoop8:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, -24)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("door1/MetalDoorLoop7:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, -8)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("door1/MetalDoorLoop6:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, 8)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("door1/CollisionShape2D:shape:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(22, 106)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("door1/CollisionShape2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, -16)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("door1/color:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-32.507965, -7.6293945e-06)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("door1/color:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.49206287, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rkh1m"]
+resource_name = "open"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door1/MetalDoorEnd:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64, -58.5), Vector2(64, 21.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door1/MetalDoorLoop9:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64, -40), Vector2(64, 24)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("door1/MetalDoorLoop8:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64, -24), Vector2(64, 24)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("door1/MetalDoorLoop7:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64, -8), Vector2(64, 24)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("door1/MetalDoorLoop6:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64, 8), Vector2(64, 24)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("door1/CollisionShape2D:shape:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(22, 106), Vector2(22, 26)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("door1/CollisionShape2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64, -16), Vector2(64, 24)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("door1/color:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-32.507965, -7.6293945e-06), Vector2(-32.507965, 27.234041)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("door1/color:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.49206287, 1), Vector2(0.49206287, 0.14893617)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3vpqb"]
+_data = {
+&"RESET": SubResource("Animation_3vpqb"),
+&"open": SubResource("Animation_rkh1m")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40mqc"]
+size = Vector2(22, 106)
+
+[sub_resource type="Animation" id="Animation_2bee8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door1/MetalDoorLoop5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door1/MetalDoorLoop6:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -24)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("door1/MetalDoorLoop7:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -8)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("door1/MetalDoorLoop8:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 8)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("door1/MetalDoorLoop9:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 24)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("door1/MetalDoorEnd:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 42.5)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("door1/CollisionShape2D:shape:size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(21, 106)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("door1/CollisionShape2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("door1/color:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-32.507965, -7.6293945e-06)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("door1/color:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.49206287, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_635yf"]
+resource_name = "open"
+length = 2.0001
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door1/MetalDoorLoop5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -40), Vector2(0, -61)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door1/MetalDoorLoop6:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -24), Vector2(0, -61)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("door1/MetalDoorLoop7:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -8), Vector2(0, -61)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("door1/MetalDoorLoop8:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 8), Vector2(0, -61)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("door1/MetalDoorLoop9:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 24), Vector2(0, -61)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("door1/MetalDoorEnd:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 42.5), Vector2(0, -63.5)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("door1/CollisionShape2D:shape:size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(22, 106), Vector2(22, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("door1/CollisionShape2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -53)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("door1/color:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 2, 2.0001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-32.507965, -7.6293945e-06), Vector2(-32.508057, -105), Vector2(-32.508057, -105)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("door1/color:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.49206287, 1), Vector2(0.49206287, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ag5ji"]
+_data = {
+&"RESET": SubResource("Animation_2bee8"),
+&"open": SubResource("Animation_635yf")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bee8"]
+size = Vector2(21, 106)
+
+[sub_resource type="Animation" id="Animation_ag5ji"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door1/MetalDoorLoop5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-22, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door1/MetalDoorLoop6:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("door1/MetalDoorLoop7:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("door1/MetalDoorEnd:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(28.5, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("door1/CollisionShape2D:shape:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(74, 22)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("door1/CollisionShape2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("door1/color:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-32.507965, -7.6293945e-06)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("door1/color:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.49206287, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ty62r"]
+resource_name = "open"
+length = 2.0001
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door1/MetalDoorLoop5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-22, 0), Vector2(-43, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door1/MetalDoorLoop6:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-6, 0), Vector2(-43, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("door1/MetalDoorLoop7:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(10, 0), Vector2(-43, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("door1/MetalDoorEnd:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(28.5, 0), Vector2(-45.5, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("door1/CollisionShape2D:shape:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(74, 22), Vector2(0, 22)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("door1/CollisionShape2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 0), Vector2(-35, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("door1/color:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2, 2.0001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-33.548607, -7.6293945e-06), Vector2(-42, 0), Vector2(-42.00007, -7.6293945e-06)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("door1/color:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5000001, 1), Vector2(-2.122124e-06, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4uqxt"]
+_data = {
+&"RESET": SubResource("Animation_ag5ji"),
+&"open": SubResource("Animation_ty62r")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sa84b"]
+size = Vector2(74, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7g5e"]
+size = Vector2(928, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkh1m"]
+size = Vector2(704, 32)
+
+[node name="world_2_3" type="Node2D" unique_id=946213543 node_paths=PackedStringArray("player", "map_limit")]
+script = ExtResource("1_db87c")
+player = NodePath("objs/player")
+map_limit = NodePath("objs/map_limit")
+metadata/_custom_type_script = "uid://bnvqoglkbsle4"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=840170549]
+position = Vector2(528, -304)
+zoom = Vector2(0.6, 0.6)
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=481552392]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_qont5")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="ScreenManager" type="Node2D" parent="." unique_id=657923735 node_paths=PackedStringArray("player", "screens")]
+script = ExtResource("3_qont5")
+player = NodePath("../objs/player")
+screens = [NodePath("screen_0"), NodePath("screen_1")]
+metadata/_custom_type_script = "uid://cmnl8rde72dq3"
+
+[node name="screen_0" type="Node2D" parent="ScreenManager" unique_id=1111943327 node_paths=PackedStringArray("camera", "default_checkpoint", "doors")]
+script = ExtResource("4_4qndx")
+camera = NodePath("0")
+default_checkpoint = NodePath("0_1")
+doors = [NodePath("door_1"), NodePath("door_2")]
+metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
+
+[node name="0" type="Node2D" parent="ScreenManager/screen_0" unique_id=974141482]
+position = Vector2(528, -304)
+script = ExtResource("5_tsdqa")
+zoom = Vector2(0.6, 0.6)
+tween_resource = SubResource("Resource_np80s")
+follow_damping = true
+follow_damping_value = Vector2(0.4, 0.4)
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="0_1" type="Marker2D" parent="ScreenManager/screen_0" unique_id=849282400]
+position = Vector2(48, -400)
+
+[node name="door_1" parent="ScreenManager/screen_0" unique_id=1843431491 node_paths=PackedStringArray("animation_player", "interactables") instance=ExtResource("7_470js")]
+animation_player = NodePath("AnimationPlayer")
+interactables = [NodePath("interactable_item")]
+
+[node name="interactable_item" parent="ScreenManager/screen_0/door_1" unique_id=460073895 node_paths=PackedStringArray("manager") instance=ExtResource("8_np80s")]
+position = Vector2(944, -416)
+manager = NodePath("..")
+color = Color(0, 0, 1, 1)
+
+[node name="door1" type="StaticBody2D" parent="ScreenManager/screen_0/door_1" unique_id=101682427]
+position = Vector2(160, -352)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=2061050781]
+modulate = Color(0.33999997, 1, 1, 1)
+position = Vector2(408, 0)
+shape = SubResource("RectangleShape2D_8jvfq")
+
+[node name="MetalDoorLoop5" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=283622602]
+position = Vector2(8, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop6" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=743340809]
+position = Vector2(24, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop7" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1143912188]
+position = Vector2(40, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop8" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1229821646]
+position = Vector2(56, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop9" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=437285892]
+position = Vector2(72, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop10" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=686255117]
+position = Vector2(88, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop11" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=262583138]
+position = Vector2(104, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop12" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1216489041]
+position = Vector2(120, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop13" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1741765744]
+position = Vector2(136, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop14" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=565169871]
+position = Vector2(152, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop15" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1042679083]
+position = Vector2(168, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop16" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1762669505]
+position = Vector2(184, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop17" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1379194369]
+position = Vector2(200, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop18" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=158510331]
+position = Vector2(216, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop19" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1455441772]
+position = Vector2(232, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop20" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1798705]
+position = Vector2(248, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop21" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=331691002]
+position = Vector2(264, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop22" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=954093936]
+position = Vector2(280, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop23" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1596481628]
+position = Vector2(296, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop24" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=757822963]
+position = Vector2(312, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop25" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=2078459761]
+position = Vector2(328, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop26" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=659175482]
+position = Vector2(344, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop27" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1612762698]
+position = Vector2(360, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop28" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=122588352]
+position = Vector2(376, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop29" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=65475673]
+position = Vector2(392, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop30" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=340099113]
+position = Vector2(408, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop31" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=840537195]
+position = Vector2(424, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop32" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=186614874]
+position = Vector2(440, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop33" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=2146619851]
+position = Vector2(456, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop34" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1004653320]
+position = Vector2(472, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop35" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1121346861]
+position = Vector2(488, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop36" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=446363532]
+position = Vector2(504, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop37" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1743699691]
+position = Vector2(520, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop38" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1633653629]
+position = Vector2(536, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop39" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=100105061]
+position = Vector2(552, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop40" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=361610639]
+position = Vector2(568, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop41" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=791513807]
+position = Vector2(584, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop42" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1984445809]
+position = Vector2(600, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop43" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=97511701]
+position = Vector2(616, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop44" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1417884438]
+position = Vector2(632, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop45" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1020447391]
+position = Vector2(648, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop46" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1742647069]
+position = Vector2(664, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop47" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1777234813]
+position = Vector2(680, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop48" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1365661780]
+position = Vector2(696, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop49" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=436113220]
+position = Vector2(712, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorEnd" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1649118330]
+position = Vector2(730.5, 0)
+rotation = -1.5707964
+texture = ExtResource("10_5v8if")
+
+[node name="color" type="Polygon2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1219359628]
+position = Vector2(-32.507965, -7.6293945e-06)
+scale = Vector2(0.49206287, 1)
+color = Color(0, 0, 1, 0.19607843)
+polygon = PackedVector2Array(66.06494, -4, 66.06494, 4, 1557.744, 4, 1557.744, -4)
+
+[node name="Icon" type="Sprite2D" parent="ScreenManager/screen_0/door_1/door1" unique_id=1208557354]
+position = Vector2(-2.5, 0)
+rotation = -1.5707964
+texture = ExtResource("11_40mqc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScreenManager/screen_0/door_1" unique_id=2033747868]
+libraries/ = SubResource("AnimationLibrary_40mqc")
+
+[node name="door_2" parent="ScreenManager/screen_0" unique_id=868499462 node_paths=PackedStringArray("animation_player", "interactables") instance=ExtResource("7_470js")]
+animation_player = NodePath("AnimationPlayer")
+interactables = [NodePath("interactable_item")]
+
+[node name="interactable_item" parent="ScreenManager/screen_0/door_2" unique_id=1081755066 node_paths=PackedStringArray("manager") instance=ExtResource("8_np80s")]
+position = Vector2(672, -176)
+manager = NodePath("..")
+color = Color(1, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScreenManager/screen_0/door_2" unique_id=1484633657]
+libraries/ = SubResource("AnimationLibrary_8jvfq")
+
+[node name="door2" type="StaticBody2D" parent="ScreenManager/screen_0/door_2" unique_id=1037677788]
+position = Vector2(96, -16)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1908089021]
+modulate = Color(0.33999997, 1, 1, 1)
+position = Vector2(-5, 0)
+shape = SubResource("RectangleShape2D_7j6iy")
+
+[node name="MetalDoorLoop5" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1947586792]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop6" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=137483558]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop7" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1153756412]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop8" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1904445932]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop9" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1567857072]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop10" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1042084279]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop11" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=697797775]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop12" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=11663784]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop13" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1251523892]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop14" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1529314543]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop15" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1293540030]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop16" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1894574571]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop17" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1832813900]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop18" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1300569118]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop19" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=568108365]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop20" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1339782222]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop21" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1989460076]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop22" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=2046154674]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop23" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=682605532]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop24" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=477128004]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop25" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1864002848]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop26" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=2018207339]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop27" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1437397409]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop28" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1486059791]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop29" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1845154466]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop30" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=2110207796]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop31" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=2024556492]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop32" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=322050287]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop33" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=802342431]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop34" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=2136605473]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop35" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1104480623]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop36" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1136825011]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop37" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=346993337]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop38" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=109937324]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop39" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=236123118]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop40" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1480399251]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop41" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1676737445]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop42" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1738803571]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop43" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=10533794]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop44" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=675402357]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop45" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1420724612]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop46" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1953812348]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop47" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=483398908]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop48" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1694494563]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop49" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=730490080]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop50" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1937730691]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop51" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1592864804]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop52" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=839416406]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop53" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1029608968]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop54" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1454601398]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop55" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1699442331]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop56" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1419395360]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop57" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=467196136]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop58" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1305888707]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop59" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=322143313]
+position = Vector2(-13, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorEnd" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=752996771]
+position = Vector2(-15.5, 0)
+rotation = -1.5707964
+texture = ExtResource("10_5v8if")
+
+[node name="color" type="Polygon2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=2048818499]
+position = Vector2(-12, 0)
+scale = Vector2(1e-05, 1)
+color = Color(1, 0, 0, 0.19607843)
+polygon = PackedVector2Array(66.06494, -4, 66.06494, 4, 1882.9058, 4.0000076, 1882.9058, -3.9999924)
+
+[node name="Icon" type="Sprite2D" parent="ScreenManager/screen_0/door_2/door2" unique_id=1128289978]
+position = Vector2(-2.5, 0)
+rotation = -1.5707964
+texture = ExtResource("11_40mqc")
+
+[node name="screen_1" type="Node2D" parent="ScreenManager" unique_id=1381966751 node_paths=PackedStringArray("camera", "default_checkpoint", "doors")]
+script = ExtResource("4_4qndx")
+camera = NodePath("1")
+default_checkpoint = NodePath("1_1")
+doors = [NodePath("door_1"), NodePath("door_2")]
+metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
+
+[node name="1" type="Node2D" parent="ScreenManager/screen_1" unique_id=659260599]
+position = Vector2(1600, 0)
+script = ExtResource("5_tsdqa")
+zoom = Vector2(0.6, 0.6)
+tween_resource = SubResource("Resource_np80s")
+follow_damping = true
+follow_damping_value = Vector2(0.4, 0.4)
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="1_1" type="Marker2D" parent="ScreenManager/screen_1" unique_id=1762956794]
+position = Vector2(1104, -80)
+
+[node name="door_1" parent="ScreenManager/screen_1" unique_id=3754972 node_paths=PackedStringArray("animation_player", "interactables") instance=ExtResource("7_470js")]
+animation_player = NodePath("AnimationPlayer")
+interactables = [NodePath("interactable_item")]
+
+[node name="interactable_item" parent="ScreenManager/screen_1/door_1" unique_id=196385526 node_paths=PackedStringArray("manager") instance=ExtResource("8_np80s")]
+position = Vector2(1376, -224)
+manager = NodePath("..")
+color = Color(0, 0, 1, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScreenManager/screen_1/door_1" unique_id=450675847]
+libraries/ = SubResource("AnimationLibrary_rkh1m")
+
+[node name="door1" type="StaticBody2D" parent="ScreenManager/screen_1/door_1" unique_id=1563156861]
+position = Vector2(1344, -11)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenManager/screen_1/door_1/door1" unique_id=1517961836]
+modulate = Color(0.33999997, 1, 1, 1)
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_3vpqb")
+
+[node name="MetalDoorLoop5" type="Sprite2D" parent="ScreenManager/screen_1/door_1/door1" unique_id=1284952756]
+position = Vector2(8, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop6" type="Sprite2D" parent="ScreenManager/screen_1/door_1/door1" unique_id=533503043]
+position = Vector2(24, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop7" type="Sprite2D" parent="ScreenManager/screen_1/door_1/door1" unique_id=1864208306]
+position = Vector2(40, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorEnd" type="Sprite2D" parent="ScreenManager/screen_1/door_1/door1" unique_id=922265867]
+position = Vector2(58.5, 0)
+rotation = -1.5707964
+texture = ExtResource("10_5v8if")
+
+[node name="color" type="Polygon2D" parent="ScreenManager/screen_1/door_1/door1" unique_id=1654955603]
+position = Vector2(-32.507965, -7.6293945e-06)
+scale = Vector2(0.49206287, 1)
+color = Color(0, 0, 1, 0.19607843)
+polygon = PackedVector2Array(66.06494, -4, 66.06494, 4, 192.06543, 4, 192.06543, -4)
+
+[node name="Icon" type="Sprite2D" parent="ScreenManager/screen_1/door_1/door1" unique_id=1389858137]
+position = Vector2(-2.5, 0)
+rotation = -1.5707964
+texture = ExtResource("11_40mqc")
+
+[node name="door_2" parent="ScreenManager/screen_1" unique_id=1282121847 node_paths=PackedStringArray("animation_player", "interactables") instance=ExtResource("7_470js")]
+animation_player = NodePath("AnimationPlayer")
+interactables = [NodePath("interactable_item")]
+
+[node name="interactable_item" parent="ScreenManager/screen_1/door_2" unique_id=1143517830 node_paths=PackedStringArray("manager") instance=ExtResource("8_np80s")]
+position = Vector2(2032, -112)
+manager = NodePath("..")
+color = Color(1, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScreenManager/screen_1/door_2" unique_id=774802187]
+libraries/ = SubResource("AnimationLibrary_3vpqb")
+
+[node name="door1" type="StaticBody2D" parent="ScreenManager/screen_1/door_2" unique_id=926389060]
+position = Vector2(1840, -64)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenManager/screen_1/door_2/door1" unique_id=1275246619]
+modulate = Color(0.33999997, 1, 1, 1)
+position = Vector2(64, -16)
+shape = SubResource("RectangleShape2D_40mqc")
+
+[node name="MetalDoorLoop5" type="Sprite2D" parent="ScreenManager/screen_1/door_2/door1" unique_id=564530857]
+position = Vector2(64, 24)
+rotation = -3.1415927
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop6" type="Sprite2D" parent="ScreenManager/screen_1/door_2/door1" unique_id=1255953392]
+position = Vector2(64, 8)
+rotation = -3.1415927
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop7" type="Sprite2D" parent="ScreenManager/screen_1/door_2/door1" unique_id=1090967937]
+position = Vector2(64, -8)
+rotation = -3.1415927
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop8" type="Sprite2D" parent="ScreenManager/screen_1/door_2/door1" unique_id=840111634]
+position = Vector2(64, -24)
+rotation = -3.1415927
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop9" type="Sprite2D" parent="ScreenManager/screen_1/door_2/door1" unique_id=308899615]
+position = Vector2(64, -40)
+rotation = -3.1415927
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorEnd" type="Sprite2D" parent="ScreenManager/screen_1/door_2/door1" unique_id=2080345954]
+position = Vector2(64, -58.5)
+rotation = -3.1415927
+texture = ExtResource("10_5v8if")
+
+[node name="color" type="Polygon2D" parent="ScreenManager/screen_1/door_2/door1" unique_id=1143896729]
+position = Vector2(-32.507965, -7.6293945e-06)
+scale = Vector2(0.49206287, 1)
+color = Color(1, 0, 0, 0.19607843)
+polygon = PackedVector2Array(188.00024, -61.999992, 188.00024, 32.000008, 204.2583, 32.000008, 204.2583, -61.999992)
+
+[node name="Icon" type="Sprite2D" parent="ScreenManager/screen_1/door_2/door1" unique_id=294989180]
+position = Vector2(64, 34.5)
+rotation = -3.1415927
+texture = ExtResource("11_40mqc")
+
+[node name="screen_2" type="Node2D" parent="ScreenManager" unique_id=1329631874 node_paths=PackedStringArray("camera", "default_checkpoint", "doors")]
+script = ExtResource("4_4qndx")
+camera = NodePath("2")
+default_checkpoint = NodePath("2_1")
+doors = [NodePath("door_1"), NodePath("door_2")]
+metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
+
+[node name="2" type="Node2D" parent="ScreenManager/screen_2" unique_id=1329571325]
+position = Vector2(2672, -400)
+script = ExtResource("5_tsdqa")
+zoom = Vector2(0.6, 0.6)
+tween_resource = SubResource("Resource_np80s")
+follow_damping = true
+follow_damping_value = Vector2(0.4, 0.4)
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="2_1" type="Marker2D" parent="ScreenManager/screen_2" unique_id=514781827]
+position = Vector2(2176, -208)
+
+[node name="fuel_pickup" parent="ScreenManager/screen_2" unique_id=956028455 instance=ExtResource("12_7j6iy")]
+position = Vector2(2512, -416)
+
+[node name="fuel_pickup3" parent="ScreenManager/screen_2" unique_id=1121913241 instance=ExtResource("12_7j6iy")]
+position = Vector2(3088, -384)
+
+[node name="fuel_pickup2" parent="ScreenManager/screen_2" unique_id=48203967 instance=ExtResource("12_7j6iy")]
+position = Vector2(2224, -512)
+
+[node name="door_1" parent="ScreenManager/screen_2" unique_id=163596626 node_paths=PackedStringArray("animation_player", "interactables") instance=ExtResource("7_470js")]
+animation_player = NodePath("AnimationPlayer")
+interactables = [NodePath("interactable_item")]
+
+[node name="interactable_item" parent="ScreenManager/screen_2/door_1" unique_id=345686845 node_paths=PackedStringArray("manager") instance=ExtResource("8_np80s")]
+position = Vector2(2720, -624)
+manager = NodePath("..")
+color = Color(0, 0, 1, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScreenManager/screen_2/door_1" unique_id=611375001]
+libraries/ = SubResource("AnimationLibrary_ag5ji")
+
+[node name="door1" type="StaticBody2D" parent="ScreenManager/screen_2/door_1" unique_id=189417323]
+position = Vector2(2992, -176)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenManager/screen_2/door_1/door1" unique_id=1952255368]
+modulate = Color(0.33999997, 1, 1, 1)
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_2bee8")
+
+[node name="MetalDoorLoop5" type="Sprite2D" parent="ScreenManager/screen_2/door_1/door1" unique_id=1424126419]
+position = Vector2(0, -40)
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop6" type="Sprite2D" parent="ScreenManager/screen_2/door_1/door1" unique_id=521258365]
+position = Vector2(0, -24)
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop7" type="Sprite2D" parent="ScreenManager/screen_2/door_1/door1" unique_id=214695536]
+position = Vector2(0, -8)
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop8" type="Sprite2D" parent="ScreenManager/screen_2/door_1/door1" unique_id=824243418]
+position = Vector2(0, 8)
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop9" type="Sprite2D" parent="ScreenManager/screen_2/door_1/door1" unique_id=1818767555]
+position = Vector2(0, 24)
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorEnd" type="Sprite2D" parent="ScreenManager/screen_2/door_1/door1" unique_id=689418329]
+position = Vector2(0, 42.5)
+texture = ExtResource("10_5v8if")
+
+[node name="color" type="Polygon2D" parent="ScreenManager/screen_2/door_1/door1" unique_id=198510984]
+position = Vector2(-32.507965, -7.6293945e-06)
+scale = Vector2(0.49206287, 1)
+color = Color(0, 0, 1, 0.19607843)
+polygon = PackedVector2Array(57.936035, -48, 57.936035, 46, 74.19385, 46, 74.19385, -48)
+
+[node name="Icon" type="Sprite2D" parent="ScreenManager/screen_2/door_1/door1" unique_id=947887878]
+position = Vector2(0, -50.5)
+texture = ExtResource("11_40mqc")
+
+[node name="door_2" parent="ScreenManager/screen_2" unique_id=1166647201 node_paths=PackedStringArray("animation_player", "interactables") instance=ExtResource("7_470js")]
+animation_player = NodePath("AnimationPlayer")
+interactables = [NodePath("interactable_item")]
+
+[node name="interactable_item" parent="ScreenManager/screen_2/door_2" unique_id=65749866 node_paths=PackedStringArray("manager") instance=ExtResource("8_np80s")]
+position = Vector2(2944, -576)
+manager = NodePath("..")
+color = Color(1, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScreenManager/screen_2/door_2" unique_id=1542982604]
+libraries/ = SubResource("AnimationLibrary_4uqxt")
+
+[node name="door1" type="StaticBody2D" parent="ScreenManager/screen_2/door_2" unique_id=1991135404]
+position = Vector2(2718, -160)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenManager/screen_2/door_2/door1" unique_id=2051023966]
+modulate = Color(0.33999997, 1, 1, 1)
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_sa84b")
+
+[node name="MetalDoorLoop5" type="Sprite2D" parent="ScreenManager/screen_2/door_2/door1" unique_id=1506167755]
+position = Vector2(-22, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop6" type="Sprite2D" parent="ScreenManager/screen_2/door_2/door1" unique_id=1921482352]
+position = Vector2(-6, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorLoop7" type="Sprite2D" parent="ScreenManager/screen_2/door_2/door1" unique_id=1653642309]
+position = Vector2(10, 0)
+rotation = -1.5707964
+texture = ExtResource("9_0nm8u")
+
+[node name="MetalDoorEnd" type="Sprite2D" parent="ScreenManager/screen_2/door_2/door1" unique_id=1749659488]
+position = Vector2(28.5, 0)
+rotation = -1.5707964
+texture = ExtResource("10_5v8if")
+
+[node name="color" type="Polygon2D" parent="ScreenManager/screen_2/door_2/door1" unique_id=1021408186]
+position = Vector2(-32.507965, -7.6293945e-06)
+scale = Vector2(0.49206287, 1)
+color = Color(1, 0, 0, 0.19607843)
+polygon = PackedVector2Array(5.097168, -4, 5.097168, 4, 131.09717, 4, 131.09717, -4)
+
+[node name="Icon" type="Sprite2D" parent="ScreenManager/screen_2/door_2/door1" unique_id=1914275169]
+position = Vector2(-32.5, 0)
+rotation = -1.5707964
+texture = ExtResource("11_40mqc")
+
+[node name="objs" type="Node2D" parent="." unique_id=580703540]
+
+[node name="player" parent="objs" unique_id=493830883 node_paths=PackedStringArray("screen_manager") instance=ExtResource("4_6lsfh")]
+position = Vector2(112, -416)
+screen_manager = NodePath("../../ScreenManager")
+
+[node name="ground" type="TileMapLayer" parent="objs" unique_id=1639467615]
+tile_map_data = PackedByteArray("AAABAPT/AAAKAAAAAAAAAPT/AAAKAAAAAAD///T/AAAJAAAAAAABAPX/AAAKAAEAAAABAPb/AAAKAAEAAAAAAPb/AAAKAAEAAAAAAPf/AAAKAAEAAAAAAPj/AAAKAAEAAAAAAPn/AAAKAAEAAAAAAPr/AAAKAAEAAAAAAPv/AAAKAAEAAAD///v/AAAJAAEAAAD///z/AAAJAAEAAAD///3/AAAJAAEAAAD///7/AAAJAAEAAAAAAP3/AAAKAAEAAAAAAPz/AAAKAAEAAAAAAP7/AAAKAAEAAAAAAP//AAAKAAEAAAD/////AAAJAAEAAAD//wAAAAAJAAIAAAAAAAAAAAAKAAIAAAD///r/AAAJAAEAAAD///n/AAAJAAEAAAD///j/AAAJAAEAAAD///f/AAAJAAEAAAD///b/AAAJAAEAAAD///X/AAAJAAEAAAAAAPX/AAAKAAEAAAABAPD/AAALAAIAAAACAO7/AAAKAAEAAAADAO3/AAAKAAEAAAAEAO3/AAAKAAEAAAACAO3/AAAKAAEAAAABAO3/AAAKAAEAAAAAAO3/AAAKAAEAAAAAAO7/AAAKAAEAAAAAAO//AAAKAAEAAAABAO//AAAKAAMAAAAAAPD/AAAKAAIAAAD///D/AAAJAAIAAAD//+//AAAJAAEAAAD//+7/AAAJAAEAAAD//+3/AAAJAAEAAAD//+z/AAAJAAAAAAAAAOz/AAAKAAAAAAABAOz/AAAKAAAAAAACAOz/AAAKAAAAAAADAOz/AAAKAAAAAAAEAOz/AAAKAAAAAAAFAOz/AAAKAAAAAAAGAOz/AAAKAAAAAAAGAO3/AAAKAAEAAAAFAO3/AAAKAAEAAAABAO7/AAAKAAEAAAAHAO3/AAAKAAEAAAAIAO3/AAAKAAEAAAAJAO3/AAAKAAEAAAAKAO3/AAAKAAEAAAALAO3/AAAKAAEAAAAMAO3/AAAKAAEAAAANAO3/AAAKAAEAAAAOAO3/AAAKAAEAAAAPAO3/AAAKAAEAAAAQAO3/AAAKAAEAAAARAO3/AAAKAAEAAAASAO3/AAAKAAEAAAATAO3/AAAKAAEAAAAUAO3/AAAKAAEAAAAVAO3/AAAKAAEAAAAWAO3/AAAKAAEAAAAXAO3/AAAKAAEAAAAYAO3/AAAKAAEAAAAZAO3/AAAKAAEAAAAaAO3/AAAKAAEAAAAfAO3/AAAKAAEAAAAgAO3/AAAKAAEAAAAeAO3/AAAKAAEAAAAdAO3/AAAKAAEAAAAcAO3/AAAKAAEAAAAbAO3/AAAKAAEAAAAdAOz/AAAKAAAAAAAeAOz/AAAKAAAAAAAfAOz/AAAKAAAAAAAgAOz/AAAKAAAAAAAhAOz/AAAKAAAAAAAhAO3/AAAKAAEAAAAcAOz/AAAKAAAAAAAbAOz/AAAKAAAAAAAaAOz/AAAKAAAAAAAZAOz/AAAKAAAAAAAYAOz/AAAKAAAAAAAXAOz/AAAKAAAAAAAWAOz/AAAKAAAAAAAVAOz/AAAKAAAAAAAUAOz/AAAKAAAAAAATAOz/AAAKAAAAAAASAOz/AAAKAAAAAAARAOz/AAAKAAAAAAAQAOz/AAAKAAAAAAAPAOz/AAAKAAAAAAAOAOz/AAAKAAAAAAANAOz/AAAKAAAAAAAMAOz/AAAKAAAAAAALAOz/AAAKAAAAAAAKAOz/AAAKAAAAAAAJAOz/AAAKAAAAAAAIAOz/AAAKAAAAAAAHAOz/AAAKAAAAAAADAO7/AAAKAAEAAAAEAO7/AAAKAAEAAAAFAO7/AAAKAAEAAAAGAO7/AAAKAAEAAAAHAO7/AAAKAAEAAAAIAO7/AAAKAAEAAAAJAO7/AAAKAAEAAAAKAO7/AAAKAAEAAAALAO7/AAAKAAEAAAAMAO7/AAAKAAEAAAANAO7/AAAKAAEAAAAOAO7/AAAKAAEAAAAPAO7/AAAKAAEAAAAQAO7/AAAKAAEAAAARAO7/AAAKAAEAAAASAO7/AAAKAAEAAAATAO7/AAAKAAEAAAAUAO7/AAAKAAEAAAAVAO7/AAAKAAEAAAAWAO7/AAAKAAEAAAAXAO7/AAAKAAEAAAAYAO7/AAAKAAEAAAAZAO7/AAAKAAEAAAAaAO7/AAAKAAEAAAAbAO7/AAAKAAEAAAAcAO7/AAAKAAEAAAAdAO7/AAAKAAEAAAAeAO7/AAAKAAEAAAAfAO7/AAAKAAEAAAAgAO7/AAAKAAEAAAAhAO7/AAAKAAEAAAAhAO//AAAKAAEAAAAhAPD/AAAKAAEAAAAhAPH/AAAKAAEAAAAhAPL/AAAKAAEAAAAhAPP/AAAKAAEAAAAgAPH/AAAKAAEAAAAgAPD/AAAKAAEAAAAgAPL/AAAKAAEAAAAgAO//AAAKAAEAAAAgAPP/AAAKAAEAAAAfAO//AAAKAAEAAAAfAPL/AAAJAAEAAAAfAPH/AAAJAAEAAAAfAPD/AAALAAMAAAAeAO//AAALAAMAAAAfAPP/AAAJAAEAAAAfAPT/AAAJAAMAAAAfAPX/AAAKAAEAAAAfAPb/AAAKAAEAAAAgAPX/AAAKAAEAAAAgAPT/AAAKAAEAAAAgAPb/AAAKAAEAAAAhAPb/AAAKAAEAAAAhAPX/AAAKAAEAAAAhAPT/AAAKAAEAAAAhAPf/AAAKAAEAAAAdAPT/AAAKAAAAAAAdAPX/AAAKAAEAAAAeAPX/AAAKAAEAAAAeAPT/AAAKAAAAAAAcAPT/AAAJAAAAAAAcAPX/AAAJAAEAAAACAO//AAAKAAIAAAADAO//AAAKAAIAAAAEAO//AAAKAAIAAAAFAO//AAAKAAIAAAAGAO//AAAKAAIAAAAHAO//AAAKAAIAAAAIAO//AAAKAAIAAAAJAO//AAAKAAIAAAAKAO//AAAKAAIAAAALAO//AAAKAAIAAAAMAO//AAAKAAIAAAANAO//AAAKAAIAAAAOAO//AAAKAAIAAAAPAO//AAAKAAIAAAAQAO//AAAKAAIAAAARAO//AAAKAAIAAAASAO//AAAKAAIAAAATAO//AAAKAAIAAAAUAO//AAAKAAIAAAAVAO//AAAKAAIAAAAWAO//AAAKAAIAAAAXAO//AAAKAAIAAAAYAO//AAAKAAIAAAAZAO//AAAKAAIAAAAaAO//AAAKAAIAAAAbAO//AAAKAAIAAAAcAO//AAAKAAIAAAAdAO//AAAKAAIAAAAeAPD/AAAJAAIAAAAcAPb/AAAJAAEAAAAdAPb/AAAKAAEAAAAeAPb/AAAKAAEAAAACAPT/AAAKAAAAAAADAPT/AAAKAAAAAAAEAPX/AAALAAEAAAADAPX/AAAKAAEAAAACAPX/AAAKAAEAAAAEAPT/AAALAAAAAAAEAPb/AAALAAIAAAADAPb/AAAKAAMAAAACAPb/AAAKAAEAAAABAPf/AAAKAAEAAAABAPj/AAAKAAEAAAABAPn/AAAKAAEAAAACAPf/AAAKAAEAAAAMAPP/AAAJAAEAAAAMAPL/AAAMAAEAAAANAPL/AAAMAAAAAAANAPP/AAALAAEAAAAMAPT/AAAJAAEAAAAMAPX/AAAJAAEAAAAMAPb/AAAJAAEAAAANAPT/AAALAAEAAAANAPX/AAALAAEAAAANAPb/AAALAAEAAAANAPf/AAALAAEAAAAUAPz/AAAJAAMAAAAVAPz/AAAIAAMAAAAOAPj/AAAMAAAAAAAOAPn/AAAIAAMAAAAPAPn/AAAMAAAAAAAPAPr/AAAIAAMAAAAQAPr/AAAMAAAAAAAQAPv/AAAIAAMAAAARAPv/AAAMAAAAAAARAPz/AAAIAAMAAAASAPz/AAAKAAAAAAAaAPz/AAAKAAEAAAAaAPv/AAAJAAMAAAAbAPv/AAAKAAEAAAAbAPr/AAAJAAMAAAAbAPn/AAAMAAEAAAAcAPn/AAAJAAMAAAAcAPj/AAAJAAEAAAAcAPf/AAAJAAEAAAAdAPf/AAAKAAEAAAAdAPj/AAAKAAEAAAAcAPr/AAAKAAEAAAAcAPv/AAAKAAEAAAAbAPz/AAAKAAEAAAAUAPv/AAAJAAAAAAAVAPv/AAALAAAAAAATAPz/AAAKAAAAAAAWAPz/AAAKAAAAAAAXAPz/AAAKAAAAAAAYAPz/AAAKAAAAAAAZAPz/AAAJAAMAAAAQAPz/AAALAAMAAAAPAPz/AAAJAAIAAAAPAPv/AAALAAMAAAAOAPv/AAAJAAIAAAAOAPr/AAALAAMAAAANAPr/AAAJAAIAAAANAPn/AAALAAMAAAANAPj/AAAIAAMAAAAMAPj/AAAJAAEAAAAMAPf/AAAJAAEAAAAMAPn/AAAJAAIAAAABAAAAAAAKAAIAAAABAP//AAAKAAEAAAABAP7/AAAKAAEAAAABAP3/AAAKAAEAAAABAPz/AAAKAAEAAAABAPv/AAAKAAEAAAABAPr/AAAKAAEAAAACAPr/AAAKAAEAAAACAPn/AAAKAAEAAAACAPj/AAAKAAEAAAACAPv/AAAKAAMAAAACAPz/AAALAAEAAAACAP3/AAALAAEAAAACAP//AAALAAEAAAACAAAAAAALAAIAAAACAP7/AAALAAEAAAADAPf/AAALAAEAAAADAPj/AAALAAEAAAADAPn/AAALAAEAAAADAPr/AAALAAEAAAADAPv/AAALAAIAAAAhAP7/AAAKAAAAAAAgAP7/AAAKAAAAAAAfAP7/AAAJAAAAAAAfAP//AAAJAAEAAAAfAAAAAAAJAAIAAAAgAAAAAAALAAMAAAAhAAAAAAAKAAEAAAAhAP//AAAKAAEAAAAgAP//AAAKAAEAAAAhAPn/AAAKAAEAAAAgAPn/AAAKAAEAAAAfAPn/AAAKAAEAAAAeAPn/AAAKAAEAAAAdAPn/AAAKAAEAAAAcAPz/AAAKAAMAAAAeAPj/AAAKAAEAAAAfAPj/AAAKAAEAAAAgAPj/AAAKAAEAAAAhAPj/AAAKAAEAAAAgAPf/AAAKAAEAAAAeAPf/AAAKAAEAAAAfAPf/AAAKAAEAAAAZAPv/AAAMAAEAAAAaAPr/AAAMAAEAAAAdAPr/AAAKAAEAAAAdAPv/AAAKAAMAAAAdAPz/AAALAAIAAAAeAPr/AAAKAAEAAAAfAPr/AAAKAAEAAAAgAPr/AAAKAAEAAAAhAPr/AAAKAAEAAAAeAPv/AAAKAAIAAAAfAPv/AAAKAAIAAAAhAPv/AAAKAAIAAAAgAPv/AAAKAAIAAAAQAP3/AAAJAAIAAAARAP3/AAAKAAIAAAASAP3/AAAKAAIAAAATAP3/AAAKAAIAAAAUAP3/AAAKAAIAAAAVAP3/AAAKAAIAAAAWAP3/AAAKAAIAAAAXAP3/AAAKAAIAAAAYAP3/AAAKAAIAAAAZAP3/AAAKAAIAAAAaAP3/AAAKAAIAAAAbAP3/AAAKAAIAAAAcAP3/AAALAAIAAAAiAP7/AAAKAAAAAAAjAP7/AAAKAAAAAAAkAP7/AAAKAAAAAAAkAP//AAAKAAEAAAAkAAAAAAAKAAEAAAAjAAAAAAAKAAEAAAAiAAAAAAAKAAEAAAAiAP//AAAKAAEAAAAjAP//AAAKAAEAAAAiAPv/AAAKAAIAAAAiAPr/AAAKAAEAAAAiAPn/AAAKAAEAAAAiAPj/AAAKAAEAAAAiAPf/AAAKAAEAAAAiAPb/AAAKAAEAAAAiAPX/AAAIAAMAAAAiAPT/AAALAAEAAAAiAPP/AAALAAEAAAAiAOz/AAALAAAAAAAiAO3/AAALAAEAAAAiAO7/AAALAAEAAAAiAO//AAALAAEAAAAiAPD/AAALAAEAAAAiAPH/AAALAAEAAAAiAPL/AAALAAEAAAAjAPv/AAALAAIAAAAjAPr/AAALAAEAAAAjAPn/AAALAAEAAAAjAPj/AAAKAAMAAAAjAPf/AAAKAAEAAAAjAPb/AAAKAAEAAAAkAPf/AAAKAAMAAAAlAPf/AAAKAAIAAAAmAPf/AAAKAAIAAAAmAPb/AAAKAAEAAAAnAPb/AAAKAAEAAAAoAPb/AAAKAAEAAAApAPb/AAAKAAEAAAAqAPb/AAAKAAEAAAArAPb/AAAKAAEAAAAsAPb/AAAKAAEAAAArAPf/AAAKAAIAAAAqAPf/AAAKAAIAAAApAPf/AAAKAAIAAAAoAPf/AAAKAAIAAAAnAPf/AAAKAAIAAAAkAPb/AAAKAAEAAAAlAPb/AAAKAAEAAAAjAPX/AAAKAAAAAAAkAPX/AAAKAAAAAAAlAPX/AAAKAAAAAAAmAPX/AAAKAAAAAAAnAPX/AAAKAAAAAAAoAPX/AAAKAAAAAAApAPX/AAAKAAAAAAAqAPX/AAAKAAAAAAArAPX/AAAKAAAAAAAsAPX/AAAKAAAAAAAtAPX/AAAKAAAAAAAuAPX/AAAKAAAAAAAvAPX/AAAKAAAAAAAwAPX/AAAKAAAAAAAxAPX/AAAKAAAAAAAyAPX/AAAKAAAAAAAzAPX/AAAKAAAAAAA0APX/AAAKAAAAAAA1APX/AAAKAAAAAAA2APX/AAAKAAAAAAA2APb/AAAKAAEAAAA1APb/AAAKAAEAAAA0APb/AAAKAAEAAAAzAPb/AAAKAAEAAAAyAPb/AAAKAAEAAAAxAPb/AAAKAAEAAAAwAPb/AAAKAAEAAAAvAPb/AAAKAAEAAAAuAPb/AAAKAAEAAAAtAPb/AAAKAAEAAAAsAPf/AAAKAAIAAAAtAPf/AAAKAAIAAAAuAPf/AAAKAAIAAAAvAPf/AAALAAMAAAAwAPf/AAAKAAEAAAAxAPf/AAAKAAEAAAAyAPf/AAAKAAEAAAAzAPf/AAAKAAEAAAA0APf/AAAKAAEAAAA1APf/AAAKAAEAAAA2APf/AAAKAAMAAAA3APf/AAAKAAIAAAA4APf/AAAKAAIAAAA5APf/AAAKAAIAAAA6APf/AAAKAAIAAAA7APf/AAAKAAIAAAA8APf/AAAKAAIAAAA9APf/AAAKAAIAAAA+APf/AAAKAAIAAAA+APb/AAAKAAEAAAA/APb/AAAKAAEAAABAAPb/AAAKAAEAAABBAPb/AAAKAAEAAABCAPb/AAAKAAEAAABCAPf/AAAKAAIAAABBAPf/AAAKAAIAAABAAPf/AAAKAAIAAAA/APf/AAAKAAIAAABDAPf/AAALAAIAAABDAPb/AAAKAAMAAABDAPX/AAAKAAEAAABCAPX/AAAKAAEAAABBAPX/AAAJAAMAAABAAPX/AAAKAAAAAAA/APX/AAAKAAAAAAA+APX/AAAKAAAAAAA9APX/AAAKAAAAAAA8APX/AAAKAAAAAAA7APX/AAAKAAAAAAA6APX/AAAKAAAAAAA5APX/AAAKAAAAAAA4APX/AAAKAAAAAAA3APX/AAAKAAAAAAA3APb/AAAKAAEAAAA4APb/AAAKAAEAAAA5APb/AAAKAAEAAAA6APb/AAAKAAEAAAA7APb/AAAKAAEAAAA8APb/AAAKAAEAAAA9APb/AAAKAAEAAAAqAPr/AAAKAAAAAAArAPr/AAAKAAAAAAApAPr/AAAMAAEAAAAlAP7/AAALAAAAAAAlAP//AAAIAAMAAAAlAAAAAAAKAAEAAAAkAPj/AAALAAIAAAAsAPr/AAAMAAAAAAAsAPv/AAALAAIAAAArAPv/AAAKAAIAAAAqAPv/AAAKAAIAAAApAPv/AAAJAAIAAAAvAPj/AAAJAAIAAAAwAPv/AAAJAAEAAAAwAPr/AAAJAAEAAAAwAPn/AAAJAAEAAAAwAPj/AAALAAMAAAAwAPz/AAAJAAMAAAAwAP3/AAAKAAEAAAAxAPz/AAAKAAEAAAAxAPv/AAAKAAEAAAAxAPr/AAAKAAEAAAAxAPn/AAAKAAEAAAAxAPj/AAAKAAEAAAAxAP3/AAAKAAEAAAAxAP7/AAAKAAEAAAAwAP7/AAAKAAEAAAAwAP//AAAKAAEAAAAwAAAAAAAKAAIAAAAvAAAAAAAKAAIAAAAxAP//AAAKAAEAAAAvAP7/AAAKAAEAAAAvAP//AAAKAAEAAAAuAP//AAAKAAEAAAAuAAAAAAAKAAIAAAAvAP3/AAAJAAMAAAAvAPz/AAAMAAEAAAAuAP7/AAAJAAMAAAAuAP3/AAAMAAEAAAAlAAEAAAAKAAEAAAAlAAIAAAAKAAEAAAAkAAIAAAAKAAEAAAAjAAIAAAAKAAEAAAAiAAIAAAAKAAEAAAAhAAIAAAAKAAEAAAAgAAIAAAAJAAEAAAAgAAEAAAAJAAEAAAAhAAEAAAAKAAEAAAAiAAEAAAAKAAEAAAAjAAEAAAAKAAEAAAAkAAEAAAAKAAEAAAAmAAAAAAAKAAEAAAAmAAEAAAAKAAEAAAAmAAIAAAAKAAEAAAAmAP//AAAKAAAAAAAnAAEAAAAKAAEAAAAnAAIAAAAKAAMAAAAnAAAAAAAKAAEAAAAoAAEAAAAKAAMAAAAoAAIAAAALAAIAAAAtAP//AAAJAAMAAAAtAAAAAAAKAAIAAAAnAP//AAAKAAAAAAAoAP//AAAKAAAAAAAtAP7/AAAMAAEAAAAsAP//AAAJAAAAAAAsAAAAAAAJAAIAAAAoAAAAAAAKAAEAAAApAP//AAALAAAAAAApAAAAAAALAAEAAAApAAEAAAALAAIAAAAyAPj/AAAKAAEAAAAyAPn/AAAKAAEAAAAyAPr/AAAKAAEAAAAyAPv/AAAKAAEAAAAyAPz/AAAKAAEAAAAyAP3/AAAKAAEAAAAyAP7/AAAKAAEAAAAnAAMAAAALAAEAAAAnAAQAAAALAAEAAAAnAAUAAAALAAEAAAAnAAYAAAALAAEAAAAnAAcAAAALAAEAAAAnAAgAAAALAAEAAAAnAAkAAAALAAEAAAAmAAkAAAAKAAEAAAAlAAkAAAAKAAEAAAAkAAkAAAAKAAEAAAAjAAkAAAAKAAEAAAAiAAkAAAAKAAEAAAAhAAkAAAAKAAEAAAAhAAgAAAAKAAEAAAAhAAcAAAAKAAEAAAAhAAYAAAAKAAEAAAAhAAUAAAAKAAEAAAAhAAQAAAAKAAEAAAAhAAMAAAAKAAEAAAAgAAMAAAAJAAEAAAAgAAQAAAAJAAEAAAAgAAUAAAAJAAEAAAAgAAYAAAAJAAEAAAAgAAcAAAAJAAEAAAAgAAgAAAAJAAEAAAAgAAkAAAAJAAEAAAAgAAoAAAAJAAIAAAAhAAoAAAAKAAIAAAAiAAoAAAAKAAIAAAAjAAoAAAAKAAIAAAAkAAoAAAAKAAIAAAAlAAoAAAAKAAIAAAAmAAoAAAAKAAIAAAAnAAoAAAALAAIAAAAmAAgAAAAKAAEAAAAmAAcAAAAKAAEAAAAmAAYAAAAKAAEAAAAmAAUAAAAKAAEAAAAmAAQAAAAKAAEAAAAmAAMAAAAKAAEAAAAlAAMAAAAKAAEAAAAlAAQAAAAKAAEAAAAlAAUAAAAKAAEAAAAlAAYAAAAKAAEAAAAlAAcAAAAKAAEAAAAlAAgAAAAKAAEAAAAkAAgAAAAKAAEAAAAkAAcAAAAKAAEAAAAkAAYAAAAKAAEAAAAkAAUAAAAKAAEAAAAkAAQAAAAKAAEAAAAkAAMAAAAKAAEAAAAjAAMAAAAKAAEAAAAjAAQAAAAKAAEAAAAjAAUAAAAKAAEAAAAjAAYAAAAKAAEAAAAjAAcAAAAKAAEAAAAjAAgAAAAKAAEAAAAiAAgAAAAKAAEAAAAiAAcAAAAKAAEAAAAiAAYAAAAKAAEAAAAiAAUAAAAKAAEAAAAiAAQAAAAKAAEAAAAiAAMAAAAKAAEAAAA3AAAAAAAKAAIAAAA2AAAAAAAKAAIAAAA1AAAAAAAKAAIAAAA0AAAAAAAKAAIAAAAzAAAAAAAKAAIAAAAyAAAAAAAKAAIAAAAxAAAAAAAKAAIAAAA1AP//AAAKAAEAAAA0AP//AAAKAAEAAAAzAP//AAAKAAEAAAAyAP//AAAKAAEAAAA2AP//AAAIAAMAAAA3AP//AAAKAAAAAAA0AP7/AAAKAAEAAAAzAP7/AAAKAAEAAAAzAP3/AAAKAAEAAAAzAPz/AAAKAAEAAAAzAPv/AAAKAAEAAAAzAPr/AAAKAAEAAAAzAPn/AAAKAAEAAAAzAPj/AAAKAAEAAAA0APj/AAAKAAEAAAA0APn/AAAKAAEAAAA0APr/AAAKAAEAAAA0APv/AAAKAAEAAAA0APz/AAAKAAEAAAA0AP3/AAAKAAEAAAA0AAYAAAAJAAEAAAA1AAYAAAAKAAEAAAA1AAUAAAAKAAEAAAA2AAUAAAALAAEAAAA2AAYAAAALAAEAAAA0AAUAAAAJAAEAAAA0AAQAAAAMAAEAAAA1AAQAAAAKAAAAAAA2AAQAAAAMAAAAAAA2AAcAAAALAAIAAAA1AAcAAAAKAAIAAAA0AAcAAAAJAAIAAAA9AAgAAAAJAAEAAAA9AAkAAAAJAAEAAAA+AAkAAAAKAAEAAAA9AAoAAAAJAAIAAAA+AAoAAAAKAAIAAAA/AAoAAAAKAAIAAABAAAoAAAAKAAIAAABBAAoAAAAKAAIAAABCAAoAAAALAAIAAABCAAkAAAALAAEAAABBAAkAAAAKAAEAAABAAAkAAAAKAAEAAAA/AAkAAAAKAAEAAAA+AAgAAAAKAAEAAAA/AAgAAAAKAAEAAABAAAgAAAAKAAEAAABBAAgAAAAKAAEAAABCAAgAAAALAAEAAAA9APv/AAAKAAIAAAA9AAAAAAAKAAMAAAA9AAYAAAAJAAEAAAA+APv/AAAKAAIAAAA+AAAAAAALAAIAAAA+AAUAAAAJAAMAAAA+AAYAAAAKAAEAAAA/APv/AAAKAAIAAAA/AAQAAAAJAAMAAAA/AAUAAAAKAAEAAAA/AAYAAAAKAAEAAABAAPv/AAALAAMAAABAAPz/AAAJAAIAAABAAAMAAAAJAAMAAABAAAQAAAAKAAEAAABAAAUAAAAKAAEAAABAAAYAAAAKAAEAAABBAPv/AAAKAAEAAABBAPz/AAALAAMAAABBAP3/AAAJAAIAAABBAAIAAAAJAAMAAABBAAMAAAAKAAEAAABBAAQAAAAKAAEAAABBAAUAAAAKAAEAAABBAAYAAAAKAAEAAABCAPv/AAAKAAEAAABCAPz/AAAKAAEAAABCAP3/AAALAAMAAABCAP7/AAAJAAEAAABCAP//AAAJAAEAAABCAAAAAAAJAAEAAABCAAEAAAAJAAMAAABCAAIAAAAKAAEAAABCAAMAAAAKAAEAAABCAAQAAAAKAAMAAABCAAUAAAALAAEAAABCAAYAAAALAAEAAABDAPv/AAAKAAEAAABDAPz/AAAKAAEAAABDAP3/AAAKAAEAAABDAP7/AAAKAAEAAABDAP//AAAKAAEAAABDAAAAAAAKAAEAAABDAAEAAAAKAAEAAABDAAIAAAAKAAMAAAA9AAUAAAAMAAEAAAA+AAQAAAAMAAEAAAA/AAMAAAAMAAEAAABAAAIAAAAMAAEAAABBAAEAAAAJAAAAAAA9AAcAAAAJAAEAAAA+AAcAAAAKAAEAAAA/AAcAAAAKAAEAAABAAAcAAAAKAAEAAABBAAcAAAAKAAEAAABCAAcAAAALAAEAAAA4AAAAAAALAAMAAAA7APv/AAAKAAIAAAA8APv/AAAKAAIAAABDAPr/AAAKAAAAAAA+APr/AAAKAAAAAAA9APr/AAAKAAAAAAA8APr/AAAKAAAAAAA7APr/AAAKAAAAAAA/APr/AAAKAAAAAABAAPr/AAAKAAAAAABBAPr/AAAKAAAAAABCAPr/AAAKAAAAAAApAAYAAAAAAAMAAAAqAAYAAAABAAMAAAArAAYAAAABAAMAAAAsAAYAAAACAAMAAAA6AAYAAAAAAAMAAAA7AAYAAAACAAMAAAA4AAEAAAAJAAIAAAA5AAEAAAAKAAIAAAA8AAEAAAAKAAIAAAA9AAEAAAALAAIAAAA6AAAAAAAKAAEAAAA7AAAAAAAKAAEAAAA8AAAAAAAKAAEAAAA7AAEAAAAKAAIAAAA6AAEAAAAKAAIAAAA5AAAAAAAKAAEAAAA4AP//AAAKAAAAAAA5AP//AAAKAAAAAAA6APr/AAAKAAAAAAA5APr/AAAJAAAAAAA5APv/AAAJAAIAAAA6APv/AAAKAAIAAAA+AP//AAALAAAAAAA9AP//AAAKAAAAAAA8AP//AAAKAAAAAAA7AP//AAAKAAAAAAA6AP//AAAKAAAAAAA1AP7/AAAIAAMAAAA1AP3/AAALAAEAAAA1APz/AAALAAEAAAA1APv/AAALAAEAAAA1APr/AAALAAEAAAA1APn/AAALAAEAAAA1APj/AAAKAAMAAAA2AP7/AAAMAAAAAAA2APj/AAALAAIAAABEAPr/AAAKAAAAAABFAPr/AAAKAAAAAABFAPv/AAAKAAEAAABEAPv/AAAKAAEAAABGAPr/AAALAAAAAABGAPv/AAALAAEAAABGAPz/AAAIAAMAAABFAPz/AAAKAAEAAABEAPz/AAAKAAEAAABEAP3/AAAKAAEAAABFAP3/AAAKAAEAAABGAP3/AAAKAAEAAABDAPT/AAAIAAMAAABDAPP/AAALAAEAAABDAPL/AAALAAEAAABCAPH/AAAKAAEAAABCAPD/AAAKAAEAAABCAO//AAAKAAEAAABCAO7/AAAKAAEAAABCAO3/AAAKAAEAAABCAOz/AAAKAAEAAABCAOv/AAAKAAEAAABCAOr/AAAKAAEAAABCAOn/AAAKAAEAAABDAOn/AAAKAAEAAABDAOr/AAAKAAEAAABDAOv/AAAKAAMAAABDAOz/AAALAAEAAABDAO3/AAALAAEAAABDAO7/AAALAAEAAABDAO//AAALAAEAAABDAPD/AAALAAEAAABDAPH/AAALAAEAAABCAPT/AAAKAAEAAABCAPP/AAAKAAEAAABCAPL/AAAKAAEAAABEAOr/AAAKAAMAAABFAOr/AAAKAAIAAABGAOr/AAAKAAIAAABHAOr/AAAKAAIAAABIAOr/AAAKAAIAAABJAOr/AAAKAAIAAABKAOr/AAAKAAIAAABLAOr/AAAKAAIAAABMAOr/AAAKAAIAAABNAOr/AAAKAAIAAABOAOr/AAAKAAIAAABPAOr/AAAKAAIAAABQAOr/AAAKAAIAAABRAOr/AAAKAAIAAABSAOr/AAAKAAIAAABTAOr/AAAKAAIAAABUAOr/AAAKAAIAAABVAOr/AAAKAAIAAABWAOr/AAAKAAIAAABXAOr/AAAKAAIAAABYAOr/AAALAAMAAABZAOr/AAAKAAEAAABaAOr/AAAKAAEAAABbAOr/AAAKAAEAAABcAOr/AAAKAAEAAABdAOr/AAAKAAEAAABeAOr/AAAKAAEAAABfAOr/AAAKAAEAAABgAOr/AAAKAAEAAABhAOr/AAAKAAEAAABiAOr/AAAKAAEAAABjAOr/AAAKAAEAAABkAOr/AAAKAAEAAABkAOn/AAAKAAEAAABjAOn/AAAKAAEAAABiAOn/AAAKAAEAAABhAOn/AAAKAAEAAABgAOn/AAAKAAEAAABfAOn/AAAKAAEAAABeAOn/AAAKAAEAAABdAOn/AAAKAAEAAABcAOn/AAAKAAEAAABbAOn/AAAKAAEAAABaAOn/AAAKAAEAAABZAOn/AAAKAAEAAABYAOn/AAAKAAEAAABXAOn/AAAKAAEAAABWAOn/AAAKAAEAAABVAOn/AAAKAAEAAABUAOn/AAAKAAEAAABTAOn/AAAKAAEAAABSAOn/AAAKAAEAAABRAOn/AAAKAAEAAABQAOn/AAAKAAEAAABPAOn/AAAKAAEAAABOAOn/AAAKAAEAAABNAOn/AAAKAAEAAABMAOn/AAAKAAEAAABLAOn/AAAKAAEAAABKAOn/AAAKAAEAAABJAOn/AAAKAAEAAABFAOn/AAAKAAEAAABEAOn/AAAKAAEAAABGAOn/AAAKAAEAAABHAOn/AAAKAAEAAABIAOn/AAAKAAEAAABlAPz/AAALAAEAAABlAP3/AAALAAEAAABkAP3/AAAKAAEAAABjAP3/AAAKAAEAAABjAPz/AAAKAAEAAABkAPz/AAAKAAEAAABlAPn/AAALAAEAAABkAPn/AAAKAAEAAABjAPn/AAAJAAEAAABjAPj/AAAJAAEAAABjAPf/AAALAAMAAABjAPb/AAAKAAEAAABjAPX/AAAJAAMAAABjAPT/AAAJAAEAAABkAPT/AAAKAAEAAABkAPP/AAAKAAEAAABkAPL/AAAKAAEAAABkAPH/AAAKAAEAAABkAPD/AAAKAAEAAABkAO//AAAKAAEAAABkAO7/AAAKAAEAAABkAO3/AAAKAAEAAABkAOz/AAAKAAEAAABkAOv/AAAKAAEAAABjAOv/AAAKAAEAAABjAOz/AAAKAAEAAABjAO3/AAALAAMAAABjAO7/AAAJAAEAAABjAO//AAAJAAEAAABjAPD/AAAJAAEAAABjAPH/AAAJAAEAAABjAPL/AAAJAAEAAABjAPP/AAAJAAEAAABkAPb/AAAKAAEAAABkAPf/AAAKAAEAAABkAPj/AAAKAAEAAABkAPX/AAAKAAEAAABlAPj/AAALAAEAAABlAOn/AAALAAEAAABlAOr/AAALAAEAAABlAOv/AAALAAEAAABlAOz/AAALAAEAAABlAO3/AAALAAEAAABlAO7/AAALAAEAAABlAO//AAALAAEAAABlAPD/AAALAAEAAABlAPH/AAALAAEAAABlAPL/AAALAAEAAABlAPP/AAALAAEAAABlAPT/AAALAAEAAABlAPX/AAALAAEAAABlAPb/AAALAAEAAABlAPf/AAALAAEAAABBAPT/AAAJAAEAAABBAPP/AAAJAAEAAABBAPL/AAAJAAEAAABBAPH/AAAJAAEAAABBAPD/AAAJAAEAAABBAO//AAAJAAEAAABBAO7/AAAJAAEAAABBAO3/AAAJAAEAAABBAOz/AAAJAAEAAABBAOv/AAAJAAEAAABBAOr/AAAJAAEAAABBAOn/AAAJAAEAAABBAOj/AAAJAAAAAABCAOj/AAAKAAAAAABDAOj/AAAKAAAAAABOAOj/AAAKAAAAAABPAOj/AAAKAAAAAABNAOj/AAAKAAAAAABMAOj/AAAKAAAAAABLAOj/AAAKAAAAAABKAOj/AAAKAAAAAABJAOj/AAAKAAAAAABIAOj/AAAKAAAAAABHAOj/AAAKAAAAAABGAOj/AAAKAAAAAABFAOj/AAAKAAAAAABEAOj/AAAKAAAAAABQAOj/AAAKAAAAAABRAOj/AAAKAAAAAABSAOj/AAAKAAAAAABTAOj/AAAKAAAAAABUAOj/AAAKAAAAAABVAOj/AAAKAAAAAABWAOj/AAAKAAAAAABXAOj/AAAKAAAAAABYAOj/AAAKAAAAAABZAOj/AAAKAAAAAABaAOj/AAAKAAAAAABbAOj/AAAKAAAAAABcAOj/AAAKAAAAAABdAOj/AAAKAAAAAABeAOj/AAAKAAAAAABfAOj/AAAKAAAAAABgAOj/AAAKAAAAAABhAOj/AAAKAAAAAABiAOj/AAAKAAAAAABjAOj/AAAKAAAAAABkAOj/AAAKAAAAAABlAOj/AAALAAAAAABkAPr/AAAKAAEAAABkAPv/AAAKAAEAAABjAPr/AAAJAAEAAABjAPv/AAAJAAMAAABlAPr/AAALAAEAAABlAPv/AAALAAEAAABWAP3/AAAJAAEAAABWAPz/AAAJAAEAAABWAPv/AAAJAAEAAABTAPr/AAALAAAAAABTAPv/AAALAAEAAABTAPz/AAALAAEAAABTAP3/AAALAAEAAABWAPr/AAAJAAAAAABTAP7/AAALAAIAAABWAP7/AAAJAAIAAABXAPr/AAAMAAAAAABXAPv/AAALAAEAAABXAPz/AAAIAAMAAABXAP3/AAAKAAEAAABXAP7/AAAKAAIAAABSAPr/AAAMAAEAAABSAPv/AAAJAAEAAABSAPz/AAAJAAMAAABSAP3/AAAKAAEAAABSAP7/AAAKAAIAAABiAOv/AAAKAAEAAABEAOv/AAALAAIAAABEAPb/AAAKAAIAAABFAPb/AAAKAAIAAABGAPb/AAAKAAIAAABHAPb/AAAKAAIAAABIAPb/AAAKAAIAAABJAPb/AAAKAAIAAABKAPb/AAAKAAIAAABLAPb/AAAKAAIAAABMAPb/AAAKAAIAAABNAPb/AAAKAAIAAABOAPb/AAALAAIAAABOAPX/AAALAAAAAABNAPX/AAAKAAAAAABMAPX/AAAKAAAAAABLAPX/AAAKAAAAAABKAPX/AAAKAAAAAABJAPX/AAAKAAAAAABIAPX/AAAKAAAAAABHAPX/AAAKAAAAAABGAPX/AAAKAAAAAABFAPX/AAAKAAAAAABEAPX/AAAIAAMAAABIAPD/AAAKAAIAAABHAPD/AAAJAAIAAABHAO//AAAJAAAAAABIAO//AAAKAAAAAABJAO//AAAKAAAAAABKAO//AAAKAAAAAABLAO//AAAKAAAAAABMAO//AAAKAAAAAABNAO//AAAKAAAAAABOAO//AAAKAAAAAABOAPD/AAAKAAIAAABNAPD/AAAKAAIAAABMAPD/AAAKAAIAAABLAPD/AAAKAAIAAABKAPD/AAAKAAIAAABJAPD/AAAKAAIAAABEAPT/AAAMAAAAAABYAOv/AAAJAAIAAABZAOv/AAALAAMAAABZAOz/AAAJAAIAAABaAOz/AAAEAAEAAABaAOv/AAAKAAEAAABbAOv/AAAKAAEAAABcAOv/AAAKAAEAAABdAOv/AAAKAAEAAABeAOv/AAAKAAEAAABfAOv/AAAKAAEAAABgAOv/AAAKAAEAAABhAOv/AAAKAAEAAABiAOz/AAALAAMAAABhAOz/AAAKAAIAAABgAOz/AAAKAAIAAABfAOz/AAAKAAIAAABeAOz/AAAKAAIAAABdAOz/AAAKAAIAAABcAOz/AAAKAAIAAABbAOz/AAAKAAIAAABaAO//AAADAAAAAABbAO//AAAKAAAAAABcAO//AAAKAAAAAABdAO//AAAKAAAAAABeAO//AAAKAAAAAABiAPz/AAAJAAMAAABiAP3/AAAKAAEAAABhAPz/AAAKAAAAAABhAP3/AAAKAAEAAABgAP3/AAAKAAEAAABgAPz/AAAKAAAAAABfAPz/AAAKAAAAAABeAPz/AAAKAAAAAABeAP3/AAAKAAEAAABfAP3/AAAKAAEAAABiAPv/AAAJAAAAAABdAPz/AAAKAAAAAABdAP3/AAAKAAEAAABdAPj/AAAKAAIAAABeAPj/AAALAAIAAABeAPf/AAALAAEAAABdAPf/AAAKAAEAAABeAPb/AAALAAEAAABeAPX/AAALAAEAAABeAPT/AAALAAEAAABeAPP/AAALAAEAAABeAPL/AAALAAEAAABeAPH/AAAKAAMAAABdAPH/AAAKAAEAAABdAPD/AAAKAAEAAABeAPD/AAAKAAEAAABdAPL/AAAKAAEAAABdAPP/AAAKAAEAAABdAPT/AAAKAAEAAABdAPX/AAAKAAEAAABdAPb/AAAKAAEAAABcAPH/AAALAAMAAABcAPD/AAAKAAEAAABbAPD/AAAKAAEAAABaAPD/AAAJAAEAAABhAPf/AAAJAAIAAABiAPf/AAAKAAIAAABfAO//AAAKAAAAAABfAPD/AAAKAAEAAABiAPb/AAAKAAEAAABhAPb/AAAJAAEAAABfAPH/AAAKAAIAAABgAPH/AAALAAIAAABgAPD/AAALAAEAAABgAO//AAAMAAAAAABhAPX/AAAMAAEAAABiAPX/AAAKAAAAAABiAO3/AAAJAAIAAABcAPj/AAAJAAIAAABcAPf/AAAJAAEAAABcAPb/AAAJAAEAAABcAPX/AAAJAAEAAABcAPT/AAAJAAEAAABcAPP/AAAJAAEAAABcAPL/AAAJAAEAAABbAPH/AAAKAAIAAABaAPH/AAAJAAIAAABaAO7/AAAAAAEAAABaAO3/AAAAAAEAAABRAPz/AAAKAAAAAABQAPz/AAAKAAAAAABPAPz/AAAKAAAAAABOAPz/AAAKAAAAAABNAPz/AAAKAAAAAABMAPz/AAAKAAAAAABLAPz/AAAKAAAAAABKAPz/AAAKAAAAAABJAPz/AAAKAAAAAABIAPz/AAAKAAAAAABHAPz/AAAKAAAAAABHAP3/AAAKAAEAAABIAP3/AAAKAAEAAABJAP3/AAAKAAEAAABKAP3/AAAKAAEAAABLAP3/AAAKAAEAAABMAP3/AAAKAAEAAABNAP3/AAAKAAEAAABOAP3/AAAKAAEAAABPAP3/AAAKAAEAAABQAP3/AAAKAAEAAABRAP3/AAAKAAEAAABYAPz/AAAKAAAAAABZAPz/AAAKAAAAAABaAPz/AAAKAAAAAABbAPz/AAAKAAAAAABcAPz/AAAKAAAAAABcAP3/AAAKAAEAAABbAP3/AAAKAAEAAABaAP3/AAAKAAEAAABZAP3/AAAKAAEAAABYAP3/AAAKAAEAAABRAP7/AAAKAAIAAABQAP7/AAAKAAIAAABPAP7/AAAKAAIAAABOAP7/AAAKAAIAAABNAP7/AAAKAAIAAABMAP7/AAAKAAIAAABLAP7/AAAKAAIAAABKAP7/AAAKAAIAAABJAP7/AAAKAAIAAABIAP7/AAAKAAIAAABHAP7/AAAKAAIAAABGAP7/AAAKAAMAAABGAP//AAALAAIAAABFAP//AAAKAAIAAABEAP//AAAKAAMAAABEAP7/AAAKAAEAAABFAP7/AAAKAAEAAABEAAAAAAALAAEAAABEAAEAAAALAAEAAABEAAIAAAALAAIAAABDAAMAAAALAAEAAABDAAQAAAALAAIAAABZAP7/AAAKAAIAAABYAP7/AAAKAAIAAABaAP7/AAAKAAIAAABbAP7/AAAKAAIAAABcAP7/AAAKAAIAAABdAP7/AAAKAAIAAABeAP7/AAAKAAIAAABfAP7/AAAKAAIAAABgAP7/AAAKAAIAAABhAP7/AAAKAAIAAABiAP7/AAAKAAIAAABjAP7/AAAKAAIAAABkAP7/AAAKAAIAAABlAP7/AAALAAIAAABPAPD/AAAKAAIAAABQAPD/AAAKAAIAAABRAPD/AAAKAAIAAABSAPD/AAAKAAIAAABTAPD/AAAKAAIAAABUAPD/AAAKAAIAAABUAO//AAAKAAEAAABUAO7/AAAKAAAAAABTAO7/AAAKAAAAAABSAO7/AAAKAAAAAABRAO7/AAAKAAAAAABQAO7/AAAKAAAAAABPAO7/AAAJAAAAAABPAO//AAAJAAMAAABQAO//AAAKAAEAAABRAO//AAAKAAEAAABSAO//AAAKAAEAAABTAO//AAAKAAEAAABVAO//AAAKAAEAAABVAPD/AAAKAAIAAABVAO7/AAAKAAAAAABWAO7/AAALAAAAAABWAO//AAALAAEAAABWAPD/AAALAAIAAAA=")
+tile_set = ExtResource("5_mmfav")
+
+[node name="shock" type="TileMapLayer" parent="objs" unique_id=1495119987 groups=["kill_tile"]]
+tile_map_data = PackedByteArray("AAANAPP/AAAAAAAAAFANAPT/AAAAAAAAAFANAPX/AAAAAAAAAFANAPb/AAAAAAAAAFANAPf/AAAAAAAAAFASAPz/AAAAAAAAAAATAPz/AAAAAAAAAAAWAPz/AAAAAAAAAAAXAPz/AAAAAAAAAAAYAPz/AAAAAAAAAAAcAPj/AAAAAAAAAGAcAPf/AAAAAAAAAGAcAPb/AAAAAAAAAGAcAPX/AAAAAAAAAGAaAPr/AAAAAAQAADAbAPn/AAAAAAQAADAZAPv/AAAAAAQAADARAPv/AAAAAAQAAGAQAPr/AAAAAAQAAGAPAPn/AAAAAAQAAGAOAPj/AAAAAAQAAGANAPL/AAAAAAQAAGAMAPL/AAAAAAQAADARAPz/AAAAAAUAAGAQAPv/AAAAAAUAAGAPAPr/AAAAAAUAAGAOAPn/AAAAAAUAAGANAPj/AAAAAAUAAGAZAPz/AAAAAAUAADAaAPv/AAAAAAUAADAbAPr/AAAAAAUAADAcAPn/AAAAAAUAADAmAP//AAAAAAAAAAAnAP//AAAAAAAAAAAoAP//AAAAAAAAAAAwAPn/AAAAAAAAAGAwAPr/AAAAAAAAAGAwAPv/AAAAAAAAAGAtAP7/AAAAAAQAADAuAP3/AAAAAAQAADAvAPz/AAAAAAQAADAvAPj/AAAAAAQAAFArAPr/AAAAAAAAAAAqAPr/AAAAAAAAAAAsAPr/AAAAAAQAAGApAPr/AAAAAAQAADApAPv/AAAAAAQAAFAsAPv/AAAAAAQAAAAqAPv/AAAAAAAAADArAPv/AAAAAAAAADAvAPf/AAAAAAUAAFAwAPz/AAAAAAUAADAvAP3/AAAAAAUAADAuAP7/AAAAAAUAADAtAP//AAAAAAUAADAlAP//AAAAAAUAAGApAP//AAAAAAMAAAAsAP//AAAAAAMAABA1AAQAAAAAAAAAAAA2AAUAAAAAAAAAAFA2AAYAAAAAAAAAAFA1AAcAAAAAAAAAADA0AAYAAAAAAAAAAGA0AAUAAAAAAAAAAGA2AAcAAAAAAAQAAAA0AAcAAAAAAAQAAFA0AAQAAAAAAAQAADA2AAQAAAAAAAQAAGBAAAIAAAAAAAQAADA/AAMAAAAAAAQAADA+AAQAAAAAAAQAADA9AAUAAAAAAAQAADBBAAIAAAAAAAUAADBAAAMAAAAAAAUAADA/AAQAAAAAAAUAADA+AAUAAAAAAAUAADA9AP//AAAAAAAAAAA8AP//AAAAAAAAAAA7AP//AAAAAAAAAAA6AP//AAAAAAAAAAA5AP//AAAAAAAAAAA4AP//AAAAAAAAAAA3AP//AAAAAAAAAAA2AP7/AAAAAAQAAGA1AP7/AAAAAAUAAGA+AP//AAAAAAMAAABNAPX/AAAAAAAAAABMAPX/AAAAAAAAAABLAPX/AAAAAAAAAABKAPX/AAAAAAAAAABJAPX/AAAAAAAAAABIAPX/AAAAAAAAAABHAPX/AAAAAAAAAABGAPX/AAAAAAAAAABFAPX/AAAAAAAAAABDAPP/AAAAAAAAAFBDAPL/AAAAAAAAAFBDAPH/AAAAAAAAAFBDAPD/AAAAAAAAAFBDAO//AAAAAAAAAFBDAO7/AAAAAAAAAFBDAO3/AAAAAAAAAFBDAOz/AAAAAAAAAFBNAPD/AAAAAAAAADBMAPD/AAAAAAAAADBLAPD/AAAAAAAAADBKAPD/AAAAAAAAADBJAPD/AAAAAAAAADBIAPD/AAAAAAAAADBHAPD/AAAAAAQAAFBHAO//AAAAAAEAAGBEAPT/AAAAAAQAAGBOAPX/AAAAAAMAAABjAO7/AAAAAAAAAGBjAO//AAAAAAAAAGBjAPD/AAAAAAAAAGBjAPH/AAAAAAAAAGBjAPL/AAAAAAAAAGBjAPP/AAAAAAAAAGBjAPT/AAAAAAAAAGBiAPX/AAAAAAAAAABeAPL/AAAAAAAAAFBeAPP/AAAAAAAAAFBeAPT/AAAAAAAAAFBeAPX/AAAAAAAAAFBeAPb/AAAAAAAAAFBeAPf/AAAAAAAAAFBfAPH/AAAAAAAAADBiAPf/AAAAAAAAADBhAPb/AAAAAAAAAGBiAO3/AAAAAAQAAFBhAPf/AAAAAAQAAFBhAPX/AAAAAAQAADBgAPH/AAAAAAQAAABeAPj/AAAAAAQAAABgAPD/AAAAAAMAAHBjAO3/AAAAAAUAAFBjAPX/AAAAAAUAADBeAPH/AAAAAAUAAABjAPf/AAAAAAUAAFBiAOz/AAAAAAUAAFBeAPz/AAAAAAAAAABfAPz/AAAAAAAAAABgAPz/AAAAAAAAAABhAPz/AAAAAAAAAABdAPz/AAAAAAAAAABHAPz/AAAAAAAAAABIAPz/AAAAAAAAAABJAPz/AAAAAAAAAABKAPz/AAAAAAAAAABLAPz/AAAAAAAAAABMAPz/AAAAAAAAAABNAPz/AAAAAAAAAABOAPz/AAAAAAAAAABPAPz/AAAAAAAAAABQAPz/AAAAAAAAAABRAPz/AAAAAAAAAABYAPz/AAAAAAAAAABZAPz/AAAAAAAAAABaAPz/AAAAAAAAAABbAPz/AAAAAAAAAABcAPz/AAAAAAAAAABIAO//AAAAAAAAAABJAO//AAAAAAAAAABKAO//AAAAAAAAAABLAO//AAAAAAAAAABMAO//AAAAAAAAAABNAO//AAAAAAAAAABOAO//AAAAAAAAAABEAOv/AAAAAAQAAABFAOr/AAAAAAAAADBGAOr/AAAAAAAAADBHAOr/AAAAAAAAADBIAOr/AAAAAAAAADBJAOr/AAAAAAAAADBKAOr/AAAAAAAAADBLAOr/AAAAAAAAADBMAOr/AAAAAAAAADBNAOr/AAAAAAAAADBOAOr/AAAAAAAAADBOAPD/AAAAAAAAADBPAPD/AAAAAAAAADBQAPD/AAAAAAAAADBRAPD/AAAAAAAAADBSAPD/AAAAAAAAADBTAPD/AAAAAAAAADBUAPD/AAAAAAAAADBVAPD/AAAAAAAAADA=")
+tile_set = ExtResource("6_60qj4")
+
+[node name="map_limit" type="TileMapLayer" parent="objs" unique_id=189870137]
+tile_set = ExtResource("7_4qndx")
+
+[node name="kill_player_area" parent="objs" unique_id=715644642 node_paths=PackedStringArray("screen_manager") instance=ExtResource("16_8jvfq")]
+screen_manager = NodePath("../../ScreenManager")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objs/kill_player_area" unique_id=842261595]
+position = Vector2(544, 16)
+shape = SubResource("RectangleShape2D_p7g5e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="objs/kill_player_area" unique_id=1442920825]
+position = Vector2(1616, 320)
+shape = SubResource("RectangleShape2D_rkh1m")
+
+[node name="screen_select" parent="." unique_id=1091239571 node_paths=PackedStringArray("panel") instance=ExtResource("16_40mqc")]
+panel = NodePath("Panel")
+
+[node name="Panel" type="Panel" parent="screen_select" unique_id=1060292181]
+visible = false
+offset_left = 32.0
+offset_top = 8.0
+offset_right = 144.0
+offset_bottom = 152.0
+
+[node name="MarginContainer" type="MarginContainer" parent="screen_select/Panel" unique_id=647065434]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 104.0
+offset_bottom = 136.0
+
+[node name="GridContainer" type="GridContainer" parent="screen_select/Panel/MarginContainer" unique_id=191162767]
+layout_mode = 2
+columns = 4
+
+[node name="0" parent="screen_select/Panel/MarginContainer/GridContainer" unique_id=1016596952 node_paths=PackedStringArray("screen_manager", "new_screen") instance=ExtResource("17_8jvfq")]
+layout_mode = 2
+screen_manager = NodePath("../../../../../ScreenManager")
+new_screen = NodePath("../../../../../ScreenManager/screen_0")
+
+[node name="1" parent="screen_select/Panel/MarginContainer/GridContainer" unique_id=2122521275 node_paths=PackedStringArray("screen_manager", "new_screen") instance=ExtResource("17_8jvfq")]
+layout_mode = 2
+text = "1"
+screen_manager = NodePath("../../../../../ScreenManager")
+new_screen = NodePath("../../../../../ScreenManager/screen_1")
+
+[node name="2" parent="screen_select/Panel/MarginContainer/GridContainer" unique_id=1125776360 node_paths=PackedStringArray("screen_manager", "new_screen") instance=ExtResource("17_8jvfq")]
+layout_mode = 2
+text = "2"
+screen_manager = NodePath("../../../../../ScreenManager")
+new_screen = NodePath("../../../../../ScreenManager/screen_2")
