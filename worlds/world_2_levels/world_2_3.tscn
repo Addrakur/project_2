@@ -4512,6 +4512,7 @@ tile_map_data = PackedByteArray("AAANAPP/AAAAAAAAAFANAPT/AAAAAAAAAFANAPX/AAAAAAA
 tile_set = ExtResource("6_60qj4")
 
 [node name="map_limit" type="TileMapLayer" parent="objs" unique_id=189870137]
+tile_map_data = PackedByteArray("AAD///D/AAAAAAAAAAD///H/AAAAAAAAAAD///L/AAAAAAAAAAD///P/AAAAAAAAAAD///T/AAAAAAAAAABTAP7/AAAAAAAAAABUAP7/AAAAAAAAAABVAP7/AAAAAAAAAABWAP7/AAAAAAAAAAA=")
 tile_set = ExtResource("7_4qndx")
 
 [node name="kill_player_area" parent="objs" unique_id=715644642 node_paths=PackedStringArray("screen_manager") instance=ExtResource("16_8jvfq")]

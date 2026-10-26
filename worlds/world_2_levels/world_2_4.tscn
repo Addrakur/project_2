@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cwmi0pcpo0i5y"]
+
+[ext_resource type="Script" uid="uid://bnvqoglkbsle4" path="res://worlds/world.gd" id="1_42fp2"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_vgdo6"]
+[ext_resource type="Script" uid="uid://cmnl8rde72dq3" path="res://screen_manager/screen_manager.gd" id="3_2d5oq"]
+[ext_resource type="Script" uid="uid://c6q8tsrrnwhev" path="res://screen_manager/screen.gd" id="4_k5eum"]
+[ext_resource type="PackedScene" uid="uid://bx2l4ln2h5uh" path="res://testes/player.tscn" id="5_yrbeu"]
+[ext_resource type="TileSet" uid="uid://dui84x42x6ts" path="res://assets/tilesets/prison_ground.tres" id="6_512ma"]
+[ext_resource type="TileSet" uid="uid://dy022kmr55x41" path="res://assets/tilesets/lightning_tile_set.tres" id="7_5wi2a"]
+[ext_resource type="TileSet" uid="uid://djbnfr3lc6o7f" path="res://assets/tilesets/map_limit_tile.tres" id="8_aerb6"]
+
+[node name="world_2_4" type="Node2D" unique_id=607982542 node_paths=PackedStringArray("player", "map_limit")]
+script = ExtResource("1_42fp2")
+player = NodePath("objs/player")
+map_limit = NodePath("objs/map_limit")
+metadata/_custom_type_script = "uid://bnvqoglkbsle4"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1817880625]
+position = Vector2(528, -304)
+zoom = Vector2(0.6, 0.6)
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=40588477]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_vgdo6")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="ScreenManager" type="Node2D" parent="." unique_id=1687143692 node_paths=PackedStringArray("player", "screens")]
+script = ExtResource("3_2d5oq")
+player = NodePath("../objs/player")
+screens = [NodePath("screen_0")]
+metadata/_custom_type_script = "uid://cmnl8rde72dq3"
+
+[node name="screen_0" type="Node2D" parent="ScreenManager" unique_id=1182864872]
+script = ExtResource("4_k5eum")
+metadata/_custom_type_script = "uid://c6q8tsrrnwhev"
+
+[node name="objs" type="Node2D" parent="." unique_id=1453372973]
+
+[node name="player" parent="objs" unique_id=493830883 node_paths=PackedStringArray("screen_manager") instance=ExtResource("5_yrbeu")]
+screen_manager = NodePath("../../ScreenManager")
+
+[node name="ground" type="TileMapLayer" parent="objs" unique_id=1369674443]
+tile_set = ExtResource("6_512ma")
+
+[node name="shock" type="TileMapLayer" parent="objs" unique_id=1525917171 groups=["kill_tile"]]
+tile_set = ExtResource("7_5wi2a")
+
+[node name="map_limit" type="TileMapLayer" parent="objs" unique_id=1654829491]
+tile_set = ExtResource("8_aerb6")
