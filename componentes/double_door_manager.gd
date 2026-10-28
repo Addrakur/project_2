@@ -1,12 +1,7 @@
 extends Node2D
 
-@export var door1: StaticBody2D
-@export var door2: StaticBody2D
 @export var animation_door_1: AnimationPlayer
 @export var animation_door_2: AnimationPlayer
-@export var open_door_1_area: Area2D
-@export var open_door_2_area: Area2D
-@export var player: Player
 
 var player_inside_door_1: bool = false
 var player_inside_door_2: bool = false

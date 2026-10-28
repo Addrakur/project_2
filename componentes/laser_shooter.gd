@@ -1,6 +1,5 @@
 extends Node2D
 
-@export var screen: Screen
 @export var laser_origin_a: Marker2D
 @export var laser_origin_b: Marker2D
 @export var laser_time_on: float

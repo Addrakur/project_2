@@ -5,7 +5,6 @@ extends Area2D
 
 @onready var exit_point: Marker2D = $exit_point
 
-var enter_velocity: float
 var player_can_enter: bool = false
 var player_vel: float
 

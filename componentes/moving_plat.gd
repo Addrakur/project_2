@@ -24,9 +24,6 @@ func _ready() -> void:
 func coyote_time_true():
 	coyote_time = true
 
-func coyote_time_false():
-	coyote_time = false
-
 func play_animation():
 	animation.play("1")
 

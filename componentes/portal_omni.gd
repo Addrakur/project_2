@@ -6,7 +6,6 @@ extends Area2D
 @onready var exit_point: Marker2D = $exit_point
 @onready var portal_cooldown: Timer = $portal_cooldown
 
-var enter_velocity: float
 var player_vel: float
 
 func _on_body_entered(body: Node2D) -> void:

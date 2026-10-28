@@ -9,8 +9,6 @@ var starting_screen_index: float = 0
 var current_screen: float
 
 func _ready() -> void:
-	if starting_screen_index == null:
-		starting_screen_index = 0
 	var starting_screen: Screen = screens[screens.find(screens[starting_screen_index])]
 	starting_screen.activate()
 	for screen in screens:
