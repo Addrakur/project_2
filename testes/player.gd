@@ -128,6 +128,7 @@ func _physics_process(delta: float) -> void:
 		elif collider.is_in_group("kill_tile"):
 			screen_manager.player_die()
 		elif collider is MovingPlat:
+			collider.register_rider(self)
 			on_moving_plat = true
 			moving_plat = collider
 			if collider.start_on_touch:

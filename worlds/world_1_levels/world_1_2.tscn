@@ -40,7 +40,7 @@ size = Vector2(128, 32)
 
 [sub_resource type="Animation" id="Animation_me1ve"]
 resource_name = "1"
-length = 5.000020074506104
+length = 2.0
 step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -49,10 +49,10 @@ tracks/0/path = NodePath("PathFollow2D:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 1.0, 1.0, 0.0]
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_fxify"]
@@ -93,7 +93,7 @@ size = Vector2(32, 64)
 
 [sub_resource type="Animation" id="Animation_4yt7t"]
 resource_name = "1"
-length = 5.000020074506104
+length = 2.0
 step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -102,10 +102,10 @@ tracks/0/path = NodePath("PathFollow2D:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 1.0, 1.0, 0.0]
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_jvrhd"]
@@ -140,7 +140,7 @@ size = Vector2(64, 32)
 
 [sub_resource type="Animation" id="Animation_8v6p8"]
 resource_name = "1"
-length = 7.000020104308427
+length = 3.0
 step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -149,10 +149,10 @@ tracks/0/path = NodePath("PathFollow2D:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3, 6, 7),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 1.0, 1.0, 0.0]
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_c2lx3"]
@@ -193,7 +193,7 @@ size = Vector2(96, 32)
 
 [sub_resource type="Animation" id="Animation_co5pe"]
 resource_name = "1"
-length = 9.00002013411075
+length = 6.0
 step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -202,10 +202,10 @@ tracks/0/path = NodePath("PathFollow2D:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 6, 8, 9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 1.0, 1.0, 0.0]
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_0nfxi"]
@@ -240,7 +240,7 @@ size = Vector2(32, 96)
 
 [sub_resource type="Animation" id="Animation_ikvym"]
 resource_name = "1"
-length = 5.0
+length = 2.0
 step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -249,10 +249,10 @@ tracks/0/path = NodePath("PathFollow2D:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 1.0, 1.0, 0.0]
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_6ev8e"]
@@ -282,7 +282,6 @@ size = Vector2(3840, 48)
 [node name="world_1_2" type="Node2D" unique_id=1959916776 node_paths=PackedStringArray("player", "map_limit")]
 script = ExtResource("1_5830s")
 player = NodePath("objs/player")
-gravity = 120.0
 map_limit = NodePath("objs/map_limit")
 metadata/_custom_type_script = "uid://bnvqoglkbsle4"
 
