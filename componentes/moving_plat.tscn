@@ -5,3 +5,4 @@
 [node name="moving_plat" type="AnimatableBody2D" unique_id=1188621071]
 collision_layer = 4
 script = ExtResource("1_uplg2")
+return_delay = 3.0
