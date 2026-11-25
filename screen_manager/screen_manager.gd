@@ -16,6 +16,27 @@ func _ready() -> void:
 			screen.deactivate()
 	current_checkpoint = starting_screen.default_checkpoint
 	player.position = current_checkpoint.position
+	_initialize_cameras(starting_screen.camera)
+
+func _initialize_cameras(starting_camera: PhantomCamera2D) -> void:
+	# The player must already be at the checkpoint before resolving follow paths.
+	for screen in screens:
+		var phantom_camera: PhantomCamera2D = screen.camera
+		var damping_enabled: bool = phantom_camera.follow_damping
+		phantom_camera.follow_damping = false
+		if phantom_camera.is_following():
+			phantom_camera.teleport_position()
+		# Resolve limits, axis locks and fixed cameras without an initial glide.
+		phantom_camera.process_logic(0.0)
+		phantom_camera.follow_damping = damping_enabled
+
+	# Position the real camera before the host's first frame, preserving damping.
+	var scene_camera: Camera2D = get_viewport().get_camera_2d()
+	if is_instance_valid(scene_camera):
+		scene_camera.global_transform = starting_camera.get_transform_output()
+		scene_camera.zoom = starting_camera.zoom
+		scene_camera.reset_physics_interpolation()
+		scene_camera.force_update_scroll()
 
 func player_die():
 	player.velocity = Vector2.ZERO
